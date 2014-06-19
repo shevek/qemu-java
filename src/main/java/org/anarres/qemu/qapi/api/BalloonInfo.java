@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BalloonInfo, data={actual=int}, innerTypes=null, fields=null}
-public class BalloonInfo extends QApiObject {
+public class BalloonInfo extends QApiType {
 
 	@SerializedName("actual")
 	@Nonnull public long actual;

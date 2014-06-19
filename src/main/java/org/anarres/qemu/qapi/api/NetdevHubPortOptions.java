@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevHubPortOptions, data={hubid=int32}, innerTypes=null, fields=null}
-public class NetdevHubPortOptions extends QApiObject {
+public class NetdevHubPortOptions extends QApiType {
 
 	@SerializedName("hubid")
 	@Nonnull public int hubid;

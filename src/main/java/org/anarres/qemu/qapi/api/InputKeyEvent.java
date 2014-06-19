@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=InputKeyEvent, data={key=KeyValue, down=bool}, innerTypes=null, fields=null}
-public class InputKeyEvent extends QApiObject {
+public class InputKeyEvent extends QApiType {
 
 	@SerializedName("key")
 	@Nonnull public KeyValue key;

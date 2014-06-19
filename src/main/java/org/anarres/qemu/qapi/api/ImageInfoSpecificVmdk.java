@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ImageInfoSpecificVmdk, data={create-type=str, cid=int, parent-cid=int, extents=[ImageInfo]}, innerTypes=null, fields=null}
-public class ImageInfoSpecificVmdk extends QApiObject {
+public class ImageInfoSpecificVmdk extends QApiType {
 
 	@SerializedName("create-type")
 	@Nonnull public String createType;

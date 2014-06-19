@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=Netdev, data={id=str, opts=NetClientOptions}, innerTypes=null, fields=null}
-public class Netdev extends QApiObject {
+public class Netdev extends QApiType {
 
 	@SerializedName("id")
 	@Nonnull public String id;

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=KvmInfo, data={enabled=bool, present=bool}, innerTypes=null, fields=null}
-public class KvmInfo extends QApiObject {
+public class KvmInfo extends QApiType {
 
 	@SerializedName("enabled")
 	@Nonnull public boolean enabled;

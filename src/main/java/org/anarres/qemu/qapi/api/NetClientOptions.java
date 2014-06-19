@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=NetClientOptions, data={none=NetdevNoneOptions, nic=NetLegacyNicOptions, user=NetdevUserOptions, tap=NetdevTapOptions, socket=NetdevSocketOptions, vde=NetdevVdeOptions, dump=NetdevDumpOptions, bridge=NetdevBridgeOptions, hubport=NetdevHubPortOptions, netmap=NetdevNetmapOptions}, innerTypes=null, fields=null}
-public class NetClientOptions extends QApiObject {
+public class NetClientOptions extends QApiUnion {
 	@SerializedName("none")
 	@Nonnull public NetdevNoneOptions none;
 	@SerializedName("nic")
@@ -30,54 +30,29 @@ public class NetClientOptions extends QApiObject {
 	@SerializedName("netmap")
 	@Nonnull public NetdevNetmapOptions netmap;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (none != null)
-				break ONE;
-			if (nic != null)
-				break ONE;
-			if (user != null)
-				break ONE;
-			if (tap != null)
-				break ONE;
-			if (socket != null)
-				break ONE;
-			if (vde != null)
-				break ONE;
-			if (dump != null)
-				break ONE;
-			if (bridge != null)
-				break ONE;
-			if (hubport != null)
-				break ONE;
-			if (netmap != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (none != null)
-				return false;	// More than one field is set.
-			if (nic != null)
-				return false;	// More than one field is set.
-			if (user != null)
-				return false;	// More than one field is set.
-			if (tap != null)
-				return false;	// More than one field is set.
-			if (socket != null)
-				return false;	// More than one field is set.
-			if (vde != null)
-				return false;	// More than one field is set.
-			if (dump != null)
-				return false;	// More than one field is set.
-			if (bridge != null)
-				return false;	// More than one field is set.
-			if (hubport != null)
-				return false;	// More than one field is set.
-			if (netmap != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (none != null)
+			count++;
+		if (nic != null)
+			count++;
+		if (user != null)
+			count++;
+		if (tap != null)
+			count++;
+		if (socket != null)
+			count++;
+		if (vde != null)
+			count++;
+		if (dump != null)
+			count++;
+		if (bridge != null)
+			count++;
+		if (hubport != null)
+			count++;
+		if (netmap != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

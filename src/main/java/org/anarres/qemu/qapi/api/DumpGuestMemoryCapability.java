@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=DumpGuestMemoryCapability, data={formats=[DumpGuestMemoryFormat]}, innerTypes=null, fields=null}
-public class DumpGuestMemoryCapability extends QApiObject {
+public class DumpGuestMemoryCapability extends QApiType {
 
 	@SerializedName("formats")
 	@Nonnull public List<DumpGuestMemoryFormat> formats;

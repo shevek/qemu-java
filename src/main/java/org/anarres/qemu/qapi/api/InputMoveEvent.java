@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=InputMoveEvent, data={axis=InputAxis, value=int}, innerTypes=null, fields=null}
-public class InputMoveEvent extends QApiObject {
+public class InputMoveEvent extends QApiType {
 
 	@SerializedName("axis")
 	@Nonnull public InputAxis axis;

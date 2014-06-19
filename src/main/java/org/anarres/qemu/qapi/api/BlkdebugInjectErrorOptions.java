@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlkdebugInjectErrorOptions, data={event=BlkdebugEvent, *state=int, *errno=int, *sector=int, *once=bool, *immediately=bool}, innerTypes=null, fields=null}
-public class BlkdebugInjectErrorOptions extends QApiObject {
+public class BlkdebugInjectErrorOptions extends QApiType {
 
 	@SerializedName("event")
 	@Nonnull public BlkdebugEvent event;

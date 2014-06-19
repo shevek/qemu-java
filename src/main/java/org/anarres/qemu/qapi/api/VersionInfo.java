@@ -8,8 +8,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=VersionInfo, data={qemu={major=int, minor=int, micro=int}, package=str}, innerTypes=null, fields=null}
-public class VersionInfo extends QApiObject {
-	// QApiTypeDescriptor{name=_Tqemu, data={major=int, minor=int, micro=int}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@57419a47, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@13f7d812, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@748a8ffb]}
+public class VersionInfo extends QApiType {
+	// QApiTypeDescriptor{name=_Tqemu, data={major=int, minor=int, micro=int}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@7049a366, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@7286b721, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@6a611244]}
 	public static class _Tqemu {
 		@SerializedName("major")
 		@Nonnull public long major;

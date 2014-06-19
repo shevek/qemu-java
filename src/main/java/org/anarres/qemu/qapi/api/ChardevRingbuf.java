@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ChardevRingbuf, data={*size=int}, innerTypes=null, fields=null}
-public class ChardevRingbuf extends QApiObject {
+public class ChardevRingbuf extends QApiType {
 
 	@SerializedName("size")
 	@CheckForNull public long size;

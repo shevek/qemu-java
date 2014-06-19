@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=SnapshotInfo, data={id=str, name=str, vm-state-size=int, date-sec=int, date-nsec=int, vm-clock-sec=int, vm-clock-nsec=int}, innerTypes=null, fields=null}
-public class SnapshotInfo extends QApiObject {
+public class SnapshotInfo extends QApiType {
 
 	@SerializedName("id")
 	@Nonnull public String id;

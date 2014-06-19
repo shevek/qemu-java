@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetLegacy, data={*vlan=int32, *id=str, *name=str, opts=NetClientOptions}, innerTypes=null, fields=null}
-public class NetLegacy extends QApiObject {
+public class NetLegacy extends QApiType {
 
 	@SerializedName("vlan")
 	@CheckForNull public int vlan;

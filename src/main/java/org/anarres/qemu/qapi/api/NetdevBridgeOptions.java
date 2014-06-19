@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevBridgeOptions, data={*br=str, *helper=str}, innerTypes=null, fields=null}
-public class NetdevBridgeOptions extends QApiObject {
+public class NetdevBridgeOptions extends QApiType {
 
 	@SerializedName("br")
 	@CheckForNull public String br;

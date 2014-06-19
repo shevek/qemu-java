@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsBlkdebug, data={image=BlockdevRef, *config=str, *align=int, *inject-error=[BlkdebugInjectErrorOptions], *set-state=[BlkdebugSetStateOptions]}, innerTypes=null, fields=null}
-public class BlockdevOptionsBlkdebug extends QApiObject {
+public class BlockdevOptionsBlkdebug extends QApiType {
 
 	@SerializedName("image")
 	@Nonnull public BlockdevRef image;

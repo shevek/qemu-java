@@ -10,7 +10,7 @@ import com.google.gson.GsonBuilder;
  *
  * @author shevek
  */
-public class QApiObject {
+public abstract class QApiObject {
 
     @Override
     public String toString() {

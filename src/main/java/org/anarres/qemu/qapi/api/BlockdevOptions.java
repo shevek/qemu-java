@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=BlockdevOptions, data={file=BlockdevOptionsFile, host_device=BlockdevOptionsFile, host_cdrom=BlockdevOptionsFile, host_floppy=BlockdevOptionsFile, http=BlockdevOptionsFile, https=BlockdevOptionsFile, ftp=BlockdevOptionsFile, ftps=BlockdevOptionsFile, tftp=BlockdevOptionsFile, vvfat=BlockdevOptionsVVFAT, blkdebug=BlockdevOptionsBlkdebug, blkverify=BlockdevOptionsBlkverify, bochs=BlockdevOptionsGenericFormat, cloop=BlockdevOptionsGenericFormat, cow=BlockdevOptionsGenericCOWFormat, dmg=BlockdevOptionsGenericFormat, parallels=BlockdevOptionsGenericFormat, qcow=BlockdevOptionsGenericCOWFormat, qcow2=BlockdevOptionsQcow2, qed=BlockdevOptionsGenericCOWFormat, raw=BlockdevOptionsGenericFormat, vdi=BlockdevOptionsGenericFormat, vhdx=BlockdevOptionsGenericFormat, vmdk=BlockdevOptionsGenericCOWFormat, vpc=BlockdevOptionsGenericFormat, quorum=BlockdevOptionsQuorum}, innerTypes=null, fields=null}
-public class BlockdevOptions extends QApiObject {
+public class BlockdevOptions extends QApiUnion {
 	@SerializedName("file")
 	@Nonnull public BlockdevOptionsFile file;
 	@SerializedName("host_device")
@@ -62,118 +62,61 @@ public class BlockdevOptions extends QApiObject {
 	@SerializedName("quorum")
 	@Nonnull public BlockdevOptionsQuorum quorum;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (file != null)
-				break ONE;
-			if (hostDevice != null)
-				break ONE;
-			if (hostCdrom != null)
-				break ONE;
-			if (hostFloppy != null)
-				break ONE;
-			if (http != null)
-				break ONE;
-			if (https != null)
-				break ONE;
-			if (ftp != null)
-				break ONE;
-			if (ftps != null)
-				break ONE;
-			if (tftp != null)
-				break ONE;
-			if (vvfat != null)
-				break ONE;
-			if (blkdebug != null)
-				break ONE;
-			if (blkverify != null)
-				break ONE;
-			if (bochs != null)
-				break ONE;
-			if (cloop != null)
-				break ONE;
-			if (cow != null)
-				break ONE;
-			if (dmg != null)
-				break ONE;
-			if (parallels != null)
-				break ONE;
-			if (qcow != null)
-				break ONE;
-			if (qcow2 != null)
-				break ONE;
-			if (qed != null)
-				break ONE;
-			if (raw != null)
-				break ONE;
-			if (vdi != null)
-				break ONE;
-			if (vhdx != null)
-				break ONE;
-			if (vmdk != null)
-				break ONE;
-			if (vpc != null)
-				break ONE;
-			if (quorum != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (file != null)
-				return false;	// More than one field is set.
-			if (hostDevice != null)
-				return false;	// More than one field is set.
-			if (hostCdrom != null)
-				return false;	// More than one field is set.
-			if (hostFloppy != null)
-				return false;	// More than one field is set.
-			if (http != null)
-				return false;	// More than one field is set.
-			if (https != null)
-				return false;	// More than one field is set.
-			if (ftp != null)
-				return false;	// More than one field is set.
-			if (ftps != null)
-				return false;	// More than one field is set.
-			if (tftp != null)
-				return false;	// More than one field is set.
-			if (vvfat != null)
-				return false;	// More than one field is set.
-			if (blkdebug != null)
-				return false;	// More than one field is set.
-			if (blkverify != null)
-				return false;	// More than one field is set.
-			if (bochs != null)
-				return false;	// More than one field is set.
-			if (cloop != null)
-				return false;	// More than one field is set.
-			if (cow != null)
-				return false;	// More than one field is set.
-			if (dmg != null)
-				return false;	// More than one field is set.
-			if (parallels != null)
-				return false;	// More than one field is set.
-			if (qcow != null)
-				return false;	// More than one field is set.
-			if (qcow2 != null)
-				return false;	// More than one field is set.
-			if (qed != null)
-				return false;	// More than one field is set.
-			if (raw != null)
-				return false;	// More than one field is set.
-			if (vdi != null)
-				return false;	// More than one field is set.
-			if (vhdx != null)
-				return false;	// More than one field is set.
-			if (vmdk != null)
-				return false;	// More than one field is set.
-			if (vpc != null)
-				return false;	// More than one field is set.
-			if (quorum != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (file != null)
+			count++;
+		if (hostDevice != null)
+			count++;
+		if (hostCdrom != null)
+			count++;
+		if (hostFloppy != null)
+			count++;
+		if (http != null)
+			count++;
+		if (https != null)
+			count++;
+		if (ftp != null)
+			count++;
+		if (ftps != null)
+			count++;
+		if (tftp != null)
+			count++;
+		if (vvfat != null)
+			count++;
+		if (blkdebug != null)
+			count++;
+		if (blkverify != null)
+			count++;
+		if (bochs != null)
+			count++;
+		if (cloop != null)
+			count++;
+		if (cow != null)
+			count++;
+		if (dmg != null)
+			count++;
+		if (parallels != null)
+			count++;
+		if (qcow != null)
+			count++;
+		if (qcow2 != null)
+			count++;
+		if (qed != null)
+			count++;
+		if (raw != null)
+			count++;
+		if (vdi != null)
+			count++;
+		if (vhdx != null)
+			count++;
+		if (vmdk != null)
+			count++;
+		if (vpc != null)
+			count++;
+		if (quorum != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

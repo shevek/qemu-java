@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=MigrationCapabilityStatus, data={capability=MigrationCapability, state=bool}, innerTypes=null, fields=null}
-public class MigrationCapabilityStatus extends QApiObject {
+public class MigrationCapabilityStatus extends QApiType {
 
 	@SerializedName("capability")
 	@Nonnull public MigrationCapability capability;

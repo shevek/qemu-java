@@ -34,10 +34,10 @@ configurations {
 
 dependencies {
 	generateCompile "com.google.guava:guava:16.0.1"
-	generateCompile "org.codehaus.jackson:jackson-core-asl:1.9.13"
 	generateCompile "org.apache.velocity:velocity:1.7"
 	generateCompile "org.apache.velocity:velocity-tools:2.0"
 	generateCompile "net.sf.jopt-simple:jopt-simple:4.6"
+	generateCompile "commons-logging:commons-logging:1.1.1"
 
 	compile "com.google.code.findbugs:jsr305:2.0.2"
 	compile "com.google.code.gson:gson:2.2.4"

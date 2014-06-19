@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevCacheOptions, data={*writeback=bool, *direct=bool, *no-flush=bool}, innerTypes=null, fields=null}
-public class BlockdevCacheOptions extends QApiObject {
+public class BlockdevCacheOptions extends QApiType {
 
 	@SerializedName("writeback")
 	@CheckForNull public boolean writeback;

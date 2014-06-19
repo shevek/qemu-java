@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=TPMInfo, data={id=str, model=TpmModel, options=TpmTypeOptions}, innerTypes=null, fields=null}
-public class TPMInfo extends QApiObject {
+public class TPMInfo extends QApiType {
 
 	@SerializedName("id")
 	@Nonnull public String id;

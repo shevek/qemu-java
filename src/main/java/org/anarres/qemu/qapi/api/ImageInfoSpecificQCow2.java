@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ImageInfoSpecificQCow2, data={compat=str, *lazy-refcounts=bool}, innerTypes=null, fields=null}
-public class ImageInfoSpecificQCow2 extends QApiObject {
+public class ImageInfoSpecificQCow2 extends QApiType {
 
 	@SerializedName("compat")
 	@Nonnull public String compat;

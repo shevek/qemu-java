@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockDeviceStats, data={rd_bytes=int, wr_bytes=int, rd_operations=int, wr_operations=int, flush_operations=int, flush_total_time_ns=int, wr_total_time_ns=int, rd_total_time_ns=int, wr_highest_offset=int}, innerTypes=null, fields=null}
-public class BlockDeviceStats extends QApiObject {
+public class BlockDeviceStats extends QApiType {
 
 	@SerializedName("rd_bytes")
 	@Nonnull public long rdBytes;

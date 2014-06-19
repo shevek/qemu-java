@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=SpiceChannel, data={host=str, family=str, port=str, connection-id=int, channel-type=int, channel-id=int, tls=bool}, innerTypes=null, fields=null}
-public class SpiceChannel extends QApiObject {
+public class SpiceChannel extends QApiType {
 
 	@SerializedName("host")
 	@Nonnull public String host;

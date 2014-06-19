@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=MigrationInfo, data={*status=str, *ram=MigrationStats, *disk=MigrationStats, *xbzrle-cache=XBZRLECacheStats, *total-time=int, *expected-downtime=int, *downtime=int, *setup-time=int}, innerTypes=null, fields=null}
-public class MigrationInfo extends QApiObject {
+public class MigrationInfo extends QApiType {
 
 	@SerializedName("status")
 	@CheckForNull public String status;

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=UnixSocketAddress, data={path=str}, innerTypes=null, fields=null}
-public class UnixSocketAddress extends QApiObject {
+public class UnixSocketAddress extends QApiType {
 
 	@SerializedName("path")
 	@Nonnull public String path;

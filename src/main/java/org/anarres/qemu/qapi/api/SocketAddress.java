@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=SocketAddress, data={inet=InetSocketAddress, unix=UnixSocketAddress, fd=String}, innerTypes=null, fields=null}
-public class SocketAddress extends QApiObject {
+public class SocketAddress extends QApiUnion {
 	@SerializedName("inet")
 	@Nonnull public InetSocketAddress inet;
 	@SerializedName("unix")
@@ -16,26 +16,15 @@ public class SocketAddress extends QApiObject {
 	@SerializedName("fd")
 	@Nonnull public String fd;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (inet != null)
-				break ONE;
-			if (unix != null)
-				break ONE;
-			if (fd != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (inet != null)
-				return false;	// More than one field is set.
-			if (unix != null)
-				return false;	// More than one field is set.
-			if (fd != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (inet != null)
+			count++;
+		if (unix != null)
+			count++;
+		if (fd != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

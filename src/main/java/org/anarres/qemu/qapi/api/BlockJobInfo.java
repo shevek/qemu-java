@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockJobInfo, data={type=str, device=str, len=int, offset=int, busy=bool, paused=bool, speed=int, io-status=BlockDeviceIoStatus}, innerTypes=null, fields=null}
-public class BlockJobInfo extends QApiObject {
+public class BlockJobInfo extends QApiType {
 
 	@SerializedName("type")
 	@Nonnull public String type;

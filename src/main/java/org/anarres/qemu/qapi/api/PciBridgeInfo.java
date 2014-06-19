@@ -8,8 +8,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=PciBridgeInfo, data={bus={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, *devices=[PciDeviceInfo]}, innerTypes=null, fields=null}
-public class PciBridgeInfo extends QApiObject {
-	// QApiTypeDescriptor{name=_Tbus, data={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@15e9fab0, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@3449440d, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@3612cc4c, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@c22ad50, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@38a06569, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@2a61ed8a]}
+public class PciBridgeInfo extends QApiType {
+	// QApiTypeDescriptor{name=_Tbus, data={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@4f4f5969, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@6277252c, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@7c299e34, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@1051a79b, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@60d2b97b, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@2a8f6be6]}
 	public static class _Tbus {
 		@SerializedName("number")
 		@Nonnull public long number;

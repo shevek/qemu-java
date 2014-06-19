@@ -8,22 +8,15 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=TpmTypeOptions, data={passthrough=TPMPassthroughOptions}, innerTypes=null, fields=null}
-public class TpmTypeOptions extends QApiObject {
+public class TpmTypeOptions extends QApiUnion {
 	@SerializedName("passthrough")
 	@Nonnull public TPMPassthroughOptions passthrough;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (passthrough != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (passthrough != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (passthrough != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=DriveBackup, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}, innerTypes=null, fields=null}
-public class DriveBackup extends QApiObject {
+public class DriveBackup extends QApiType {
 
 	@SerializedName("device")
 	@Nonnull public String device;

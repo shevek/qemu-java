@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=IOThreadInfo, data={id=str, thread-id=int}, innerTypes=null, fields=null}
-public class IOThreadInfo extends QApiObject {
+public class IOThreadInfo extends QApiType {
 
 	@SerializedName("id")
 	@Nonnull public String id;

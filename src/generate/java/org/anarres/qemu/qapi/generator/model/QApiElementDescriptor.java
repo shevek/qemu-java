@@ -18,7 +18,7 @@ import javax.annotation.Nonnull;
 public abstract class QApiElementDescriptor {
 
     @Nonnull
-    protected String toJavaType(@Nonnull String jsonType) {
+    protected static String toJavaType(@Nonnull String jsonType) {
         if ("str".equals(jsonType))
             return String.class.getSimpleName();
         if ("int".equals(jsonType))
@@ -51,7 +51,7 @@ public abstract class QApiElementDescriptor {
     }
 
     @Nonnull
-    protected String toWrappedJavaType(@CheckForNull String name) {
+    protected static String toWrappedJavaType(@CheckForNull String name) {
         if (name == null)
             return Void.class.getSimpleName();
         if ("int".equals(name))
@@ -64,7 +64,7 @@ public abstract class QApiElementDescriptor {
     }
 
     @Nonnull
-    protected String toNestedJavaType(@CheckForNull Object jsonType) {
+    protected static String toNestedJavaType(@CheckForNull Object jsonType) {
         if (jsonType == null)
             return "void";
         if (jsonType instanceof List) {
@@ -74,7 +74,8 @@ public abstract class QApiElementDescriptor {
         return toJavaType((String) jsonType);
     }
 
-    protected String toJavaNonReservedWord(String name) {
+    @Nonnull
+    protected static String toJavaNonReservedWord(@Nonnull String name) {
         if ("boolean".equals(name))
             return "_boolean";
         if ("class".equals(name))
@@ -98,7 +99,7 @@ public abstract class QApiElementDescriptor {
     }
 
     @Nonnull
-    protected String toJavaName(String name) {
+    protected static String toJavaName(@Nonnull String name) {
         // Some type has both 'PC' and 'pc'.
         if ("PC".equals(name))
             return name;

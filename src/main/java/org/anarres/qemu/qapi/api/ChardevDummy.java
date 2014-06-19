@@ -8,6 +8,6 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ChardevDummy, data={}, innerTypes=null, fields=null}
-public class ChardevDummy extends QApiObject {
+public class ChardevDummy extends QApiType {
 
 }

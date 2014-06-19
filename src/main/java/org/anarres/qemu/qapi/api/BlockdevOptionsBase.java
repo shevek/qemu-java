@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsBase, data={driver=BlockdevDriver, *id=str, *node-name=str, *discard=BlockdevDiscardOptions, *cache=BlockdevCacheOptions, *aio=BlockdevAioOptions, *rerror=BlockdevOnError, *werror=BlockdevOnError, *read-only=bool, *detect-zeroes=BlockdevDetectZeroesOptions}, innerTypes=null, fields=null}
-public class BlockdevOptionsBase extends QApiObject {
+public class BlockdevOptionsBase extends QApiType {
 
 	@SerializedName("driver")
 	@Nonnull public BlockdevDriver driver;

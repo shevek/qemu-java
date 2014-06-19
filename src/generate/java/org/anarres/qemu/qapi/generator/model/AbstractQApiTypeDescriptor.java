@@ -31,6 +31,10 @@ public abstract class AbstractQApiTypeDescriptor extends QApiElementDescriptor {
             return typeName;
         }
 
+        public String getTypeNameWrapped() {
+            return toWrappedJavaType(getTypeName());
+        }
+
         public String getName() {
             return name;
         }

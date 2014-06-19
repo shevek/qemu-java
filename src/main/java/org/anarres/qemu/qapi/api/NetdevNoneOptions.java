@@ -8,6 +8,6 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevNoneOptions, data={}, innerTypes=null, fields=null}
-public class NetdevNoneOptions extends QApiObject {
+public class NetdevNoneOptions extends QApiType {
 
 }

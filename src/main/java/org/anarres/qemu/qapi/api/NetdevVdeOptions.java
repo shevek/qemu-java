@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevVdeOptions, data={*sock=str, *port=uint16, *group=str, *mode=uint16}, innerTypes=null, fields=null}
-public class NetdevVdeOptions extends QApiObject {
+public class NetdevVdeOptions extends QApiType {
 
 	@SerializedName("sock")
 	@CheckForNull public String sock;

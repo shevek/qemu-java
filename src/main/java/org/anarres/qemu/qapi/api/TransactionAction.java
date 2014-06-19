@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=TransactionAction, data={blockdev-snapshot-sync=BlockdevSnapshot, drive-backup=DriveBackup, abort=Abort, blockdev-snapshot-internal-sync=BlockdevSnapshotInternal}, innerTypes=null, fields=null}
-public class TransactionAction extends QApiObject {
+public class TransactionAction extends QApiUnion {
 	@SerializedName("blockdev-snapshot-sync")
 	@Nonnull public BlockdevSnapshot blockdevSnapshotSync;
 	@SerializedName("drive-backup")
@@ -18,30 +18,17 @@ public class TransactionAction extends QApiObject {
 	@SerializedName("blockdev-snapshot-internal-sync")
 	@Nonnull public BlockdevSnapshotInternal blockdevSnapshotInternalSync;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (blockdevSnapshotSync != null)
-				break ONE;
-			if (driveBackup != null)
-				break ONE;
-			if (abort != null)
-				break ONE;
-			if (blockdevSnapshotInternalSync != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (blockdevSnapshotSync != null)
-				return false;	// More than one field is set.
-			if (driveBackup != null)
-				return false;	// More than one field is set.
-			if (abort != null)
-				return false;	// More than one field is set.
-			if (blockdevSnapshotInternalSync != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (blockdevSnapshotSync != null)
+			count++;
+		if (driveBackup != null)
+			count++;
+		if (abort != null)
+			count++;
+		if (blockdevSnapshotInternalSync != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=PciMemoryRange, data={base=int, limit=int}, innerTypes=null, fields=null}
-public class PciMemoryRange extends QApiObject {
+public class PciMemoryRange extends QApiType {
 
 	@SerializedName("base")
 	@Nonnull public long base;

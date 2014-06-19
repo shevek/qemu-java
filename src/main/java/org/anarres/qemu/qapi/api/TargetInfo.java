@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=TargetInfo, data={arch=str}, innerTypes=null, fields=null}
-public class TargetInfo extends QApiObject {
+public class TargetInfo extends QApiType {
 
 	@SerializedName("arch")
 	@Nonnull public String arch;

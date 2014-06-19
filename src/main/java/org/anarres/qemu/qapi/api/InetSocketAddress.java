@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=InetSocketAddress, data={host=str, port=str, *to=uint16, *ipv4=bool, *ipv6=bool}, innerTypes=null, fields=null}
-public class InetSocketAddress extends QApiObject {
+public class InetSocketAddress extends QApiType {
 
 	@SerializedName("host")
 	@Nonnull public String host;

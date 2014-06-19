@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsQcow2, data={*lazy-refcounts=bool, *pass-discard-request=bool, *pass-discard-snapshot=bool, *pass-discard-other=bool}, innerTypes=null, fields=null}
-public class BlockdevOptionsQcow2 extends QApiObject {
+public class BlockdevOptionsQcow2 extends QApiType {
 
 	@SerializedName("lazy-refcounts")
 	@CheckForNull public boolean lazyRefcounts;

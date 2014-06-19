@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // $element
-public class $element.name extends QApiObject {
+public class $element.name extends QApiType {
 #foreach ($innerType in $element.innerTypes)
 	// $innerType
 	public static class $innerType.name {

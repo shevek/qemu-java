@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=VncClientInfo, data={host=str, family=str, service=str, *x509_dname=str, *sasl_username=str}, innerTypes=null, fields=null}
-public class VncClientInfo extends QApiObject {
+public class VncClientInfo extends QApiType {
 
 	@SerializedName("host")
 	@Nonnull public String host;

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=PciInfo, data={bus=int, devices=[PciDeviceInfo]}, innerTypes=null, fields=null}
-public class PciInfo extends QApiObject {
+public class PciInfo extends QApiType {
 
 	@SerializedName("bus")
 	@Nonnull public long bus;

@@ -8,28 +8,19 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=BlockdevRef, data={definition=BlockdevOptions, reference=str}, innerTypes=null, fields=null}
-public class BlockdevRef extends QApiObject {
+public class BlockdevRef extends QApiUnion {
 	@SerializedName("definition")
 	@Nonnull public BlockdevOptions definition;
 	@SerializedName("reference")
 	@Nonnull public String reference;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (definition != null)
-				break ONE;
-			if (reference != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (definition != null)
-				return false;	// More than one field is set.
-			if (reference != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (definition != null)
+			count++;
+		if (reference != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

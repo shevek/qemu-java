@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=CommandLineOptionInfo, data={option=str, parameters=[CommandLineParameterInfo]}, innerTypes=null, fields=null}
-public class CommandLineOptionInfo extends QApiObject {
+public class CommandLineOptionInfo extends QApiType {
 
 	@SerializedName("option")
 	@Nonnull public String option;

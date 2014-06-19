@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=FdsetInfo, data={fdset-id=int, fds=[FdsetFdInfo]}, innerTypes=null, fields=null}
-public class FdsetInfo extends QApiObject {
+public class FdsetInfo extends QApiType {
 
 	@SerializedName("fdset-id")
 	@Nonnull public long fdsetId;

@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsGenericCOWFormat, data={*backing=BlockdevRef}, innerTypes=null, fields=null}
-public class BlockdevOptionsGenericCOWFormat extends QApiObject {
+public class BlockdevOptionsGenericCOWFormat extends QApiType {
 
 	@SerializedName("backing")
 	@CheckForNull public BlockdevRef backing;

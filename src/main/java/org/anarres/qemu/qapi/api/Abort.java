@@ -8,6 +8,6 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=Abort, data={}, innerTypes=null, fields=null}
-public class Abort extends QApiObject {
+public class Abort extends QApiType {
 
 }

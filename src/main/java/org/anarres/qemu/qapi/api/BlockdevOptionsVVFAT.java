@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsVVFAT, data={dir=str, *fat-type=int, *floppy=bool, *rw=bool}, innerTypes=null, fields=null}
-public class BlockdevOptionsVVFAT extends QApiObject {
+public class BlockdevOptionsVVFAT extends QApiType {
 
 	@SerializedName("dir")
 	@Nonnull public String dir;

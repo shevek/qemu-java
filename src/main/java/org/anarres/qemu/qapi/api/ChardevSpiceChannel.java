@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ChardevSpiceChannel, data={type=str}, innerTypes=null, fields=null}
-public class ChardevSpiceChannel extends QApiObject {
+public class ChardevSpiceChannel extends QApiType {
 
 	@SerializedName("type")
 	@Nonnull public String type;

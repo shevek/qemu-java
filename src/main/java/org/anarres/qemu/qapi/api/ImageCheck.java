@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ImageCheck, data={filename=str, format=str, check-errors=int, *image-end-offset=int, *corruptions=int, *leaks=int, *corruptions-fixed=int, *leaks-fixed=int, *total-clusters=int, *allocated-clusters=int, *fragmented-clusters=int, *compressed-clusters=int}, innerTypes=null, fields=null}
-public class ImageCheck extends QApiObject {
+public class ImageCheck extends QApiType {
 
 	@SerializedName("filename")
 	@Nonnull public String filename;

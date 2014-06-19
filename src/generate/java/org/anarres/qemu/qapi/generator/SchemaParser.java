@@ -43,64 +43,70 @@ public class SchemaParser {
         this.file = file;
     }
 
-    @Nonnull
-    private JsonReader newReader(@Nonnull URL file) throws IOException {
-        InputStream stream = file.openStream();
-        Reader reader = new InputStreamReader(stream);
-        reader = new SchemaReader(reader);
-        JsonReader r = new JsonReader(reader);
-        r.setLenient(true);
-        return r;
+    private static class State {
+
+        private final URL file;
+        // private final SchemaReader schemaReader;
+        private final JsonReader jsonReader;
+
+        public State(@Nonnull URL file) throws IOException {
+            this.file = file;
+            InputStream stream = file.openStream();
+            Reader reader = new InputStreamReader(stream);
+            // this.schemaReader = new SchemaReader(reader);
+            this.jsonReader = new JsonReader(reader);
+            jsonReader.setLenient(true);
+        }
     }
 
     @Nonnull
     public SchemaModel parse() throws IOException {
         SchemaModel model = new SchemaModel();
 
-        URL file = this.file;
-        JsonReader reader = newReader(file);
-
         Queue<URL> files = new LinkedList<URL>();
+        files.add(this.file);
 
-        for (;;) {
-            JsonToken token = reader.peek();
-            // LOG.info("Token is " + token);
-            if (token == JsonToken.END_DOCUMENT) {
-                reader.close();
-                if (!files.isEmpty()) {
-                    file = files.remove();
-                    reader = newReader(file);
+        while (!files.isEmpty()) {
+            State state = new State(files.remove());
+
+            for (;;) {
+                // state.schemaReader.clearDocs();
+                JsonToken token = state.jsonReader.peek();
+                // LOG.info("Token is " + token);
+                if (token == JsonToken.END_DOCUMENT)
+                    break;
+
+                JsonObject jsonTree = parser.parse(state.jsonReader).getAsJsonObject();
+                // LOG.info("Read generic " + jsonTree);
+                Class<?> type;
+                if (jsonTree.get("command") != null)
+                    type = QApiCommandDescriptor.class;
+                else if (jsonTree.get("type") != null)
+                    type = QApiTypeDescriptor.class;
+                else if (jsonTree.get("enum") != null)
+                    type = QApiEnumDescriptor.class;
+                else if (jsonTree.get("union") != null)
+                    type = QApiUnionDescriptor.class;
+                else if (jsonTree.get("include") != null)
+                    type = QApiIncludeDescriptor.class;
+                else
+                    throw new IllegalArgumentException("Unknown JsonObject " + jsonTree);
+                // LOG.info("Tree is " + jsonTree + "; docs are " + state.schemaReader.getDocs());
+
+                TypeAdapter<?> adapter = gson.getAdapter(type);
+                Object object = adapter.fromJsonTree(jsonTree);
+                if (object instanceof QApiIncludeDescriptor) {
+                    files.add(new URL(state.file, ((QApiIncludeDescriptor) object).include));
                     continue;
                 }
-                break;
+
+                QApiElementDescriptor element = (QApiElementDescriptor) object;
+                // element.docs = state.schemaReader.getDocs();
+                model.elements.put(element.getName(), element);
+                // LOG.info("Read specific " + element);
             }
 
-            JsonObject jsonTree = parser.parse(reader).getAsJsonObject();
-            LOG.info("Read generic " + jsonTree);
-            Class<?> type;
-            if (jsonTree.get("command") != null)
-                type = QApiCommandDescriptor.class;
-            else if (jsonTree.get("type") != null)
-                type = QApiTypeDescriptor.class;
-            else if (jsonTree.get("enum") != null)
-                type = QApiEnumDescriptor.class;
-            else if (jsonTree.get("union") != null)
-                type = QApiUnionDescriptor.class;
-            else if (jsonTree.get("include") != null)
-                type = QApiIncludeDescriptor.class;
-            else
-                throw new IllegalArgumentException("Unknown JsonObject " + jsonTree);
-
-            TypeAdapter<?> adapter = gson.getAdapter(type);
-            Object object = adapter.fromJsonTree(jsonTree);
-            if (object instanceof QApiIncludeDescriptor) {
-                files.add(new URL(file, ((QApiIncludeDescriptor) object).include));
-                continue;
-            }
-
-            QApiElementDescriptor element = (QApiElementDescriptor) object;
-            model.elements.put(element.getName(), element);
-            // LOG.info("Read specific " + element);
+            state.jsonReader.close();
         }
 
         return model;

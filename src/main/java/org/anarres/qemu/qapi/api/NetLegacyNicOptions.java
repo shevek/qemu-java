@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetLegacyNicOptions, data={*netdev=str, *macaddr=str, *model=str, *addr=str, *vectors=uint32}, innerTypes=null, fields=null}
-public class NetLegacyNicOptions extends QApiObject {
+public class NetLegacyNicOptions extends QApiType {
 
 	@SerializedName("netdev")
 	@CheckForNull public String netdev;

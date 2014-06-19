@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevDumpOptions, data={*len=size, *file=str}, innerTypes=null, fields=null}
-public class NetdevDumpOptions extends QApiObject {
+public class NetdevDumpOptions extends QApiType {
 
 	@SerializedName("len")
 	@CheckForNull public long len;

@@ -8,28 +8,19 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // $element
-public class $element.name extends QApiObject {
+public class $element.name extends QApiUnion {
 #foreach ($field in $element.fields)
 	@SerializedName("$field.serializedName")
-	$field.annotations public $field.typeName $field.name;
+	$field.annotations public $field.typeNameWrapped $field.name;
 #end
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
+		int count = 0;
 #foreach ($field in $element.fields)
-			if ($field.name != null)
-				break ONE;
+		if ($field.name != null)
+			count++;
 #end
-			return false;	// No field is set.
-		}
-		TWO: {
-#foreach ($field in $element.fields)
-			if ($field.name != null)
-				return false;	// More than one field is set.
-#end
-		}
-		return true;
+		return (count == 1);
 	}
-*/
 }

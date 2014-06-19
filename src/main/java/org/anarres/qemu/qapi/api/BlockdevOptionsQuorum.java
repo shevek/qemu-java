@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=BlockdevOptionsQuorum, data={*blkverify=bool, children=[BlockdevRef], vote-threshold=int}, innerTypes=null, fields=null}
-public class BlockdevOptionsQuorum extends QApiObject {
+public class BlockdevOptionsQuorum extends QApiType {
 
 	@SerializedName("blkverify")
 	@CheckForNull public boolean blkverify;

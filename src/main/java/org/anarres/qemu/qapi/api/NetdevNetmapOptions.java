@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=NetdevNetmapOptions, data={ifname=str, *devname=str}, innerTypes=null, fields=null}
-public class NetdevNetmapOptions extends QApiObject {
+public class NetdevNetmapOptions extends QApiType {
 
 	@SerializedName("ifname")
 	@Nonnull public String ifname;

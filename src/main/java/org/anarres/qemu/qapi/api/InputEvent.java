@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiUnionDescriptor{name=InputEvent, data={key=InputKeyEvent, btn=InputBtnEvent, rel=InputMoveEvent, abs=InputMoveEvent}, innerTypes=null, fields=null}
-public class InputEvent extends QApiObject {
+public class InputEvent extends QApiUnion {
 	@SerializedName("key")
 	@Nonnull public InputKeyEvent key;
 	@SerializedName("btn")
@@ -18,30 +18,17 @@ public class InputEvent extends QApiObject {
 	@SerializedName("abs")
 	@Nonnull public InputMoveEvent abs;
 
-/*
+	@Override
 	public boolean isUnion() {
-		ONE: {
-			if (key != null)
-				break ONE;
-			if (btn != null)
-				break ONE;
-			if (rel != null)
-				break ONE;
-			if (abs != null)
-				break ONE;
-			return false;	// No field is set.
-		}
-		TWO: {
-			if (key != null)
-				return false;	// More than one field is set.
-			if (btn != null)
-				return false;	// More than one field is set.
-			if (rel != null)
-				return false;	// More than one field is set.
-			if (abs != null)
-				return false;	// More than one field is set.
-		}
-		return true;
+		int count = 0;
+		if (key != null)
+			count++;
+		if (btn != null)
+			count++;
+		if (rel != null)
+			count++;
+		if (abs != null)
+			count++;
+		return (count == 1);
 	}
-*/
 }

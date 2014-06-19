@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
 // QApiTypeDescriptor{name=ChardevSocket, data={addr=SocketAddress, *server=bool, *wait=bool, *nodelay=bool, *telnet=bool}, innerTypes=null, fields=null}
-public class ChardevSocket extends QApiObject {
+public class ChardevSocket extends QApiType {
 
 	@SerializedName("addr")
 	@Nonnull public SocketAddress addr;
