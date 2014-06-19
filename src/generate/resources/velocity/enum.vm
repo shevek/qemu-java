@@ -1,0 +1,12 @@
+package $packageName;
+
+import com.google.gson.annotations.SerializedName;
+
+// $element
+public enum $element.name {
+#foreach ($field in $element.fields)
+	@SerializedName("$field.serializedName")
+	$field.name,
+#end
+	__UNKNOWN;
+}

@@ -1,0 +1,35 @@
+package $packageName;
+
+import com.google.gson.annotations.SerializedName;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+import org.anarres.qemu.qapi.common.*;
+
+// $element
+public class $element.name extends QApiObject {
+#foreach ($field in $element.fields)
+	@SerializedName("$field.serializedName")
+	$field.annotations public $field.typeName $field.name;
+#end
+
+/*
+	public boolean isUnion() {
+		ONE: {
+#foreach ($field in $element.fields)
+			if ($field.name != null)
+				break ONE;
+#end
+			return false;	// No field is set.
+		}
+		TWO: {
+#foreach ($field in $element.fields)
+			if ($field.name != null)
+				return false;	// More than one field is set.
+#end
+		}
+		return true;
+	}
+*/
+}

@@ -1,0 +1,53 @@
+// Establish version and status
+ext.githubProjectName = rootProject.name // Change if github project name is not the same as the root project's name
+group = "org.anarres.${githubProjectName}"
+
+buildscript {
+    repositories {
+        // mavenLocal()
+        mavenCentral() // maven { url 'http://jcenter.bintray.com' }
+    }
+    apply from: file('gradle/buildscript.gradle'), to: buildscript 
+}
+
+allprojects {
+    repositories { 
+        // mavenLocal()
+        mavenCentral() // maven { url: 'http://jcenter.bintray.com' }
+    }
+}
+
+apply from: file('gradle/convention.gradle')
+apply from: file('gradle/maven.gradle')
+apply from: file('gradle/check.gradle')
+apply from: file('gradle/license.gradle')
+// apply from: file('gradle/release.gradle')
+
+sourceSets {
+	generate
+}
+
+configurations {
+	generateCompile.extendsFrom compile
+	generateRuntime.extendsFrom runtime
+}
+
+dependencies {
+	generateCompile "com.google.guava:guava:16.0.1"
+	generateCompile "org.codehaus.jackson:jackson-core-asl:1.9.13"
+	generateCompile "org.apache.velocity:velocity:1.7"
+	generateCompile "org.apache.velocity:velocity-tools:2.0"
+	generateCompile "net.sf.jopt-simple:jopt-simple:4.6"
+
+	compile "com.google.code.findbugs:jsr305:2.0.2"
+	compile "com.google.code.gson:gson:2.2.4"
+
+	testCompile "junit:junit:4.11"
+}
+
+task('generate', type: JavaExec, dependsOn: compileGenerateJava) {
+	main = 'org.anarres.qemu.qapi.generator.Main'
+	classpath = configurations.generateRuntime + sourceSets.generate.output
+	// See also http://repo.or.cz/w/qemu/qmp-unstable.git/blob_plain/HEAD:/qapi-schema.json
+}
+

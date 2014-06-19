@@ -1,0 +1,25 @@
+package $packageName;
+
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+import org.anarres.qemu.qapi.common.*;
+
+// $element
+public class $element.className extends QApiCommand<$element.argumentTypeNameWrapped, $element.returnTypeNameWrapped> {
+#if ($element.argumentType)
+	public static class $element.argumentType.className {
+#foreach ($field in $element.argumentType.fields)
+		@SerializedName("$field.serializedName")
+		$field.annotations public $field.typeName $field.name;
+#end
+	}
+#end
+
+	public ${element.className}(#{if} ($element.argumentTypeName)@Nonnull $element.argumentTypeName argument#{end}) {
+		super("$element.name", new TypeToken<$element.returnTypeNameWrapped>() {}, #{if} ($element.argumentTypeName)argument#{else}null#{end});
+	}
+}
