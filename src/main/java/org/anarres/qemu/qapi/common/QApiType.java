@@ -5,6 +5,7 @@
 package org.anarres.qemu.qapi.common;
 
 /**
+ * A QApi Type, essentially a structure.
  *
  * @author shevek
  */

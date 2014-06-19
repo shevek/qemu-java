@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=str, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=str, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null}
 public class VncInfo extends QApiType {
 
 	@SerializedName("enabled")

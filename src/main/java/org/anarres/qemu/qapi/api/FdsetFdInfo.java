@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=FdsetFdInfo, data={fd=int, *opaque=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=FdsetFdInfo, data={fd=int, *opaque=str}, innerTypes=null}
 public class FdsetFdInfo extends QApiType {
 
 	@SerializedName("fd")

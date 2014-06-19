@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=ChardevStdio, data={*signal=bool}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=ChardevStdio, data={*signal=bool}, innerTypes=null}
 public class ChardevStdio extends QApiType {
 
 	@SerializedName("signal")

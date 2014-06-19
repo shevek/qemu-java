@@ -7,16 +7,16 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=PciDeviceInfo, data={bus=int, slot=int, function=int, class_info={*desc=str, class=int}, id={device=int, vendor=int}, *irq=int, qdev_id=str, *pci_bridge=PciBridgeInfo, regions=[PciMemoryRegion]}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=PciDeviceInfo, data={bus=int, slot=int, function=int, class_info={*desc=str, class=int}, id={device=int, vendor=int}, *irq=int, qdev_id=str, *pci_bridge=PciBridgeInfo, regions=[PciMemoryRegion]}, innerTypes=null}
 public class PciDeviceInfo extends QApiType {
-	// QApiTypeDescriptor{name=_Tclass_info, data={*desc=str, class=int}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@754a312b, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@59e23a35]}
+	// QApiTypeDescriptor{name=_Tclass_info, data={*desc=str, class=int}, innerTypes=[]}
 	public static class _Tclass_info {
 		@SerializedName("desc")
 		@CheckForNull public String desc;
 		@SerializedName("class")
 		@Nonnull public long _class;
 	}
-	// QApiTypeDescriptor{name=_Tid, data={device=int, vendor=int}, innerTypes=[], fields=[org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@386e0497, org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor$Field@3eef7272]}
+	// QApiTypeDescriptor{name=_Tid, data={device=int, vendor=int}, innerTypes=[]}
 	public static class _Tid {
 		@SerializedName("device")
 		@Nonnull public long device;

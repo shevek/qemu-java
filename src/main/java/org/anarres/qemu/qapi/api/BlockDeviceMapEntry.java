@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=BlockDeviceMapEntry, data={start=int, length=int, depth=int, zero=bool, data=bool, *offset=int}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=BlockDeviceMapEntry, data={start=int, length=int, depth=int, zero=bool, data=bool, *offset=int}, innerTypes=null}
 public class BlockDeviceMapEntry extends QApiType {
 
 	@SerializedName("start")

@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=ChardevFile, data={*in=str, out=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=ChardevFile, data={*in=str, out=str}, innerTypes=null}
 public class ChardevFile extends QApiType {
 
 	@SerializedName("in")

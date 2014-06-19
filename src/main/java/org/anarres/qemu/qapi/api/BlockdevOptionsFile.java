@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=BlockdevOptionsFile, data={filename=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=BlockdevOptionsFile, data={filename=str}, innerTypes=null}
 public class BlockdevOptionsFile extends QApiType {
 
 	@SerializedName("filename")

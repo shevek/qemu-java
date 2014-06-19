@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=Abort, data={}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=Abort, data={}, innerTypes=null}
 public class Abort extends QApiType {
 
 }

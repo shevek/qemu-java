@@ -11,6 +11,11 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 /**
+ * A QApi Command.
+ * 
+ * While the library provides a set of subclasses of QApiCommand generated from
+ * the JSON schema, arbitrary subclasses may be constructed and transmitted
+ * in order to access experimental features.
  *
  * @author shevek
  */

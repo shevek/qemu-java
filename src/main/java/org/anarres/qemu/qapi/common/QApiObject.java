@@ -7,6 +7,7 @@ package org.anarres.qemu.qapi.common;
 import com.google.gson.GsonBuilder;
 
 /**
+ * The base of all QApi objects.
  *
  * @author shevek
  */

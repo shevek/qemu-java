@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=TPMInfo, data={id=str, model=TpmModel, options=TpmTypeOptions}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=TPMInfo, data={id=str, model=TpmModel, options=TpmTypeOptions}, innerTypes=null}
 public class TPMInfo extends QApiType {
 
 	@SerializedName("id")

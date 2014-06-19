@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=String, data={str=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=String, data={str=str}, innerTypes=null}
 public class String extends QApiType {
 
 	@SerializedName("str")

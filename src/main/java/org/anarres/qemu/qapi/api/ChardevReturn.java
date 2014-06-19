@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=ChardevReturn, data={*pty=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=ChardevReturn, data={*pty=str}, innerTypes=null}
 public class ChardevReturn extends QApiType {
 
 	@SerializedName("pty")

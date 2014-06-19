@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=BlockdevOptionsBlkverify, data={test=BlockdevRef, raw=BlockdevRef}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=BlockdevOptionsBlkverify, data={test=BlockdevRef, raw=BlockdevRef}, innerTypes=null}
 public class BlockdevOptionsBlkverify extends QApiType {
 
 	@SerializedName("test")

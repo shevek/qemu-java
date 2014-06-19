@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=ChardevUdp, data={remote=SocketAddress, *local=SocketAddress}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=ChardevUdp, data={remote=SocketAddress, *local=SocketAddress}, innerTypes=null}
 public class ChardevUdp extends QApiType {
 
 	@SerializedName("remote")

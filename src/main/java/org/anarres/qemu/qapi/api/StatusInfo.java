@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=StatusInfo, data={running=bool, singlestep=bool, status=RunState}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=StatusInfo, data={running=bool, singlestep=bool, status=RunState}, innerTypes=null}
 public class StatusInfo extends QApiType {
 
 	@SerializedName("running")

@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=CpuInfo, data={CPU=int, current=bool, halted=bool, *pc=int, *nip=int, *npc=int, *PC=int, thread_id=int}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=CpuInfo, data={CPU=int, current=bool, halted=bool, *pc=int, *nip=int, *npc=int, *PC=int, thread_id=int}, innerTypes=null}
 public class CpuInfo extends QApiType {
 
 	@SerializedName("CPU")

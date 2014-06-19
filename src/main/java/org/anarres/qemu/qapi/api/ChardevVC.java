@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=ChardevVC, data={*width=int, *height=int, *cols=int, *rows=int}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=ChardevVC, data={*width=int, *height=int, *cols=int, *rows=int}, innerTypes=null}
 public class ChardevVC extends QApiType {
 
 	@SerializedName("width")

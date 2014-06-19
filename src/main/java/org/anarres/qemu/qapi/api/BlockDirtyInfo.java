@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null}
 public class BlockDirtyInfo extends QApiType {
 
 	@SerializedName("count")

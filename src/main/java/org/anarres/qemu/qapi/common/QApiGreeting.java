@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
+ * The QEmu version and capability information.
+ * 
+ * This information is sent to the client on connection.
  *
  * @author shevek
  */

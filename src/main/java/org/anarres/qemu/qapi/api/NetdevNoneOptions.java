@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=NetdevNoneOptions, data={}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=NetdevNoneOptions, data={}, innerTypes=null}
 public class NetdevNoneOptions extends QApiType {
 
 }

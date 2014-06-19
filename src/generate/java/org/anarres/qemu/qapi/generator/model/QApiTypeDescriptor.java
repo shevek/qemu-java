@@ -35,7 +35,6 @@ public class QApiTypeDescriptor extends AbstractQApiTypeDescriptor {
                 .add("name", getName())
                 .add("data", data)
                 .add("innerTypes", innerTypes)
-                .add("fields", fields)
                 .toString();
     }
 }

@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=MigrationStats, data={transferred=int, remaining=int, total=int, duplicate=int, skipped=int, normal=int, normal-bytes=int, dirty-pages-rate=int, mbps=number, dirty-sync-count=int}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=MigrationStats, data={transferred=int, remaining=int, total=int, duplicate=int, skipped=int, normal=int, normal-bytes=int, dirty-pages-rate=int, mbps=number, dirty-sync-count=int}, innerTypes=null}
 public class MigrationStats extends QApiType {
 
 	@SerializedName("transferred")

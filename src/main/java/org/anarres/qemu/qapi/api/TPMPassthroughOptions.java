@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=TPMPassthroughOptions, data={*path=str, *cancel-path=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=TPMPassthroughOptions, data={*path=str, *cancel-path=str}, innerTypes=null}
 public class TPMPassthroughOptions extends QApiType {
 
 	@SerializedName("path")

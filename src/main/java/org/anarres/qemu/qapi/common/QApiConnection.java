@@ -20,6 +20,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 /**
+ * A connection to a QEmu process.
  *
  * @author shevek
  */

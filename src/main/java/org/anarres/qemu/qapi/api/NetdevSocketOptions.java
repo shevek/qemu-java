@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
  
-// QApiTypeDescriptor{name=NetdevSocketOptions, data={*fd=str, *listen=str, *connect=str, *mcast=str, *localaddr=str, *udp=str}, innerTypes=null, fields=null}
+// QApiTypeDescriptor{name=NetdevSocketOptions, data={*fd=str, *listen=str, *connect=str, *mcast=str, *localaddr=str, *udp=str}, innerTypes=null}
 public class NetdevSocketOptions extends QApiType {
 
 	@SerializedName("fd")
