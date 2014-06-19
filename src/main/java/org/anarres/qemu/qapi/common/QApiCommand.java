@@ -6,6 +6,7 @@ package org.anarres.qemu.qapi.common;
 
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
@@ -33,8 +34,13 @@ public class QApiCommand<Argument, Return> extends QApiObject {
     }
 
     @Nonnull
-    public TypeToken<Return> getReturnType() {
+    public TypeToken<Return> getReturnTypeToken() {
         return returnType;
+    }
+
+    @Nonnull
+    public Type getReturnType() {
+        return getReturnTypeToken().getType();
     }
 
     @CheckForNull
