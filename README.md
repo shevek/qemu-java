@@ -9,27 +9,36 @@ so that a Java-based client can use QApi directly.
 
 The serializer is based on Google's GSON library.
 
+API Documentation
+-----------------
+
+The API is derived directly from the QEmu specification, and the
+[JavaDoc is available](http://shevek.github.io/qemu-qapi-java/docs/javadoc/).
+
 Building
 --------
 
 This is a standard gradle build: Run
-	./gradlew build
+
+    ./gradlew build
 
 If QEmu updates its protocol, you can regenerate the sources from
 the original JSON schema:
-	./gradlew generate build
+
+    ./gradlew generate build
+
 By default, this will fetch the JSON schema from the master branch
 of qemu's github. To specify an alternate location, add:
-	args = [ "--input", "<file|http[s]>://...." ]
+
+    args = [ "--input", "<file|http[s]>://...." ]
+
 to the generate task in build.gradle. See
-[src/generate/java/org/anarres/qemu/qapi/generator/Main.java] for
+[generator/Main.java](src/generate/java/org/anarres/qemu/qapi/generator/Main.java) for
 more details.
 
 Using
 -----
 
-Currently, you are responsible for making your own TCP connection to
-your QEmu process. After that, you can:
-	Gson gson = new GsonBuilder().create();
-	String message = gson.toJson(apiObject);
+    QApiConnection connection = new QApiConnection(...);
+    CpuInfo info = connection.invoke(new QueryCpusCommand());
 
