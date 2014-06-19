@@ -30,15 +30,22 @@ public class QApiConnection implements Closeable {
     private final Socket socket;
     private final Writer output;
     private final Reader input;
+    private final QApiGreeting greeting;
 
     public QApiConnection(@Nonnull Socket socket) throws IOException {
         this.socket = socket;
         this.output = new OutputStreamWriter(socket.getOutputStream(), ISO_8859_1);
         this.input = new InputStreamReader(socket.getInputStream(), ISO_8859_1);
+        this.greeting = gson.fromJson(input, QApiGreeting.class);
     }
 
     public QApiConnection(@Nonnull InetSocketAddress address) throws IOException {
         this(new Socket(address.getAddress(), address.getPort()));
+    }
+
+    @Nonnull
+    public QApiGreeting getGreeting() {
+        return greeting;
     }
 
     @CheckForNull
