@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-migrate-capabilities, returns=[MigrationCapabilityStatus], data=null}
-public class QueryMigrateCapabilitiesCommand extends QApiCommand<Void, List<MigrationCapabilityStatus>> {
+public class QueryMigrateCapabilitiesCommand extends QApiCommand<Void, QueryMigrateCapabilitiesCommand.Response> {
+
+	public static class Response extends QApiResponse<List<MigrationCapabilityStatus>> {
+	}
 
 	public QueryMigrateCapabilitiesCommand() {
-		super("query-migrate-capabilities", new TypeToken<List<MigrationCapabilityStatus>>() {}, null);
+		super("query-migrate-capabilities", Response.class, null);
 	}
 }

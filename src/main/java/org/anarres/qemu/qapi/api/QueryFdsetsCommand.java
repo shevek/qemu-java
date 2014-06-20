@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-fdsets, returns=[FdsetInfo], data=null}
-public class QueryFdsetsCommand extends QApiCommand<Void, List<FdsetInfo>> {
+public class QueryFdsetsCommand extends QApiCommand<Void, QueryFdsetsCommand.Response> {
+
+	public static class Response extends QApiResponse<List<FdsetInfo>> {
+	}
 
 	public QueryFdsetsCommand() {
-		super("query-fdsets", new TypeToken<List<FdsetInfo>>() {}, null);
+		super("query-fdsets", Response.class, null);
 	}
 }

@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate_set_downtime, returns=null, data={value=number}}
-public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCommand.MigrateSetDowntimeArguments, Void> {
+public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCommand.MigrateSetDowntimeArguments, MigrateSetDowntimeCommand.Response> {
 	public static class MigrateSetDowntimeArguments {
 		@SerializedName("value")
 		@Nonnull public double value;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public MigrateSetDowntimeCommand(@Nonnull MigrateSetDowntimeCommand.MigrateSetDowntimeArguments argument) {
-		super("migrate_set_downtime", new TypeToken<Void>() {}, argument);
+		super("migrate_set_downtime", Response.class, argument);
 	}
 }

@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=object-add, returns=null, data={qom-type=str, id=str, *props=dict}}
-public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.ObjectAddArguments, Void> {
+public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.ObjectAddArguments, ObjectAddCommand.Response> {
 	public static class ObjectAddArguments {
 		@SerializedName("qom-type")
 		@Nonnull public String qomType;
@@ -19,7 +19,10 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.ObjectAddArgu
 		@CheckForNull public Map<String, String> props;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public ObjectAddCommand(@Nonnull ObjectAddCommand.ObjectAddArguments argument) {
-		super("object-add", new TypeToken<Void>() {}, argument);
+		super("object-add", Response.class, argument);
 	}
 }

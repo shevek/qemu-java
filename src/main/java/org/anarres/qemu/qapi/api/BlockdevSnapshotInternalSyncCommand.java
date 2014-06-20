@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=blockdev-snapshot-internal-sync, returns=null, data=BlockdevSnapshotInternal}
-public class BlockdevSnapshotInternalSyncCommand extends QApiCommand<BlockdevSnapshotInternal, Void> {
+public class BlockdevSnapshotInternalSyncCommand extends QApiCommand<BlockdevSnapshotInternal, BlockdevSnapshotInternalSyncCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public BlockdevSnapshotInternalSyncCommand(@Nonnull BlockdevSnapshotInternal argument) {
-		super("blockdev-snapshot-internal-sync", new TypeToken<Void>() {}, argument);
+		super("blockdev-snapshot-internal-sync", Response.class, argument);
 	}
 }

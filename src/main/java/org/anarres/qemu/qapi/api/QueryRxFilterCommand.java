@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-rx-filter, returns=[RxFilterInfo], data={*name=str}}
-public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.QueryRxFilterArguments, List<RxFilterInfo>> {
+public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.QueryRxFilterArguments, QueryRxFilterCommand.Response> {
 	public static class QueryRxFilterArguments {
 		@SerializedName("name")
 		@CheckForNull public String name;
 	}
 
+	public static class Response extends QApiResponse<List<RxFilterInfo>> {
+	}
+
 	public QueryRxFilterCommand(@Nonnull QueryRxFilterCommand.QueryRxFilterArguments argument) {
-		super("query-rx-filter", new TypeToken<List<RxFilterInfo>>() {}, argument);
+		super("query-rx-filter", Response.class, argument);
 	}
 }

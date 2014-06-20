@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=send-key, returns=null, data={keys=[KeyValue], *hold-time=int}}
-public class SendKeyCommand extends QApiCommand<SendKeyCommand.SendKeyArguments, Void> {
+public class SendKeyCommand extends QApiCommand<SendKeyCommand.SendKeyArguments, SendKeyCommand.Response> {
 	public static class SendKeyArguments {
 		@SerializedName("keys")
 		@Nonnull public List<KeyValue> keys;
@@ -17,7 +17,10 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.SendKeyArguments,
 		@CheckForNull public long holdTime;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public SendKeyCommand(@Nonnull SendKeyCommand.SendKeyArguments argument) {
-		super("send-key", new TypeToken<Void>() {}, argument);
+		super("send-key", Response.class, argument);
 	}
 }

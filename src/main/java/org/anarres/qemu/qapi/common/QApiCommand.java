@@ -5,8 +5,6 @@
 package org.anarres.qemu.qapi.common;
 
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.lang.reflect.Type;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
@@ -19,15 +17,15 @@ import javax.annotation.Nonnull;
  *
  * @author shevek
  */
-public class QApiCommand<Argument, Return> extends QApiObject {
+public class QApiCommand<Argument, Response extends QApiResponse<?>> extends QApiObject {
 
     @SerializedName("execute")
     private final String commandName;
-    private final TypeToken<Return> returnType;
+    private final Class<Response> returnType;
     @SerializedName("data")
     private final Argument argument;
 
-    public QApiCommand(@Nonnull String commandName, @Nonnull TypeToken<Return> returnType, @CheckForNull Argument argument) {
+    public QApiCommand(@Nonnull String commandName, @Nonnull Class<Response> returnType, @CheckForNull Argument argument) {
         this.commandName = commandName;
         this.returnType = returnType;
         this.argument = argument;
@@ -39,13 +37,8 @@ public class QApiCommand<Argument, Return> extends QApiObject {
     }
 
     @Nonnull
-    public TypeToken<Return> getReturnTypeToken() {
+    public Class<Response> getReturnType() {
         return returnType;
-    }
-
-    @Nonnull
-    public Type getReturnType() {
-        return getReturnTypeToken().getType();
     }
 
     @CheckForNull

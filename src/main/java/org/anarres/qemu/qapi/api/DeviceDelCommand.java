@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=device_del, returns=null, data={id=str}}
-public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.DeviceDelArguments, Void> {
+public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.DeviceDelArguments, DeviceDelCommand.Response> {
 	public static class DeviceDelArguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public DeviceDelCommand(@Nonnull DeviceDelCommand.DeviceDelArguments argument) {
-		super("device_del", new TypeToken<Void>() {}, argument);
+		super("device_del", Response.class, argument);
 	}
 }

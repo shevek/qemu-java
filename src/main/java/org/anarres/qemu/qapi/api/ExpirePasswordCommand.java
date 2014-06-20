@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=expire_password, returns=null, data={protocol=str, time=str}}
-public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.ExpirePasswordArguments, Void> {
+public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.ExpirePasswordArguments, ExpirePasswordCommand.Response> {
 	public static class ExpirePasswordArguments {
 		@SerializedName("protocol")
 		@Nonnull public String protocol;
@@ -17,7 +17,10 @@ public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Exp
 		@Nonnull public String time;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public ExpirePasswordCommand(@Nonnull ExpirePasswordCommand.ExpirePasswordArguments argument) {
-		super("expire_password", new TypeToken<Void>() {}, argument);
+		super("expire_password", Response.class, argument);
 	}
 }

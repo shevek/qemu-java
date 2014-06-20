@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=drive-backup, returns=null, data=DriveBackup}
-public class DriveBackupCommand extends QApiCommand<DriveBackup, Void> {
+public class DriveBackupCommand extends QApiCommand<DriveBackup, DriveBackupCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public DriveBackupCommand(@Nonnull DriveBackup argument) {
-		super("drive-backup", new TypeToken<Void>() {}, argument);
+		super("drive-backup", Response.class, argument);
 	}
 }

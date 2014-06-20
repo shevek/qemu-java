@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block_resize, returns=null, data={*device=str, *node-name=str, size=int}}
-public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.BlockResizeArguments, Void> {
+public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.BlockResizeArguments, BlockResizeCommand.Response> {
 	public static class BlockResizeArguments {
 		@SerializedName("device")
 		@CheckForNull public String device;
@@ -19,7 +19,10 @@ public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.BlockResi
 		@Nonnull public long size;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BlockResizeCommand(@Nonnull BlockResizeCommand.BlockResizeArguments argument) {
-		super("block_resize", new TypeToken<Void>() {}, argument);
+		super("block_resize", Response.class, argument);
 	}
 }

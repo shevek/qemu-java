@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=dump-guest-memory, returns=null, data={paging=bool, protocol=str, *begin=int, *length=int, *format=DumpGuestMemoryFormat}}
-public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.DumpGuestMemoryArguments, Void> {
+public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.DumpGuestMemoryArguments, DumpGuestMemoryCommand.Response> {
 	public static class DumpGuestMemoryArguments {
 		@SerializedName("paging")
 		@Nonnull public boolean paging;
@@ -23,7 +23,10 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.D
 		@CheckForNull public DumpGuestMemoryFormat format;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public DumpGuestMemoryCommand(@Nonnull DumpGuestMemoryCommand.DumpGuestMemoryArguments argument) {
-		super("dump-guest-memory", new TypeToken<Void>() {}, argument);
+		super("dump-guest-memory", Response.class, argument);
 	}
 }

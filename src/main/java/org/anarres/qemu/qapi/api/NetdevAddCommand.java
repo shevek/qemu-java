@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=netdev_add, returns=null, data={type=str, id=str, *props=**}}
-public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.NetdevAddArguments, Void> {
+public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.NetdevAddArguments, NetdevAddCommand.Response> {
 	public static class NetdevAddArguments {
 		@SerializedName("type")
 		@Nonnull public String type;
@@ -19,7 +19,10 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.NetdevAddArgu
 		@CheckForNull public Object props;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public NetdevAddCommand(@Nonnull NetdevAddCommand.NetdevAddArguments argument) {
-		super("netdev_add", new TypeToken<Void>() {}, argument);
+		super("netdev_add", Response.class, argument);
 	}
 }

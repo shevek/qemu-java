@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=transaction, returns=null, data={actions=[TransactionAction]}}
-public class TransactionCommand extends QApiCommand<TransactionCommand.TransactionArguments, Void> {
+public class TransactionCommand extends QApiCommand<TransactionCommand.TransactionArguments, TransactionCommand.Response> {
 	public static class TransactionArguments {
 		@SerializedName("actions")
 		@Nonnull public List<TransactionAction> actions;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public TransactionCommand(@Nonnull TransactionCommand.TransactionArguments argument) {
-		super("transaction", new TypeToken<Void>() {}, argument);
+		super("transaction", Response.class, argument);
 	}
 }

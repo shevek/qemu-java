@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=chardev-add, returns=ChardevReturn, data={id=str, backend=ChardevBackend}}
-public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.ChardevAddArguments, ChardevReturn> {
+public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.ChardevAddArguments, ChardevAddCommand.Response> {
 	public static class ChardevAddArguments {
 		@SerializedName("id")
 		@Nonnull public String id;
@@ -17,7 +17,10 @@ public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.ChardevAddA
 		@Nonnull public ChardevBackend backend;
 	}
 
+	public static class Response extends QApiResponse<ChardevReturn> {
+	}
+
 	public ChardevAddCommand(@Nonnull ChardevAddCommand.ChardevAddArguments argument) {
-		super("chardev-add", new TypeToken<ChardevReturn>() {}, argument);
+		super("chardev-add", Response.class, argument);
 	}
 }

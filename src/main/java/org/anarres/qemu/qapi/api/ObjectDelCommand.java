@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=object-del, returns=null, data={id=str}}
-public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.ObjectDelArguments, Void> {
+public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.ObjectDelArguments, ObjectDelCommand.Response> {
 	public static class ObjectDelArguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public ObjectDelCommand(@Nonnull ObjectDelCommand.ObjectDelArguments argument) {
-		super("object-del", new TypeToken<Void>() {}, argument);
+		super("object-del", Response.class, argument);
 	}
 }

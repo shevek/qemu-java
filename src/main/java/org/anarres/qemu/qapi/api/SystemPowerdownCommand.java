@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=system_powerdown, returns=null, data=null}
-public class SystemPowerdownCommand extends QApiCommand<Void, Void> {
+public class SystemPowerdownCommand extends QApiCommand<Void, SystemPowerdownCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public SystemPowerdownCommand() {
-		super("system_powerdown", new TypeToken<Void>() {}, null);
+		super("system_powerdown", Response.class, null);
 	}
 }

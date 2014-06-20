@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-migrate-cache-size, returns=int, data=null}
-public class QueryMigrateCacheSizeCommand extends QApiCommand<Void, Long> {
+public class QueryMigrateCacheSizeCommand extends QApiCommand<Void, QueryMigrateCacheSizeCommand.Response> {
+
+	public static class Response extends QApiResponse<Long> {
+	}
 
 	public QueryMigrateCacheSizeCommand() {
-		super("query-migrate-cache-size", new TypeToken<Long>() {}, null);
+		super("query-migrate-cache-size", Response.class, null);
 	}
 }

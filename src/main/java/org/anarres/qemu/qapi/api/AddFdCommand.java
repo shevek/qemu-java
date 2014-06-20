@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=add-fd, returns=AddfdInfo, data={*fdset-id=int, *opaque=str}}
-public class AddFdCommand extends QApiCommand<AddFdCommand.AddFdArguments, AddfdInfo> {
+public class AddFdCommand extends QApiCommand<AddFdCommand.AddFdArguments, AddFdCommand.Response> {
 	public static class AddFdArguments {
 		@SerializedName("fdset-id")
 		@CheckForNull public long fdsetId;
@@ -17,7 +17,10 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.AddFdArguments, Addfd
 		@CheckForNull public String opaque;
 	}
 
+	public static class Response extends QApiResponse<AddfdInfo> {
+	}
+
 	public AddFdCommand(@Nonnull AddFdCommand.AddFdArguments argument) {
-		super("add-fd", new TypeToken<AddfdInfo>() {}, argument);
+		super("add-fd", Response.class, argument);
 	}
 }

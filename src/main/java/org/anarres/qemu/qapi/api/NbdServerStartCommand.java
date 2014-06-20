@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=nbd-server-start, returns=null, data={addr=SocketAddress}}
-public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.NbdServerStartArguments, Void> {
+public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.NbdServerStartArguments, NbdServerStartCommand.Response> {
 	public static class NbdServerStartArguments {
 		@SerializedName("addr")
 		@Nonnull public SocketAddress addr;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public NbdServerStartCommand(@Nonnull NbdServerStartCommand.NbdServerStartArguments argument) {
-		super("nbd-server-start", new TypeToken<Void>() {}, argument);
+		super("nbd-server-start", Response.class, argument);
 	}
 }

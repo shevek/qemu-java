@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate, returns=null, data={uri=str, *blk=bool, *inc=bool, *detach=bool}}
-public class MigrateCommand extends QApiCommand<MigrateCommand.MigrateArguments, Void> {
+public class MigrateCommand extends QApiCommand<MigrateCommand.MigrateArguments, MigrateCommand.Response> {
 	public static class MigrateArguments {
 		@SerializedName("uri")
 		@Nonnull public String uri;
@@ -21,7 +21,10 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.MigrateArguments,
 		@CheckForNull public boolean detach;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public MigrateCommand(@Nonnull MigrateCommand.MigrateArguments argument) {
-		super("migrate", new TypeToken<Void>() {}, argument);
+		super("migrate", Response.class, argument);
 	}
 }

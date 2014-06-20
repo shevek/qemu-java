@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-cpu-definitions, returns=[CpuDefinitionInfo], data=null}
-public class QueryCpuDefinitionsCommand extends QApiCommand<Void, List<CpuDefinitionInfo>> {
+public class QueryCpuDefinitionsCommand extends QApiCommand<Void, QueryCpuDefinitionsCommand.Response> {
+
+	public static class Response extends QApiResponse<List<CpuDefinitionInfo>> {
+	}
 
 	public QueryCpuDefinitionsCommand() {
-		super("query-cpu-definitions", new TypeToken<List<CpuDefinitionInfo>>() {}, null);
+		super("query-cpu-definitions", Response.class, null);
 	}
 }

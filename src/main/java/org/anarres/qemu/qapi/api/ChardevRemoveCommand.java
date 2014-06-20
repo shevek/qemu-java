@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=chardev-remove, returns=null, data={id=str}}
-public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.ChardevRemoveArguments, Void> {
+public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.ChardevRemoveArguments, ChardevRemoveCommand.Response> {
 	public static class ChardevRemoveArguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public ChardevRemoveCommand(@Nonnull ChardevRemoveCommand.ChardevRemoveArguments argument) {
-		super("chardev-remove", new TypeToken<Void>() {}, argument);
+		super("chardev-remove", Response.class, argument);
 	}
 }

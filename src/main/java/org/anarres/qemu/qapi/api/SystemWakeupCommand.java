@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=system_wakeup, returns=null, data=null}
-public class SystemWakeupCommand extends QApiCommand<Void, Void> {
+public class SystemWakeupCommand extends QApiCommand<Void, SystemWakeupCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public SystemWakeupCommand() {
-		super("system_wakeup", new TypeToken<Void>() {}, null);
+		super("system_wakeup", Response.class, null);
 	}
 }

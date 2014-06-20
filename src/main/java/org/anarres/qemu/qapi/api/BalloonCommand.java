@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=balloon, returns=null, data={value=int}}
-public class BalloonCommand extends QApiCommand<BalloonCommand.BalloonArguments, Void> {
+public class BalloonCommand extends QApiCommand<BalloonCommand.BalloonArguments, BalloonCommand.Response> {
 	public static class BalloonArguments {
 		@SerializedName("value")
 		@Nonnull public long value;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BalloonCommand(@Nonnull BalloonCommand.BalloonArguments argument) {
-		super("balloon", new TypeToken<Void>() {}, argument);
+		super("balloon", Response.class, argument);
 	}
 }

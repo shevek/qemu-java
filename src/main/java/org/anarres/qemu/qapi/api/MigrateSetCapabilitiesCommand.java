@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate-set-capabilities, returns=null, data={capabilities=[MigrationCapabilityStatus]}}
-public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabilitiesCommand.MigrateSetCapabilitiesArguments, Void> {
+public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabilitiesCommand.MigrateSetCapabilitiesArguments, MigrateSetCapabilitiesCommand.Response> {
 	public static class MigrateSetCapabilitiesArguments {
 		@SerializedName("capabilities")
 		@Nonnull public List<MigrationCapabilityStatus> capabilities;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public MigrateSetCapabilitiesCommand(@Nonnull MigrateSetCapabilitiesCommand.MigrateSetCapabilitiesArguments argument) {
-		super("migrate-set-capabilities", new TypeToken<Void>() {}, argument);
+		super("migrate-set-capabilities", Response.class, argument);
 	}
 }

@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-mice, returns=[MouseInfo], data=null}
-public class QueryMiceCommand extends QApiCommand<Void, List<MouseInfo>> {
+public class QueryMiceCommand extends QApiCommand<Void, QueryMiceCommand.Response> {
+
+	public static class Response extends QApiResponse<List<MouseInfo>> {
+	}
 
 	public QueryMiceCommand() {
-		super("query-mice", new TypeToken<List<MouseInfo>>() {}, null);
+		super("query-mice", Response.class, null);
 	}
 }

@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-tpm-types, returns=[TpmType], data=null}
-public class QueryTpmTypesCommand extends QApiCommand<Void, List<TpmType>> {
+public class QueryTpmTypesCommand extends QApiCommand<Void, QueryTpmTypesCommand.Response> {
+
+	public static class Response extends QApiResponse<List<TpmType>> {
+	}
 
 	public QueryTpmTypesCommand() {
-		super("query-tpm-types", new TypeToken<List<TpmType>>() {}, null);
+		super("query-tpm-types", Response.class, null);
 	}
 }

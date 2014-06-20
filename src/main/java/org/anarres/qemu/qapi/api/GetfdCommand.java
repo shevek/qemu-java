@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=getfd, returns=null, data={fdname=str}}
-public class GetfdCommand extends QApiCommand<GetfdCommand.GetfdArguments, Void> {
+public class GetfdCommand extends QApiCommand<GetfdCommand.GetfdArguments, GetfdCommand.Response> {
 	public static class GetfdArguments {
 		@SerializedName("fdname")
 		@Nonnull public String fdname;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public GetfdCommand(@Nonnull GetfdCommand.GetfdArguments argument) {
-		super("getfd", new TypeToken<Void>() {}, argument);
+		super("getfd", Response.class, argument);
 	}
 }

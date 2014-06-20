@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-pci, returns=[PciInfo], data=null}
-public class QueryPciCommand extends QApiCommand<Void, List<PciInfo>> {
+public class QueryPciCommand extends QApiCommand<Void, QueryPciCommand.Response> {
+
+	public static class Response extends QApiResponse<List<PciInfo>> {
+	}
 
 	public QueryPciCommand() {
-		super("query-pci", new TypeToken<List<PciInfo>>() {}, null);
+		super("query-pci", Response.class, null);
 	}
 }

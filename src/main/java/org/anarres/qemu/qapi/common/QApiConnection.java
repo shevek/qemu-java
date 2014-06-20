@@ -12,7 +12,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.Writer;
-import java.lang.reflect.Type;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.Charset;
@@ -38,6 +37,7 @@ public class QApiConnection implements Closeable {
         this.output = new OutputStreamWriter(socket.getOutputStream(), ISO_8859_1);
         this.input = new InputStreamReader(socket.getInputStream(), ISO_8859_1);
         this.greeting = gson.fromJson(input, QApiGreeting.class);
+        invoke(new QmpCapabilitiesCommand());
     }
 
     public QApiConnection(@Nonnull InetSocketAddress address) throws IOException {
@@ -49,12 +49,15 @@ public class QApiConnection implements Closeable {
         return greeting;
     }
 
-    @CheckForNull
-    public <Argument, Response> Response invoke(@Nonnull QApiCommand<Argument, Response> command) {
+    @Nonnull
+    public QApiGreeting.QEmuVersion getQEmuVersion() {
+        return getGreeting().QMP.version.qemu;
+    }
+
+    @Nonnull
+    public <Argument, Response extends QApiResponse<?>> Response invoke(@Nonnull QApiCommand<Argument, Response> command) {
         gson.toJson(command, output);
-        Type returnType = command.getReturnType();
-        if (returnType == Void.class)
-            return null;
+        Class<Response> returnType = command.getReturnType();
         return gson.fromJson(input, returnType);
     }
 

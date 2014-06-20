@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=qom-list-types, returns=[ObjectTypeInfo], data={*implements=str, *abstract=bool}}
-public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.QomListTypesArguments, List<ObjectTypeInfo>> {
+public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.QomListTypesArguments, QomListTypesCommand.Response> {
 	public static class QomListTypesArguments {
 		@SerializedName("implements")
 		@CheckForNull public String _implements;
@@ -17,7 +17,10 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.QomList
 		@CheckForNull public boolean _abstract;
 	}
 
+	public static class Response extends QApiResponse<List<ObjectTypeInfo>> {
+	}
+
 	public QomListTypesCommand(@Nonnull QomListTypesCommand.QomListTypesArguments argument) {
-		super("qom-list-types", new TypeToken<List<ObjectTypeInfo>>() {}, argument);
+		super("qom-list-types", Response.class, argument);
 	}
 }

@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=set_link, returns=null, data={name=str, up=bool}}
-public class SetLinkCommand extends QApiCommand<SetLinkCommand.SetLinkArguments, Void> {
+public class SetLinkCommand extends QApiCommand<SetLinkCommand.SetLinkArguments, SetLinkCommand.Response> {
 	public static class SetLinkArguments {
 		@SerializedName("name")
 		@Nonnull public String name;
@@ -17,7 +17,10 @@ public class SetLinkCommand extends QApiCommand<SetLinkCommand.SetLinkArguments,
 		@Nonnull public boolean up;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public SetLinkCommand(@Nonnull SetLinkCommand.SetLinkArguments argument) {
-		super("set_link", new TypeToken<Void>() {}, argument);
+		super("set_link", Response.class, argument);
 	}
 }

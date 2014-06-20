@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=blockdev-snapshot-delete-internal-sync, returns=SnapshotInfo, data={device=str, *id=str, *name=str}}
-public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<BlockdevSnapshotDeleteInternalSyncCommand.BlockdevSnapshotDeleteInternalSyncArguments, SnapshotInfo> {
+public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<BlockdevSnapshotDeleteInternalSyncCommand.BlockdevSnapshotDeleteInternalSyncArguments, BlockdevSnapshotDeleteInternalSyncCommand.Response> {
 	public static class BlockdevSnapshotDeleteInternalSyncArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -19,7 +19,10 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 		@CheckForNull public String name;
 	}
 
+	public static class Response extends QApiResponse<SnapshotInfo> {
+	}
+
 	public BlockdevSnapshotDeleteInternalSyncCommand(@Nonnull BlockdevSnapshotDeleteInternalSyncCommand.BlockdevSnapshotDeleteInternalSyncArguments argument) {
-		super("blockdev-snapshot-delete-internal-sync", new TypeToken<SnapshotInfo>() {}, argument);
+		super("blockdev-snapshot-delete-internal-sync", Response.class, argument);
 	}
 }

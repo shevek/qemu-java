@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // $element
-public class $element.className extends QApiCommand<$element.argumentTypeNameWrapped, $element.returnTypeNameWrapped> {
+public class $element.className extends QApiCommand<$element.argumentTypeNameWrapped, ${element.className}.Response> {
 #if ($element.argumentType)
 	public static class $element.argumentType.className {
 #foreach ($field in $element.argumentType.fields)
@@ -19,7 +19,10 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	}
 #end
 
+	public static class Response extends QApiResponse<$element.returnTypeNameWrapped> {
+	}
+
 	public ${element.className}(#{if} ($element.argumentTypeName)@Nonnull $element.argumentTypeName argument#{end}) {
-		super("$element.name", new TypeToken<$element.returnTypeNameWrapped>() {}, #{if} ($element.argumentTypeName)argument#{else}null#{end});
+		super("$element.name", Response.class, #{if} ($element.argumentTypeName)argument#{else}null#{end});
 	}
 }

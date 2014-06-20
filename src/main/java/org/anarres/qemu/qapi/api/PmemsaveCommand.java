@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=pmemsave, returns=null, data={val=int, size=int, filename=str}}
-public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.PmemsaveArguments, Void> {
+public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.PmemsaveArguments, PmemsaveCommand.Response> {
 	public static class PmemsaveArguments {
 		@SerializedName("val")
 		@Nonnull public long val;
@@ -19,7 +19,10 @@ public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.PmemsaveArgumen
 		@Nonnull public String filename;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public PmemsaveCommand(@Nonnull PmemsaveCommand.PmemsaveArguments argument) {
-		super("pmemsave", new TypeToken<Void>() {}, argument);
+		super("pmemsave", Response.class, argument);
 	}
 }

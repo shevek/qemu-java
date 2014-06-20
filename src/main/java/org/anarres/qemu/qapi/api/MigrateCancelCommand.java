@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate_cancel, returns=null, data=null}
-public class MigrateCancelCommand extends QApiCommand<Void, Void> {
+public class MigrateCancelCommand extends QApiCommand<Void, MigrateCancelCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public MigrateCancelCommand() {
-		super("migrate_cancel", new TypeToken<Void>() {}, null);
+		super("migrate_cancel", Response.class, null);
 	}
 }

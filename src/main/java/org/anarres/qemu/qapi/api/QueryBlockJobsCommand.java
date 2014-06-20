@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-block-jobs, returns=[BlockJobInfo], data=null}
-public class QueryBlockJobsCommand extends QApiCommand<Void, List<BlockJobInfo>> {
+public class QueryBlockJobsCommand extends QApiCommand<Void, QueryBlockJobsCommand.Response> {
+
+	public static class Response extends QApiResponse<List<BlockJobInfo>> {
+	}
 
 	public QueryBlockJobsCommand() {
-		super("query-block-jobs", new TypeToken<List<BlockJobInfo>>() {}, null);
+		super("query-block-jobs", Response.class, null);
 	}
 }

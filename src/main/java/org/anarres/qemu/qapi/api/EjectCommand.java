@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=eject, returns=null, data={device=str, *force=bool}}
-public class EjectCommand extends QApiCommand<EjectCommand.EjectArguments, Void> {
+public class EjectCommand extends QApiCommand<EjectCommand.EjectArguments, EjectCommand.Response> {
 	public static class EjectArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -17,7 +17,10 @@ public class EjectCommand extends QApiCommand<EjectCommand.EjectArguments, Void>
 		@CheckForNull public boolean force;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public EjectCommand(@Nonnull EjectCommand.EjectArguments argument) {
-		super("eject", new TypeToken<Void>() {}, argument);
+		super("eject", Response.class, argument);
 	}
 }

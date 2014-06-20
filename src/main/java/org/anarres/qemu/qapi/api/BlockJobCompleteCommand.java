@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-job-complete, returns=null, data={device=str}}
-public class BlockJobCompleteCommand extends QApiCommand<BlockJobCompleteCommand.BlockJobCompleteArguments, Void> {
+public class BlockJobCompleteCommand extends QApiCommand<BlockJobCompleteCommand.BlockJobCompleteArguments, BlockJobCompleteCommand.Response> {
 	public static class BlockJobCompleteArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BlockJobCompleteCommand(@Nonnull BlockJobCompleteCommand.BlockJobCompleteArguments argument) {
-		super("block-job-complete", new TypeToken<Void>() {}, argument);
+		super("block-job-complete", Response.class, argument);
 	}
 }

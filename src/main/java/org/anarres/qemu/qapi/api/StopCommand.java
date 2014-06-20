@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=stop, returns=null, data=null}
-public class StopCommand extends QApiCommand<Void, Void> {
+public class StopCommand extends QApiCommand<Void, StopCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public StopCommand() {
-		super("stop", new TypeToken<Void>() {}, null);
+		super("stop", Response.class, null);
 	}
 }

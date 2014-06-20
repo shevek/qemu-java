@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-dump-guest-memory-capability, returns=DumpGuestMemoryCapability, data=null}
-public class QueryDumpGuestMemoryCapabilityCommand extends QApiCommand<Void, DumpGuestMemoryCapability> {
+public class QueryDumpGuestMemoryCapabilityCommand extends QApiCommand<Void, QueryDumpGuestMemoryCapabilityCommand.Response> {
+
+	public static class Response extends QApiResponse<DumpGuestMemoryCapability> {
+	}
 
 	public QueryDumpGuestMemoryCapabilityCommand() {
-		super("query-dump-guest-memory-capability", new TypeToken<DumpGuestMemoryCapability>() {}, null);
+		super("query-dump-guest-memory-capability", Response.class, null);
 	}
 }

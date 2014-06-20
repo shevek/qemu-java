@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=qom-set, returns=null, data={path=str, property=str, value=visitor}}
-public class QomSetCommand extends QApiCommand<QomSetCommand.QomSetArguments, Void> {
+public class QomSetCommand extends QApiCommand<QomSetCommand.QomSetArguments, QomSetCommand.Response> {
 	public static class QomSetArguments {
 		@SerializedName("path")
 		@Nonnull public String path;
@@ -19,7 +19,10 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.QomSetArguments, Vo
 		@Nonnull public Object value;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public QomSetCommand(@Nonnull QomSetCommand.QomSetArguments argument) {
-		super("qom-set", new TypeToken<Void>() {}, argument);
+		super("qom-set", Response.class, argument);
 	}
 }

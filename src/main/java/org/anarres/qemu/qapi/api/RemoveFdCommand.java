@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=remove-fd, returns=null, data={fdset-id=int, *fd=int}}
-public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.RemoveFdArguments, Void> {
+public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.RemoveFdArguments, RemoveFdCommand.Response> {
 	public static class RemoveFdArguments {
 		@SerializedName("fdset-id")
 		@Nonnull public long fdsetId;
@@ -17,7 +17,10 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.RemoveFdArgumen
 		@CheckForNull public long fd;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public RemoveFdCommand(@Nonnull RemoveFdCommand.RemoveFdArguments argument) {
-		super("remove-fd", new TypeToken<Void>() {}, argument);
+		super("remove-fd", Response.class, argument);
 	}
 }

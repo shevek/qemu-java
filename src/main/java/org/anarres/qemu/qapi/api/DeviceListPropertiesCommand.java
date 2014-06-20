@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=device-list-properties, returns=[DevicePropertyInfo], data={typename=str}}
-public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.DeviceListPropertiesArguments, List<DevicePropertyInfo>> {
+public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.DeviceListPropertiesArguments, DeviceListPropertiesCommand.Response> {
 	public static class DeviceListPropertiesArguments {
 		@SerializedName("typename")
 		@Nonnull public String typename;
 	}
 
+	public static class Response extends QApiResponse<List<DevicePropertyInfo>> {
+	}
+
 	public DeviceListPropertiesCommand(@Nonnull DeviceListPropertiesCommand.DeviceListPropertiesArguments argument) {
-		super("device-list-properties", new TypeToken<List<DevicePropertyInfo>>() {}, argument);
+		super("device-list-properties", Response.class, argument);
 	}
 }

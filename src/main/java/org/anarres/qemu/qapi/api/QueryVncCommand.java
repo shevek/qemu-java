@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-vnc, returns=VncInfo, data=null}
-public class QueryVncCommand extends QApiCommand<Void, VncInfo> {
+public class QueryVncCommand extends QApiCommand<Void, QueryVncCommand.Response> {
+
+	public static class Response extends QApiResponse<VncInfo> {
+	}
 
 	public QueryVncCommand() {
-		super("query-vnc", new TypeToken<VncInfo>() {}, null);
+		super("query-vnc", Response.class, null);
 	}
 }

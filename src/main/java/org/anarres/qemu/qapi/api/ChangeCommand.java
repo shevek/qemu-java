@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=change, returns=null, data={device=str, target=str, *arg=str}}
-public class ChangeCommand extends QApiCommand<ChangeCommand.ChangeArguments, Void> {
+public class ChangeCommand extends QApiCommand<ChangeCommand.ChangeArguments, ChangeCommand.Response> {
 	public static class ChangeArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -19,7 +19,10 @@ public class ChangeCommand extends QApiCommand<ChangeCommand.ChangeArguments, Vo
 		@CheckForNull public String arg;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public ChangeCommand(@Nonnull ChangeCommand.ChangeArguments argument) {
-		super("change", new TypeToken<Void>() {}, argument);
+		super("change", Response.class, argument);
 	}
 }

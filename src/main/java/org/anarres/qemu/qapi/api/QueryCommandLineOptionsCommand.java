@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-command-line-options, returns=[CommandLineOptionInfo], data={*option=str}}
-public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.QueryCommandLineOptionsArguments, List<CommandLineOptionInfo>> {
+public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.QueryCommandLineOptionsArguments, QueryCommandLineOptionsCommand.Response> {
 	public static class QueryCommandLineOptionsArguments {
 		@SerializedName("option")
 		@CheckForNull public String option;
 	}
 
+	public static class Response extends QApiResponse<List<CommandLineOptionInfo>> {
+	}
+
 	public QueryCommandLineOptionsCommand(@Nonnull QueryCommandLineOptionsCommand.QueryCommandLineOptionsArguments argument) {
-		super("query-command-line-options", new TypeToken<List<CommandLineOptionInfo>>() {}, argument);
+		super("query-command-line-options", Response.class, argument);
 	}
 }

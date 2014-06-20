@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=cpu, returns=null, data={index=int}}
-public class CpuCommand extends QApiCommand<CpuCommand.CpuArguments, Void> {
+public class CpuCommand extends QApiCommand<CpuCommand.CpuArguments, CpuCommand.Response> {
 	public static class CpuArguments {
 		@SerializedName("index")
 		@Nonnull public long index;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public CpuCommand(@Nonnull CpuCommand.CpuArguments argument) {
-		super("cpu", new TypeToken<Void>() {}, argument);
+		super("cpu", Response.class, argument);
 	}
 }

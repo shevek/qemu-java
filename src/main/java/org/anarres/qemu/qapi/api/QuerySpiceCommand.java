@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-spice, returns=SpiceInfo, data=null}
-public class QuerySpiceCommand extends QApiCommand<Void, SpiceInfo> {
+public class QuerySpiceCommand extends QApiCommand<Void, QuerySpiceCommand.Response> {
+
+	public static class Response extends QApiResponse<SpiceInfo> {
+	}
 
 	public QuerySpiceCommand() {
-		super("query-spice", new TypeToken<SpiceInfo>() {}, null);
+		super("query-spice", Response.class, null);
 	}
 }

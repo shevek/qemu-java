@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-job-set-speed, returns=null, data={device=str, speed=int}}
-public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand.BlockJobSetSpeedArguments, Void> {
+public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand.BlockJobSetSpeedArguments, BlockJobSetSpeedCommand.Response> {
 	public static class BlockJobSetSpeedArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -17,7 +17,10 @@ public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand
 		@Nonnull public long speed;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BlockJobSetSpeedCommand(@Nonnull BlockJobSetSpeedCommand.BlockJobSetSpeedArguments argument) {
-		super("block-job-set-speed", new TypeToken<Void>() {}, argument);
+		super("block-job-set-speed", Response.class, argument);
 	}
 }

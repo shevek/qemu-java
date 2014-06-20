@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-balloon, returns=BalloonInfo, data=null}
-public class QueryBalloonCommand extends QApiCommand<Void, BalloonInfo> {
+public class QueryBalloonCommand extends QApiCommand<Void, QueryBalloonCommand.Response> {
+
+	public static class Response extends QApiResponse<BalloonInfo> {
+	}
 
 	public QueryBalloonCommand() {
-		super("query-balloon", new TypeToken<BalloonInfo>() {}, null);
+		super("query-balloon", Response.class, null);
 	}
 }

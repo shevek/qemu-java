@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-commit, returns=null, data={device=str, *base=str, top=str, *speed=int}}
-public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.BlockCommitArguments, Void> {
+public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.BlockCommitArguments, BlockCommitCommand.Response> {
 	public static class BlockCommitArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -21,7 +21,10 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.BlockComm
 		@CheckForNull public long speed;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BlockCommitCommand(@Nonnull BlockCommitCommand.BlockCommitArguments argument) {
-		super("block-commit", new TypeToken<Void>() {}, argument);
+		super("block-commit", Response.class, argument);
 	}
 }

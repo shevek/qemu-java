@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=qom-list, returns=[ObjectPropertyInfo], data={path=str}}
-public class QomListCommand extends QApiCommand<QomListCommand.QomListArguments, List<ObjectPropertyInfo>> {
+public class QomListCommand extends QApiCommand<QomListCommand.QomListArguments, QomListCommand.Response> {
 	public static class QomListArguments {
 		@SerializedName("path")
 		@Nonnull public String path;
 	}
 
+	public static class Response extends QApiResponse<List<ObjectPropertyInfo>> {
+	}
+
 	public QomListCommand(@Nonnull QomListCommand.QomListArguments argument) {
-		super("qom-list", new TypeToken<List<ObjectPropertyInfo>>() {}, argument);
+		super("qom-list", Response.class, argument);
 	}
 }

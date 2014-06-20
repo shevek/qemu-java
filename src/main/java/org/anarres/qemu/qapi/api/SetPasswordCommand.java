@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=set_password, returns=null, data={protocol=str, password=str, *connected=str}}
-public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.SetPasswordArguments, Void> {
+public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.SetPasswordArguments, SetPasswordCommand.Response> {
 	public static class SetPasswordArguments {
 		@SerializedName("protocol")
 		@Nonnull public String protocol;
@@ -19,7 +19,10 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.SetPasswo
 		@CheckForNull public String connected;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public SetPasswordCommand(@Nonnull SetPasswordCommand.SetPasswordArguments argument) {
-		super("set_password", new TypeToken<Void>() {}, argument);
+		super("set_password", Response.class, argument);
 	}
 }

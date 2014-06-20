@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=add_client, returns=null, data={protocol=str, fdname=str, *skipauth=bool, *tls=bool}}
-public class AddClientCommand extends QApiCommand<AddClientCommand.AddClientArguments, Void> {
+public class AddClientCommand extends QApiCommand<AddClientCommand.AddClientArguments, AddClientCommand.Response> {
 	public static class AddClientArguments {
 		@SerializedName("protocol")
 		@Nonnull public String protocol;
@@ -21,7 +21,10 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.AddClientArgu
 		@CheckForNull public boolean tls;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public AddClientCommand(@Nonnull AddClientCommand.AddClientArguments argument) {
-		super("add_client", new TypeToken<Void>() {}, argument);
+		super("add_client", Response.class, argument);
 	}
 }

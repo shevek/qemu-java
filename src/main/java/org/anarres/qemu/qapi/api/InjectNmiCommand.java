@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=inject-nmi, returns=null, data=null}
-public class InjectNmiCommand extends QApiCommand<Void, Void> {
+public class InjectNmiCommand extends QApiCommand<Void, InjectNmiCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public InjectNmiCommand() {
-		super("inject-nmi", new TypeToken<Void>() {}, null);
+		super("inject-nmi", Response.class, null);
 	}
 }

@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=drive-mirror, returns=null, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *granularity=uint32, *buf-size=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}}
-public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.DriveMirrorArguments, Void> {
+public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.DriveMirrorArguments, DriveMirrorCommand.Response> {
 	public static class DriveMirrorArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
@@ -33,7 +33,10 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.DriveMirr
 		@CheckForNull public BlockdevOnError onTargetError;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public DriveMirrorCommand(@Nonnull DriveMirrorCommand.DriveMirrorArguments argument) {
-		super("drive-mirror", new TypeToken<Void>() {}, argument);
+		super("drive-mirror", Response.class, argument);
 	}
 }

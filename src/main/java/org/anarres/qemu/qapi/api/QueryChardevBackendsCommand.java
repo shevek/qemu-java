@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-chardev-backends, returns=[ChardevBackendInfo], data=null}
-public class QueryChardevBackendsCommand extends QApiCommand<Void, List<ChardevBackendInfo>> {
+public class QueryChardevBackendsCommand extends QApiCommand<Void, QueryChardevBackendsCommand.Response> {
+
+	public static class Response extends QApiResponse<List<ChardevBackendInfo>> {
+	}
 
 	public QueryChardevBackendsCommand() {
-		super("query-chardev-backends", new TypeToken<List<ChardevBackendInfo>>() {}, null);
+		super("query-chardev-backends", Response.class, null);
 	}
 }

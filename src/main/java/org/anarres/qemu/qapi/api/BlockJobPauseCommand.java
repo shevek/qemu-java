@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-job-pause, returns=null, data={device=str}}
-public class BlockJobPauseCommand extends QApiCommand<BlockJobPauseCommand.BlockJobPauseArguments, Void> {
+public class BlockJobPauseCommand extends QApiCommand<BlockJobPauseCommand.BlockJobPauseArguments, BlockJobPauseCommand.Response> {
 	public static class BlockJobPauseArguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public BlockJobPauseCommand(@Nonnull BlockJobPauseCommand.BlockJobPauseArguments argument) {
-		super("block-job-pause", new TypeToken<Void>() {}, argument);
+		super("block-job-pause", Response.class, argument);
 	}
 }

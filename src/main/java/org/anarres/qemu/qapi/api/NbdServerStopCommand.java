@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=nbd-server-stop, returns=null, data=null}
-public class NbdServerStopCommand extends QApiCommand<Void, Void> {
+public class NbdServerStopCommand extends QApiCommand<Void, NbdServerStopCommand.Response> {
+
+	public static class Response extends QApiResponse<Void> {
+	}
 
 	public NbdServerStopCommand() {
-		super("nbd-server-stop", new TypeToken<Void>() {}, null);
+		super("nbd-server-stop", Response.class, null);
 	}
 }

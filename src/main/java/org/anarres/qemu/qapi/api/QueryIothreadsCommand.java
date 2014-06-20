@@ -9,9 +9,12 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-iothreads, returns=[IOThreadInfo], data=null}
-public class QueryIothreadsCommand extends QApiCommand<Void, List<IOThreadInfo>> {
+public class QueryIothreadsCommand extends QApiCommand<Void, QueryIothreadsCommand.Response> {
+
+	public static class Response extends QApiResponse<List<IOThreadInfo>> {
+	}
 
 	public QueryIothreadsCommand() {
-		super("query-iothreads", new TypeToken<List<IOThreadInfo>>() {}, null);
+		super("query-iothreads", Response.class, null);
 	}
 }

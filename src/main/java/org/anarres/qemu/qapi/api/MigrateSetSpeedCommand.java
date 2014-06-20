@@ -9,13 +9,16 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate_set_speed, returns=null, data={value=int}}
-public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.MigrateSetSpeedArguments, Void> {
+public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.MigrateSetSpeedArguments, MigrateSetSpeedCommand.Response> {
 	public static class MigrateSetSpeedArguments {
 		@SerializedName("value")
 		@Nonnull public long value;
 	}
 
+	public static class Response extends QApiResponse<Void> {
+	}
+
 	public MigrateSetSpeedCommand(@Nonnull MigrateSetSpeedCommand.MigrateSetSpeedArguments argument) {
-		super("migrate_set_speed", new TypeToken<Void>() {}, argument);
+		super("migrate_set_speed", Response.class, argument);
 	}
 }
