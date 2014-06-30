@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=NetdevTapOptions, data={*ifname=str, *fd=str, *fds=str, *script=str, *downscript=str, *helper=str, *sndbuf=size, *vnet_hdr=bool, *vhost=bool, *vhostfd=str, *vhostfds=str, *vhostforce=bool, *queues=uint32}, innerTypes=null}
 public class NetdevTapOptions extends QApiType {
 

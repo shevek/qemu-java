@@ -22,6 +22,7 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.generator.model.QApiCommandDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiElementDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiEnumDescriptor;
+import org.anarres.qemu.qapi.generator.model.QApiEventDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiIncludeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiTypeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiUnionDescriptor;
@@ -87,6 +88,8 @@ public class SchemaParser {
                     type = QApiEnumDescriptor.class;
                 else if (jsonTree.get("union") != null)
                     type = QApiUnionDescriptor.class;
+                else if (jsonTree.get("event") != null)
+                    type = QApiEventDescriptor.class;
                 else if (jsonTree.get("include") != null)
                     type = QApiIncludeDescriptor.class;
                 else

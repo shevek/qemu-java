@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockdevOptionsVVFAT, data={dir=str, *fat-type=int, *floppy=bool, *rw=bool}, innerTypes=null}
 public class BlockdevOptionsVVFAT extends QApiType {
 

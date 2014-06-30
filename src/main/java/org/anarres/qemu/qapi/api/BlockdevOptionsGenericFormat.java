@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockdevOptionsGenericFormat, data={file=BlockdevRef}, innerTypes=null}
 public class BlockdevOptionsGenericFormat extends QApiType {
 

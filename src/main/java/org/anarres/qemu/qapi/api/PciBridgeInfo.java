@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=PciBridgeInfo, data={bus={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, *devices=[PciDeviceInfo]}, innerTypes=null}
 public class PciBridgeInfo extends QApiType {
 	// QApiTypeDescriptor{name=_Tbus, data={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, innerTypes=[]}

@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=closefd, returns=null, data={fdname=str}}
-public class ClosefdCommand extends QApiCommand<ClosefdCommand.ClosefdArguments, ClosefdCommand.Response> {
-	public static class ClosefdArguments {
+public class ClosefdCommand extends QApiCommand<ClosefdCommand.Arguments, ClosefdCommand.Response> {
+	public static class Arguments {
 		@SerializedName("fdname")
 		@Nonnull public String fdname;
 	}
@@ -18,7 +18,7 @@ public class ClosefdCommand extends QApiCommand<ClosefdCommand.ClosefdArguments,
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public ClosefdCommand(@Nonnull ClosefdCommand.ClosefdArguments argument) {
+	public ClosefdCommand(@Nonnull ClosefdCommand.Arguments argument) {
 		super("closefd", Response.class, argument);
 	}
 }

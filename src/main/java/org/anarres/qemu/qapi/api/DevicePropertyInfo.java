@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=DevicePropertyInfo, data={name=str, type=str}, innerTypes=null}
 public class DevicePropertyInfo extends QApiType {
 

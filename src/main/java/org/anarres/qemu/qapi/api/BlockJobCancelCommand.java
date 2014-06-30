@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-job-cancel, returns=null, data={device=str, *force=bool}}
-public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.BlockJobCancelArguments, BlockJobCancelCommand.Response> {
-	public static class BlockJobCancelArguments {
+public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arguments, BlockJobCancelCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("force")
@@ -20,7 +20,7 @@ public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Blo
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public BlockJobCancelCommand(@Nonnull BlockJobCancelCommand.BlockJobCancelArguments argument) {
+	public BlockJobCancelCommand(@Nonnull BlockJobCancelCommand.Arguments argument) {
 		super("block-job-cancel", Response.class, argument);
 	}
 }

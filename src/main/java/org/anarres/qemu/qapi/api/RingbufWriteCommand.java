@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=ringbuf-write, returns=null, data={device=str, data=str, *format=DataFormat}}
-public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.RingbufWriteArguments, RingbufWriteCommand.Response> {
-	public static class RingbufWriteArguments {
+public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Arguments, RingbufWriteCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("data")
@@ -22,7 +22,7 @@ public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Ringbuf
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public RingbufWriteCommand(@Nonnull RingbufWriteCommand.RingbufWriteArguments argument) {
+	public RingbufWriteCommand(@Nonnull RingbufWriteCommand.Arguments argument) {
 		super("ringbuf-write", Response.class, argument);
 	}
 }

@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=device-list-properties, returns=[DevicePropertyInfo], data={typename=str}}
-public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.DeviceListPropertiesArguments, DeviceListPropertiesCommand.Response> {
-	public static class DeviceListPropertiesArguments {
+public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.Arguments, DeviceListPropertiesCommand.Response> {
+	public static class Arguments {
 		@SerializedName("typename")
 		@Nonnull public String typename;
 	}
@@ -18,7 +18,7 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 	public static class Response extends QApiResponse<List<DevicePropertyInfo>> {
 	}
 
-	public DeviceListPropertiesCommand(@Nonnull DeviceListPropertiesCommand.DeviceListPropertiesArguments argument) {
+	public DeviceListPropertiesCommand(@Nonnull DeviceListPropertiesCommand.Arguments argument) {
 		super("device-list-properties", Response.class, argument);
 	}
 }

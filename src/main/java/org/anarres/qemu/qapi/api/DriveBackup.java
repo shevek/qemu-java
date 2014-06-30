@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=DriveBackup, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}, innerTypes=null}
 public class DriveBackup extends QApiType {
 

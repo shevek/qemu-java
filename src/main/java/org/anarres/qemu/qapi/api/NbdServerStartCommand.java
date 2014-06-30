@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=nbd-server-start, returns=null, data={addr=SocketAddress}}
-public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.NbdServerStartArguments, NbdServerStartCommand.Response> {
-	public static class NbdServerStartArguments {
+public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Arguments, NbdServerStartCommand.Response> {
+	public static class Arguments {
 		@SerializedName("addr")
 		@Nonnull public SocketAddress addr;
 	}
@@ -18,7 +18,7 @@ public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Nbd
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public NbdServerStartCommand(@Nonnull NbdServerStartCommand.NbdServerStartArguments argument) {
+	public NbdServerStartCommand(@Nonnull NbdServerStartCommand.Arguments argument) {
 		super("nbd-server-start", Response.class, argument);
 	}
 }

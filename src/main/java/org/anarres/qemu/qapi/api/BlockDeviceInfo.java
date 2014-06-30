@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockDeviceInfo, data={file=str, *node-name=str, ro=bool, drv=str, *backing_file=str, backing_file_depth=int, encrypted=bool, encryption_key_missing=bool, detect_zeroes=BlockdevDetectZeroesOptions, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, image=ImageInfo, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}, innerTypes=null}
 public class BlockDeviceInfo extends QApiType {
 

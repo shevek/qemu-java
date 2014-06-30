@@ -7,7 +7,7 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
-// QApiUnionDescriptor{name=NetClientOptions, data={none=NetdevNoneOptions, nic=NetLegacyNicOptions, user=NetdevUserOptions, tap=NetdevTapOptions, socket=NetdevSocketOptions, vde=NetdevVdeOptions, dump=NetdevDumpOptions, bridge=NetdevBridgeOptions, hubport=NetdevHubPortOptions, netmap=NetdevNetmapOptions}, innerTypes=null, fields=null}
+// QApiUnionDescriptor{name=NetClientOptions, data={none=NetdevNoneOptions, nic=NetLegacyNicOptions, user=NetdevUserOptions, tap=NetdevTapOptions, l2tpv3=NetdevL2TPv3Options, socket=NetdevSocketOptions, vde=NetdevVdeOptions, dump=NetdevDumpOptions, bridge=NetdevBridgeOptions, hubport=NetdevHubPortOptions, netmap=NetdevNetmapOptions, vhost-user=NetdevVhostUserOptions}, innerTypes=null, fields=null}
 public class NetClientOptions extends QApiUnion {
 	@SerializedName("none")
 	@Nonnull public NetdevNoneOptions none;
@@ -17,6 +17,8 @@ public class NetClientOptions extends QApiUnion {
 	@Nonnull public NetdevUserOptions user;
 	@SerializedName("tap")
 	@Nonnull public NetdevTapOptions tap;
+	@SerializedName("l2tpv3")
+	@Nonnull public NetdevL2TPv3Options l2tpv3;
 	@SerializedName("socket")
 	@Nonnull public NetdevSocketOptions socket;
 	@SerializedName("vde")
@@ -29,6 +31,8 @@ public class NetClientOptions extends QApiUnion {
 	@Nonnull public NetdevHubPortOptions hubport;
 	@SerializedName("netmap")
 	@Nonnull public NetdevNetmapOptions netmap;
+	@SerializedName("vhost-user")
+	@Nonnull public NetdevVhostUserOptions vhostUser;
 
 	@Override
 	public boolean isUnion() {
@@ -41,6 +45,8 @@ public class NetClientOptions extends QApiUnion {
 			count++;
 		if (tap != null)
 			count++;
+		if (l2tpv3 != null)
+			count++;
 		if (socket != null)
 			count++;
 		if (vde != null)
@@ -52,6 +58,8 @@ public class NetClientOptions extends QApiUnion {
 		if (hubport != null)
 			count++;
 		if (netmap != null)
+			count++;
+		if (vhostUser != null)
 			count++;
 		return (count == 1);
 	}

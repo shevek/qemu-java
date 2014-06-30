@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=NetdevDumpOptions, data={*len=size, *file=str}, innerTypes=null}
 public class NetdevDumpOptions extends QApiType {
 

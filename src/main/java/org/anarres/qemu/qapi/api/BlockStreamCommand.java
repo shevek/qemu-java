@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block-stream, returns=null, data={device=str, *base=str, *speed=int, *on-error=BlockdevOnError}}
-public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.BlockStreamArguments, BlockStreamCommand.Response> {
-	public static class BlockStreamArguments {
+public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments, BlockStreamCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("base")
@@ -24,7 +24,7 @@ public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.BlockStre
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public BlockStreamCommand(@Nonnull BlockStreamCommand.BlockStreamArguments argument) {
+	public BlockStreamCommand(@Nonnull BlockStreamCommand.Arguments argument) {
 		super("block-stream", Response.class, argument);
 	}
 }

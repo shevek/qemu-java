@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=chardev-add, returns=ChardevReturn, data={id=str, backend=ChardevBackend}}
-public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.ChardevAddArguments, ChardevAddCommand.Response> {
-	public static class ChardevAddArguments {
+public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.Arguments, ChardevAddCommand.Response> {
+	public static class Arguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 		@SerializedName("backend")
@@ -20,7 +20,7 @@ public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.ChardevAddA
 	public static class Response extends QApiResponse<ChardevReturn> {
 	}
 
-	public ChardevAddCommand(@Nonnull ChardevAddCommand.ChardevAddArguments argument) {
+	public ChardevAddCommand(@Nonnull ChardevAddCommand.Arguments argument) {
 		super("chardev-add", Response.class, argument);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=NetdevVdeOptions, data={*sock=str, *port=uint16, *group=str, *mode=uint16}, innerTypes=null}
 public class NetdevVdeOptions extends QApiType {
 

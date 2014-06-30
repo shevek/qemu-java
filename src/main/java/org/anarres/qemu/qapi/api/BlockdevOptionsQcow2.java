@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockdevOptionsQcow2, data={*lazy-refcounts=bool, *pass-discard-request=bool, *pass-discard-snapshot=bool, *pass-discard-other=bool}, innerTypes=null}
 public class BlockdevOptionsQcow2 extends QApiType {
 

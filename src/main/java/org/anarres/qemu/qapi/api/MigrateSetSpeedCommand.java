@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate_set_speed, returns=null, data={value=int}}
-public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.MigrateSetSpeedArguments, MigrateSetSpeedCommand.Response> {
-	public static class MigrateSetSpeedArguments {
+public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.Arguments, MigrateSetSpeedCommand.Response> {
+	public static class Arguments {
 		@SerializedName("value")
 		@Nonnull public long value;
 	}
@@ -18,7 +18,7 @@ public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.M
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public MigrateSetSpeedCommand(@Nonnull MigrateSetSpeedCommand.MigrateSetSpeedArguments argument) {
+	public MigrateSetSpeedCommand(@Nonnull MigrateSetSpeedCommand.Arguments argument) {
 		super("migrate_set_speed", Response.class, argument);
 	}
 }

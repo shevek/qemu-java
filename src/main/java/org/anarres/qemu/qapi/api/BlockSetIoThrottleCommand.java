@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block_set_io_throttle, returns=null, data={device=str, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}}
-public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCommand.BlockSetIoThrottleArguments, BlockSetIoThrottleCommand.Response> {
-	public static class BlockSetIoThrottleArguments {
+public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCommand.Arguments, BlockSetIoThrottleCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("bps")
@@ -44,7 +44,7 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public BlockSetIoThrottleCommand(@Nonnull BlockSetIoThrottleCommand.BlockSetIoThrottleArguments argument) {
+	public BlockSetIoThrottleCommand(@Nonnull BlockSetIoThrottleCommand.Arguments argument) {
 		super("block_set_io_throttle", Response.class, argument);
 	}
 }

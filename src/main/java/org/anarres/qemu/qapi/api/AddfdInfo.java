@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=AddfdInfo, data={fdset-id=int, fd=int}, innerTypes=null}
 public class AddfdInfo extends QApiType {
 

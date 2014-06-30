@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=PciInfo, data={bus=int, devices=[PciDeviceInfo]}, innerTypes=null}
 public class PciInfo extends QApiType {
 

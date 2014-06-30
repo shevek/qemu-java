@@ -35,6 +35,10 @@ public abstract class QApiElementDescriptor {
             return Integer.TYPE.getName();
         if ("uint32".equals(jsonType))
             return Long.TYPE.getName();
+        if ("int64".equals(jsonType))
+            return Long.TYPE.getName();
+        if ("uint64".equals(jsonType))
+            return Long.TYPE.getName();
         if ("bool".equals(jsonType))
             return Boolean.TYPE.getName();
         if ("number".equals(jsonType))

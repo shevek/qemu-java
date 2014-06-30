@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate-set-cache-size, returns=null, data={value=int}}
-public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeCommand.MigrateSetCacheSizeArguments, MigrateSetCacheSizeCommand.Response> {
-	public static class MigrateSetCacheSizeArguments {
+public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeCommand.Arguments, MigrateSetCacheSizeCommand.Response> {
+	public static class Arguments {
 		@SerializedName("value")
 		@Nonnull public long value;
 	}
@@ -18,7 +18,7 @@ public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeC
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public MigrateSetCacheSizeCommand(@Nonnull MigrateSetCacheSizeCommand.MigrateSetCacheSizeArguments argument) {
+	public MigrateSetCacheSizeCommand(@Nonnull MigrateSetCacheSizeCommand.Arguments argument) {
 		super("migrate-set-cache-size", Response.class, argument);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=SpiceInfo, data={enabled=bool, migrated=bool, *host=str, *port=int, *tls-port=int, *auth=str, *compiled-version=str, mouse-mode=SpiceQueryMouseMode, *channels=[SpiceChannel]}, innerTypes=null}
 public class SpiceInfo extends QApiType {
 

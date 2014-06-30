@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=AcpiTableOptions, data={*sig=str, *rev=uint8, *oem_id=str, *oem_table_id=str, *oem_rev=uint32, *asl_compiler_id=str, *asl_compiler_rev=uint32, *file=str, *data=str}, innerTypes=null}
 public class AcpiTableOptions extends QApiType {
 

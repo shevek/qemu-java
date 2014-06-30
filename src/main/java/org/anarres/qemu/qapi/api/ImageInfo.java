@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=ImageInfo, data={filename=str, format=str, *dirty-flag=bool, *actual-size=int, virtual-size=int, *cluster-size=int, *encrypted=bool, *compressed=bool, *backing-filename=str, *full-backing-filename=str, *backing-filename-format=str, *snapshots=[SnapshotInfo], *backing-image=ImageInfo, *format-specific=ImageInfoSpecific}, innerTypes=null}
 public class ImageInfo extends QApiType {
 

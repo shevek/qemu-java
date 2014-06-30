@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=xen-set-global-dirty-log, returns=null, data={enable=bool}}
-public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLogCommand.XenSetGlobalDirtyLogArguments, XenSetGlobalDirtyLogCommand.Response> {
-	public static class XenSetGlobalDirtyLogArguments {
+public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLogCommand.Arguments, XenSetGlobalDirtyLogCommand.Response> {
+	public static class Arguments {
 		@SerializedName("enable")
 		@Nonnull public boolean enable;
 	}
@@ -18,7 +18,7 @@ public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLo
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public XenSetGlobalDirtyLogCommand(@Nonnull XenSetGlobalDirtyLogCommand.XenSetGlobalDirtyLogArguments argument) {
+	public XenSetGlobalDirtyLogCommand(@Nonnull XenSetGlobalDirtyLogCommand.Arguments argument) {
 		super("xen-set-global-dirty-log", Response.class, argument);
 	}
 }

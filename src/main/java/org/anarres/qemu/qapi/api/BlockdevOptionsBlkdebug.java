@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockdevOptionsBlkdebug, data={image=BlockdevRef, *config=str, *align=int, *inject-error=[BlkdebugInjectErrorOptions], *set-state=[BlkdebugSetStateOptions]}, innerTypes=null}
 public class BlockdevOptionsBlkdebug extends QApiType {
 

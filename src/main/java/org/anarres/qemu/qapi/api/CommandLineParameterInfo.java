@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=CommandLineParameterInfo, data={name=str, type=CommandLineParameterType, *help=str, *default=str}, innerTypes=null}
 public class CommandLineParameterInfo extends QApiType {
 

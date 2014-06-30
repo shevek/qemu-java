@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=NetLegacy, data={*vlan=int32, *id=str, *name=str, opts=NetClientOptions}, innerTypes=null}
 public class NetLegacy extends QApiType {
 

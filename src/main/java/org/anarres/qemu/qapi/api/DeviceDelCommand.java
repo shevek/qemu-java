@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=device_del, returns=null, data={id=str}}
-public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.DeviceDelArguments, DeviceDelCommand.Response> {
-	public static class DeviceDelArguments {
+public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.Arguments, DeviceDelCommand.Response> {
+	public static class Arguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 	}
@@ -18,7 +18,7 @@ public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.DeviceDelArgu
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public DeviceDelCommand(@Nonnull DeviceDelCommand.DeviceDelArguments argument) {
+	public DeviceDelCommand(@Nonnull DeviceDelCommand.Arguments argument) {
 		super("device_del", Response.class, argument);
 	}
 }

@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=screendump, returns=null, data={filename=str}}
-public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.ScreendumpArguments, ScreendumpCommand.Response> {
-	public static class ScreendumpArguments {
+public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, ScreendumpCommand.Response> {
+	public static class Arguments {
 		@SerializedName("filename")
 		@Nonnull public String filename;
 	}
@@ -18,7 +18,7 @@ public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.ScreendumpA
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public ScreendumpCommand(@Nonnull ScreendumpCommand.ScreendumpArguments argument) {
+	public ScreendumpCommand(@Nonnull ScreendumpCommand.Arguments argument) {
 		super("screendump", Response.class, argument);
 	}
 }

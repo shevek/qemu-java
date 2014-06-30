@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=IOThreadInfo, data={id=str, thread-id=int}, innerTypes=null}
 public class IOThreadInfo extends QApiType {
 

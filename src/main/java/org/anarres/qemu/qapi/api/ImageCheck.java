@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=ImageCheck, data={filename=str, format=str, check-errors=int, *image-end-offset=int, *corruptions=int, *leaks=int, *corruptions-fixed=int, *leaks-fixed=int, *total-clusters=int, *allocated-clusters=int, *fragmented-clusters=int, *compressed-clusters=int}, innerTypes=null}
 public class ImageCheck extends QApiType {
 

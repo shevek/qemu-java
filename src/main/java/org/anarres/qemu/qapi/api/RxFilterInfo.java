@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=RxFilterInfo, data={name=str, promiscuous=bool, multicast=RxState, unicast=RxState, vlan=RxState, broadcast-allowed=bool, multicast-overflow=bool, unicast-overflow=bool, main-mac=str, vlan-table=[int], unicast-table=[str], multicast-table=[str]}, innerTypes=null}
 public class RxFilterInfo extends QApiType {
 

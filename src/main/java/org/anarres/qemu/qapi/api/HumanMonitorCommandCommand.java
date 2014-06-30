@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=human-monitor-command, returns=str, data={command-line=str, *cpu-index=int}}
-public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandCommand.HumanMonitorCommandArguments, HumanMonitorCommandCommand.Response> {
-	public static class HumanMonitorCommandArguments {
+public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandCommand.Arguments, HumanMonitorCommandCommand.Response> {
+	public static class Arguments {
 		@SerializedName("command-line")
 		@Nonnull public String commandLine;
 		@SerializedName("cpu-index")
@@ -20,7 +20,7 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	public static class Response extends QApiResponse<String> {
 	}
 
-	public HumanMonitorCommandCommand(@Nonnull HumanMonitorCommandCommand.HumanMonitorCommandArguments argument) {
+	public HumanMonitorCommandCommand(@Nonnull HumanMonitorCommandCommand.Arguments argument) {
 		super("human-monitor-command", Response.class, argument);
 	}
 }

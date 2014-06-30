@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=SnapshotInfo, data={id=str, name=str, vm-state-size=int, date-sec=int, date-nsec=int, vm-clock-sec=int, vm-clock-nsec=int}, innerTypes=null}
 public class SnapshotInfo extends QApiType {
 

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockJobInfo, data={type=str, device=str, len=int, offset=int, busy=bool, paused=bool, speed=int, io-status=BlockDeviceIoStatus}, innerTypes=null}
 public class BlockJobInfo extends QApiType {
 

@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
-// QApiTypeDescriptor{name=BlockdevOptionsQuorum, data={*blkverify=bool, children=[BlockdevRef], vote-threshold=int}, innerTypes=null}
+
+// QApiTypeDescriptor{name=BlockdevOptionsQuorum, data={*blkverify=bool, children=[BlockdevRef], vote-threshold=int, *rewrite-corrupted=bool}, innerTypes=null}
 public class BlockdevOptionsQuorum extends QApiType {
 
 	@SerializedName("blkverify")
@@ -16,4 +16,6 @@ public class BlockdevOptionsQuorum extends QApiType {
 	@Nonnull public List<BlockdevRef> children;
 	@SerializedName("vote-threshold")
 	@Nonnull public long voteThreshold;
+	@SerializedName("rewrite-corrupted")
+	@CheckForNull public boolean rewriteCorrupted;
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=BlockStats, data={*device=str, stats=BlockDeviceStats, *parent=BlockStats, *backing=BlockStats}, innerTypes=null}
 public class BlockStats extends QApiType {
 

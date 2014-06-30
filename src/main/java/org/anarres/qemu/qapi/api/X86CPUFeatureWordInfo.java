@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=X86CPUFeatureWordInfo, data={cpuid-input-eax=int, *cpuid-input-ecx=int, cpuid-register=X86CPURegister32, features=int}, innerTypes=null}
 public class X86CPUFeatureWordInfo extends QApiType {
 

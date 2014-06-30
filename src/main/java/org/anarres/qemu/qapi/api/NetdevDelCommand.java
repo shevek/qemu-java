@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=netdev_del, returns=null, data={id=str}}
-public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.NetdevDelArguments, NetdevDelCommand.Response> {
-	public static class NetdevDelArguments {
+public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.Arguments, NetdevDelCommand.Response> {
+	public static class Arguments {
 		@SerializedName("id")
 		@Nonnull public String id;
 	}
@@ -18,7 +18,7 @@ public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.NetdevDelArgu
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public NetdevDelCommand(@Nonnull NetdevDelCommand.NetdevDelArguments argument) {
+	public NetdevDelCommand(@Nonnull NetdevDelCommand.Arguments argument) {
 		super("netdev_del", Response.class, argument);
 	}
 }

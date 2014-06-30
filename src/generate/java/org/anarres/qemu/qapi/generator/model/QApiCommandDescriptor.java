@@ -47,7 +47,7 @@ public class QApiCommandDescriptor extends QApiElementDescriptor {
         }
         if (data instanceof Map) {
             argumentType = new QApiTypeDescriptor();
-            argumentType.name = super.getClassName() + "Arguments";
+            argumentType.name = "Arguments";
             argumentType.data = (Map) data;
             argumentTypeName = getClassName() + "." + argumentType.name;
             return;

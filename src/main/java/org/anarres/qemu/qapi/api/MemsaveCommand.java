@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=memsave, returns=null, data={val=int, size=int, filename=str, *cpu-index=int}}
-public class MemsaveCommand extends QApiCommand<MemsaveCommand.MemsaveArguments, MemsaveCommand.Response> {
-	public static class MemsaveArguments {
+public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, MemsaveCommand.Response> {
+	public static class Arguments {
 		@SerializedName("val")
 		@Nonnull public long val;
 		@SerializedName("size")
@@ -24,7 +24,7 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.MemsaveArguments,
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public MemsaveCommand(@Nonnull MemsaveCommand.MemsaveArguments argument) {
+	public MemsaveCommand(@Nonnull MemsaveCommand.Arguments argument) {
 		super("memsave", Response.class, argument);
 	}
 }

@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=ImageInfoSpecificVmdk, data={create-type=str, cid=int, parent-cid=int, extents=[ImageInfo]}, innerTypes=null}
 public class ImageInfoSpecificVmdk extends QApiType {
 

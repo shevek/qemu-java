@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=block_passwd, returns=null, data={*device=str, *node-name=str, password=str}}
-public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.BlockPasswdArguments, BlockPasswdCommand.Response> {
-	public static class BlockPasswdArguments {
+public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments, BlockPasswdCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@CheckForNull public String device;
 		@SerializedName("node-name")
@@ -22,7 +22,7 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.BlockPass
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public BlockPasswdCommand(@Nonnull BlockPasswdCommand.BlockPasswdArguments argument) {
+	public BlockPasswdCommand(@Nonnull BlockPasswdCommand.Arguments argument) {
 		super("block_passwd", Response.class, argument);
 	}
 }

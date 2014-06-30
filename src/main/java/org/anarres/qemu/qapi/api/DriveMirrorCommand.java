@@ -8,15 +8,19 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
-// QApiCommandDescriptor{name=drive-mirror, returns=null, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *granularity=uint32, *buf-size=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}}
-public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.DriveMirrorArguments, DriveMirrorCommand.Response> {
-	public static class DriveMirrorArguments {
+// QApiCommandDescriptor{name=drive-mirror, returns=null, data={device=str, target=str, *format=str, *node-name=str, *replaces=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *granularity=uint32, *buf-size=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}}
+public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments, DriveMirrorCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("target")
 		@Nonnull public String target;
 		@SerializedName("format")
 		@CheckForNull public String format;
+		@SerializedName("node-name")
+		@CheckForNull public String nodeName;
+		@SerializedName("replaces")
+		@CheckForNull public String replaces;
 		@SerializedName("sync")
 		@Nonnull public MirrorSyncMode sync;
 		@SerializedName("mode")
@@ -36,7 +40,7 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.DriveMirr
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public DriveMirrorCommand(@Nonnull DriveMirrorCommand.DriveMirrorArguments argument) {
+	public DriveMirrorCommand(@Nonnull DriveMirrorCommand.Arguments argument) {
 		super("drive-mirror", Response.class, argument);
 	}
 }

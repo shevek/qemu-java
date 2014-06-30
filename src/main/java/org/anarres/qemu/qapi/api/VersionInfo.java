@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=VersionInfo, data={qemu={major=int, minor=int, micro=int}, package=str}, innerTypes=null}
 public class VersionInfo extends QApiType {
 	// QApiTypeDescriptor{name=_Tqemu, data={major=int, minor=int, micro=int}, innerTypes=[]}

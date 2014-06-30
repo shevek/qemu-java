@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=NetdevUserOptions, data={*hostname=str, *restrict=bool, *ip=str, *net=str, *host=str, *tftp=str, *bootfile=str, *dhcpstart=str, *dns=str, *dnssearch=[String], *smb=str, *smbserver=str, *hostfwd=[String], *guestfwd=[String]}, innerTypes=null}
 public class NetdevUserOptions extends QApiType {
 

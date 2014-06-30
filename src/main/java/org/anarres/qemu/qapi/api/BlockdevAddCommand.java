@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=blockdev-add, returns=null, data={options=BlockdevOptions}}
-public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.BlockdevAddArguments, BlockdevAddCommand.Response> {
-	public static class BlockdevAddArguments {
+public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.Arguments, BlockdevAddCommand.Response> {
+	public static class Arguments {
 		@SerializedName("options")
 		@Nonnull public BlockdevOptions options;
 	}
@@ -18,7 +18,7 @@ public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.BlockdevA
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public BlockdevAddCommand(@Nonnull BlockdevAddCommand.BlockdevAddArguments argument) {
+	public BlockdevAddCommand(@Nonnull BlockdevAddCommand.Arguments argument) {
 		super("blockdev-add", Response.class, argument);
 	}
 }

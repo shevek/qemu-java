@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=migrate_set_downtime, returns=null, data={value=number}}
-public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCommand.MigrateSetDowntimeArguments, MigrateSetDowntimeCommand.Response> {
-	public static class MigrateSetDowntimeArguments {
+public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCommand.Arguments, MigrateSetDowntimeCommand.Response> {
+	public static class Arguments {
 		@SerializedName("value")
 		@Nonnull public double value;
 	}
@@ -18,7 +18,7 @@ public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCom
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public MigrateSetDowntimeCommand(@Nonnull MigrateSetDowntimeCommand.MigrateSetDowntimeArguments argument) {
+	public MigrateSetDowntimeCommand(@Nonnull MigrateSetDowntimeCommand.Arguments argument) {
 		super("migrate_set_downtime", Response.class, argument);
 	}
 }

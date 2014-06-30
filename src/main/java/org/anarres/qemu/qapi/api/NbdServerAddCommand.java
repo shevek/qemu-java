@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=nbd-server-add, returns=null, data={device=str, *writable=bool}}
-public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.NbdServerAddArguments, NbdServerAddCommand.Response> {
-	public static class NbdServerAddArguments {
+public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Arguments, NbdServerAddCommand.Response> {
+	public static class Arguments {
 		@SerializedName("device")
 		@Nonnull public String device;
 		@SerializedName("writable")
@@ -20,7 +20,7 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.NbdServ
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public NbdServerAddCommand(@Nonnull NbdServerAddCommand.NbdServerAddArguments argument) {
+	public NbdServerAddCommand(@Nonnull NbdServerAddCommand.Arguments argument) {
 		super("nbd-server-add", Response.class, argument);
 	}
 }

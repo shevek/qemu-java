@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=query-command-line-options, returns=[CommandLineOptionInfo], data={*option=str}}
-public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.QueryCommandLineOptionsArguments, QueryCommandLineOptionsCommand.Response> {
-	public static class QueryCommandLineOptionsArguments {
+public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.Arguments, QueryCommandLineOptionsCommand.Response> {
+	public static class Arguments {
 		@SerializedName("option")
 		@CheckForNull public String option;
 	}
@@ -18,7 +18,7 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 	public static class Response extends QApiResponse<List<CommandLineOptionInfo>> {
 	}
 
-	public QueryCommandLineOptionsCommand(@Nonnull QueryCommandLineOptionsCommand.QueryCommandLineOptionsArguments argument) {
+	public QueryCommandLineOptionsCommand(@Nonnull QueryCommandLineOptionsCommand.Arguments argument) {
 		super("query-command-line-options", Response.class, argument);
 	}
 }

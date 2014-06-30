@@ -9,8 +9,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 // QApiCommandDescriptor{name=xen-save-devices-state, returns=null, data={filename=str}}
-public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateCommand.XenSaveDevicesStateArguments, XenSaveDevicesStateCommand.Response> {
-	public static class XenSaveDevicesStateArguments {
+public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateCommand.Arguments, XenSaveDevicesStateCommand.Response> {
+	public static class Arguments {
 		@SerializedName("filename")
 		@Nonnull public String filename;
 	}
@@ -18,7 +18,7 @@ public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateC
 	public static class Response extends QApiResponse<Void> {
 	}
 
-	public XenSaveDevicesStateCommand(@Nonnull XenSaveDevicesStateCommand.XenSaveDevicesStateArguments argument) {
+	public XenSaveDevicesStateCommand(@Nonnull XenSaveDevicesStateCommand.Arguments argument) {
 		super("xen-save-devices-state", Response.class, argument);
 	}
 }

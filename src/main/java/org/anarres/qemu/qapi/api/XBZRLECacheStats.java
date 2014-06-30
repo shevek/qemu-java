@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
+
 // QApiTypeDescriptor{name=XBZRLECacheStats, data={cache-size=int, bytes=int, pages=int, cache-miss=int, cache-miss-rate=number, overflow=int}, innerTypes=null}
 public class XBZRLECacheStats extends QApiType {
 

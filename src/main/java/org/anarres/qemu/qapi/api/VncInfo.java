@@ -6,8 +6,8 @@ import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
- 
-// QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=str, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null}
+
+// QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=NetworkAddressFamily, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null}
 public class VncInfo extends QApiType {
 
 	@SerializedName("enabled")
@@ -15,7 +15,7 @@ public class VncInfo extends QApiType {
 	@SerializedName("host")
 	@CheckForNull public String host;
 	@SerializedName("family")
-	@CheckForNull public String family;
+	@CheckForNull public NetworkAddressFamily family;
 	@SerializedName("service")
 	@CheckForNull public String service;
 	@SerializedName("auth")
