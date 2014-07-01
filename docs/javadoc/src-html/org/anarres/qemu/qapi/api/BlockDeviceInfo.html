@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>package org.anarres.qemu.qapi.api;<a name="line.1"></a>
+<span class="sourceLineNo">002</span><a name="line.2"></a>
+<span class="sourceLineNo">003</span>import com.google.gson.annotations.SerializedName;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import java.util.List;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import java.util.Map;<a name="line.5"></a>
+<span class="sourceLineNo">006</span>import javax.annotation.CheckForNull;<a name="line.6"></a>
+<span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import org.anarres.qemu.qapi.common.*;<a name="line.8"></a>
+<span class="sourceLineNo">009</span><a name="line.9"></a>
+<span class="sourceLineNo">010</span>// QApiTypeDescriptor{name=BlockDeviceInfo, data={file=str, *node-name=str, ro=bool, drv=str, *backing_file=str, backing_file_depth=int, encrypted=bool, encryption_key_missing=bool, detect_zeroes=BlockdevDetectZeroesOptions, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, image=ImageInfo, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}, innerTypes=null}<a name="line.10"></a>
+<span class="sourceLineNo">011</span>public class BlockDeviceInfo extends QApiType {<a name="line.11"></a>
+<span class="sourceLineNo">012</span><a name="line.12"></a>
+<span class="sourceLineNo">013</span>        @SerializedName("file")<a name="line.13"></a>
+<span class="sourceLineNo">014</span>        @Nonnull public String file;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>        @SerializedName("node-name")<a name="line.15"></a>
+<span class="sourceLineNo">016</span>        @CheckForNull public String nodeName;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>        @SerializedName("ro")<a name="line.17"></a>
+<span class="sourceLineNo">018</span>        @Nonnull public boolean ro;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        @SerializedName("drv")<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        @Nonnull public String drv;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        @SerializedName("backing_file")<a name="line.21"></a>
+<span class="sourceLineNo">022</span>        @CheckForNull public String backingFile;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        @SerializedName("backing_file_depth")<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        @Nonnull public long backingFileDepth;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>        @SerializedName("encrypted")<a name="line.25"></a>
+<span class="sourceLineNo">026</span>        @Nonnull public boolean encrypted;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        @SerializedName("encryption_key_missing")<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        @Nonnull public boolean encryptionKeyMissing;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>        @SerializedName("detect_zeroes")<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        @Nonnull public BlockdevDetectZeroesOptions detectZeroes;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>        @SerializedName("bps")<a name="line.31"></a>
+<span class="sourceLineNo">032</span>        @Nonnull public long bps;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        @SerializedName("bps_rd")<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        @Nonnull public long bpsRd;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        @SerializedName("bps_wr")<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        @Nonnull public long bpsWr;<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        @SerializedName("iops")<a name="line.37"></a>
+<span class="sourceLineNo">038</span>        @Nonnull public long iops;<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        @SerializedName("iops_rd")<a name="line.39"></a>
+<span class="sourceLineNo">040</span>        @Nonnull public long iopsRd;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        @SerializedName("iops_wr")<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        @Nonnull public long iopsWr;<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        @SerializedName("image")<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        @Nonnull public ImageInfo image;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>        @SerializedName("bps_max")<a name="line.45"></a>
+<span class="sourceLineNo">046</span>        @CheckForNull public long bpsMax;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>        @SerializedName("bps_rd_max")<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        @CheckForNull public long bpsRdMax;<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        @SerializedName("bps_wr_max")<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        @CheckForNull public long bpsWrMax;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        @SerializedName("iops_max")<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        @CheckForNull public long iopsMax;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>        @SerializedName("iops_rd_max")<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        @CheckForNull public long iopsRdMax;<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        @SerializedName("iops_wr_max")<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        @CheckForNull public long iopsWrMax;<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        @SerializedName("iops_size")<a name="line.57"></a>
+<span class="sourceLineNo">058</span>        @CheckForNull public long iopsSize;<a name="line.58"></a>
+<span class="sourceLineNo">059</span>}<a name="line.59"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
