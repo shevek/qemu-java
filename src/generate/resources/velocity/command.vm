@@ -8,9 +8,11 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
+#parse("/velocity/header.vm")
 // $element
 public class $element.className extends QApiCommand<$element.argumentTypeNameWrapped, ${element.className}.Response> {
 #if ($element.argumentType)
+	/** Compound arguments to a ${element.className}. */
 	public static class $element.argumentType.className {
 #foreach ($field in $element.argumentType.fields)
 		@SerializedName("$field.serializedName")
@@ -19,9 +21,11 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	}
 #end
 
+	/** Response to a ${element.className}. */
 	public static class Response extends QApiResponse<$element.returnTypeNameWrapped> {
 	}
 
+	/** Constructs a new ${element.className}. */
 	public ${element.className}(#{if} ($element.argumentTypeName)@Nonnull $element.argumentTypeName argument#{end}) {
 		super("$element.name", Response.class, #{if} ($element.argumentTypeName)argument#{else}null#{end});
 	}

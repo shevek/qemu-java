@@ -37,7 +37,7 @@ dependencies {
 	generateCompile "org.apache.velocity:velocity:1.7"
 	generateCompile "org.apache.velocity:velocity-tools:2.0"
 	generateCompile "net.sf.jopt-simple:jopt-simple:4.6"
-	generateCompile "commons-logging:commons-logging:1.1.1"
+	generateCompile "commons-logging:commons-logging:1.1.3"
 
 	compile "com.google.code.findbugs:jsr305:2.0.2"
 	compile "com.google.code.gson:gson:2.2.4"
@@ -45,10 +45,20 @@ dependencies {
 	testCompile "junit:junit:4.11"
 }
 
+javadoc {
+	options.links "http://docs.oracle.com/javase/6/docs/api/",
+	"https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/"
+	options.use true
+	options.linkSource true
+}
+
 task('generate', type: JavaExec, dependsOn: compileGenerateJava) {
-	delete fileTree("src/main/java/org/anarres/qemu/qapi/api") {
-		include "*.java"
-		exclude "package-info.java"
+	outputs.upToDateWhen { false }
+	doFirst {
+		delete fileTree("src/main/java/org/anarres/qemu/qapi/api") {
+			include "*.java"
+			exclude "package-info.java"
+		}
 	}
 	main = 'org.anarres.qemu.qapi.generator.Main'
 	classpath = configurations.generateRuntime + sourceSets.generate.output
