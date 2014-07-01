@@ -15,119 +15,124 @@
 <span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import org.anarres.qemu.qapi.common.*;<a name="line.8"></a>
 <span class="sourceLineNo">009</span><a name="line.9"></a>
-<span class="sourceLineNo">010</span>// QApiUnionDescriptor{name=BlockdevOptions, data={file=BlockdevOptionsFile, host_device=BlockdevOptionsFile, host_cdrom=BlockdevOptionsFile, host_floppy=BlockdevOptionsFile, http=BlockdevOptionsFile, https=BlockdevOptionsFile, ftp=BlockdevOptionsFile, ftps=BlockdevOptionsFile, tftp=BlockdevOptionsFile, vvfat=BlockdevOptionsVVFAT, blkdebug=BlockdevOptionsBlkdebug, blkverify=BlockdevOptionsBlkverify, bochs=BlockdevOptionsGenericFormat, cloop=BlockdevOptionsGenericFormat, cow=BlockdevOptionsGenericCOWFormat, dmg=BlockdevOptionsGenericFormat, parallels=BlockdevOptionsGenericFormat, qcow=BlockdevOptionsGenericCOWFormat, qcow2=BlockdevOptionsQcow2, qed=BlockdevOptionsGenericCOWFormat, raw=BlockdevOptionsGenericFormat, vdi=BlockdevOptionsGenericFormat, vhdx=BlockdevOptionsGenericFormat, vmdk=BlockdevOptionsGenericCOWFormat, vpc=BlockdevOptionsGenericFormat, quorum=BlockdevOptionsQuorum}, innerTypes=null, fields=null}<a name="line.10"></a>
-<span class="sourceLineNo">011</span>public class BlockdevOptions extends QApiUnion {<a name="line.11"></a>
-<span class="sourceLineNo">012</span>        @SerializedName("file")<a name="line.12"></a>
-<span class="sourceLineNo">013</span>        @Nonnull public BlockdevOptionsFile file;<a name="line.13"></a>
-<span class="sourceLineNo">014</span>        @SerializedName("host_device")<a name="line.14"></a>
-<span class="sourceLineNo">015</span>        @Nonnull public BlockdevOptionsFile hostDevice;<a name="line.15"></a>
-<span class="sourceLineNo">016</span>        @SerializedName("host_cdrom")<a name="line.16"></a>
-<span class="sourceLineNo">017</span>        @Nonnull public BlockdevOptionsFile hostCdrom;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>        @SerializedName("host_floppy")<a name="line.18"></a>
-<span class="sourceLineNo">019</span>        @Nonnull public BlockdevOptionsFile hostFloppy;<a name="line.19"></a>
-<span class="sourceLineNo">020</span>        @SerializedName("http")<a name="line.20"></a>
-<span class="sourceLineNo">021</span>        @Nonnull public BlockdevOptionsFile http;<a name="line.21"></a>
-<span class="sourceLineNo">022</span>        @SerializedName("https")<a name="line.22"></a>
-<span class="sourceLineNo">023</span>        @Nonnull public BlockdevOptionsFile https;<a name="line.23"></a>
-<span class="sourceLineNo">024</span>        @SerializedName("ftp")<a name="line.24"></a>
-<span class="sourceLineNo">025</span>        @Nonnull public BlockdevOptionsFile ftp;<a name="line.25"></a>
-<span class="sourceLineNo">026</span>        @SerializedName("ftps")<a name="line.26"></a>
-<span class="sourceLineNo">027</span>        @Nonnull public BlockdevOptionsFile ftps;<a name="line.27"></a>
-<span class="sourceLineNo">028</span>        @SerializedName("tftp")<a name="line.28"></a>
-<span class="sourceLineNo">029</span>        @Nonnull public BlockdevOptionsFile tftp;<a name="line.29"></a>
-<span class="sourceLineNo">030</span>        @SerializedName("vvfat")<a name="line.30"></a>
-<span class="sourceLineNo">031</span>        @Nonnull public BlockdevOptionsVVFAT vvfat;<a name="line.31"></a>
-<span class="sourceLineNo">032</span>        @SerializedName("blkdebug")<a name="line.32"></a>
-<span class="sourceLineNo">033</span>        @Nonnull public BlockdevOptionsBlkdebug blkdebug;<a name="line.33"></a>
-<span class="sourceLineNo">034</span>        @SerializedName("blkverify")<a name="line.34"></a>
-<span class="sourceLineNo">035</span>        @Nonnull public BlockdevOptionsBlkverify blkverify;<a name="line.35"></a>
-<span class="sourceLineNo">036</span>        @SerializedName("bochs")<a name="line.36"></a>
-<span class="sourceLineNo">037</span>        @Nonnull public BlockdevOptionsGenericFormat bochs;<a name="line.37"></a>
-<span class="sourceLineNo">038</span>        @SerializedName("cloop")<a name="line.38"></a>
-<span class="sourceLineNo">039</span>        @Nonnull public BlockdevOptionsGenericFormat cloop;<a name="line.39"></a>
-<span class="sourceLineNo">040</span>        @SerializedName("cow")<a name="line.40"></a>
-<span class="sourceLineNo">041</span>        @Nonnull public BlockdevOptionsGenericCOWFormat cow;<a name="line.41"></a>
-<span class="sourceLineNo">042</span>        @SerializedName("dmg")<a name="line.42"></a>
-<span class="sourceLineNo">043</span>        @Nonnull public BlockdevOptionsGenericFormat dmg;<a name="line.43"></a>
-<span class="sourceLineNo">044</span>        @SerializedName("parallels")<a name="line.44"></a>
-<span class="sourceLineNo">045</span>        @Nonnull public BlockdevOptionsGenericFormat parallels;<a name="line.45"></a>
-<span class="sourceLineNo">046</span>        @SerializedName("qcow")<a name="line.46"></a>
-<span class="sourceLineNo">047</span>        @Nonnull public BlockdevOptionsGenericCOWFormat qcow;<a name="line.47"></a>
-<span class="sourceLineNo">048</span>        @SerializedName("qcow2")<a name="line.48"></a>
-<span class="sourceLineNo">049</span>        @Nonnull public BlockdevOptionsQcow2 qcow2;<a name="line.49"></a>
-<span class="sourceLineNo">050</span>        @SerializedName("qed")<a name="line.50"></a>
-<span class="sourceLineNo">051</span>        @Nonnull public BlockdevOptionsGenericCOWFormat qed;<a name="line.51"></a>
-<span class="sourceLineNo">052</span>        @SerializedName("raw")<a name="line.52"></a>
-<span class="sourceLineNo">053</span>        @Nonnull public BlockdevOptionsGenericFormat raw;<a name="line.53"></a>
-<span class="sourceLineNo">054</span>        @SerializedName("vdi")<a name="line.54"></a>
-<span class="sourceLineNo">055</span>        @Nonnull public BlockdevOptionsGenericFormat vdi;<a name="line.55"></a>
-<span class="sourceLineNo">056</span>        @SerializedName("vhdx")<a name="line.56"></a>
-<span class="sourceLineNo">057</span>        @Nonnull public BlockdevOptionsGenericFormat vhdx;<a name="line.57"></a>
-<span class="sourceLineNo">058</span>        @SerializedName("vmdk")<a name="line.58"></a>
-<span class="sourceLineNo">059</span>        @Nonnull public BlockdevOptionsGenericCOWFormat vmdk;<a name="line.59"></a>
-<span class="sourceLineNo">060</span>        @SerializedName("vpc")<a name="line.60"></a>
-<span class="sourceLineNo">061</span>        @Nonnull public BlockdevOptionsGenericFormat vpc;<a name="line.61"></a>
-<span class="sourceLineNo">062</span>        @SerializedName("quorum")<a name="line.62"></a>
-<span class="sourceLineNo">063</span>        @Nonnull public BlockdevOptionsQuorum quorum;<a name="line.63"></a>
-<span class="sourceLineNo">064</span><a name="line.64"></a>
-<span class="sourceLineNo">065</span>        @Override<a name="line.65"></a>
-<span class="sourceLineNo">066</span>        public boolean isUnion() {<a name="line.66"></a>
-<span class="sourceLineNo">067</span>                int count = 0;<a name="line.67"></a>
-<span class="sourceLineNo">068</span>                if (file != null)<a name="line.68"></a>
-<span class="sourceLineNo">069</span>                        count++;<a name="line.69"></a>
-<span class="sourceLineNo">070</span>                if (hostDevice != null)<a name="line.70"></a>
-<span class="sourceLineNo">071</span>                        count++;<a name="line.71"></a>
-<span class="sourceLineNo">072</span>                if (hostCdrom != null)<a name="line.72"></a>
-<span class="sourceLineNo">073</span>                        count++;<a name="line.73"></a>
-<span class="sourceLineNo">074</span>                if (hostFloppy != null)<a name="line.74"></a>
-<span class="sourceLineNo">075</span>                        count++;<a name="line.75"></a>
-<span class="sourceLineNo">076</span>                if (http != null)<a name="line.76"></a>
-<span class="sourceLineNo">077</span>                        count++;<a name="line.77"></a>
-<span class="sourceLineNo">078</span>                if (https != null)<a name="line.78"></a>
-<span class="sourceLineNo">079</span>                        count++;<a name="line.79"></a>
-<span class="sourceLineNo">080</span>                if (ftp != null)<a name="line.80"></a>
-<span class="sourceLineNo">081</span>                        count++;<a name="line.81"></a>
-<span class="sourceLineNo">082</span>                if (ftps != null)<a name="line.82"></a>
-<span class="sourceLineNo">083</span>                        count++;<a name="line.83"></a>
-<span class="sourceLineNo">084</span>                if (tftp != null)<a name="line.84"></a>
-<span class="sourceLineNo">085</span>                        count++;<a name="line.85"></a>
-<span class="sourceLineNo">086</span>                if (vvfat != null)<a name="line.86"></a>
-<span class="sourceLineNo">087</span>                        count++;<a name="line.87"></a>
-<span class="sourceLineNo">088</span>                if (blkdebug != null)<a name="line.88"></a>
-<span class="sourceLineNo">089</span>                        count++;<a name="line.89"></a>
-<span class="sourceLineNo">090</span>                if (blkverify != null)<a name="line.90"></a>
-<span class="sourceLineNo">091</span>                        count++;<a name="line.91"></a>
-<span class="sourceLineNo">092</span>                if (bochs != null)<a name="line.92"></a>
-<span class="sourceLineNo">093</span>                        count++;<a name="line.93"></a>
-<span class="sourceLineNo">094</span>                if (cloop != null)<a name="line.94"></a>
-<span class="sourceLineNo">095</span>                        count++;<a name="line.95"></a>
-<span class="sourceLineNo">096</span>                if (cow != null)<a name="line.96"></a>
-<span class="sourceLineNo">097</span>                        count++;<a name="line.97"></a>
-<span class="sourceLineNo">098</span>                if (dmg != null)<a name="line.98"></a>
-<span class="sourceLineNo">099</span>                        count++;<a name="line.99"></a>
-<span class="sourceLineNo">100</span>                if (parallels != null)<a name="line.100"></a>
-<span class="sourceLineNo">101</span>                        count++;<a name="line.101"></a>
-<span class="sourceLineNo">102</span>                if (qcow != null)<a name="line.102"></a>
-<span class="sourceLineNo">103</span>                        count++;<a name="line.103"></a>
-<span class="sourceLineNo">104</span>                if (qcow2 != null)<a name="line.104"></a>
-<span class="sourceLineNo">105</span>                        count++;<a name="line.105"></a>
-<span class="sourceLineNo">106</span>                if (qed != null)<a name="line.106"></a>
-<span class="sourceLineNo">107</span>                        count++;<a name="line.107"></a>
-<span class="sourceLineNo">108</span>                if (raw != null)<a name="line.108"></a>
-<span class="sourceLineNo">109</span>                        count++;<a name="line.109"></a>
-<span class="sourceLineNo">110</span>                if (vdi != null)<a name="line.110"></a>
-<span class="sourceLineNo">111</span>                        count++;<a name="line.111"></a>
-<span class="sourceLineNo">112</span>                if (vhdx != null)<a name="line.112"></a>
-<span class="sourceLineNo">113</span>                        count++;<a name="line.113"></a>
-<span class="sourceLineNo">114</span>                if (vmdk != null)<a name="line.114"></a>
-<span class="sourceLineNo">115</span>                        count++;<a name="line.115"></a>
-<span class="sourceLineNo">116</span>                if (vpc != null)<a name="line.116"></a>
-<span class="sourceLineNo">117</span>                        count++;<a name="line.117"></a>
-<span class="sourceLineNo">118</span>                if (quorum != null)<a name="line.118"></a>
-<span class="sourceLineNo">119</span>                        count++;<a name="line.119"></a>
-<span class="sourceLineNo">120</span>                return (count == 1);<a name="line.120"></a>
-<span class="sourceLineNo">121</span>        }<a name="line.121"></a>
-<span class="sourceLineNo">122</span>}<a name="line.122"></a>
+<span class="sourceLineNo">010</span>/**<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Autogenerated class.<a name="line.11"></a>
+<span class="sourceLineNo">012</span> *<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * &lt;p&gt;&lt;pre&gt;QApiUnionDescriptor{name=BlockdevOptions, data={file=BlockdevOptionsFile, host_device=BlockdevOptionsFile, host_cdrom=BlockdevOptionsFile, host_floppy=BlockdevOptionsFile, http=BlockdevOptionsFile, https=BlockdevOptionsFile, ftp=BlockdevOptionsFile, ftps=BlockdevOptionsFile, tftp=BlockdevOptionsFile, vvfat=BlockdevOptionsVVFAT, blkdebug=BlockdevOptionsBlkdebug, blkverify=BlockdevOptionsBlkverify, bochs=BlockdevOptionsGenericFormat, cloop=BlockdevOptionsGenericFormat, cow=BlockdevOptionsGenericCOWFormat, dmg=BlockdevOptionsGenericFormat, parallels=BlockdevOptionsGenericFormat, qcow=BlockdevOptionsGenericCOWFormat, qcow2=BlockdevOptionsQcow2, qed=BlockdevOptionsGenericCOWFormat, raw=BlockdevOptionsGenericFormat, vdi=BlockdevOptionsGenericFormat, vhdx=BlockdevOptionsGenericFormat, vmdk=BlockdevOptionsGenericCOWFormat, vpc=BlockdevOptionsGenericFormat, quorum=BlockdevOptionsQuorum}, innerTypes=null, fields=null}&lt;/pre&gt;&lt;/p&gt;<a name="line.13"></a>
+<span class="sourceLineNo">014</span> */<a name="line.14"></a>
+<span class="sourceLineNo">015</span>// QApiUnionDescriptor{name=BlockdevOptions, data={file=BlockdevOptionsFile, host_device=BlockdevOptionsFile, host_cdrom=BlockdevOptionsFile, host_floppy=BlockdevOptionsFile, http=BlockdevOptionsFile, https=BlockdevOptionsFile, ftp=BlockdevOptionsFile, ftps=BlockdevOptionsFile, tftp=BlockdevOptionsFile, vvfat=BlockdevOptionsVVFAT, blkdebug=BlockdevOptionsBlkdebug, blkverify=BlockdevOptionsBlkverify, bochs=BlockdevOptionsGenericFormat, cloop=BlockdevOptionsGenericFormat, cow=BlockdevOptionsGenericCOWFormat, dmg=BlockdevOptionsGenericFormat, parallels=BlockdevOptionsGenericFormat, qcow=BlockdevOptionsGenericCOWFormat, qcow2=BlockdevOptionsQcow2, qed=BlockdevOptionsGenericCOWFormat, raw=BlockdevOptionsGenericFormat, vdi=BlockdevOptionsGenericFormat, vhdx=BlockdevOptionsGenericFormat, vmdk=BlockdevOptionsGenericCOWFormat, vpc=BlockdevOptionsGenericFormat, quorum=BlockdevOptionsQuorum}, innerTypes=null, fields=null}<a name="line.15"></a>
+<span class="sourceLineNo">016</span>public class BlockdevOptions extends QApiUnion {<a name="line.16"></a>
+<span class="sourceLineNo">017</span>        @SerializedName("file")<a name="line.17"></a>
+<span class="sourceLineNo">018</span>        @Nonnull public BlockdevOptionsFile file;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        @SerializedName("host_device")<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        @Nonnull public BlockdevOptionsFile hostDevice;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        @SerializedName("host_cdrom")<a name="line.21"></a>
+<span class="sourceLineNo">022</span>        @Nonnull public BlockdevOptionsFile hostCdrom;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        @SerializedName("host_floppy")<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        @Nonnull public BlockdevOptionsFile hostFloppy;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>        @SerializedName("http")<a name="line.25"></a>
+<span class="sourceLineNo">026</span>        @Nonnull public BlockdevOptionsFile http;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        @SerializedName("https")<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        @Nonnull public BlockdevOptionsFile https;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>        @SerializedName("ftp")<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        @Nonnull public BlockdevOptionsFile ftp;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>        @SerializedName("ftps")<a name="line.31"></a>
+<span class="sourceLineNo">032</span>        @Nonnull public BlockdevOptionsFile ftps;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        @SerializedName("tftp")<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        @Nonnull public BlockdevOptionsFile tftp;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        @SerializedName("vvfat")<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        @Nonnull public BlockdevOptionsVVFAT vvfat;<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        @SerializedName("blkdebug")<a name="line.37"></a>
+<span class="sourceLineNo">038</span>        @Nonnull public BlockdevOptionsBlkdebug blkdebug;<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        @SerializedName("blkverify")<a name="line.39"></a>
+<span class="sourceLineNo">040</span>        @Nonnull public BlockdevOptionsBlkverify blkverify;<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        @SerializedName("bochs")<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        @Nonnull public BlockdevOptionsGenericFormat bochs;<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        @SerializedName("cloop")<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        @Nonnull public BlockdevOptionsGenericFormat cloop;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>        @SerializedName("cow")<a name="line.45"></a>
+<span class="sourceLineNo">046</span>        @Nonnull public BlockdevOptionsGenericCOWFormat cow;<a name="line.46"></a>
+<span class="sourceLineNo">047</span>        @SerializedName("dmg")<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        @Nonnull public BlockdevOptionsGenericFormat dmg;<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        @SerializedName("parallels")<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        @Nonnull public BlockdevOptionsGenericFormat parallels;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        @SerializedName("qcow")<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        @Nonnull public BlockdevOptionsGenericCOWFormat qcow;<a name="line.52"></a>
+<span class="sourceLineNo">053</span>        @SerializedName("qcow2")<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        @Nonnull public BlockdevOptionsQcow2 qcow2;<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        @SerializedName("qed")<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        @Nonnull public BlockdevOptionsGenericCOWFormat qed;<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        @SerializedName("raw")<a name="line.57"></a>
+<span class="sourceLineNo">058</span>        @Nonnull public BlockdevOptionsGenericFormat raw;<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        @SerializedName("vdi")<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        @Nonnull public BlockdevOptionsGenericFormat vdi;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        @SerializedName("vhdx")<a name="line.61"></a>
+<span class="sourceLineNo">062</span>        @Nonnull public BlockdevOptionsGenericFormat vhdx;<a name="line.62"></a>
+<span class="sourceLineNo">063</span>        @SerializedName("vmdk")<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        @Nonnull public BlockdevOptionsGenericCOWFormat vmdk;<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        @SerializedName("vpc")<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        @Nonnull public BlockdevOptionsGenericFormat vpc;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        @SerializedName("quorum")<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        @Nonnull public BlockdevOptionsQuorum quorum;<a name="line.68"></a>
+<span class="sourceLineNo">069</span><a name="line.69"></a>
+<span class="sourceLineNo">070</span>        @Override<a name="line.70"></a>
+<span class="sourceLineNo">071</span>        public boolean isUnion() {<a name="line.71"></a>
+<span class="sourceLineNo">072</span>                int count = 0;<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                if (file != null)<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                        count++;<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                if (hostDevice != null)<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                        count++;<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                if (hostCdrom != null)<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                        count++;<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                if (hostFloppy != null)<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                        count++;<a name="line.80"></a>
+<span class="sourceLineNo">081</span>                if (http != null)<a name="line.81"></a>
+<span class="sourceLineNo">082</span>                        count++;<a name="line.82"></a>
+<span class="sourceLineNo">083</span>                if (https != null)<a name="line.83"></a>
+<span class="sourceLineNo">084</span>                        count++;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>                if (ftp != null)<a name="line.85"></a>
+<span class="sourceLineNo">086</span>                        count++;<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                if (ftps != null)<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                        count++;<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                if (tftp != null)<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                        count++;<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                if (vvfat != null)<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                        count++;<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                if (blkdebug != null)<a name="line.93"></a>
+<span class="sourceLineNo">094</span>                        count++;<a name="line.94"></a>
+<span class="sourceLineNo">095</span>                if (blkverify != null)<a name="line.95"></a>
+<span class="sourceLineNo">096</span>                        count++;<a name="line.96"></a>
+<span class="sourceLineNo">097</span>                if (bochs != null)<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                        count++;<a name="line.98"></a>
+<span class="sourceLineNo">099</span>                if (cloop != null)<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                        count++;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                if (cow != null)<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                        count++;<a name="line.102"></a>
+<span class="sourceLineNo">103</span>                if (dmg != null)<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                        count++;<a name="line.104"></a>
+<span class="sourceLineNo">105</span>                if (parallels != null)<a name="line.105"></a>
+<span class="sourceLineNo">106</span>                        count++;<a name="line.106"></a>
+<span class="sourceLineNo">107</span>                if (qcow != null)<a name="line.107"></a>
+<span class="sourceLineNo">108</span>                        count++;<a name="line.108"></a>
+<span class="sourceLineNo">109</span>                if (qcow2 != null)<a name="line.109"></a>
+<span class="sourceLineNo">110</span>                        count++;<a name="line.110"></a>
+<span class="sourceLineNo">111</span>                if (qed != null)<a name="line.111"></a>
+<span class="sourceLineNo">112</span>                        count++;<a name="line.112"></a>
+<span class="sourceLineNo">113</span>                if (raw != null)<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                        count++;<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                if (vdi != null)<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                        count++;<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                if (vhdx != null)<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                        count++;<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                if (vmdk != null)<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                        count++;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                if (vpc != null)<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                        count++;<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                if (quorum != null)<a name="line.123"></a>
+<span class="sourceLineNo">124</span>                        count++;<a name="line.124"></a>
+<span class="sourceLineNo">125</span>                return (count == 1);<a name="line.125"></a>
+<span class="sourceLineNo">126</span>        }<a name="line.126"></a>
+<span class="sourceLineNo">127</span>}<a name="line.127"></a>
 
 
 
