@@ -46,6 +46,10 @@ dependencies {
 }
 
 task('generate', type: JavaExec, dependsOn: compileGenerateJava) {
+	delete fileTree("src/main/java/org/anarres/qemu/qapi/api") {
+		include "*.java"
+		exclude "package-info.java"
+	}
 	main = 'org.anarres.qemu.qapi.generator.Main'
 	classpath = configurations.generateRuntime + sourceSets.generate.output
 	// See also http://repo.or.cz/w/qemu/qmp-unstable.git/blob_plain/HEAD:/qapi-schema.json
