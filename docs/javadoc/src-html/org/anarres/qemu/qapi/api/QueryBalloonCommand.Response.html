@@ -22,7 +22,7 @@
 <span class="sourceLineNo">014</span> * &lt;p&gt;&lt;pre&gt;QApiCommandDescriptor{name=query-balloon, returns=BalloonInfo, data=null}&lt;/pre&gt;&lt;/p&gt;<a name="line.14"></a>
 <span class="sourceLineNo">015</span> */<a name="line.15"></a>
 <span class="sourceLineNo">016</span>// QApiCommandDescriptor{name=query-balloon, returns=BalloonInfo, data=null}<a name="line.16"></a>
-<span class="sourceLineNo">017</span>public class QueryBalloonCommand extends QApiCommand&lt;Void, QueryBalloonCommand.Response&gt; {<a name="line.17"></a>
+<span class="sourceLineNo">017</span>public class QueryBalloonCommand extends QApiCommand&lt;java.lang.Void, QueryBalloonCommand.Response&gt; {<a name="line.17"></a>
 <span class="sourceLineNo">018</span><a name="line.18"></a>
 <span class="sourceLineNo">019</span>        /** Response to a QueryBalloonCommand. */<a name="line.19"></a>
 <span class="sourceLineNo">020</span>        public static class Response extends QApiResponse&lt;BalloonInfo&gt; {<a name="line.20"></a>
@@ -32,7 +32,8 @@
 <span class="sourceLineNo">024</span>        public QueryBalloonCommand() {<a name="line.24"></a>
 <span class="sourceLineNo">025</span>                super("query-balloon", Response.class, null);<a name="line.25"></a>
 <span class="sourceLineNo">026</span>        }<a name="line.26"></a>
-<span class="sourceLineNo">027</span>}<a name="line.27"></a>
+<span class="sourceLineNo">027</span><a name="line.27"></a>
+<span class="sourceLineNo">028</span>}<a name="line.28"></a>
 
 
 

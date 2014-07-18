@@ -24,34 +24,68 @@
 <span class="sourceLineNo">016</span>public class ImageInfo extends QApiType {<a name="line.16"></a>
 <span class="sourceLineNo">017</span><a name="line.17"></a>
 <span class="sourceLineNo">018</span>        @SerializedName("filename")<a name="line.18"></a>
-<span class="sourceLineNo">019</span>        @Nonnull public String filename;<a name="line.19"></a>
-<span class="sourceLineNo">020</span>        @SerializedName("format")<a name="line.20"></a>
-<span class="sourceLineNo">021</span>        @Nonnull public String format;<a name="line.21"></a>
-<span class="sourceLineNo">022</span>        @SerializedName("dirty-flag")<a name="line.22"></a>
-<span class="sourceLineNo">023</span>        @CheckForNull public boolean dirtyFlag;<a name="line.23"></a>
-<span class="sourceLineNo">024</span>        @SerializedName("actual-size")<a name="line.24"></a>
-<span class="sourceLineNo">025</span>        @CheckForNull public long actualSize;<a name="line.25"></a>
-<span class="sourceLineNo">026</span>        @SerializedName("virtual-size")<a name="line.26"></a>
-<span class="sourceLineNo">027</span>        @Nonnull public long virtualSize;<a name="line.27"></a>
-<span class="sourceLineNo">028</span>        @SerializedName("cluster-size")<a name="line.28"></a>
-<span class="sourceLineNo">029</span>        @CheckForNull public long clusterSize;<a name="line.29"></a>
-<span class="sourceLineNo">030</span>        @SerializedName("encrypted")<a name="line.30"></a>
-<span class="sourceLineNo">031</span>        @CheckForNull public boolean encrypted;<a name="line.31"></a>
-<span class="sourceLineNo">032</span>        @SerializedName("compressed")<a name="line.32"></a>
-<span class="sourceLineNo">033</span>        @CheckForNull public boolean compressed;<a name="line.33"></a>
-<span class="sourceLineNo">034</span>        @SerializedName("backing-filename")<a name="line.34"></a>
-<span class="sourceLineNo">035</span>        @CheckForNull public String backingFilename;<a name="line.35"></a>
-<span class="sourceLineNo">036</span>        @SerializedName("full-backing-filename")<a name="line.36"></a>
-<span class="sourceLineNo">037</span>        @CheckForNull public String fullBackingFilename;<a name="line.37"></a>
-<span class="sourceLineNo">038</span>        @SerializedName("backing-filename-format")<a name="line.38"></a>
-<span class="sourceLineNo">039</span>        @CheckForNull public String backingFilenameFormat;<a name="line.39"></a>
-<span class="sourceLineNo">040</span>        @SerializedName("snapshots")<a name="line.40"></a>
-<span class="sourceLineNo">041</span>        @CheckForNull public List&lt;SnapshotInfo&gt; snapshots;<a name="line.41"></a>
-<span class="sourceLineNo">042</span>        @SerializedName("backing-image")<a name="line.42"></a>
-<span class="sourceLineNo">043</span>        @CheckForNull public ImageInfo backingImage;<a name="line.43"></a>
-<span class="sourceLineNo">044</span>        @SerializedName("format-specific")<a name="line.44"></a>
-<span class="sourceLineNo">045</span>        @CheckForNull public ImageInfoSpecific formatSpecific;<a name="line.45"></a>
-<span class="sourceLineNo">046</span>}<a name="line.46"></a>
+<span class="sourceLineNo">019</span>        @Nonnull<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        public java.lang.String filename;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        @SerializedName("format")<a name="line.21"></a>
+<span class="sourceLineNo">022</span>        @Nonnull<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        public java.lang.String format;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        @SerializedName("dirty-flag")<a name="line.24"></a>
+<span class="sourceLineNo">025</span>        @CheckForNull<a name="line.25"></a>
+<span class="sourceLineNo">026</span>        public boolean dirtyFlag;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        @SerializedName("actual-size")<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        @CheckForNull<a name="line.28"></a>
+<span class="sourceLineNo">029</span>        public long actualSize;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        @SerializedName("virtual-size")<a name="line.30"></a>
+<span class="sourceLineNo">031</span>        @Nonnull<a name="line.31"></a>
+<span class="sourceLineNo">032</span>        public long virtualSize;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        @SerializedName("cluster-size")<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        @CheckForNull<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        public long clusterSize;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        @SerializedName("encrypted")<a name="line.36"></a>
+<span class="sourceLineNo">037</span>        @CheckForNull<a name="line.37"></a>
+<span class="sourceLineNo">038</span>        public boolean encrypted;<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        @SerializedName("compressed")<a name="line.39"></a>
+<span class="sourceLineNo">040</span>        @CheckForNull<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        public boolean compressed;<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        @SerializedName("backing-filename")<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        @CheckForNull<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        public java.lang.String backingFilename;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>        @SerializedName("full-backing-filename")<a name="line.45"></a>
+<span class="sourceLineNo">046</span>        @CheckForNull<a name="line.46"></a>
+<span class="sourceLineNo">047</span>        public java.lang.String fullBackingFilename;<a name="line.47"></a>
+<span class="sourceLineNo">048</span>        @SerializedName("backing-filename-format")<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        @CheckForNull<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        public java.lang.String backingFilenameFormat;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        @SerializedName("snapshots")<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        @CheckForNull<a name="line.52"></a>
+<span class="sourceLineNo">053</span>        public List&lt;SnapshotInfo&gt; snapshots;<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        @SerializedName("backing-image")<a name="line.54"></a>
+<span class="sourceLineNo">055</span>        @CheckForNull<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        public ImageInfo backingImage;<a name="line.56"></a>
+<span class="sourceLineNo">057</span>        @SerializedName("format-specific")<a name="line.57"></a>
+<span class="sourceLineNo">058</span>        @CheckForNull<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        public ImageInfoSpecific formatSpecific;<a name="line.59"></a>
+<span class="sourceLineNo">060</span><a name="line.60"></a>
+<span class="sourceLineNo">061</span>        public ImageInfo() {<a name="line.61"></a>
+<span class="sourceLineNo">062</span>        }<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>        public ImageInfo(java.lang.String filename, java.lang.String format, boolean dirtyFlag, long actualSize, long virtualSize, long clusterSize, boolean encrypted, boolean compressed, java.lang.String backingFilename, java.lang.String fullBackingFilename, java.lang.String backingFilenameFormat, List&lt;SnapshotInfo&gt; snapshots, ImageInfo backingImage, ImageInfoSpecific formatSpecific) {<a name="line.64"></a>
+<span class="sourceLineNo">065</span>                this.filename = filename;<a name="line.65"></a>
+<span class="sourceLineNo">066</span>                this.format = format;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>                this.dirtyFlag = dirtyFlag;<a name="line.67"></a>
+<span class="sourceLineNo">068</span>                this.actualSize = actualSize;<a name="line.68"></a>
+<span class="sourceLineNo">069</span>                this.virtualSize = virtualSize;<a name="line.69"></a>
+<span class="sourceLineNo">070</span>                this.clusterSize = clusterSize;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>                this.encrypted = encrypted;<a name="line.71"></a>
+<span class="sourceLineNo">072</span>                this.compressed = compressed;<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                this.backingFilename = backingFilename;<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                this.fullBackingFilename = fullBackingFilename;<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                this.backingFilenameFormat = backingFilenameFormat;<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                this.snapshots = snapshots;<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                this.backingImage = backingImage;<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                this.formatSpecific = formatSpecific;<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        }<a name="line.79"></a>
+<span class="sourceLineNo">080</span>}<a name="line.80"></a>
 
 
 
