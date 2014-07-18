@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=cont, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=cont, returns=null, data=null}
-public class ContCommand extends QApiCommand<Void, ContCommand.Response> {
+public class ContCommand extends QApiCommand<java.lang.Void, ContCommand.Response> {
 
 	/** Response to a ContCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ContCommand. */

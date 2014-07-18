@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevMux extends QApiType {
 
 	@SerializedName("chardev")
-	@Nonnull public String chardev;
+	@Nonnull
+	public java.lang.String chardev;
 }

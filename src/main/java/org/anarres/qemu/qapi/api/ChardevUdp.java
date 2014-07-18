@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevUdp extends QApiType {
 
 	@SerializedName("remote")
-	@Nonnull public SocketAddress remote;
+	@Nonnull
+	public SocketAddress remote;
 	@SerializedName("local")
-	@CheckForNull public SocketAddress local;
+	@CheckForNull
+	public SocketAddress local;
 }

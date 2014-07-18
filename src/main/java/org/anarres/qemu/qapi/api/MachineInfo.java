@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class MachineInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("alias")
-	@CheckForNull public String alias;
+	@CheckForNull
+	public java.lang.String alias;
 	@SerializedName("is-default")
-	@CheckForNull public boolean isDefault;
+	@CheckForNull
+	public boolean isDefault;
 	@SerializedName("cpu-max")
-	@Nonnull public long cpuMax;
+	@Nonnull
+	public long cpuMax;
 }

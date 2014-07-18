@@ -15,13 +15,17 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=TransactionAction, data={blockdev-snapshot-sync=BlockdevSnapshot, drive-backup=DriveBackup, abort=Abort, blockdev-snapshot-internal-sync=BlockdevSnapshotInternal}, innerTypes=null, fields=null}
 public class TransactionAction extends QApiUnion {
 	@SerializedName("blockdev-snapshot-sync")
-	@Nonnull public BlockdevSnapshot blockdevSnapshotSync;
+	@Nonnull
+	public BlockdevSnapshot blockdevSnapshotSync;
 	@SerializedName("drive-backup")
-	@Nonnull public DriveBackup driveBackup;
+	@Nonnull
+	public DriveBackup driveBackup;
 	@SerializedName("abort")
-	@Nonnull public Abort abort;
+	@Nonnull
+	public Abort abort;
 	@SerializedName("blockdev-snapshot-internal-sync")
-	@Nonnull public BlockdevSnapshotInternal blockdevSnapshotInternalSync;
+	@Nonnull
+	public BlockdevSnapshotInternal blockdevSnapshotInternalSync;
 
 	@Override
 	public boolean isUnion() {

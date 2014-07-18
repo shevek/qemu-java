@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevBridgeOptions extends QApiType {
 
 	@SerializedName("br")
-	@CheckForNull public String br;
+	@CheckForNull
+	public java.lang.String br;
 	@SerializedName("helper")
-	@CheckForNull public String helper;
+	@CheckForNull
+	public java.lang.String helper;
 }

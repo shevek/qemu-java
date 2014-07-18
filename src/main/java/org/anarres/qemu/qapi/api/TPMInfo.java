@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class TPMInfo extends QApiType {
 
 	@SerializedName("id")
-	@Nonnull public String id;
+	@Nonnull
+	public java.lang.String id;
 	@SerializedName("model")
-	@Nonnull public TpmModel model;
+	@Nonnull
+	public TpmModel model;
 	@SerializedName("options")
-	@Nonnull public TpmTypeOptions options;
+	@Nonnull
+	public TpmTypeOptions options;
 }

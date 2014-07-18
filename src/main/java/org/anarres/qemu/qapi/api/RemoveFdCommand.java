@@ -18,13 +18,15 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, Remo
 	/** Compound arguments to a RemoveFdCommand. */
 	public static class Arguments {
 		@SerializedName("fdset-id")
-		@Nonnull public long fdsetId;
+		@Nonnull
+		public long fdsetId;
 		@SerializedName("fd")
-		@CheckForNull public long fd;
+		@CheckForNull
+		public long fd;
 	}
 
 	/** Response to a RemoveFdCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new RemoveFdCommand. */

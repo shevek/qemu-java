@@ -18,11 +18,12 @@ public class ChangeVncPasswordCommand extends QApiCommand<ChangeVncPasswordComma
 	/** Compound arguments to a ChangeVncPasswordCommand. */
 	public static class Arguments {
 		@SerializedName("password")
-		@Nonnull public String password;
+		@Nonnull
+		public java.lang.String password;
 	}
 
 	/** Response to a ChangeVncPasswordCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ChangeVncPasswordCommand. */

@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class NameInfo extends QApiType {
 
 	@SerializedName("name")
-	@CheckForNull public String name;
+	@CheckForNull
+	public java.lang.String name;
 }

@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevInfo extends QApiType {
 
 	@SerializedName("label")
-	@Nonnull public String label;
+	@Nonnull
+	public java.lang.String label;
 	@SerializedName("filename")
-	@Nonnull public String filename;
+	@Nonnull
+	public java.lang.String filename;
 	@SerializedName("frontend-open")
-	@Nonnull public boolean frontendOpen;
+	@Nonnull
+	public boolean frontendOpen;
 }

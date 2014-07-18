@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class MouseInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("index")
-	@Nonnull public long index;
+	@Nonnull
+	public long index;
 	@SerializedName("current")
-	@Nonnull public boolean current;
+	@Nonnull
+	public boolean current;
 	@SerializedName("absolute")
-	@Nonnull public boolean absolute;
+	@Nonnull
+	public boolean absolute;
 }

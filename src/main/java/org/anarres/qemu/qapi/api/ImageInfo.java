@@ -16,31 +16,45 @@ import org.anarres.qemu.qapi.common.*;
 public class ImageInfo extends QApiType {
 
 	@SerializedName("filename")
-	@Nonnull public String filename;
+	@Nonnull
+	public java.lang.String filename;
 	@SerializedName("format")
-	@Nonnull public String format;
+	@Nonnull
+	public java.lang.String format;
 	@SerializedName("dirty-flag")
-	@CheckForNull public boolean dirtyFlag;
+	@CheckForNull
+	public boolean dirtyFlag;
 	@SerializedName("actual-size")
-	@CheckForNull public long actualSize;
+	@CheckForNull
+	public long actualSize;
 	@SerializedName("virtual-size")
-	@Nonnull public long virtualSize;
+	@Nonnull
+	public long virtualSize;
 	@SerializedName("cluster-size")
-	@CheckForNull public long clusterSize;
+	@CheckForNull
+	public long clusterSize;
 	@SerializedName("encrypted")
-	@CheckForNull public boolean encrypted;
+	@CheckForNull
+	public boolean encrypted;
 	@SerializedName("compressed")
-	@CheckForNull public boolean compressed;
+	@CheckForNull
+	public boolean compressed;
 	@SerializedName("backing-filename")
-	@CheckForNull public String backingFilename;
+	@CheckForNull
+	public java.lang.String backingFilename;
 	@SerializedName("full-backing-filename")
-	@CheckForNull public String fullBackingFilename;
+	@CheckForNull
+	public java.lang.String fullBackingFilename;
 	@SerializedName("backing-filename-format")
-	@CheckForNull public String backingFilenameFormat;
+	@CheckForNull
+	public java.lang.String backingFilenameFormat;
 	@SerializedName("snapshots")
-	@CheckForNull public List<SnapshotInfo> snapshots;
+	@CheckForNull
+	public List<SnapshotInfo> snapshots;
 	@SerializedName("backing-image")
-	@CheckForNull public ImageInfo backingImage;
+	@CheckForNull
+	public ImageInfo backingImage;
 	@SerializedName("format-specific")
-	@CheckForNull public ImageInfoSpecific formatSpecific;
+	@CheckForNull
+	public ImageInfoSpecific formatSpecific;
 }

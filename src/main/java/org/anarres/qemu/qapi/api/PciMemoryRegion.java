@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class PciMemoryRegion extends QApiType {
 
 	@SerializedName("bar")
-	@Nonnull public long bar;
+	@Nonnull
+	public long bar;
 	@SerializedName("type")
-	@Nonnull public String type;
+	@Nonnull
+	public java.lang.String type;
 	@SerializedName("address")
-	@Nonnull public long address;
+	@Nonnull
+	public long address;
 	@SerializedName("size")
-	@Nonnull public long size;
+	@Nonnull
+	public long size;
 	@SerializedName("prefetch")
-	@CheckForNull public boolean prefetch;
+	@CheckForNull
+	public boolean prefetch;
 	@SerializedName("mem_type_64")
-	@CheckForNull public boolean memType64;
+	@CheckForNull
+	public boolean memType64;
 }

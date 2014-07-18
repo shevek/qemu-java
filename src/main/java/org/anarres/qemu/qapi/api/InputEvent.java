@@ -15,13 +15,17 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=InputEvent, data={key=InputKeyEvent, btn=InputBtnEvent, rel=InputMoveEvent, abs=InputMoveEvent}, innerTypes=null, fields=null}
 public class InputEvent extends QApiUnion {
 	@SerializedName("key")
-	@Nonnull public InputKeyEvent key;
+	@Nonnull
+	public InputKeyEvent key;
 	@SerializedName("btn")
-	@Nonnull public InputBtnEvent btn;
+	@Nonnull
+	public InputBtnEvent btn;
 	@SerializedName("rel")
-	@Nonnull public InputMoveEvent rel;
+	@Nonnull
+	public InputMoveEvent rel;
 	@SerializedName("abs")
-	@Nonnull public InputMoveEvent abs;
+	@Nonnull
+	public InputMoveEvent abs;
 
 	@Override
 	public boolean isUnion() {

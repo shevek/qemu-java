@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-chardev, returns=[ChardevInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-chardev, returns=[ChardevInfo], data=null}
-public class QueryChardevCommand extends QApiCommand<Void, QueryChardevCommand.Response> {
+public class QueryChardevCommand extends QApiCommand<java.lang.Void, QueryChardevCommand.Response> {
 
 	/** Response to a QueryChardevCommand. */
 	public static class Response extends QApiResponse<List<ChardevInfo>> {

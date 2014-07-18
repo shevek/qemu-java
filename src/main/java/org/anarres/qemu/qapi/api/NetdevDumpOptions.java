@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevDumpOptions extends QApiType {
 
 	@SerializedName("len")
-	@CheckForNull public long len;
+	@CheckForNull
+	public long len;
 	@SerializedName("file")
-	@CheckForNull public String file;
+	@CheckForNull
+	public java.lang.String file;
 }

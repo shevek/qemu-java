@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsBlkverify extends QApiType {
 
 	@SerializedName("test")
-	@Nonnull public BlockdevRef test;
+	@Nonnull
+	public BlockdevRef test;
 	@SerializedName("raw")
-	@Nonnull public BlockdevRef raw;
+	@Nonnull
+	public BlockdevRef raw;
 }

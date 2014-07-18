@@ -15,5 +15,6 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=BALLOON_CHANGE, data={actual=int}}
 public class BalloonChangeEvent extends QApiEvent {
 	@SerializedName("actual")
-	@Nonnull public long actual;
+	@Nonnull
+	public long actual;
 }

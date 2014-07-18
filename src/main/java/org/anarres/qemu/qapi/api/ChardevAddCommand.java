@@ -18,9 +18,11 @@ public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.Arguments, 
 	/** Compound arguments to a ChardevAddCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 		@SerializedName("backend")
-		@Nonnull public ChardevBackend backend;
+		@Nonnull
+		public ChardevBackend backend;
 	}
 
 	/** Response to a ChardevAddCommand. */

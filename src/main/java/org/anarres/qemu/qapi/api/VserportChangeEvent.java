@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=VSERPORT_CHANGE, data={id=str, open=bool}}
 public class VserportChangeEvent extends QApiEvent {
 	@SerializedName("id")
-	@Nonnull public String id;
+	@Nonnull
+	public java.lang.String id;
 	@SerializedName("open")
-	@Nonnull public boolean open;
+	@Nonnull
+	public boolean open;
 }

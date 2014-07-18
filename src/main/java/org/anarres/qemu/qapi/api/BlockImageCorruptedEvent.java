@@ -15,11 +15,15 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=BLOCK_IMAGE_CORRUPTED, data={device=str, msg=str, *offset=int, *size=int}}
 public class BlockImageCorruptedEvent extends QApiEvent {
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("msg")
-	@Nonnull public String msg;
+	@Nonnull
+	public java.lang.String msg;
 	@SerializedName("offset")
-	@CheckForNull public long offset;
+	@CheckForNull
+	public long offset;
 	@SerializedName("size")
-	@CheckForNull public long size;
+	@CheckForNull
+	public long size;
 }

@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class ImageInfoSpecificVmdk extends QApiType {
 
 	@SerializedName("create-type")
-	@Nonnull public String createType;
+	@Nonnull
+	public java.lang.String createType;
 	@SerializedName("cid")
-	@Nonnull public long cid;
+	@Nonnull
+	public long cid;
 	@SerializedName("parent-cid")
-	@Nonnull public long parentCid;
+	@Nonnull
+	public long parentCid;
 	@SerializedName("extents")
-	@Nonnull public List<ImageInfo> extents;
+	@Nonnull
+	public List<ImageInfo> extents;
 }

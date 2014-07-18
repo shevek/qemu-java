@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class TPMPassthroughOptions extends QApiType {
 
 	@SerializedName("path")
-	@CheckForNull public String path;
+	@CheckForNull
+	public java.lang.String path;
 	@SerializedName("cancel-path")
-	@CheckForNull public String cancelPath;
+	@CheckForNull
+	public java.lang.String cancelPath;
 }

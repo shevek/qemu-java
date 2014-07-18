@@ -18,11 +18,12 @@ public class GetfdCommand extends QApiCommand<GetfdCommand.Arguments, GetfdComma
 	/** Compound arguments to a GetfdCommand. */
 	public static class Arguments {
 		@SerializedName("fdname")
-		@Nonnull public String fdname;
+		@Nonnull
+		public java.lang.String fdname;
 	}
 
 	/** Response to a GetfdCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new GetfdCommand. */

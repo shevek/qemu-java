@@ -18,33 +18,45 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 	/** Compound arguments to a DriveMirrorCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("target")
-		@Nonnull public String target;
+		@Nonnull
+		public java.lang.String target;
 		@SerializedName("format")
-		@CheckForNull public String format;
+		@CheckForNull
+		public java.lang.String format;
 		@SerializedName("node-name")
-		@CheckForNull public String nodeName;
+		@CheckForNull
+		public java.lang.String nodeName;
 		@SerializedName("replaces")
-		@CheckForNull public String replaces;
+		@CheckForNull
+		public java.lang.String replaces;
 		@SerializedName("sync")
-		@Nonnull public MirrorSyncMode sync;
+		@Nonnull
+		public MirrorSyncMode sync;
 		@SerializedName("mode")
-		@CheckForNull public NewImageMode mode;
+		@CheckForNull
+		public NewImageMode mode;
 		@SerializedName("speed")
-		@CheckForNull public long speed;
+		@CheckForNull
+		public long speed;
 		@SerializedName("granularity")
-		@CheckForNull public long granularity;
+		@CheckForNull
+		public long granularity;
 		@SerializedName("buf-size")
-		@CheckForNull public long bufSize;
+		@CheckForNull
+		public long bufSize;
 		@SerializedName("on-source-error")
-		@CheckForNull public BlockdevOnError onSourceError;
+		@CheckForNull
+		public BlockdevOnError onSourceError;
 		@SerializedName("on-target-error")
-		@CheckForNull public BlockdevOnError onTargetError;
+		@CheckForNull
+		public BlockdevOnError onTargetError;
 	}
 
 	/** Response to a DriveMirrorCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new DriveMirrorCommand. */

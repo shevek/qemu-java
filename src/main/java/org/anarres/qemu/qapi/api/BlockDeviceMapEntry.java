@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockDeviceMapEntry extends QApiType {
 
 	@SerializedName("start")
-	@Nonnull public long start;
+	@Nonnull
+	public long start;
 	@SerializedName("length")
-	@Nonnull public long length;
+	@Nonnull
+	public long length;
 	@SerializedName("depth")
-	@Nonnull public long depth;
+	@Nonnull
+	public long depth;
 	@SerializedName("zero")
-	@Nonnull public boolean zero;
+	@Nonnull
+	public boolean zero;
 	@SerializedName("data")
-	@Nonnull public boolean data;
+	@Nonnull
+	public boolean data;
 	@SerializedName("offset")
-	@CheckForNull public long offset;
+	@CheckForNull
+	public long offset;
 }

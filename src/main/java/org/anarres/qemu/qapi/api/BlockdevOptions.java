@@ -15,57 +15,83 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=BlockdevOptions, data={file=BlockdevOptionsFile, host_device=BlockdevOptionsFile, host_cdrom=BlockdevOptionsFile, host_floppy=BlockdevOptionsFile, http=BlockdevOptionsFile, https=BlockdevOptionsFile, ftp=BlockdevOptionsFile, ftps=BlockdevOptionsFile, tftp=BlockdevOptionsFile, vvfat=BlockdevOptionsVVFAT, blkdebug=BlockdevOptionsBlkdebug, blkverify=BlockdevOptionsBlkverify, bochs=BlockdevOptionsGenericFormat, cloop=BlockdevOptionsGenericFormat, cow=BlockdevOptionsGenericCOWFormat, dmg=BlockdevOptionsGenericFormat, parallels=BlockdevOptionsGenericFormat, qcow=BlockdevOptionsGenericCOWFormat, qcow2=BlockdevOptionsQcow2, qed=BlockdevOptionsGenericCOWFormat, raw=BlockdevOptionsGenericFormat, vdi=BlockdevOptionsGenericFormat, vhdx=BlockdevOptionsGenericFormat, vmdk=BlockdevOptionsGenericCOWFormat, vpc=BlockdevOptionsGenericFormat, quorum=BlockdevOptionsQuorum}, innerTypes=null, fields=null}
 public class BlockdevOptions extends QApiUnion {
 	@SerializedName("file")
-	@Nonnull public BlockdevOptionsFile file;
+	@Nonnull
+	public BlockdevOptionsFile file;
 	@SerializedName("host_device")
-	@Nonnull public BlockdevOptionsFile hostDevice;
+	@Nonnull
+	public BlockdevOptionsFile hostDevice;
 	@SerializedName("host_cdrom")
-	@Nonnull public BlockdevOptionsFile hostCdrom;
+	@Nonnull
+	public BlockdevOptionsFile hostCdrom;
 	@SerializedName("host_floppy")
-	@Nonnull public BlockdevOptionsFile hostFloppy;
+	@Nonnull
+	public BlockdevOptionsFile hostFloppy;
 	@SerializedName("http")
-	@Nonnull public BlockdevOptionsFile http;
+	@Nonnull
+	public BlockdevOptionsFile http;
 	@SerializedName("https")
-	@Nonnull public BlockdevOptionsFile https;
+	@Nonnull
+	public BlockdevOptionsFile https;
 	@SerializedName("ftp")
-	@Nonnull public BlockdevOptionsFile ftp;
+	@Nonnull
+	public BlockdevOptionsFile ftp;
 	@SerializedName("ftps")
-	@Nonnull public BlockdevOptionsFile ftps;
+	@Nonnull
+	public BlockdevOptionsFile ftps;
 	@SerializedName("tftp")
-	@Nonnull public BlockdevOptionsFile tftp;
+	@Nonnull
+	public BlockdevOptionsFile tftp;
 	@SerializedName("vvfat")
-	@Nonnull public BlockdevOptionsVVFAT vvfat;
+	@Nonnull
+	public BlockdevOptionsVVFAT vvfat;
 	@SerializedName("blkdebug")
-	@Nonnull public BlockdevOptionsBlkdebug blkdebug;
+	@Nonnull
+	public BlockdevOptionsBlkdebug blkdebug;
 	@SerializedName("blkverify")
-	@Nonnull public BlockdevOptionsBlkverify blkverify;
+	@Nonnull
+	public BlockdevOptionsBlkverify blkverify;
 	@SerializedName("bochs")
-	@Nonnull public BlockdevOptionsGenericFormat bochs;
+	@Nonnull
+	public BlockdevOptionsGenericFormat bochs;
 	@SerializedName("cloop")
-	@Nonnull public BlockdevOptionsGenericFormat cloop;
+	@Nonnull
+	public BlockdevOptionsGenericFormat cloop;
 	@SerializedName("cow")
-	@Nonnull public BlockdevOptionsGenericCOWFormat cow;
+	@Nonnull
+	public BlockdevOptionsGenericCOWFormat cow;
 	@SerializedName("dmg")
-	@Nonnull public BlockdevOptionsGenericFormat dmg;
+	@Nonnull
+	public BlockdevOptionsGenericFormat dmg;
 	@SerializedName("parallels")
-	@Nonnull public BlockdevOptionsGenericFormat parallels;
+	@Nonnull
+	public BlockdevOptionsGenericFormat parallels;
 	@SerializedName("qcow")
-	@Nonnull public BlockdevOptionsGenericCOWFormat qcow;
+	@Nonnull
+	public BlockdevOptionsGenericCOWFormat qcow;
 	@SerializedName("qcow2")
-	@Nonnull public BlockdevOptionsQcow2 qcow2;
+	@Nonnull
+	public BlockdevOptionsQcow2 qcow2;
 	@SerializedName("qed")
-	@Nonnull public BlockdevOptionsGenericCOWFormat qed;
+	@Nonnull
+	public BlockdevOptionsGenericCOWFormat qed;
 	@SerializedName("raw")
-	@Nonnull public BlockdevOptionsGenericFormat raw;
+	@Nonnull
+	public BlockdevOptionsGenericFormat raw;
 	@SerializedName("vdi")
-	@Nonnull public BlockdevOptionsGenericFormat vdi;
+	@Nonnull
+	public BlockdevOptionsGenericFormat vdi;
 	@SerializedName("vhdx")
-	@Nonnull public BlockdevOptionsGenericFormat vhdx;
+	@Nonnull
+	public BlockdevOptionsGenericFormat vhdx;
 	@SerializedName("vmdk")
-	@Nonnull public BlockdevOptionsGenericCOWFormat vmdk;
+	@Nonnull
+	public BlockdevOptionsGenericCOWFormat vmdk;
 	@SerializedName("vpc")
-	@Nonnull public BlockdevOptionsGenericFormat vpc;
+	@Nonnull
+	public BlockdevOptionsGenericFormat vpc;
 	@SerializedName("quorum")
-	@Nonnull public BlockdevOptionsQuorum quorum;
+	@Nonnull
+	public BlockdevOptionsQuorum quorum;
 
 	@Override
 	public boolean isUnion() {

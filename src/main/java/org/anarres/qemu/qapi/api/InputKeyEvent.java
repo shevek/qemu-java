@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class InputKeyEvent extends QApiType {
 
 	@SerializedName("key")
-	@Nonnull public KeyValue key;
+	@Nonnull
+	public KeyValue key;
 	@SerializedName("down")
-	@Nonnull public boolean down;
+	@Nonnull
+	public boolean down;
 }

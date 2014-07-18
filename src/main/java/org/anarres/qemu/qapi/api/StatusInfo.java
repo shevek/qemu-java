@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class StatusInfo extends QApiType {
 
 	@SerializedName("running")
-	@Nonnull public boolean running;
+	@Nonnull
+	public boolean running;
 	@SerializedName("singlestep")
-	@Nonnull public boolean singlestep;
+	@Nonnull
+	public boolean singlestep;
 	@SerializedName("status")
-	@Nonnull public RunState status;
+	@Nonnull
+	public RunState status;
 }

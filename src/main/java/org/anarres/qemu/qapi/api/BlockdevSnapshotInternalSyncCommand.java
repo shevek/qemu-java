@@ -17,7 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevSnapshotInternalSyncCommand extends QApiCommand<BlockdevSnapshotInternal, BlockdevSnapshotInternalSyncCommand.Response> {
 
 	/** Response to a BlockdevSnapshotInternalSyncCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockdevSnapshotInternalSyncCommand. */

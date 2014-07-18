@@ -16,13 +16,18 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsBlkdebug extends QApiType {
 
 	@SerializedName("image")
-	@Nonnull public BlockdevRef image;
+	@Nonnull
+	public BlockdevRef image;
 	@SerializedName("config")
-	@CheckForNull public String config;
+	@CheckForNull
+	public java.lang.String config;
 	@SerializedName("align")
-	@CheckForNull public long align;
+	@CheckForNull
+	public long align;
 	@SerializedName("inject-error")
-	@CheckForNull public List<BlkdebugInjectErrorOptions> injectError;
+	@CheckForNull
+	public List<BlkdebugInjectErrorOptions> injectError;
 	@SerializedName("set-state")
-	@CheckForNull public List<BlkdebugSetStateOptions> setState;
+	@CheckForNull
+	public List<BlkdebugSetStateOptions> setState;
 }

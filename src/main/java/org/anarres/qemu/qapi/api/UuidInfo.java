@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class UuidInfo extends QApiType {
 
 	@SerializedName("UUID")
-	@Nonnull public String uuid;
+	@Nonnull
+	public java.lang.String uuid;
 }

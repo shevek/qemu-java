@@ -18,11 +18,12 @@ public class CpuCommand extends QApiCommand<CpuCommand.Arguments, CpuCommand.Res
 	/** Compound arguments to a CpuCommand. */
 	public static class Arguments {
 		@SerializedName("index")
-		@Nonnull public long index;
+		@Nonnull
+		public long index;
 	}
 
 	/** Response to a CpuCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new CpuCommand. */

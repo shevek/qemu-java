@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=DEVICE_DELETED, data={*device=str, path=str}}
 public class DeviceDeletedEvent extends QApiEvent {
 	@SerializedName("device")
-	@CheckForNull public String device;
+	@CheckForNull
+	public java.lang.String device;
 	@SerializedName("path")
-	@Nonnull public String path;
+	@Nonnull
+	public java.lang.String path;
 }

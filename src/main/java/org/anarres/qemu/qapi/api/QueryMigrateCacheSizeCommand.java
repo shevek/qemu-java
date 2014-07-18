@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-migrate-cache-size, returns=int, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-migrate-cache-size, returns=int, data=null}
-public class QueryMigrateCacheSizeCommand extends QApiCommand<Void, QueryMigrateCacheSizeCommand.Response> {
+public class QueryMigrateCacheSizeCommand extends QApiCommand<java.lang.Void, QueryMigrateCacheSizeCommand.Response> {
 
 	/** Response to a QueryMigrateCacheSizeCommand. */
-	public static class Response extends QApiResponse<Long> {
+	public static class Response extends QApiResponse<java.lang.Long> {
 	}
 
 	/** Constructs a new QueryMigrateCacheSizeCommand. */

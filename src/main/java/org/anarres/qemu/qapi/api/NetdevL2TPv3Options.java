@@ -16,31 +16,45 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevL2TPv3Options extends QApiType {
 
 	@SerializedName("src")
-	@Nonnull public String src;
+	@Nonnull
+	public java.lang.String src;
 	@SerializedName("dst")
-	@Nonnull public String dst;
+	@Nonnull
+	public java.lang.String dst;
 	@SerializedName("srcport")
-	@CheckForNull public String srcport;
+	@CheckForNull
+	public java.lang.String srcport;
 	@SerializedName("dstport")
-	@CheckForNull public String dstport;
+	@CheckForNull
+	public java.lang.String dstport;
 	@SerializedName("ipv6")
-	@CheckForNull public boolean ipv6;
+	@CheckForNull
+	public boolean ipv6;
 	@SerializedName("udp")
-	@CheckForNull public boolean udp;
+	@CheckForNull
+	public boolean udp;
 	@SerializedName("cookie64")
-	@CheckForNull public boolean cookie64;
+	@CheckForNull
+	public boolean cookie64;
 	@SerializedName("counter")
-	@CheckForNull public boolean counter;
+	@CheckForNull
+	public boolean counter;
 	@SerializedName("pincounter")
-	@CheckForNull public boolean pincounter;
+	@CheckForNull
+	public boolean pincounter;
 	@SerializedName("txcookie")
-	@CheckForNull public long txcookie;
+	@CheckForNull
+	public long txcookie;
 	@SerializedName("rxcookie")
-	@CheckForNull public long rxcookie;
+	@CheckForNull
+	public long rxcookie;
 	@SerializedName("txsession")
-	@Nonnull public long txsession;
+	@Nonnull
+	public long txsession;
 	@SerializedName("rxsession")
-	@CheckForNull public long rxsession;
+	@CheckForNull
+	public long rxsession;
 	@SerializedName("offset")
-	@CheckForNull public long offset;
+	@CheckForNull
+	public long offset;
 }

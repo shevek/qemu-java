@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-cpus, returns=[CpuInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-cpus, returns=[CpuInfo], data=null}
-public class QueryCpusCommand extends QApiCommand<Void, QueryCpusCommand.Response> {
+public class QueryCpusCommand extends QApiCommand<java.lang.Void, QueryCpusCommand.Response> {
 
 	/** Response to a QueryCpusCommand. */
 	public static class Response extends QApiResponse<List<CpuInfo>> {

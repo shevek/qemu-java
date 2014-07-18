@@ -18,11 +18,12 @@ public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.Arguments, Ob
 	/** Compound arguments to a ObjectDelCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 	}
 
 	/** Response to a ObjectDelCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ObjectDelCommand. */

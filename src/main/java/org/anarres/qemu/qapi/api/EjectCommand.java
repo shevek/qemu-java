@@ -18,13 +18,15 @@ public class EjectCommand extends QApiCommand<EjectCommand.Arguments, EjectComma
 	/** Compound arguments to a EjectCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("force")
-		@CheckForNull public boolean force;
+		@CheckForNull
+		public boolean force;
 	}
 
 	/** Response to a EjectCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new EjectCommand. */

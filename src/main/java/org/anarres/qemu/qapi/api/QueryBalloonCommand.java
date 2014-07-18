@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-balloon, returns=BalloonInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-balloon, returns=BalloonInfo, data=null}
-public class QueryBalloonCommand extends QApiCommand<Void, QueryBalloonCommand.Response> {
+public class QueryBalloonCommand extends QApiCommand<java.lang.Void, QueryBalloonCommand.Response> {
 
 	/** Response to a QueryBalloonCommand. */
 	public static class Response extends QApiResponse<BalloonInfo> {

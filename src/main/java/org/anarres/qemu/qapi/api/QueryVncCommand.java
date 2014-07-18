@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-vnc, returns=VncInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-vnc, returns=VncInfo, data=null}
-public class QueryVncCommand extends QApiCommand<Void, QueryVncCommand.Response> {
+public class QueryVncCommand extends QApiCommand<java.lang.Void, QueryVncCommand.Response> {
 
 	/** Response to a QueryVncCommand. */
 	public static class Response extends QApiResponse<VncInfo> {

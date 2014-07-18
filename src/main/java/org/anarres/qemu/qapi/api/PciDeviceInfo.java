@@ -17,7 +17,7 @@ public class PciDeviceInfo extends QApiType {
 	// QApiTypeDescriptor{name=_Tclass_info, data={*desc=str, class=int}, innerTypes=[]}
 	public static class _Tclass_info {
 		@SerializedName("desc")
-		@CheckForNull public String desc;
+		@CheckForNull public java.lang.String desc;
 		@SerializedName("class")
 		@Nonnull public long _class;
 	}
@@ -30,21 +30,30 @@ public class PciDeviceInfo extends QApiType {
 	}
 
 	@SerializedName("bus")
-	@Nonnull public long bus;
+	@Nonnull
+	public long bus;
 	@SerializedName("slot")
-	@Nonnull public long slot;
+	@Nonnull
+	public long slot;
 	@SerializedName("function")
-	@Nonnull public long function;
+	@Nonnull
+	public long function;
 	@SerializedName("class_info")
-	@Nonnull public _Tclass_info classInfo;
+	@Nonnull
+	public _Tclass_info classInfo;
 	@SerializedName("id")
-	@Nonnull public _Tid id;
+	@Nonnull
+	public _Tid id;
 	@SerializedName("irq")
-	@CheckForNull public long irq;
+	@CheckForNull
+	public long irq;
 	@SerializedName("qdev_id")
-	@Nonnull public String qdevId;
+	@Nonnull
+	public java.lang.String qdevId;
 	@SerializedName("pci_bridge")
-	@CheckForNull public PciBridgeInfo pciBridge;
+	@CheckForNull
+	public PciBridgeInfo pciBridge;
 	@SerializedName("regions")
-	@Nonnull public List<PciMemoryRegion> regions;
+	@Nonnull
+	public List<PciMemoryRegion> regions;
 }

@@ -18,15 +18,18 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 	/** Compound arguments to a QomSetCommand. */
 	public static class Arguments {
 		@SerializedName("path")
-		@Nonnull public String path;
+		@Nonnull
+		public java.lang.String path;
 		@SerializedName("property")
-		@Nonnull public String property;
+		@Nonnull
+		public java.lang.String property;
 		@SerializedName("value")
-		@Nonnull public Object value;
+		@Nonnull
+		public java.lang.Object value;
 	}
 
 	/** Response to a QomSetCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new QomSetCommand. */

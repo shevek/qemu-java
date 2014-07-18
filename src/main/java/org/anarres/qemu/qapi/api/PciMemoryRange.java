@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class PciMemoryRange extends QApiType {
 
 	@SerializedName("base")
-	@Nonnull public long base;
+	@Nonnull
+	public long base;
 	@SerializedName("limit")
-	@Nonnull public long limit;
+	@Nonnull
+	public long limit;
 }

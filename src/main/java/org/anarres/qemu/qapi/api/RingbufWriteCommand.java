@@ -18,15 +18,18 @@ public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Argumen
 	/** Compound arguments to a RingbufWriteCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("data")
-		@Nonnull public String data;
+		@Nonnull
+		public java.lang.String data;
 		@SerializedName("format")
-		@CheckForNull public DataFormat format;
+		@CheckForNull
+		public DataFormat format;
 	}
 
 	/** Response to a RingbufWriteCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new RingbufWriteCommand. */

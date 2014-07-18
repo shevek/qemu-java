@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevSpiceChannel extends QApiType {
 
 	@SerializedName("type")
-	@Nonnull public String type;
+	@Nonnull
+	public java.lang.String type;
 }

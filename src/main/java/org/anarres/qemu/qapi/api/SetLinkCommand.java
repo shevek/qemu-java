@@ -18,13 +18,15 @@ public class SetLinkCommand extends QApiCommand<SetLinkCommand.Arguments, SetLin
 	/** Compound arguments to a SetLinkCommand. */
 	public static class Arguments {
 		@SerializedName("name")
-		@Nonnull public String name;
+		@Nonnull
+		public java.lang.String name;
 		@SerializedName("up")
-		@Nonnull public boolean up;
+		@Nonnull
+		public boolean up;
 	}
 
 	/** Response to a SetLinkCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SetLinkCommand. */

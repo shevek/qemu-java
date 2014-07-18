@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockJobInfo extends QApiType {
 
 	@SerializedName("type")
-	@Nonnull public String type;
+	@Nonnull
+	public java.lang.String type;
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("len")
-	@Nonnull public long len;
+	@Nonnull
+	public long len;
 	@SerializedName("offset")
-	@Nonnull public long offset;
+	@Nonnull
+	public long offset;
 	@SerializedName("busy")
-	@Nonnull public boolean busy;
+	@Nonnull
+	public boolean busy;
 	@SerializedName("paused")
-	@Nonnull public boolean paused;
+	@Nonnull
+	public boolean paused;
 	@SerializedName("speed")
-	@Nonnull public long speed;
+	@Nonnull
+	public long speed;
 	@SerializedName("io-status")
-	@Nonnull public BlockDeviceIoStatus ioStatus;
+	@Nonnull
+	public BlockDeviceIoStatus ioStatus;
 }

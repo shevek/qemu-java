@@ -18,13 +18,15 @@ public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand
 	/** Compound arguments to a BlockJobSetSpeedCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("speed")
-		@Nonnull public long speed;
+		@Nonnull
+		public long speed;
 	}
 
 	/** Response to a BlockJobSetSpeedCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockJobSetSpeedCommand. */

@@ -18,37 +18,51 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	/** Compound arguments to a BlockSetIoThrottleCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("bps")
-		@Nonnull public long bps;
+		@Nonnull
+		public long bps;
 		@SerializedName("bps_rd")
-		@Nonnull public long bpsRd;
+		@Nonnull
+		public long bpsRd;
 		@SerializedName("bps_wr")
-		@Nonnull public long bpsWr;
+		@Nonnull
+		public long bpsWr;
 		@SerializedName("iops")
-		@Nonnull public long iops;
+		@Nonnull
+		public long iops;
 		@SerializedName("iops_rd")
-		@Nonnull public long iopsRd;
+		@Nonnull
+		public long iopsRd;
 		@SerializedName("iops_wr")
-		@Nonnull public long iopsWr;
+		@Nonnull
+		public long iopsWr;
 		@SerializedName("bps_max")
-		@CheckForNull public long bpsMax;
+		@CheckForNull
+		public long bpsMax;
 		@SerializedName("bps_rd_max")
-		@CheckForNull public long bpsRdMax;
+		@CheckForNull
+		public long bpsRdMax;
 		@SerializedName("bps_wr_max")
-		@CheckForNull public long bpsWrMax;
+		@CheckForNull
+		public long bpsWrMax;
 		@SerializedName("iops_max")
-		@CheckForNull public long iopsMax;
+		@CheckForNull
+		public long iopsMax;
 		@SerializedName("iops_rd_max")
-		@CheckForNull public long iopsRdMax;
+		@CheckForNull
+		public long iopsRdMax;
 		@SerializedName("iops_wr_max")
-		@CheckForNull public long iopsWrMax;
+		@CheckForNull
+		public long iopsWrMax;
 		@SerializedName("iops_size")
-		@CheckForNull public long iopsSize;
+		@CheckForNull
+		public long iopsSize;
 	}
 
 	/** Response to a BlockSetIoThrottleCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockSetIoThrottleCommand. */

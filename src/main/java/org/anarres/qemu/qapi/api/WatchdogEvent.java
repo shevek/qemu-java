@@ -15,5 +15,6 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=WATCHDOG, data={action=WatchdogExpirationAction}}
 public class WatchdogEvent extends QApiEvent {
 	@SerializedName("action")
-	@Nonnull public WatchdogExpirationAction action;
+	@Nonnull
+	public WatchdogExpirationAction action;
 }

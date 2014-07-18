@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevReturn extends QApiType {
 
 	@SerializedName("pty")
-	@CheckForNull public String pty;
+	@CheckForNull
+	public java.lang.String pty;
 }

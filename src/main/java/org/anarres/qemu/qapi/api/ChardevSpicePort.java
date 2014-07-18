@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevSpicePort extends QApiType {
 
 	@SerializedName("fqdn")
-	@Nonnull public String fqdn;
+	@Nonnull
+	public java.lang.String fqdn;
 }

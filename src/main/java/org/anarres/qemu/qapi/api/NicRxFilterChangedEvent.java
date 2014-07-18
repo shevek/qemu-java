@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=NIC_RX_FILTER_CHANGED, data={*name=str, path=str}}
 public class NicRxFilterChangedEvent extends QApiEvent {
 	@SerializedName("name")
-	@CheckForNull public String name;
+	@CheckForNull
+	public java.lang.String name;
 	@SerializedName("path")
-	@Nonnull public String path;
+	@Nonnull
+	public java.lang.String path;
 }

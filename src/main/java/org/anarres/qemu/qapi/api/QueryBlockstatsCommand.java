@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-blockstats, returns=[BlockStats], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-blockstats, returns=[BlockStats], data=null}
-public class QueryBlockstatsCommand extends QApiCommand<Void, QueryBlockstatsCommand.Response> {
+public class QueryBlockstatsCommand extends QApiCommand<java.lang.Void, QueryBlockstatsCommand.Response> {
 
 	/** Response to a QueryBlockstatsCommand. */
 	public static class Response extends QApiResponse<List<BlockStats>> {

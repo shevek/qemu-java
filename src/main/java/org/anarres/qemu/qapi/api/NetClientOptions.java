@@ -15,29 +15,41 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=NetClientOptions, data={none=NetdevNoneOptions, nic=NetLegacyNicOptions, user=NetdevUserOptions, tap=NetdevTapOptions, l2tpv3=NetdevL2TPv3Options, socket=NetdevSocketOptions, vde=NetdevVdeOptions, dump=NetdevDumpOptions, bridge=NetdevBridgeOptions, hubport=NetdevHubPortOptions, netmap=NetdevNetmapOptions, vhost-user=NetdevVhostUserOptions}, innerTypes=null, fields=null}
 public class NetClientOptions extends QApiUnion {
 	@SerializedName("none")
-	@Nonnull public NetdevNoneOptions none;
+	@Nonnull
+	public NetdevNoneOptions none;
 	@SerializedName("nic")
-	@Nonnull public NetLegacyNicOptions nic;
+	@Nonnull
+	public NetLegacyNicOptions nic;
 	@SerializedName("user")
-	@Nonnull public NetdevUserOptions user;
+	@Nonnull
+	public NetdevUserOptions user;
 	@SerializedName("tap")
-	@Nonnull public NetdevTapOptions tap;
+	@Nonnull
+	public NetdevTapOptions tap;
 	@SerializedName("l2tpv3")
-	@Nonnull public NetdevL2TPv3Options l2tpv3;
+	@Nonnull
+	public NetdevL2TPv3Options l2tpv3;
 	@SerializedName("socket")
-	@Nonnull public NetdevSocketOptions socket;
+	@Nonnull
+	public NetdevSocketOptions socket;
 	@SerializedName("vde")
-	@Nonnull public NetdevVdeOptions vde;
+	@Nonnull
+	public NetdevVdeOptions vde;
 	@SerializedName("dump")
-	@Nonnull public NetdevDumpOptions dump;
+	@Nonnull
+	public NetdevDumpOptions dump;
 	@SerializedName("bridge")
-	@Nonnull public NetdevBridgeOptions bridge;
+	@Nonnull
+	public NetdevBridgeOptions bridge;
 	@SerializedName("hubport")
-	@Nonnull public NetdevHubPortOptions hubport;
+	@Nonnull
+	public NetdevHubPortOptions hubport;
 	@SerializedName("netmap")
-	@Nonnull public NetdevNetmapOptions netmap;
+	@Nonnull
+	public NetdevNetmapOptions netmap;
 	@SerializedName("vhost-user")
-	@Nonnull public NetdevVhostUserOptions vhostUser;
+	@Nonnull
+	public NetdevVhostUserOptions vhostUser;
 
 	@Override
 	public boolean isUnion() {

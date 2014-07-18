@@ -20,7 +20,7 @@ public abstract class QApiElementDescriptor {
     @Nonnull
     protected static String toJavaType(@Nonnull String jsonType) {
         if ("str".equals(jsonType))
-            return String.class.getSimpleName();
+            return String.class.getName();
         if ("int".equals(jsonType))
             return Long.TYPE.getName();
         if ("int8".equals(jsonType))
@@ -48,22 +48,22 @@ public abstract class QApiElementDescriptor {
         if ("dict".equals(jsonType))
             return "Map<String, String>";
         if ("visitor".equals(jsonType))
-            return Object.class.getSimpleName(); // + " /* visitor */";
+            return Object.class.getName(); // + " /* visitor */";
         if ("**".equals(jsonType))
-            return Object.class.getSimpleName(); // + " /* ARGH. */";
+            return Object.class.getName(); // + " /* ARGH. */";
         return jsonType;
     }
 
     @Nonnull
     protected static String toWrappedJavaType(@CheckForNull String name) {
         if (name == null)
-            return Void.class.getSimpleName();
+            return Void.class.getName();
         if ("int".equals(name))
-            return Integer.class.getSimpleName();
+            return Integer.class.getName();
         else if ("long".equals(name))
-            return Long.class.getSimpleName();
+            return Long.class.getName();
         else if ("void".equals(name))
-            return Void.class.getSimpleName();
+            return Void.class.getName();
         return name;
     }
 

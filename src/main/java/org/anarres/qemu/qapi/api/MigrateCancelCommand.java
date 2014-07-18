@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=migrate_cancel, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=migrate_cancel, returns=null, data=null}
-public class MigrateCancelCommand extends QApiCommand<Void, MigrateCancelCommand.Response> {
+public class MigrateCancelCommand extends QApiCommand<java.lang.Void, MigrateCancelCommand.Response> {
 
 	/** Response to a MigrateCancelCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateCancelCommand. */

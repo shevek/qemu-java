@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsGenericCOWFormat extends QApiType {
 
 	@SerializedName("backing")
-	@CheckForNull public BlockdevRef backing;
+	@CheckForNull
+	public BlockdevRef backing;
 }

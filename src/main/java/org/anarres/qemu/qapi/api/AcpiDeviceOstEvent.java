@@ -15,5 +15,6 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=ACPI_DEVICE_OST, data={info=ACPIOSTInfo}}
 public class AcpiDeviceOstEvent extends QApiEvent {
 	@SerializedName("info")
-	@Nonnull public ACPIOSTInfo info;
+	@Nonnull
+	public ACPIOSTInfo info;
 }

@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevStdio extends QApiType {
 
 	@SerializedName("signal")
-	@CheckForNull public boolean signal;
+	@CheckForNull
+	public boolean signal;
 }

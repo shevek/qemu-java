@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class BlkdebugInjectErrorOptions extends QApiType {
 
 	@SerializedName("event")
-	@Nonnull public BlkdebugEvent event;
+	@Nonnull
+	public BlkdebugEvent event;
 	@SerializedName("state")
-	@CheckForNull public long state;
+	@CheckForNull
+	public long state;
 	@SerializedName("errno")
-	@CheckForNull public long errno;
+	@CheckForNull
+	public long errno;
 	@SerializedName("sector")
-	@CheckForNull public long sector;
+	@CheckForNull
+	public long sector;
 	@SerializedName("once")
-	@CheckForNull public boolean once;
+	@CheckForNull
+	public boolean once;
 	@SerializedName("immediately")
-	@CheckForNull public boolean immediately;
+	@CheckForNull
+	public boolean immediately;
 }

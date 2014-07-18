@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevVdeOptions extends QApiType {
 
 	@SerializedName("sock")
-	@CheckForNull public String sock;
+	@CheckForNull
+	public java.lang.String sock;
 	@SerializedName("port")
-	@CheckForNull public int port;
+	@CheckForNull
+	public int port;
 	@SerializedName("group")
-	@CheckForNull public String group;
+	@CheckForNull
+	public java.lang.String group;
 	@SerializedName("mode")
-	@CheckForNull public int mode;
+	@CheckForNull
+	public int mode;
 }

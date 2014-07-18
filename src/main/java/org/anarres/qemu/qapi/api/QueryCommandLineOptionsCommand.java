@@ -18,7 +18,8 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 	/** Compound arguments to a QueryCommandLineOptionsCommand. */
 	public static class Arguments {
 		@SerializedName("option")
-		@CheckForNull public String option;
+		@CheckForNull
+		public java.lang.String option;
 	}
 
 	/** Response to a QueryCommandLineOptionsCommand. */

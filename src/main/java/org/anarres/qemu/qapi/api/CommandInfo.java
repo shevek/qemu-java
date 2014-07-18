@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class CommandInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 }

@@ -25,7 +25,9 @@ public class VersionInfo extends QApiType {
 	}
 
 	@SerializedName("qemu")
-	@Nonnull public _Tqemu qemu;
+	@Nonnull
+	public _Tqemu qemu;
 	@SerializedName("package")
-	@Nonnull public String _package;
+	@Nonnull
+	public java.lang.String _package;
 }

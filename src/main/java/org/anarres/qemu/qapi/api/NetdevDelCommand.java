@@ -18,11 +18,12 @@ public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.Arguments, Ne
 	/** Compound arguments to a NetdevDelCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 	}
 
 	/** Response to a NetdevDelCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new NetdevDelCommand. */

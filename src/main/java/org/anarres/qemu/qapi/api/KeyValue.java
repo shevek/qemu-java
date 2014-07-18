@@ -15,9 +15,11 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=KeyValue, data={number=int, qcode=QKeyCode}, innerTypes=null, fields=null}
 public class KeyValue extends QApiUnion {
 	@SerializedName("number")
-	@Nonnull public Long number;
+	@Nonnull
+	public java.lang.Long number;
 	@SerializedName("qcode")
-	@Nonnull public QKeyCode qcode;
+	@Nonnull
+	public QKeyCode qcode;
 
 	@Override
 	public boolean isUnion() {

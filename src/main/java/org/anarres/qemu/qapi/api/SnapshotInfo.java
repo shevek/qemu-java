@@ -16,17 +16,24 @@ import org.anarres.qemu.qapi.common.*;
 public class SnapshotInfo extends QApiType {
 
 	@SerializedName("id")
-	@Nonnull public String id;
+	@Nonnull
+	public java.lang.String id;
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("vm-state-size")
-	@Nonnull public long vmStateSize;
+	@Nonnull
+	public long vmStateSize;
 	@SerializedName("date-sec")
-	@Nonnull public long dateSec;
+	@Nonnull
+	public long dateSec;
 	@SerializedName("date-nsec")
-	@Nonnull public long dateNsec;
+	@Nonnull
+	public long dateNsec;
 	@SerializedName("vm-clock-sec")
-	@Nonnull public long vmClockSec;
+	@Nonnull
+	public long vmClockSec;
 	@SerializedName("vm-clock-nsec")
-	@Nonnull public long vmClockNsec;
+	@Nonnull
+	public long vmClockNsec;
 }

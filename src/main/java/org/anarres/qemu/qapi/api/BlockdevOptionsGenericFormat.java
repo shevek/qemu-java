@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsGenericFormat extends QApiType {
 
 	@SerializedName("file")
-	@Nonnull public BlockdevRef file;
+	@Nonnull
+	public BlockdevRef file;
 }

@@ -18,13 +18,15 @@ public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arg
 	/** Compound arguments to a BlockJobCancelCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("force")
-		@CheckForNull public boolean force;
+		@CheckForNull
+		public boolean force;
 	}
 
 	/** Response to a BlockJobCancelCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockJobCancelCommand. */

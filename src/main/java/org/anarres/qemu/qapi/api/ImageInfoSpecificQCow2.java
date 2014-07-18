@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class ImageInfoSpecificQCow2 extends QApiType {
 
 	@SerializedName("compat")
-	@Nonnull public String compat;
+	@Nonnull
+	public java.lang.String compat;
 	@SerializedName("lazy-refcounts")
-	@CheckForNull public boolean lazyRefcounts;
+	@CheckForNull
+	public boolean lazyRefcounts;
 }

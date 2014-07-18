@@ -16,13 +16,18 @@ import org.anarres.qemu.qapi.common.*;
 public class ACPIOSTInfo extends QApiType {
 
 	@SerializedName("device")
-	@CheckForNull public String device;
+	@CheckForNull
+	public java.lang.String device;
 	@SerializedName("slot")
-	@Nonnull public String slot;
+	@Nonnull
+	public java.lang.String slot;
 	@SerializedName("slot-type")
-	@Nonnull public ACPISlotType slotType;
+	@Nonnull
+	public ACPISlotType slotType;
 	@SerializedName("source")
-	@Nonnull public long source;
+	@Nonnull
+	public long source;
 	@SerializedName("status")
-	@Nonnull public long status;
+	@Nonnull
+	public long status;
 }

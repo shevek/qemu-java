@@ -18,11 +18,14 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 	/** Compound arguments to a BlockdevSnapshotDeleteInternalSyncCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("id")
-		@CheckForNull public String id;
+		@CheckForNull
+		public java.lang.String id;
 		@SerializedName("name")
-		@CheckForNull public String name;
+		@CheckForNull
+		public java.lang.String name;
 	}
 
 	/** Response to a BlockdevSnapshotDeleteInternalSyncCommand. */

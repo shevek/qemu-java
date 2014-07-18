@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-fdsets, returns=[FdsetInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-fdsets, returns=[FdsetInfo], data=null}
-public class QueryFdsetsCommand extends QApiCommand<Void, QueryFdsetsCommand.Response> {
+public class QueryFdsetsCommand extends QApiCommand<java.lang.Void, QueryFdsetsCommand.Response> {
 
 	/** Response to a QueryFdsetsCommand. */
 	public static class Response extends QApiResponse<List<FdsetInfo>> {

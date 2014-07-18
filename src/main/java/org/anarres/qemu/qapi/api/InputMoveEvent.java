@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class InputMoveEvent extends QApiType {
 
 	@SerializedName("axis")
-	@Nonnull public InputAxis axis;
+	@Nonnull
+	public InputAxis axis;
 	@SerializedName("value")
-	@Nonnull public long value;
+	@Nonnull
+	public long value;
 }

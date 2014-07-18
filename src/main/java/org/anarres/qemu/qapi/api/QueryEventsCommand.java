@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-events, returns=[EventInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-events, returns=[EventInfo], data=null}
-public class QueryEventsCommand extends QApiCommand<Void, QueryEventsCommand.Response> {
+public class QueryEventsCommand extends QApiCommand<java.lang.Void, QueryEventsCommand.Response> {
 
 	/** Response to a QueryEventsCommand. */
 	public static class Response extends QApiResponse<List<EventInfo>> {

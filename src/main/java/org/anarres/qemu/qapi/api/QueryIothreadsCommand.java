@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-iothreads, returns=[IOThreadInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-iothreads, returns=[IOThreadInfo], data=null}
-public class QueryIothreadsCommand extends QApiCommand<Void, QueryIothreadsCommand.Response> {
+public class QueryIothreadsCommand extends QApiCommand<java.lang.Void, QueryIothreadsCommand.Response> {
 
 	/** Response to a QueryIothreadsCommand. */
 	public static class Response extends QApiResponse<List<IOThreadInfo>> {

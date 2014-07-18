@@ -18,13 +18,15 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	/** Compound arguments to a HumanMonitorCommandCommand. */
 	public static class Arguments {
 		@SerializedName("command-line")
-		@Nonnull public String commandLine;
+		@Nonnull
+		public java.lang.String commandLine;
 		@SerializedName("cpu-index")
-		@CheckForNull public long cpuIndex;
+		@CheckForNull
+		public long cpuIndex;
 	}
 
 	/** Response to a HumanMonitorCommandCommand. */
-	public static class Response extends QApiResponse<String> {
+	public static class Response extends QApiResponse<java.lang.String> {
 	}
 
 	/** Constructs a new HumanMonitorCommandCommand. */

@@ -16,21 +16,30 @@ import org.anarres.qemu.qapi.common.*;
 public class SpiceInfo extends QApiType {
 
 	@SerializedName("enabled")
-	@Nonnull public boolean enabled;
+	@Nonnull
+	public boolean enabled;
 	@SerializedName("migrated")
-	@Nonnull public boolean migrated;
+	@Nonnull
+	public boolean migrated;
 	@SerializedName("host")
-	@CheckForNull public String host;
+	@CheckForNull
+	public java.lang.String host;
 	@SerializedName("port")
-	@CheckForNull public long port;
+	@CheckForNull
+	public long port;
 	@SerializedName("tls-port")
-	@CheckForNull public long tlsPort;
+	@CheckForNull
+	public long tlsPort;
 	@SerializedName("auth")
-	@CheckForNull public String auth;
+	@CheckForNull
+	public java.lang.String auth;
 	@SerializedName("compiled-version")
-	@CheckForNull public String compiledVersion;
+	@CheckForNull
+	public java.lang.String compiledVersion;
 	@SerializedName("mouse-mode")
-	@Nonnull public SpiceQueryMouseMode mouseMode;
+	@Nonnull
+	public SpiceQueryMouseMode mouseMode;
 	@SerializedName("channels")
-	@CheckForNull public List<SpiceChannel> channels;
+	@CheckForNull
+	public List<SpiceChannel> channels;
 }

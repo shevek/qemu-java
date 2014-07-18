@@ -16,21 +16,30 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockDeviceStats extends QApiType {
 
 	@SerializedName("rd_bytes")
-	@Nonnull public long rdBytes;
+	@Nonnull
+	public long rdBytes;
 	@SerializedName("wr_bytes")
-	@Nonnull public long wrBytes;
+	@Nonnull
+	public long wrBytes;
 	@SerializedName("rd_operations")
-	@Nonnull public long rdOperations;
+	@Nonnull
+	public long rdOperations;
 	@SerializedName("wr_operations")
-	@Nonnull public long wrOperations;
+	@Nonnull
+	public long wrOperations;
 	@SerializedName("flush_operations")
-	@Nonnull public long flushOperations;
+	@Nonnull
+	public long flushOperations;
 	@SerializedName("flush_total_time_ns")
-	@Nonnull public long flushTotalTimeNs;
+	@Nonnull
+	public long flushTotalTimeNs;
 	@SerializedName("wr_total_time_ns")
-	@Nonnull public long wrTotalTimeNs;
+	@Nonnull
+	public long wrTotalTimeNs;
 	@SerializedName("rd_total_time_ns")
-	@Nonnull public long rdTotalTimeNs;
+	@Nonnull
+	public long rdTotalTimeNs;
 	@SerializedName("wr_highest_offset")
-	@Nonnull public long wrHighestOffset;
+	@Nonnull
+	public long wrHighestOffset;
 }

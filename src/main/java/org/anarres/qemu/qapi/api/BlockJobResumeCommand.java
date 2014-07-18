@@ -18,11 +18,12 @@ public class BlockJobResumeCommand extends QApiCommand<BlockJobResumeCommand.Arg
 	/** Compound arguments to a BlockJobResumeCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 	}
 
 	/** Response to a BlockJobResumeCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockJobResumeCommand. */

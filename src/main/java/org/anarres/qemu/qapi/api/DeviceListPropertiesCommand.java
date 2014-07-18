@@ -18,7 +18,8 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 	/** Compound arguments to a DeviceListPropertiesCommand. */
 	public static class Arguments {
 		@SerializedName("typename")
-		@Nonnull public String typename;
+		@Nonnull
+		public java.lang.String typename;
 	}
 
 	/** Response to a DeviceListPropertiesCommand. */

@@ -18,15 +18,18 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 	/** Compound arguments to a ObjectAddCommand. */
 	public static class Arguments {
 		@SerializedName("qom-type")
-		@Nonnull public String qomType;
+		@Nonnull
+		public java.lang.String qomType;
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 		@SerializedName("props")
-		@CheckForNull public Map<String, String> props;
+		@CheckForNull
+		public Map<String, String> props;
 	}
 
 	/** Response to a ObjectAddCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ObjectAddCommand. */

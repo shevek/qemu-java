@@ -18,13 +18,15 @@ public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Arg
 	/** Compound arguments to a ExpirePasswordCommand. */
 	public static class Arguments {
 		@SerializedName("protocol")
-		@Nonnull public String protocol;
+		@Nonnull
+		public java.lang.String protocol;
 		@SerializedName("time")
-		@Nonnull public String time;
+		@Nonnull
+		public java.lang.String time;
 	}
 
 	/** Response to a ExpirePasswordCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ExpirePasswordCommand. */

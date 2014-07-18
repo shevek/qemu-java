@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevSocketOptions extends QApiType {
 
 	@SerializedName("fd")
-	@CheckForNull public String fd;
+	@CheckForNull
+	public java.lang.String fd;
 	@SerializedName("listen")
-	@CheckForNull public String listen;
+	@CheckForNull
+	public java.lang.String listen;
 	@SerializedName("connect")
-	@CheckForNull public String connect;
+	@CheckForNull
+	public java.lang.String connect;
 	@SerializedName("mcast")
-	@CheckForNull public String mcast;
+	@CheckForNull
+	public java.lang.String mcast;
 	@SerializedName("localaddr")
-	@CheckForNull public String localaddr;
+	@CheckForNull
+	public java.lang.String localaddr;
 	@SerializedName("udp")
-	@CheckForNull public String udp;
+	@CheckForNull
+	public java.lang.String udp;
 }

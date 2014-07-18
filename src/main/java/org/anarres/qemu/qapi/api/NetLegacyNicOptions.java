@@ -16,13 +16,18 @@ import org.anarres.qemu.qapi.common.*;
 public class NetLegacyNicOptions extends QApiType {
 
 	@SerializedName("netdev")
-	@CheckForNull public String netdev;
+	@CheckForNull
+	public java.lang.String netdev;
 	@SerializedName("macaddr")
-	@CheckForNull public String macaddr;
+	@CheckForNull
+	public java.lang.String macaddr;
 	@SerializedName("model")
-	@CheckForNull public String model;
+	@CheckForNull
+	public java.lang.String model;
 	@SerializedName("addr")
-	@CheckForNull public String addr;
+	@CheckForNull
+	public java.lang.String addr;
 	@SerializedName("vectors")
-	@CheckForNull public long vectors;
+	@CheckForNull
+	public long vectors;
 }

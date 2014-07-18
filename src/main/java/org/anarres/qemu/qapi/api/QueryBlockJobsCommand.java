@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-block-jobs, returns=[BlockJobInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-block-jobs, returns=[BlockJobInfo], data=null}
-public class QueryBlockJobsCommand extends QApiCommand<Void, QueryBlockJobsCommand.Response> {
+public class QueryBlockJobsCommand extends QApiCommand<java.lang.Void, QueryBlockJobsCommand.Response> {
 
 	/** Response to a QueryBlockJobsCommand. */
 	public static class Response extends QApiResponse<List<BlockJobInfo>> {

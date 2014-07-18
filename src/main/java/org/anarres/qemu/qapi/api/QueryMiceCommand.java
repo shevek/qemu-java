@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-mice, returns=[MouseInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-mice, returns=[MouseInfo], data=null}
-public class QueryMiceCommand extends QApiCommand<Void, QueryMiceCommand.Response> {
+public class QueryMiceCommand extends QApiCommand<java.lang.Void, QueryMiceCommand.Response> {
 
 	/** Response to a QueryMiceCommand. */
 	public static class Response extends QApiResponse<List<MouseInfo>> {

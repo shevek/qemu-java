@@ -18,13 +18,15 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Argumen
 	/** Compound arguments to a NbdServerAddCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("writable")
-		@CheckForNull public boolean writable;
+		@CheckForNull
+		public boolean writable;
 	}
 
 	/** Response to a NbdServerAddCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new NbdServerAddCommand. */

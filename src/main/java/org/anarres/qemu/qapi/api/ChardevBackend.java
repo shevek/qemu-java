@@ -15,41 +15,59 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=ChardevBackend, data={file=ChardevFile, serial=ChardevHostdev, parallel=ChardevHostdev, pipe=ChardevHostdev, socket=ChardevSocket, udp=ChardevUdp, pty=ChardevDummy, null=ChardevDummy, mux=ChardevMux, msmouse=ChardevDummy, braille=ChardevDummy, stdio=ChardevStdio, console=ChardevDummy, spicevmc=ChardevSpiceChannel, spiceport=ChardevSpicePort, vc=ChardevVC, ringbuf=ChardevRingbuf, memory=ChardevRingbuf}, innerTypes=null, fields=null}
 public class ChardevBackend extends QApiUnion {
 	@SerializedName("file")
-	@Nonnull public ChardevFile file;
+	@Nonnull
+	public ChardevFile file;
 	@SerializedName("serial")
-	@Nonnull public ChardevHostdev serial;
+	@Nonnull
+	public ChardevHostdev serial;
 	@SerializedName("parallel")
-	@Nonnull public ChardevHostdev parallel;
+	@Nonnull
+	public ChardevHostdev parallel;
 	@SerializedName("pipe")
-	@Nonnull public ChardevHostdev pipe;
+	@Nonnull
+	public ChardevHostdev pipe;
 	@SerializedName("socket")
-	@Nonnull public ChardevSocket socket;
+	@Nonnull
+	public ChardevSocket socket;
 	@SerializedName("udp")
-	@Nonnull public ChardevUdp udp;
+	@Nonnull
+	public ChardevUdp udp;
 	@SerializedName("pty")
-	@Nonnull public ChardevDummy pty;
+	@Nonnull
+	public ChardevDummy pty;
 	@SerializedName("null")
-	@Nonnull public ChardevDummy _null;
+	@Nonnull
+	public ChardevDummy _null;
 	@SerializedName("mux")
-	@Nonnull public ChardevMux mux;
+	@Nonnull
+	public ChardevMux mux;
 	@SerializedName("msmouse")
-	@Nonnull public ChardevDummy msmouse;
+	@Nonnull
+	public ChardevDummy msmouse;
 	@SerializedName("braille")
-	@Nonnull public ChardevDummy braille;
+	@Nonnull
+	public ChardevDummy braille;
 	@SerializedName("stdio")
-	@Nonnull public ChardevStdio stdio;
+	@Nonnull
+	public ChardevStdio stdio;
 	@SerializedName("console")
-	@Nonnull public ChardevDummy console;
+	@Nonnull
+	public ChardevDummy console;
 	@SerializedName("spicevmc")
-	@Nonnull public ChardevSpiceChannel spicevmc;
+	@Nonnull
+	public ChardevSpiceChannel spicevmc;
 	@SerializedName("spiceport")
-	@Nonnull public ChardevSpicePort spiceport;
+	@Nonnull
+	public ChardevSpicePort spiceport;
 	@SerializedName("vc")
-	@Nonnull public ChardevVC vc;
+	@Nonnull
+	public ChardevVC vc;
 	@SerializedName("ringbuf")
-	@Nonnull public ChardevRingbuf ringbuf;
+	@Nonnull
+	public ChardevRingbuf ringbuf;
 	@SerializedName("memory")
-	@Nonnull public ChardevRingbuf memory;
+	@Nonnull
+	public ChardevRingbuf memory;
 
 	@Override
 	public boolean isUnion() {

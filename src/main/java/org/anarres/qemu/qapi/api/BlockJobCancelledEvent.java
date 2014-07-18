@@ -15,13 +15,18 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=BLOCK_JOB_CANCELLED, data={type=BlockJobType, device=str, len=int, offset=int, speed=int}}
 public class BlockJobCancelledEvent extends QApiEvent {
 	@SerializedName("type")
-	@Nonnull public BlockJobType type;
+	@Nonnull
+	public BlockJobType type;
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("len")
-	@Nonnull public long len;
+	@Nonnull
+	public long len;
 	@SerializedName("offset")
-	@Nonnull public long offset;
+	@Nonnull
+	public long offset;
 	@SerializedName("speed")
-	@Nonnull public long speed;
+	@Nonnull
+	public long speed;
 }

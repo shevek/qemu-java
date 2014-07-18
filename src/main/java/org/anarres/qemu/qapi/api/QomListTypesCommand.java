@@ -18,9 +18,11 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Argumen
 	/** Compound arguments to a QomListTypesCommand. */
 	public static class Arguments {
 		@SerializedName("implements")
-		@CheckForNull public String _implements;
+		@CheckForNull
+		public java.lang.String _implements;
 		@SerializedName("abstract")
-		@CheckForNull public boolean _abstract;
+		@CheckForNull
+		public boolean _abstract;
 	}
 
 	/** Response to a QomListTypesCommand. */

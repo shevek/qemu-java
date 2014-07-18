@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class CommandLineParameterInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("type")
-	@Nonnull public CommandLineParameterType type;
+	@Nonnull
+	public CommandLineParameterType type;
 	@SerializedName("help")
-	@CheckForNull public String help;
+	@CheckForNull
+	public java.lang.String help;
 	@SerializedName("default")
-	@CheckForNull public String _default;
+	@CheckForNull
+	public java.lang.String _default;
 }

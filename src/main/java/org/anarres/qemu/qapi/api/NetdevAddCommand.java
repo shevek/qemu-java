@@ -18,15 +18,18 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, Ne
 	/** Compound arguments to a NetdevAddCommand. */
 	public static class Arguments {
 		@SerializedName("type")
-		@Nonnull public String type;
+		@Nonnull
+		public java.lang.String type;
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 		@SerializedName("props")
-		@CheckForNull public Object props;
+		@CheckForNull
+		public java.lang.Object props;
 	}
 
 	/** Response to a NetdevAddCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new NetdevAddCommand. */

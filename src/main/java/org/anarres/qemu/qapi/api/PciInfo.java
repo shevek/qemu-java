@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class PciInfo extends QApiType {
 
 	@SerializedName("bus")
-	@Nonnull public long bus;
+	@Nonnull
+	public long bus;
 	@SerializedName("devices")
-	@Nonnull public List<PciDeviceInfo> devices;
+	@Nonnull
+	public List<PciDeviceInfo> devices;
 }

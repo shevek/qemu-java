@@ -16,23 +16,33 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsBase extends QApiType {
 
 	@SerializedName("driver")
-	@Nonnull public BlockdevDriver driver;
+	@Nonnull
+	public BlockdevDriver driver;
 	@SerializedName("id")
-	@CheckForNull public String id;
+	@CheckForNull
+	public java.lang.String id;
 	@SerializedName("node-name")
-	@CheckForNull public String nodeName;
+	@CheckForNull
+	public java.lang.String nodeName;
 	@SerializedName("discard")
-	@CheckForNull public BlockdevDiscardOptions discard;
+	@CheckForNull
+	public BlockdevDiscardOptions discard;
 	@SerializedName("cache")
-	@CheckForNull public BlockdevCacheOptions cache;
+	@CheckForNull
+	public BlockdevCacheOptions cache;
 	@SerializedName("aio")
-	@CheckForNull public BlockdevAioOptions aio;
+	@CheckForNull
+	public BlockdevAioOptions aio;
 	@SerializedName("rerror")
-	@CheckForNull public BlockdevOnError rerror;
+	@CheckForNull
+	public BlockdevOnError rerror;
 	@SerializedName("werror")
-	@CheckForNull public BlockdevOnError werror;
+	@CheckForNull
+	public BlockdevOnError werror;
 	@SerializedName("read-only")
-	@CheckForNull public boolean readOnly;
+	@CheckForNull
+	public boolean readOnly;
 	@SerializedName("detect-zeroes")
-	@CheckForNull public BlockdevDetectZeroesOptions detectZeroes;
+	@CheckForNull
+	public BlockdevDetectZeroesOptions detectZeroes;
 }

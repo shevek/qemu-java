@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsQuorum extends QApiType {
 
 	@SerializedName("blkverify")
-	@CheckForNull public boolean blkverify;
+	@CheckForNull
+	public boolean blkverify;
 	@SerializedName("children")
-	@Nonnull public List<BlockdevRef> children;
+	@Nonnull
+	public List<BlockdevRef> children;
 	@SerializedName("vote-threshold")
-	@Nonnull public long voteThreshold;
+	@Nonnull
+	public long voteThreshold;
 	@SerializedName("rewrite-corrupted")
-	@CheckForNull public boolean rewriteCorrupted;
+	@CheckForNull
+	public boolean rewriteCorrupted;
 }

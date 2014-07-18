@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class BalloonInfo extends QApiType {
 
 	@SerializedName("actual")
-	@Nonnull public long actual;
+	@Nonnull
+	public long actual;
 }

@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class DriveBackup extends QApiType {
 
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("target")
-	@Nonnull public String target;
+	@Nonnull
+	public java.lang.String target;
 	@SerializedName("format")
-	@CheckForNull public String format;
+	@CheckForNull
+	public java.lang.String format;
 	@SerializedName("sync")
-	@Nonnull public MirrorSyncMode sync;
+	@Nonnull
+	public MirrorSyncMode sync;
 	@SerializedName("mode")
-	@CheckForNull public NewImageMode mode;
+	@CheckForNull
+	public NewImageMode mode;
 	@SerializedName("speed")
-	@CheckForNull public long speed;
+	@CheckForNull
+	public long speed;
 	@SerializedName("on-source-error")
-	@CheckForNull public BlockdevOnError onSourceError;
+	@CheckForNull
+	public BlockdevOnError onSourceError;
 	@SerializedName("on-target-error")
-	@CheckForNull public BlockdevOnError onTargetError;
+	@CheckForNull
+	public BlockdevOnError onTargetError;
 }

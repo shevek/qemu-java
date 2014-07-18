@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=system_reset, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=system_reset, returns=null, data=null}
-public class SystemResetCommand extends QApiCommand<Void, SystemResetCommand.Response> {
+public class SystemResetCommand extends QApiCommand<java.lang.Void, SystemResetCommand.Response> {
 
 	/** Response to a SystemResetCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SystemResetCommand. */

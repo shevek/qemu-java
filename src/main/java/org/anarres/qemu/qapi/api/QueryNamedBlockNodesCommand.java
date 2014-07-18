@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-named-block-nodes, returns=[BlockDeviceInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-named-block-nodes, returns=[BlockDeviceInfo], data=null}
-public class QueryNamedBlockNodesCommand extends QApiCommand<Void, QueryNamedBlockNodesCommand.Response> {
+public class QueryNamedBlockNodesCommand extends QApiCommand<java.lang.Void, QueryNamedBlockNodesCommand.Response> {
 
 	/** Response to a QueryNamedBlockNodesCommand. */
 	public static class Response extends QApiResponse<List<BlockDeviceInfo>> {

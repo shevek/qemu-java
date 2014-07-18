@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsQcow2 extends QApiType {
 
 	@SerializedName("lazy-refcounts")
-	@CheckForNull public boolean lazyRefcounts;
+	@CheckForNull
+	public boolean lazyRefcounts;
 	@SerializedName("pass-discard-request")
-	@CheckForNull public boolean passDiscardRequest;
+	@CheckForNull
+	public boolean passDiscardRequest;
 	@SerializedName("pass-discard-snapshot")
-	@CheckForNull public boolean passDiscardSnapshot;
+	@CheckForNull
+	public boolean passDiscardSnapshot;
 	@SerializedName("pass-discard-other")
-	@CheckForNull public boolean passDiscardOther;
+	@CheckForNull
+	public boolean passDiscardOther;
 }

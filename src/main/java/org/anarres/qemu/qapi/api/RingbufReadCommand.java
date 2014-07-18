@@ -18,15 +18,18 @@ public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments
 	/** Compound arguments to a RingbufReadCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("size")
-		@Nonnull public long size;
+		@Nonnull
+		public long size;
 		@SerializedName("format")
-		@CheckForNull public DataFormat format;
+		@CheckForNull
+		public DataFormat format;
 	}
 
 	/** Response to a RingbufReadCommand. */
-	public static class Response extends QApiResponse<String> {
+	public static class Response extends QApiResponse<java.lang.String> {
 	}
 
 	/** Constructs a new RingbufReadCommand. */

@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevNetmapOptions extends QApiType {
 
 	@SerializedName("ifname")
-	@Nonnull public String ifname;
+	@Nonnull
+	public java.lang.String ifname;
 	@SerializedName("devname")
-	@CheckForNull public String devname;
+	@CheckForNull
+	public java.lang.String devname;
 }

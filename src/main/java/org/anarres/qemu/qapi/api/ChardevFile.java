@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevFile extends QApiType {
 
 	@SerializedName("in")
-	@CheckForNull public String in;
+	@CheckForNull
+	public java.lang.String in;
 	@SerializedName("out")
-	@Nonnull public String out;
+	@Nonnull
+	public java.lang.String out;
 }

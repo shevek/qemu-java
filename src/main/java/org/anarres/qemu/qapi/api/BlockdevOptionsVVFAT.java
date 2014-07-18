@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptionsVVFAT extends QApiType {
 
 	@SerializedName("dir")
-	@Nonnull public String dir;
+	@Nonnull
+	public java.lang.String dir;
 	@SerializedName("fat-type")
-	@CheckForNull public long fatType;
+	@CheckForNull
+	public long fatType;
 	@SerializedName("floppy")
-	@CheckForNull public boolean floppy;
+	@CheckForNull
+	public boolean floppy;
 	@SerializedName("rw")
-	@CheckForNull public boolean rw;
+	@CheckForNull
+	public boolean rw;
 }

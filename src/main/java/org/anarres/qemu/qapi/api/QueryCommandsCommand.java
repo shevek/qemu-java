@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-commands, returns=[CommandInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-commands, returns=[CommandInfo], data=null}
-public class QueryCommandsCommand extends QApiCommand<Void, QueryCommandsCommand.Response> {
+public class QueryCommandsCommand extends QApiCommand<java.lang.Void, QueryCommandsCommand.Response> {
 
 	/** Response to a QueryCommandsCommand. */
 	public static class Response extends QApiResponse<List<CommandInfo>> {

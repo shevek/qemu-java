@@ -16,27 +16,39 @@ import org.anarres.qemu.qapi.common.*;
 public class RxFilterInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("promiscuous")
-	@Nonnull public boolean promiscuous;
+	@Nonnull
+	public boolean promiscuous;
 	@SerializedName("multicast")
-	@Nonnull public RxState multicast;
+	@Nonnull
+	public RxState multicast;
 	@SerializedName("unicast")
-	@Nonnull public RxState unicast;
+	@Nonnull
+	public RxState unicast;
 	@SerializedName("vlan")
-	@Nonnull public RxState vlan;
+	@Nonnull
+	public RxState vlan;
 	@SerializedName("broadcast-allowed")
-	@Nonnull public boolean broadcastAllowed;
+	@Nonnull
+	public boolean broadcastAllowed;
 	@SerializedName("multicast-overflow")
-	@Nonnull public boolean multicastOverflow;
+	@Nonnull
+	public boolean multicastOverflow;
 	@SerializedName("unicast-overflow")
-	@Nonnull public boolean unicastOverflow;
+	@Nonnull
+	public boolean unicastOverflow;
 	@SerializedName("main-mac")
-	@Nonnull public String mainMac;
+	@Nonnull
+	public java.lang.String mainMac;
 	@SerializedName("vlan-table")
-	@Nonnull public List<Long> vlanTable;
+	@Nonnull
+	public List<java.lang.Long> vlanTable;
 	@SerializedName("unicast-table")
-	@Nonnull public List<String> unicastTable;
+	@Nonnull
+	public List<java.lang.String> unicastTable;
 	@SerializedName("multicast-table")
-	@Nonnull public List<String> multicastTable;
+	@Nonnull
+	public List<java.lang.String> multicastTable;
 }

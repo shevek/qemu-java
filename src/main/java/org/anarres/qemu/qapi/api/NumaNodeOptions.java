@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class NumaNodeOptions extends QApiType {
 
 	@SerializedName("nodeid")
-	@CheckForNull public int nodeid;
+	@CheckForNull
+	public int nodeid;
 	@SerializedName("cpus")
-	@CheckForNull public List<Integer> cpus;
+	@CheckForNull
+	public List<java.lang.Integer> cpus;
 	@SerializedName("mem")
-	@CheckForNull public long mem;
+	@CheckForNull
+	public long mem;
 	@SerializedName("memdev")
-	@CheckForNull public String memdev;
+	@CheckForNull
+	public java.lang.String memdev;
 }

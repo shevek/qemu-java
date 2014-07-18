@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrationCapabilityStatus extends QApiType {
 
 	@SerializedName("capability")
-	@Nonnull public MigrationCapability capability;
+	@Nonnull
+	public MigrationCapability capability;
 	@SerializedName("state")
-	@Nonnull public boolean state;
+	@Nonnull
+	public boolean state;
 }

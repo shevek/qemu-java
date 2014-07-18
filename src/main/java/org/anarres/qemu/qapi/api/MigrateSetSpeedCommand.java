@@ -18,11 +18,12 @@ public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.A
 	/** Compound arguments to a MigrateSetSpeedCommand. */
 	public static class Arguments {
 		@SerializedName("value")
-		@Nonnull public long value;
+		@Nonnull
+		public long value;
 	}
 
 	/** Response to a MigrateSetSpeedCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateSetSpeedCommand. */

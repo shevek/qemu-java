@@ -18,15 +18,18 @@ public class ChangeCommand extends QApiCommand<ChangeCommand.Arguments, ChangeCo
 	/** Compound arguments to a ChangeCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@Nonnull public String device;
+		@Nonnull
+		public java.lang.String device;
 		@SerializedName("target")
-		@Nonnull public String target;
+		@Nonnull
+		public java.lang.String target;
 		@SerializedName("arg")
-		@CheckForNull public String arg;
+		@CheckForNull
+		public java.lang.String arg;
 	}
 
 	/** Response to a ChangeCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ChangeCommand. */

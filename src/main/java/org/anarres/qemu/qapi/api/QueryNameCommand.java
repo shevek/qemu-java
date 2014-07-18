@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-name, returns=NameInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-name, returns=NameInfo, data=null}
-public class QueryNameCommand extends QApiCommand<Void, QueryNameCommand.Response> {
+public class QueryNameCommand extends QApiCommand<java.lang.Void, QueryNameCommand.Response> {
 
 	/** Response to a QueryNameCommand. */
 	public static class Response extends QApiResponse<NameInfo> {

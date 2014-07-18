@@ -16,49 +16,72 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockDeviceInfo extends QApiType {
 
 	@SerializedName("file")
-	@Nonnull public String file;
+	@Nonnull
+	public java.lang.String file;
 	@SerializedName("node-name")
-	@CheckForNull public String nodeName;
+	@CheckForNull
+	public java.lang.String nodeName;
 	@SerializedName("ro")
-	@Nonnull public boolean ro;
+	@Nonnull
+	public boolean ro;
 	@SerializedName("drv")
-	@Nonnull public String drv;
+	@Nonnull
+	public java.lang.String drv;
 	@SerializedName("backing_file")
-	@CheckForNull public String backingFile;
+	@CheckForNull
+	public java.lang.String backingFile;
 	@SerializedName("backing_file_depth")
-	@Nonnull public long backingFileDepth;
+	@Nonnull
+	public long backingFileDepth;
 	@SerializedName("encrypted")
-	@Nonnull public boolean encrypted;
+	@Nonnull
+	public boolean encrypted;
 	@SerializedName("encryption_key_missing")
-	@Nonnull public boolean encryptionKeyMissing;
+	@Nonnull
+	public boolean encryptionKeyMissing;
 	@SerializedName("detect_zeroes")
-	@Nonnull public BlockdevDetectZeroesOptions detectZeroes;
+	@Nonnull
+	public BlockdevDetectZeroesOptions detectZeroes;
 	@SerializedName("bps")
-	@Nonnull public long bps;
+	@Nonnull
+	public long bps;
 	@SerializedName("bps_rd")
-	@Nonnull public long bpsRd;
+	@Nonnull
+	public long bpsRd;
 	@SerializedName("bps_wr")
-	@Nonnull public long bpsWr;
+	@Nonnull
+	public long bpsWr;
 	@SerializedName("iops")
-	@Nonnull public long iops;
+	@Nonnull
+	public long iops;
 	@SerializedName("iops_rd")
-	@Nonnull public long iopsRd;
+	@Nonnull
+	public long iopsRd;
 	@SerializedName("iops_wr")
-	@Nonnull public long iopsWr;
+	@Nonnull
+	public long iopsWr;
 	@SerializedName("image")
-	@Nonnull public ImageInfo image;
+	@Nonnull
+	public ImageInfo image;
 	@SerializedName("bps_max")
-	@CheckForNull public long bpsMax;
+	@CheckForNull
+	public long bpsMax;
 	@SerializedName("bps_rd_max")
-	@CheckForNull public long bpsRdMax;
+	@CheckForNull
+	public long bpsRdMax;
 	@SerializedName("bps_wr_max")
-	@CheckForNull public long bpsWrMax;
+	@CheckForNull
+	public long bpsWrMax;
 	@SerializedName("iops_max")
-	@CheckForNull public long iopsMax;
+	@CheckForNull
+	public long iopsMax;
 	@SerializedName("iops_rd_max")
-	@CheckForNull public long iopsRdMax;
+	@CheckForNull
+	public long iopsRdMax;
 	@SerializedName("iops_wr_max")
-	@CheckForNull public long iopsWrMax;
+	@CheckForNull
+	public long iopsWrMax;
 	@SerializedName("iops_size")
-	@CheckForNull public long iopsSize;
+	@CheckForNull
+	public long iopsSize;
 }

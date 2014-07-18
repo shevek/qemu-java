@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-kvm, returns=KvmInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-kvm, returns=KvmInfo, data=null}
-public class QueryKvmCommand extends QApiCommand<Void, QueryKvmCommand.Response> {
+public class QueryKvmCommand extends QApiCommand<java.lang.Void, QueryKvmCommand.Response> {
 
 	/** Response to a QueryKvmCommand. */
 	public static class Response extends QApiResponse<KvmInfo> {

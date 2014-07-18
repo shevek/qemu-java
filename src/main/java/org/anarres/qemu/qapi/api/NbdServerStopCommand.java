@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=nbd-server-stop, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=nbd-server-stop, returns=null, data=null}
-public class NbdServerStopCommand extends QApiCommand<Void, NbdServerStopCommand.Response> {
+public class NbdServerStopCommand extends QApiCommand<java.lang.Void, NbdServerStopCommand.Response> {
 
 	/** Response to a NbdServerStopCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new NbdServerStopCommand. */

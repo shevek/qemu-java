@@ -18,11 +18,12 @@ public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.Arguments
 	/** Compound arguments to a BlockdevAddCommand. */
 	public static class Arguments {
 		@SerializedName("options")
-		@Nonnull public BlockdevOptions options;
+		@Nonnull
+		public BlockdevOptions options;
 	}
 
 	/** Response to a BlockdevAddCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockdevAddCommand. */

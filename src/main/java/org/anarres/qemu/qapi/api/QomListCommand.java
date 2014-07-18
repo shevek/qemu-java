@@ -18,7 +18,8 @@ public class QomListCommand extends QApiCommand<QomListCommand.Arguments, QomLis
 	/** Compound arguments to a QomListCommand. */
 	public static class Arguments {
 		@SerializedName("path")
-		@Nonnull public String path;
+		@Nonnull
+		public java.lang.String path;
 	}
 
 	/** Response to a QomListCommand. */

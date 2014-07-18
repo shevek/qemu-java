@@ -18,15 +18,18 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments
 	/** Compound arguments to a BlockPasswdCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@CheckForNull public String device;
+		@CheckForNull
+		public java.lang.String device;
 		@SerializedName("node-name")
-		@CheckForNull public String nodeName;
+		@CheckForNull
+		public java.lang.String nodeName;
 		@SerializedName("password")
-		@Nonnull public String password;
+		@Nonnull
+		public java.lang.String password;
 	}
 
 	/** Response to a BlockPasswdCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockPasswdCommand. */

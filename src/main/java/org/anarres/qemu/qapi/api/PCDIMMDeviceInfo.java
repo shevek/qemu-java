@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class PCDIMMDeviceInfo extends QApiType {
 
 	@SerializedName("id")
-	@CheckForNull public String id;
+	@CheckForNull
+	public java.lang.String id;
 	@SerializedName("addr")
-	@Nonnull public long addr;
+	@Nonnull
+	public long addr;
 	@SerializedName("size")
-	@Nonnull public long size;
+	@Nonnull
+	public long size;
 	@SerializedName("slot")
-	@Nonnull public long slot;
+	@Nonnull
+	public long slot;
 	@SerializedName("node")
-	@Nonnull public long node;
+	@Nonnull
+	public long node;
 	@SerializedName("memdev")
-	@Nonnull public String memdev;
+	@Nonnull
+	public java.lang.String memdev;
 	@SerializedName("hotplugged")
-	@Nonnull public boolean hotplugged;
+	@Nonnull
+	public boolean hotplugged;
 	@SerializedName("hotpluggable")
-	@Nonnull public boolean hotpluggable;
+	@Nonnull
+	public boolean hotpluggable;
 }

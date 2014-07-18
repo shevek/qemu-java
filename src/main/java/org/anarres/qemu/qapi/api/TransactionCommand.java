@@ -18,11 +18,12 @@ public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments
 	/** Compound arguments to a TransactionCommand. */
 	public static class Arguments {
 		@SerializedName("actions")
-		@Nonnull public List<TransactionAction> actions;
+		@Nonnull
+		public List<TransactionAction> actions;
 	}
 
 	/** Response to a TransactionCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new TransactionCommand. */

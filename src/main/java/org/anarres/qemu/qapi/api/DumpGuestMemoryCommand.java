@@ -18,19 +18,24 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 	/** Compound arguments to a DumpGuestMemoryCommand. */
 	public static class Arguments {
 		@SerializedName("paging")
-		@Nonnull public boolean paging;
+		@Nonnull
+		public boolean paging;
 		@SerializedName("protocol")
-		@Nonnull public String protocol;
+		@Nonnull
+		public java.lang.String protocol;
 		@SerializedName("begin")
-		@CheckForNull public long begin;
+		@CheckForNull
+		public long begin;
 		@SerializedName("length")
-		@CheckForNull public long length;
+		@CheckForNull
+		public long length;
 		@SerializedName("format")
-		@CheckForNull public DumpGuestMemoryFormat format;
+		@CheckForNull
+		public DumpGuestMemoryFormat format;
 	}
 
 	/** Response to a DumpGuestMemoryCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new DumpGuestMemoryCommand. */

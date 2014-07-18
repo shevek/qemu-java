@@ -18,11 +18,12 @@ public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.Argum
 	/** Compound arguments to a ChardevRemoveCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 	}
 
 	/** Response to a ChardevRemoveCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ChardevRemoveCommand. */

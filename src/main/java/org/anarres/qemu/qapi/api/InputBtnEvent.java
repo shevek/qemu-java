@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class InputBtnEvent extends QApiType {
 
 	@SerializedName("button")
-	@Nonnull public InputButton button;
+	@Nonnull
+	public InputButton button;
 	@SerializedName("down")
-	@Nonnull public boolean down;
+	@Nonnull
+	public boolean down;
 }

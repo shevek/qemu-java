@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevSnapshot extends QApiType {
 
 	@SerializedName("device")
-	@CheckForNull public String device;
+	@CheckForNull
+	public java.lang.String device;
 	@SerializedName("node-name")
-	@CheckForNull public String nodeName;
+	@CheckForNull
+	public java.lang.String nodeName;
 	@SerializedName("snapshot-file")
-	@Nonnull public String snapshotFile;
+	@Nonnull
+	public java.lang.String snapshotFile;
 	@SerializedName("snapshot-node-name")
-	@CheckForNull public String snapshotNodeName;
+	@CheckForNull
+	public java.lang.String snapshotNodeName;
 	@SerializedName("format")
-	@CheckForNull public String format;
+	@CheckForNull
+	public java.lang.String format;
 	@SerializedName("mode")
-	@CheckForNull public NewImageMode mode;
+	@CheckForNull
+	public NewImageMode mode;
 }

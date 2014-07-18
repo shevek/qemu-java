@@ -18,15 +18,18 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments
 	/** Compound arguments to a SetPasswordCommand. */
 	public static class Arguments {
 		@SerializedName("protocol")
-		@Nonnull public String protocol;
+		@Nonnull
+		public java.lang.String protocol;
 		@SerializedName("password")
-		@Nonnull public String password;
+		@Nonnull
+		public java.lang.String password;
 		@SerializedName("connected")
-		@CheckForNull public String connected;
+		@CheckForNull
+		public java.lang.String connected;
 	}
 
 	/** Response to a SetPasswordCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SetPasswordCommand. */

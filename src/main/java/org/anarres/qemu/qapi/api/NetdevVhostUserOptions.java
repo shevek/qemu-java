@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevVhostUserOptions extends QApiType {
 
 	@SerializedName("chardev")
-	@Nonnull public String chardev;
+	@Nonnull
+	public java.lang.String chardev;
 	@SerializedName("vhostforce")
-	@CheckForNull public boolean vhostforce;
+	@CheckForNull
+	public boolean vhostforce;
 }

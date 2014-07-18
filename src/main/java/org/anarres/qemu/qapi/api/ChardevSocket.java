@@ -16,13 +16,18 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevSocket extends QApiType {
 
 	@SerializedName("addr")
-	@Nonnull public SocketAddress addr;
+	@Nonnull
+	public SocketAddress addr;
 	@SerializedName("server")
-	@CheckForNull public boolean server;
+	@CheckForNull
+	public boolean server;
 	@SerializedName("wait")
-	@CheckForNull public boolean wait;
+	@CheckForNull
+	public boolean wait;
 	@SerializedName("nodelay")
-	@CheckForNull public boolean nodelay;
+	@CheckForNull
+	public boolean nodelay;
 	@SerializedName("telnet")
-	@CheckForNull public boolean telnet;
+	@CheckForNull
+	public boolean telnet;
 }

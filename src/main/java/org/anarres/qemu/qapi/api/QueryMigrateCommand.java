@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-migrate, returns=MigrationInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-migrate, returns=MigrationInfo, data=null}
-public class QueryMigrateCommand extends QApiCommand<Void, QueryMigrateCommand.Response> {
+public class QueryMigrateCommand extends QApiCommand<java.lang.Void, QueryMigrateCommand.Response> {
 
 	/** Response to a QueryMigrateCommand. */
 	public static class Response extends QApiResponse<MigrationInfo> {

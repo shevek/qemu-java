@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-memdev, returns=[Memdev], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-memdev, returns=[Memdev], data=null}
-public class QueryMemdevCommand extends QApiCommand<Void, QueryMemdevCommand.Response> {
+public class QueryMemdevCommand extends QApiCommand<java.lang.Void, QueryMemdevCommand.Response> {
 
 	/** Response to a QueryMemdevCommand. */
 	public static class Response extends QApiResponse<List<Memdev>> {

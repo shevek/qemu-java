@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockStats extends QApiType {
 
 	@SerializedName("device")
-	@CheckForNull public String device;
+	@CheckForNull
+	public java.lang.String device;
 	@SerializedName("stats")
-	@Nonnull public BlockDeviceStats stats;
+	@Nonnull
+	public BlockDeviceStats stats;
 	@SerializedName("parent")
-	@CheckForNull public BlockStats parent;
+	@CheckForNull
+	public BlockStats parent;
 	@SerializedName("backing")
-	@CheckForNull public BlockStats backing;
+	@CheckForNull
+	public BlockStats backing;
 }

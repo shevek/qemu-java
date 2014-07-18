@@ -16,21 +16,30 @@ import org.anarres.qemu.qapi.common.*;
 public class AcpiTableOptions extends QApiType {
 
 	@SerializedName("sig")
-	@CheckForNull public String sig;
+	@CheckForNull
+	public java.lang.String sig;
 	@SerializedName("rev")
-	@CheckForNull public char rev;
+	@CheckForNull
+	public char rev;
 	@SerializedName("oem_id")
-	@CheckForNull public String oemId;
+	@CheckForNull
+	public java.lang.String oemId;
 	@SerializedName("oem_table_id")
-	@CheckForNull public String oemTableId;
+	@CheckForNull
+	public java.lang.String oemTableId;
 	@SerializedName("oem_rev")
-	@CheckForNull public long oemRev;
+	@CheckForNull
+	public long oemRev;
 	@SerializedName("asl_compiler_id")
-	@CheckForNull public String aslCompilerId;
+	@CheckForNull
+	public java.lang.String aslCompilerId;
 	@SerializedName("asl_compiler_rev")
-	@CheckForNull public long aslCompilerRev;
+	@CheckForNull
+	public long aslCompilerRev;
 	@SerializedName("file")
-	@CheckForNull public String file;
+	@CheckForNull
+	public java.lang.String file;
 	@SerializedName("data")
-	@CheckForNull public String data;
+	@CheckForNull
+	public java.lang.String data;
 }

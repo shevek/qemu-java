@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class CommandLineOptionInfo extends QApiType {
 
 	@SerializedName("option")
-	@Nonnull public String option;
+	@Nonnull
+	public java.lang.String option;
 	@SerializedName("parameters")
-	@Nonnull public List<CommandLineParameterInfo> parameters;
+	@Nonnull
+	public List<CommandLineParameterInfo> parameters;
 }

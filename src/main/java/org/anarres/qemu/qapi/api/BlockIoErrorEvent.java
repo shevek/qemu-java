@@ -15,9 +15,12 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=BLOCK_IO_ERROR, data={device=str, operation=IoOperationType, action=BlockErrorAction}}
 public class BlockIoErrorEvent extends QApiEvent {
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("operation")
-	@Nonnull public IoOperationType operation;
+	@Nonnull
+	public IoOperationType operation;
 	@SerializedName("action")
-	@Nonnull public BlockErrorAction action;
+	@Nonnull
+	public BlockErrorAction action;
 }

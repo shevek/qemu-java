@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-tpm-models, returns=[TpmModel], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-tpm-models, returns=[TpmModel], data=null}
-public class QueryTpmModelsCommand extends QApiCommand<Void, QueryTpmModelsCommand.Response> {
+public class QueryTpmModelsCommand extends QApiCommand<java.lang.Void, QueryTpmModelsCommand.Response> {
 
 	/** Response to a QueryTpmModelsCommand. */
 	public static class Response extends QApiResponse<List<TpmModel>> {

@@ -18,11 +18,12 @@ public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCom
 	/** Compound arguments to a MigrateSetDowntimeCommand. */
 	public static class Arguments {
 		@SerializedName("value")
-		@Nonnull public double value;
+		@Nonnull
+		public double value;
 	}
 
 	/** Response to a MigrateSetDowntimeCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateSetDowntimeCommand. */

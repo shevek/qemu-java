@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class DumpGuestMemoryCapability extends QApiType {
 
 	@SerializedName("formats")
-	@Nonnull public List<DumpGuestMemoryFormat> formats;
+	@Nonnull
+	public List<DumpGuestMemoryFormat> formats;
 }

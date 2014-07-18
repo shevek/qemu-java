@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=system_wakeup, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=system_wakeup, returns=null, data=null}
-public class SystemWakeupCommand extends QApiCommand<Void, SystemWakeupCommand.Response> {
+public class SystemWakeupCommand extends QApiCommand<java.lang.Void, SystemWakeupCommand.Response> {
 
 	/** Response to a SystemWakeupCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SystemWakeupCommand. */

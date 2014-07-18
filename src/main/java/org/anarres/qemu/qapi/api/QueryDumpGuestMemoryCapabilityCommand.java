@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-dump-guest-memory-capability, returns=DumpGuestMemoryCapability, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-dump-guest-memory-capability, returns=DumpGuestMemoryCapability, data=null}
-public class QueryDumpGuestMemoryCapabilityCommand extends QApiCommand<Void, QueryDumpGuestMemoryCapabilityCommand.Response> {
+public class QueryDumpGuestMemoryCapabilityCommand extends QApiCommand<java.lang.Void, QueryDumpGuestMemoryCapabilityCommand.Response> {
 
 	/** Response to a QueryDumpGuestMemoryCapabilityCommand. */
 	public static class Response extends QApiResponse<DumpGuestMemoryCapability> {

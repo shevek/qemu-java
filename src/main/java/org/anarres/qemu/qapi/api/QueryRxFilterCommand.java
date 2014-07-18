@@ -18,7 +18,8 @@ public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Argum
 	/** Compound arguments to a QueryRxFilterCommand. */
 	public static class Arguments {
 		@SerializedName("name")
-		@CheckForNull public String name;
+		@CheckForNull
+		public java.lang.String name;
 	}
 
 	/** Response to a QueryRxFilterCommand. */

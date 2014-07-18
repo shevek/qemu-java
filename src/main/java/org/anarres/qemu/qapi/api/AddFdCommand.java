@@ -18,9 +18,11 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdComma
 	/** Compound arguments to a AddFdCommand. */
 	public static class Arguments {
 		@SerializedName("fdset-id")
-		@CheckForNull public long fdsetId;
+		@CheckForNull
+		public long fdsetId;
 		@SerializedName("opaque")
-		@CheckForNull public String opaque;
+		@CheckForNull
+		public java.lang.String opaque;
 	}
 
 	/** Response to a AddFdCommand. */

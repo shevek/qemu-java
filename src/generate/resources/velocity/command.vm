@@ -16,7 +16,8 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	public static class $element.argumentType.className {
 #foreach ($field in $element.argumentType.fields)
 		@SerializedName("$field.serializedName")
-		$field.annotations public $field.typeName $field.name;
+		$field.annotations
+		public $field.typeName $field.name;
 #end
 	}
 #end

@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class SpiceBasicInfo extends QApiType {
 
 	@SerializedName("host")
-	@Nonnull public String host;
+	@Nonnull
+	public java.lang.String host;
 	@SerializedName("port")
-	@Nonnull public String port;
+	@Nonnull
+	public java.lang.String port;
 	@SerializedName("family")
-	@Nonnull public NetworkAddressFamily family;
+	@Nonnull
+	public NetworkAddressFamily family;
 }

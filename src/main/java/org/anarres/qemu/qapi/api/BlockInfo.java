@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockInfo extends QApiType {
 
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("type")
-	@Nonnull public String type;
+	@Nonnull
+	public java.lang.String type;
 	@SerializedName("removable")
-	@Nonnull public boolean removable;
+	@Nonnull
+	public boolean removable;
 	@SerializedName("locked")
-	@Nonnull public boolean locked;
+	@Nonnull
+	public boolean locked;
 	@SerializedName("inserted")
-	@CheckForNull public BlockDeviceInfo inserted;
+	@CheckForNull
+	public BlockDeviceInfo inserted;
 	@SerializedName("tray_open")
-	@CheckForNull public boolean trayOpen;
+	@CheckForNull
+	public boolean trayOpen;
 	@SerializedName("io-status")
-	@CheckForNull public BlockDeviceIoStatus ioStatus;
+	@CheckForNull
+	public BlockDeviceIoStatus ioStatus;
 	@SerializedName("dirty-bitmaps")
-	@CheckForNull public List<BlockDirtyInfo> dirtyBitmaps;
+	@CheckForNull
+	public List<BlockDirtyInfo> dirtyBitmaps;
 }

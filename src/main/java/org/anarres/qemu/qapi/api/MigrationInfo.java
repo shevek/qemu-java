@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrationInfo extends QApiType {
 
 	@SerializedName("status")
-	@CheckForNull public String status;
+	@CheckForNull
+	public java.lang.String status;
 	@SerializedName("ram")
-	@CheckForNull public MigrationStats ram;
+	@CheckForNull
+	public MigrationStats ram;
 	@SerializedName("disk")
-	@CheckForNull public MigrationStats disk;
+	@CheckForNull
+	public MigrationStats disk;
 	@SerializedName("xbzrle-cache")
-	@CheckForNull public XBZRLECacheStats xbzrleCache;
+	@CheckForNull
+	public XBZRLECacheStats xbzrleCache;
 	@SerializedName("total-time")
-	@CheckForNull public long totalTime;
+	@CheckForNull
+	public long totalTime;
 	@SerializedName("expected-downtime")
-	@CheckForNull public long expectedDowntime;
+	@CheckForNull
+	public long expectedDowntime;
 	@SerializedName("downtime")
-	@CheckForNull public long downtime;
+	@CheckForNull
+	public long downtime;
 	@SerializedName("setup-time")
-	@CheckForNull public long setupTime;
+	@CheckForNull
+	public long setupTime;
 }

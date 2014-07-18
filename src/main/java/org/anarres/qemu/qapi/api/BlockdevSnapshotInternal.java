@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevSnapshotInternal extends QApiType {
 
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 }

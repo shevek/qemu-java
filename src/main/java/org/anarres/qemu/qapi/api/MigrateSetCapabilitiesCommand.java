@@ -18,11 +18,12 @@ public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabil
 	/** Compound arguments to a MigrateSetCapabilitiesCommand. */
 	public static class Arguments {
 		@SerializedName("capabilities")
-		@Nonnull public List<MigrationCapabilityStatus> capabilities;
+		@Nonnull
+		public List<MigrationCapabilityStatus> capabilities;
 	}
 
 	/** Response to a MigrateSetCapabilitiesCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateSetCapabilitiesCommand. */

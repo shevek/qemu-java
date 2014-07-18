@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class BlkdebugSetStateOptions extends QApiType {
 
 	@SerializedName("event")
-	@Nonnull public BlkdebugEvent event;
+	@Nonnull
+	public BlkdebugEvent event;
 	@SerializedName("state")
-	@CheckForNull public long state;
+	@CheckForNull
+	public long state;
 	@SerializedName("new_state")
-	@Nonnull public long newState;
+	@Nonnull
+	public long newState;
 }

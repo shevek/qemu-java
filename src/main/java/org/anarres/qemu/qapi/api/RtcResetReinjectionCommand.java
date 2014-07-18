@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=rtc-reset-reinjection, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=rtc-reset-reinjection, returns=null, data=null}
-public class RtcResetReinjectionCommand extends QApiCommand<Void, RtcResetReinjectionCommand.Response> {
+public class RtcResetReinjectionCommand extends QApiCommand<java.lang.Void, RtcResetReinjectionCommand.Response> {
 
 	/** Response to a RtcResetReinjectionCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new RtcResetReinjectionCommand. */

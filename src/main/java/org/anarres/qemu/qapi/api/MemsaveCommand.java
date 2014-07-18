@@ -18,17 +18,21 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 	/** Compound arguments to a MemsaveCommand. */
 	public static class Arguments {
 		@SerializedName("val")
-		@Nonnull public long val;
+		@Nonnull
+		public long val;
 		@SerializedName("size")
-		@Nonnull public long size;
+		@Nonnull
+		public long size;
 		@SerializedName("filename")
-		@Nonnull public String filename;
+		@Nonnull
+		public java.lang.String filename;
 		@SerializedName("cpu-index")
-		@CheckForNull public long cpuIndex;
+		@CheckForNull
+		public long cpuIndex;
 	}
 
 	/** Response to a MemsaveCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MemsaveCommand. */

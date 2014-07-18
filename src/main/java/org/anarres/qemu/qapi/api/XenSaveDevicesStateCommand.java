@@ -18,11 +18,12 @@ public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateC
 	/** Compound arguments to a XenSaveDevicesStateCommand. */
 	public static class Arguments {
 		@SerializedName("filename")
-		@Nonnull public String filename;
+		@Nonnull
+		public java.lang.String filename;
 	}
 
 	/** Response to a XenSaveDevicesStateCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new XenSaveDevicesStateCommand. */

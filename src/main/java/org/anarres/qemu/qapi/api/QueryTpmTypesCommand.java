@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-tpm-types, returns=[TpmType], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-tpm-types, returns=[TpmType], data=null}
-public class QueryTpmTypesCommand extends QApiCommand<Void, QueryTpmTypesCommand.Response> {
+public class QueryTpmTypesCommand extends QApiCommand<java.lang.Void, QueryTpmTypesCommand.Response> {
 
 	/** Response to a QueryTpmTypesCommand. */
 	public static class Response extends QApiResponse<List<TpmType>> {

@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=stop, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=stop, returns=null, data=null}
-public class StopCommand extends QApiCommand<Void, StopCommand.Response> {
+public class StopCommand extends QApiCommand<java.lang.Void, StopCommand.Response> {
 
 	/** Response to a StopCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new StopCommand. */

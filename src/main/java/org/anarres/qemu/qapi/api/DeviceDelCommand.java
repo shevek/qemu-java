@@ -18,11 +18,12 @@ public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.Arguments, De
 	/** Compound arguments to a DeviceDelCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public String id;
+		@Nonnull
+		public java.lang.String id;
 	}
 
 	/** Response to a DeviceDelCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new DeviceDelCommand. */

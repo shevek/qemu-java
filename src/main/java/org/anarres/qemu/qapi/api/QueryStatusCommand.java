@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-status, returns=StatusInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-status, returns=StatusInfo, data=null}
-public class QueryStatusCommand extends QApiCommand<Void, QueryStatusCommand.Response> {
+public class QueryStatusCommand extends QApiCommand<java.lang.Void, QueryStatusCommand.Response> {
 
 	/** Response to a QueryStatusCommand. */
 	public static class Response extends QApiResponse<StatusInfo> {

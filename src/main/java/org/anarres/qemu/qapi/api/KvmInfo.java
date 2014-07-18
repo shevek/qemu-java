@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class KvmInfo extends QApiType {
 
 	@SerializedName("enabled")
-	@Nonnull public boolean enabled;
+	@Nonnull
+	public boolean enabled;
 	@SerializedName("present")
-	@Nonnull public boolean present;
+	@Nonnull
+	public boolean present;
 }

@@ -15,7 +15,8 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=MemoryDeviceInfo, data={dimm=PCDIMMDeviceInfo}, innerTypes=null, fields=null}
 public class MemoryDeviceInfo extends QApiUnion {
 	@SerializedName("dimm")
-	@Nonnull public PCDIMMDeviceInfo dimm;
+	@Nonnull
+	public PCDIMMDeviceInfo dimm;
 
 	@Override
 	public boolean isUnion() {

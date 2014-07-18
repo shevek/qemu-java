@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class X86CPUFeatureWordInfo extends QApiType {
 
 	@SerializedName("cpuid-input-eax")
-	@Nonnull public long cpuidInputEax;
+	@Nonnull
+	public long cpuidInputEax;
 	@SerializedName("cpuid-input-ecx")
-	@CheckForNull public long cpuidInputEcx;
+	@CheckForNull
+	public long cpuidInputEcx;
 	@SerializedName("cpuid-register")
-	@Nonnull public X86CPURegister32 cpuidRegister;
+	@Nonnull
+	public X86CPURegister32 cpuidRegister;
 	@SerializedName("features")
-	@Nonnull public long features;
+	@Nonnull
+	public long features;
 }

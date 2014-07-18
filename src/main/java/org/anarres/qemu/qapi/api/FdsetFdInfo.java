@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class FdsetFdInfo extends QApiType {
 
 	@SerializedName("fd")
-	@Nonnull public long fd;
+	@Nonnull
+	public long fd;
 	@SerializedName("opaque")
-	@CheckForNull public String opaque;
+	@CheckForNull
+	public java.lang.String opaque;
 }

@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class AddfdInfo extends QApiType {
 
 	@SerializedName("fdset-id")
-	@Nonnull public long fdsetId;
+	@Nonnull
+	public long fdsetId;
 	@SerializedName("fd")
-	@Nonnull public long fd;
+	@Nonnull
+	public long fd;
 }

@@ -16,31 +16,45 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevUserOptions extends QApiType {
 
 	@SerializedName("hostname")
-	@CheckForNull public String hostname;
+	@CheckForNull
+	public java.lang.String hostname;
 	@SerializedName("restrict")
-	@CheckForNull public boolean restrict;
+	@CheckForNull
+	public boolean restrict;
 	@SerializedName("ip")
-	@CheckForNull public String ip;
+	@CheckForNull
+	public java.lang.String ip;
 	@SerializedName("net")
-	@CheckForNull public String net;
+	@CheckForNull
+	public java.lang.String net;
 	@SerializedName("host")
-	@CheckForNull public String host;
+	@CheckForNull
+	public java.lang.String host;
 	@SerializedName("tftp")
-	@CheckForNull public String tftp;
+	@CheckForNull
+	public java.lang.String tftp;
 	@SerializedName("bootfile")
-	@CheckForNull public String bootfile;
+	@CheckForNull
+	public java.lang.String bootfile;
 	@SerializedName("dhcpstart")
-	@CheckForNull public String dhcpstart;
+	@CheckForNull
+	public java.lang.String dhcpstart;
 	@SerializedName("dns")
-	@CheckForNull public String dns;
+	@CheckForNull
+	public java.lang.String dns;
 	@SerializedName("dnssearch")
-	@CheckForNull public List<String> dnssearch;
+	@CheckForNull
+	public List<String> dnssearch;
 	@SerializedName("smb")
-	@CheckForNull public String smb;
+	@CheckForNull
+	public java.lang.String smb;
 	@SerializedName("smbserver")
-	@CheckForNull public String smbserver;
+	@CheckForNull
+	public java.lang.String smbserver;
 	@SerializedName("hostfwd")
-	@CheckForNull public List<String> hostfwd;
+	@CheckForNull
+	public List<String> hostfwd;
 	@SerializedName("guestfwd")
-	@CheckForNull public List<String> guestfwd;
+	@CheckForNull
+	public List<String> guestfwd;
 }

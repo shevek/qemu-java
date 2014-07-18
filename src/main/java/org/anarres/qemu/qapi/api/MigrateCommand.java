@@ -18,17 +18,21 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 	/** Compound arguments to a MigrateCommand. */
 	public static class Arguments {
 		@SerializedName("uri")
-		@Nonnull public String uri;
+		@Nonnull
+		public java.lang.String uri;
 		@SerializedName("blk")
-		@CheckForNull public boolean blk;
+		@CheckForNull
+		public boolean blk;
 		@SerializedName("inc")
-		@CheckForNull public boolean inc;
+		@CheckForNull
+		public boolean inc;
 		@SerializedName("detach")
-		@CheckForNull public boolean detach;
+		@CheckForNull
+		public boolean detach;
 	}
 
 	/** Response to a MigrateCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateCommand. */

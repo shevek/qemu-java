@@ -18,13 +18,15 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKe
 	/** Compound arguments to a SendKeyCommand. */
 	public static class Arguments {
 		@SerializedName("keys")
-		@Nonnull public List<KeyValue> keys;
+		@Nonnull
+		public List<KeyValue> keys;
 		@SerializedName("hold-time")
-		@CheckForNull public long holdTime;
+		@CheckForNull
+		public long holdTime;
 	}
 
 	/** Response to a SendKeyCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SendKeyCommand. */

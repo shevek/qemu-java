@@ -16,29 +16,42 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevTapOptions extends QApiType {
 
 	@SerializedName("ifname")
-	@CheckForNull public String ifname;
+	@CheckForNull
+	public java.lang.String ifname;
 	@SerializedName("fd")
-	@CheckForNull public String fd;
+	@CheckForNull
+	public java.lang.String fd;
 	@SerializedName("fds")
-	@CheckForNull public String fds;
+	@CheckForNull
+	public java.lang.String fds;
 	@SerializedName("script")
-	@CheckForNull public String script;
+	@CheckForNull
+	public java.lang.String script;
 	@SerializedName("downscript")
-	@CheckForNull public String downscript;
+	@CheckForNull
+	public java.lang.String downscript;
 	@SerializedName("helper")
-	@CheckForNull public String helper;
+	@CheckForNull
+	public java.lang.String helper;
 	@SerializedName("sndbuf")
-	@CheckForNull public long sndbuf;
+	@CheckForNull
+	public long sndbuf;
 	@SerializedName("vnet_hdr")
-	@CheckForNull public boolean vnetHdr;
+	@CheckForNull
+	public boolean vnetHdr;
 	@SerializedName("vhost")
-	@CheckForNull public boolean vhost;
+	@CheckForNull
+	public boolean vhost;
 	@SerializedName("vhostfd")
-	@CheckForNull public String vhostfd;
+	@CheckForNull
+	public java.lang.String vhostfd;
 	@SerializedName("vhostfds")
-	@CheckForNull public String vhostfds;
+	@CheckForNull
+	public java.lang.String vhostfds;
 	@SerializedName("vhostforce")
-	@CheckForNull public boolean vhostforce;
+	@CheckForNull
+	public boolean vhostforce;
 	@SerializedName("queues")
-	@CheckForNull public long queues;
+	@CheckForNull
+	public long queues;
 }

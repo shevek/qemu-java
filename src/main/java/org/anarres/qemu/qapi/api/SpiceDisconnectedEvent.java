@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=SPICE_DISCONNECTED, data={server=SpiceBasicInfo, client=SpiceBasicInfo}}
 public class SpiceDisconnectedEvent extends QApiEvent {
 	@SerializedName("server")
-	@Nonnull public SpiceBasicInfo server;
+	@Nonnull
+	public SpiceBasicInfo server;
 	@SerializedName("client")
-	@Nonnull public SpiceBasicInfo client;
+	@Nonnull
+	public SpiceBasicInfo client;
 }

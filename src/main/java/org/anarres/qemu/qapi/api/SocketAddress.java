@@ -15,11 +15,14 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=SocketAddress, data={inet=InetSocketAddress, unix=UnixSocketAddress, fd=String}, innerTypes=null, fields=null}
 public class SocketAddress extends QApiUnion {
 	@SerializedName("inet")
-	@Nonnull public InetSocketAddress inet;
+	@Nonnull
+	public InetSocketAddress inet;
 	@SerializedName("unix")
-	@Nonnull public UnixSocketAddress unix;
+	@Nonnull
+	public UnixSocketAddress unix;
 	@SerializedName("fd")
-	@Nonnull public String fd;
+	@Nonnull
+	public String fd;
 
 	@Override
 	public boolean isUnion() {

@@ -18,11 +18,12 @@ public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeC
 	/** Compound arguments to a MigrateSetCacheSizeCommand. */
 	public static class Arguments {
 		@SerializedName("value")
-		@Nonnull public long value;
+		@Nonnull
+		public long value;
 	}
 
 	/** Response to a MigrateSetCacheSizeCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new MigrateSetCacheSizeCommand. */

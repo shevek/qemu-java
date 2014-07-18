@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevHubPortOptions extends QApiType {
 
 	@SerializedName("hubid")
-	@Nonnull public int hubid;
+	@Nonnull
+	public int hubid;
 }

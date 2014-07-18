@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class TargetInfo extends QApiType {
 
 	@SerializedName("arch")
-	@Nonnull public String arch;
+	@Nonnull
+	public java.lang.String arch;
 }

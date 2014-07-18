@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-chardev-backends, returns=[ChardevBackendInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-chardev-backends, returns=[ChardevBackendInfo], data=null}
-public class QueryChardevBackendsCommand extends QApiCommand<Void, QueryChardevBackendsCommand.Response> {
+public class QueryChardevBackendsCommand extends QApiCommand<java.lang.Void, QueryChardevBackendsCommand.Response> {
 
 	/** Response to a QueryChardevBackendsCommand. */
 	public static class Response extends QApiResponse<List<ChardevBackendInfo>> {

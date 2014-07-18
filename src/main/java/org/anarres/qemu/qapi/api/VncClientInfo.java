@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class VncClientInfo extends QApiType {
 
 	@SerializedName("x509_dname")
-	@CheckForNull public String x509Dname;
+	@CheckForNull
+	public java.lang.String x509Dname;
 	@SerializedName("sasl_username")
-	@CheckForNull public String saslUsername;
+	@CheckForNull
+	public java.lang.String saslUsername;
 }

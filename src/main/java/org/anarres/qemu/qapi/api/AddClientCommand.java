@@ -18,17 +18,21 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 	/** Compound arguments to a AddClientCommand. */
 	public static class Arguments {
 		@SerializedName("protocol")
-		@Nonnull public String protocol;
+		@Nonnull
+		public java.lang.String protocol;
 		@SerializedName("fdname")
-		@Nonnull public String fdname;
+		@Nonnull
+		public java.lang.String fdname;
 		@SerializedName("skipauth")
-		@CheckForNull public boolean skipauth;
+		@CheckForNull
+		public boolean skipauth;
 		@SerializedName("tls")
-		@CheckForNull public boolean tls;
+		@CheckForNull
+		public boolean tls;
 	}
 
 	/** Response to a AddClientCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new AddClientCommand. */

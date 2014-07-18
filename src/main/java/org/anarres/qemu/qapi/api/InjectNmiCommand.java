@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=inject-nmi, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=inject-nmi, returns=null, data=null}
-public class InjectNmiCommand extends QApiCommand<Void, InjectNmiCommand.Response> {
+public class InjectNmiCommand extends QApiCommand<java.lang.Void, InjectNmiCommand.Response> {
 
 	/** Response to a InjectNmiCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new InjectNmiCommand. */

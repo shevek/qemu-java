@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-version, returns=VersionInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-version, returns=VersionInfo, data=null}
-public class QueryVersionCommand extends QApiCommand<Void, QueryVersionCommand.Response> {
+public class QueryVersionCommand extends QApiCommand<java.lang.Void, QueryVersionCommand.Response> {
 
 	/** Response to a QueryVersionCommand. */
 	public static class Response extends QApiResponse<VersionInfo> {

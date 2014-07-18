@@ -31,7 +31,9 @@ public class PciBridgeInfo extends QApiType {
 	}
 
 	@SerializedName("bus")
-	@Nonnull public _Tbus bus;
+	@Nonnull
+	public _Tbus bus;
 	@SerializedName("devices")
-	@CheckForNull public List<PciDeviceInfo> devices;
+	@CheckForNull
+	public List<PciDeviceInfo> devices;
 }

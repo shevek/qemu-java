@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class IOThreadInfo extends QApiType {
 
 	@SerializedName("id")
-	@Nonnull public String id;
+	@Nonnull
+	public java.lang.String id;
 	@SerializedName("thread-id")
-	@Nonnull public long threadId;
+	@Nonnull
+	public long threadId;
 }

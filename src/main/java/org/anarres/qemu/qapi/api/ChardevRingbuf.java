@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevRingbuf extends QApiType {
 
 	@SerializedName("size")
-	@CheckForNull public long size;
+	@CheckForNull
+	public long size;
 }

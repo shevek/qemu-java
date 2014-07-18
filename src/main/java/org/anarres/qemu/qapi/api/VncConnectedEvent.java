@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=VNC_CONNECTED, data={server=VncServerInfo, client=VncBasicInfo}}
 public class VncConnectedEvent extends QApiEvent {
 	@SerializedName("server")
-	@Nonnull public VncServerInfo server;
+	@Nonnull
+	public VncServerInfo server;
 	@SerializedName("client")
-	@Nonnull public VncBasicInfo client;
+	@Nonnull
+	public VncBasicInfo client;
 }

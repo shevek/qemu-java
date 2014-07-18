@@ -16,27 +16,39 @@ import org.anarres.qemu.qapi.common.*;
 public class ImageCheck extends QApiType {
 
 	@SerializedName("filename")
-	@Nonnull public String filename;
+	@Nonnull
+	public java.lang.String filename;
 	@SerializedName("format")
-	@Nonnull public String format;
+	@Nonnull
+	public java.lang.String format;
 	@SerializedName("check-errors")
-	@Nonnull public long checkErrors;
+	@Nonnull
+	public long checkErrors;
 	@SerializedName("image-end-offset")
-	@CheckForNull public long imageEndOffset;
+	@CheckForNull
+	public long imageEndOffset;
 	@SerializedName("corruptions")
-	@CheckForNull public long corruptions;
+	@CheckForNull
+	public long corruptions;
 	@SerializedName("leaks")
-	@CheckForNull public long leaks;
+	@CheckForNull
+	public long leaks;
 	@SerializedName("corruptions-fixed")
-	@CheckForNull public long corruptionsFixed;
+	@CheckForNull
+	public long corruptionsFixed;
 	@SerializedName("leaks-fixed")
-	@CheckForNull public long leaksFixed;
+	@CheckForNull
+	public long leaksFixed;
 	@SerializedName("total-clusters")
-	@CheckForNull public long totalClusters;
+	@CheckForNull
+	public long totalClusters;
 	@SerializedName("allocated-clusters")
-	@CheckForNull public long allocatedClusters;
+	@CheckForNull
+	public long allocatedClusters;
 	@SerializedName("fragmented-clusters")
-	@CheckForNull public long fragmentedClusters;
+	@CheckForNull
+	public long fragmentedClusters;
 	@SerializedName("compressed-clusters")
-	@CheckForNull public long compressedClusters;
+	@CheckForNull
+	public long compressedClusters;
 }

@@ -14,10 +14,10 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=system_powerdown, returns=null, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=system_powerdown, returns=null, data=null}
-public class SystemPowerdownCommand extends QApiCommand<Void, SystemPowerdownCommand.Response> {
+public class SystemPowerdownCommand extends QApiCommand<java.lang.Void, SystemPowerdownCommand.Response> {
 
 	/** Response to a SystemPowerdownCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new SystemPowerdownCommand. */

@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class SpiceChannel extends QApiType {
 
 	@SerializedName("connection-id")
-	@Nonnull public long connectionId;
+	@Nonnull
+	public long connectionId;
 	@SerializedName("channel-type")
-	@Nonnull public long channelType;
+	@Nonnull
+	public long channelType;
 	@SerializedName("channel-id")
-	@Nonnull public long channelId;
+	@Nonnull
+	public long channelId;
 	@SerializedName("tls")
-	@Nonnull public boolean tls;
+	@Nonnull
+	public boolean tls;
 }

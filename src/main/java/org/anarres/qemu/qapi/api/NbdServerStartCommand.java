@@ -18,11 +18,12 @@ public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Arg
 	/** Compound arguments to a NbdServerStartCommand. */
 	public static class Arguments {
 		@SerializedName("addr")
-		@Nonnull public SocketAddress addr;
+		@Nonnull
+		public SocketAddress addr;
 	}
 
 	/** Response to a NbdServerStartCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new NbdServerStartCommand. */

@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-acpi-ospm-status, returns=[ACPIOSTInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-acpi-ospm-status, returns=[ACPIOSTInfo], data=null}
-public class QueryAcpiOspmStatusCommand extends QApiCommand<Void, QueryAcpiOspmStatusCommand.Response> {
+public class QueryAcpiOspmStatusCommand extends QApiCommand<java.lang.Void, QueryAcpiOspmStatusCommand.Response> {
 
 	/** Response to a QueryAcpiOspmStatusCommand. */
 	public static class Response extends QApiResponse<List<ACPIOSTInfo>> {

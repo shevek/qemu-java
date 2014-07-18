@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-pci, returns=[PciInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-pci, returns=[PciInfo], data=null}
-public class QueryPciCommand extends QApiCommand<Void, QueryPciCommand.Response> {
+public class QueryPciCommand extends QApiCommand<java.lang.Void, QueryPciCommand.Response> {
 
 	/** Response to a QueryPciCommand. */
 	public static class Response extends QApiResponse<List<PciInfo>> {

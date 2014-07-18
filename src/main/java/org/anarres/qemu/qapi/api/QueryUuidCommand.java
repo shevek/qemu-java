@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-uuid, returns=UuidInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-uuid, returns=UuidInfo, data=null}
-public class QueryUuidCommand extends QApiCommand<Void, QueryUuidCommand.Response> {
+public class QueryUuidCommand extends QApiCommand<java.lang.Void, QueryUuidCommand.Response> {
 
 	/** Response to a QueryUuidCommand. */
 	public static class Response extends QApiResponse<UuidInfo> {

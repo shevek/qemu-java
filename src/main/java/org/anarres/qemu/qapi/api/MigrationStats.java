@@ -16,23 +16,33 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrationStats extends QApiType {
 
 	@SerializedName("transferred")
-	@Nonnull public long transferred;
+	@Nonnull
+	public long transferred;
 	@SerializedName("remaining")
-	@Nonnull public long remaining;
+	@Nonnull
+	public long remaining;
 	@SerializedName("total")
-	@Nonnull public long total;
+	@Nonnull
+	public long total;
 	@SerializedName("duplicate")
-	@Nonnull public long duplicate;
+	@Nonnull
+	public long duplicate;
 	@SerializedName("skipped")
-	@Nonnull public long skipped;
+	@Nonnull
+	public long skipped;
 	@SerializedName("normal")
-	@Nonnull public long normal;
+	@Nonnull
+	public long normal;
 	@SerializedName("normal-bytes")
-	@Nonnull public long normalBytes;
+	@Nonnull
+	public long normalBytes;
 	@SerializedName("dirty-pages-rate")
-	@Nonnull public long dirtyPagesRate;
+	@Nonnull
+	public long dirtyPagesRate;
 	@SerializedName("mbps")
-	@Nonnull public double mbps;
+	@Nonnull
+	public double mbps;
 	@SerializedName("dirty-sync-count")
-	@Nonnull public long dirtySyncCount;
+	@Nonnull
+	public long dirtySyncCount;
 }

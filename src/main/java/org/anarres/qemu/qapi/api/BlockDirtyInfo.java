@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockDirtyInfo extends QApiType {
 
 	@SerializedName("count")
-	@Nonnull public long count;
+	@Nonnull
+	public long count;
 	@SerializedName("granularity")
-	@Nonnull public long granularity;
+	@Nonnull
+	public long granularity;
 }

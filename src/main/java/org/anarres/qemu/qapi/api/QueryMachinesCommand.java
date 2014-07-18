@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-machines, returns=[MachineInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-machines, returns=[MachineInfo], data=null}
-public class QueryMachinesCommand extends QApiCommand<Void, QueryMachinesCommand.Response> {
+public class QueryMachinesCommand extends QApiCommand<java.lang.Void, QueryMachinesCommand.Response> {
 
 	/** Response to a QueryMachinesCommand. */
 	public static class Response extends QApiResponse<List<MachineInfo>> {

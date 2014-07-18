@@ -18,15 +18,18 @@ public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.Arguments
 	/** Compound arguments to a BlockResizeCommand. */
 	public static class Arguments {
 		@SerializedName("device")
-		@CheckForNull public String device;
+		@CheckForNull
+		public java.lang.String device;
 		@SerializedName("node-name")
-		@CheckForNull public String nodeName;
+		@CheckForNull
+		public java.lang.String nodeName;
 		@SerializedName("size")
-		@Nonnull public long size;
+		@Nonnull
+		public long size;
 	}
 
 	/** Response to a BlockResizeCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BlockResizeCommand. */

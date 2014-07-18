@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=DEVICE_TRAY_MOVED, data={device=str, tray-open=bool}}
 public class DeviceTrayMovedEvent extends QApiEvent {
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 	@SerializedName("tray-open")
-	@Nonnull public boolean trayOpen;
+	@Nonnull
+	public boolean trayOpen;
 }

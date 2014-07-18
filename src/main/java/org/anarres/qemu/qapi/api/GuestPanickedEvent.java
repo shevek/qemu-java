@@ -15,5 +15,6 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=GUEST_PANICKED, data={action=GuestPanicAction}}
 public class GuestPanickedEvent extends QApiEvent {
 	@SerializedName("action")
-	@Nonnull public GuestPanicAction action;
+	@Nonnull
+	public GuestPanicAction action;
 }

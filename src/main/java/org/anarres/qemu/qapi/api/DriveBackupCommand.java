@@ -17,7 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class DriveBackupCommand extends QApiCommand<DriveBackup, DriveBackupCommand.Response> {
 
 	/** Response to a DriveBackupCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new DriveBackupCommand. */

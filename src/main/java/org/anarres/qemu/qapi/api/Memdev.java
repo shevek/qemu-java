@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class Memdev extends QApiType {
 
 	@SerializedName("size")
-	@Nonnull public long size;
+	@Nonnull
+	public long size;
 	@SerializedName("merge")
-	@Nonnull public boolean merge;
+	@Nonnull
+	public boolean merge;
 	@SerializedName("dump")
-	@Nonnull public boolean dump;
+	@Nonnull
+	public boolean dump;
 	@SerializedName("prealloc")
-	@Nonnull public boolean prealloc;
+	@Nonnull
+	public boolean prealloc;
 	@SerializedName("host-nodes")
-	@Nonnull public List<Integer> hostNodes;
+	@Nonnull
+	public List<java.lang.Integer> hostNodes;
 	@SerializedName("policy")
-	@Nonnull public HostMemPolicy policy;
+	@Nonnull
+	public HostMemPolicy policy;
 }

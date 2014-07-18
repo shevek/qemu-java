@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevCacheOptions extends QApiType {
 
 	@SerializedName("writeback")
-	@CheckForNull public boolean writeback;
+	@CheckForNull
+	public boolean writeback;
 	@SerializedName("direct")
-	@CheckForNull public boolean direct;
+	@CheckForNull
+	public boolean direct;
 	@SerializedName("no-flush")
-	@CheckForNull public boolean noFlush;
+	@CheckForNull
+	public boolean noFlush;
 }

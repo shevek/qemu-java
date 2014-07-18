@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevVC extends QApiType {
 
 	@SerializedName("width")
-	@CheckForNull public long width;
+	@CheckForNull
+	public long width;
 	@SerializedName("height")
-	@CheckForNull public long height;
+	@CheckForNull
+	public long height;
 	@SerializedName("cols")
-	@CheckForNull public long cols;
+	@CheckForNull
+	public long cols;
 	@SerializedName("rows")
-	@CheckForNull public long rows;
+	@CheckForNull
+	public long rows;
 }

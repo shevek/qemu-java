@@ -18,11 +18,12 @@ public class CpuAddCommand extends QApiCommand<CpuAddCommand.Arguments, CpuAddCo
 	/** Compound arguments to a CpuAddCommand. */
 	public static class Arguments {
 		@SerializedName("id")
-		@Nonnull public long id;
+		@Nonnull
+		public long id;
 	}
 
 	/** Response to a CpuAddCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new CpuAddCommand. */

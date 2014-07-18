@@ -16,9 +16,12 @@ import org.anarres.qemu.qapi.common.*;
 public class VncBasicInfo extends QApiType {
 
 	@SerializedName("host")
-	@Nonnull public String host;
+	@Nonnull
+	public java.lang.String host;
 	@SerializedName("service")
-	@Nonnull public String service;
+	@Nonnull
+	public java.lang.String service;
 	@SerializedName("family")
-	@Nonnull public NetworkAddressFamily family;
+	@Nonnull
+	public NetworkAddressFamily family;
 }

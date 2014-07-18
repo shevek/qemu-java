@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-migrate-capabilities, returns=[MigrationCapabilityStatus], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-migrate-capabilities, returns=[MigrationCapabilityStatus], data=null}
-public class QueryMigrateCapabilitiesCommand extends QApiCommand<Void, QueryMigrateCapabilitiesCommand.Response> {
+public class QueryMigrateCapabilitiesCommand extends QApiCommand<java.lang.Void, QueryMigrateCapabilitiesCommand.Response> {
 
 	/** Response to a QueryMigrateCapabilitiesCommand. */
 	public static class Response extends QApiResponse<List<MigrationCapabilityStatus>> {

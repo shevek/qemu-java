@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-memory-devices, returns=[MemoryDeviceInfo], data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-memory-devices, returns=[MemoryDeviceInfo], data=null}
-public class QueryMemoryDevicesCommand extends QApiCommand<Void, QueryMemoryDevicesCommand.Response> {
+public class QueryMemoryDevicesCommand extends QApiCommand<java.lang.Void, QueryMemoryDevicesCommand.Response> {
 
 	/** Response to a QueryMemoryDevicesCommand. */
 	public static class Response extends QApiResponse<List<MemoryDeviceInfo>> {

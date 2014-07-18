@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class VncServerInfo extends QApiType {
 
 	@SerializedName("auth")
-	@CheckForNull public String auth;
+	@CheckForNull
+	public java.lang.String auth;
 }

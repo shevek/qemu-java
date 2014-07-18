@@ -15,7 +15,8 @@ import org.anarres.qemu.qapi.common.*;
 // QApiUnionDescriptor{name=NumaOptions, data={node=NumaNodeOptions}, innerTypes=null, fields=null}
 public class NumaOptions extends QApiUnion {
 	@SerializedName("node")
-	@Nonnull public NumaNodeOptions node;
+	@Nonnull
+	public NumaNodeOptions node;
 
 	@Override
 	public boolean isUnion() {

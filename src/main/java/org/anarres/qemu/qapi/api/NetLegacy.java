@@ -16,11 +16,15 @@ import org.anarres.qemu.qapi.common.*;
 public class NetLegacy extends QApiType {
 
 	@SerializedName("vlan")
-	@CheckForNull public int vlan;
+	@CheckForNull
+	public int vlan;
 	@SerializedName("id")
-	@CheckForNull public String id;
+	@CheckForNull
+	public java.lang.String id;
 	@SerializedName("name")
-	@CheckForNull public String name;
+	@CheckForNull
+	public java.lang.String name;
 	@SerializedName("opts")
-	@Nonnull public NetClientOptions opts;
+	@Nonnull
+	public NetClientOptions opts;
 }

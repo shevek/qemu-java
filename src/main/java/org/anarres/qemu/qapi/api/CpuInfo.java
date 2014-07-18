@@ -16,19 +16,27 @@ import org.anarres.qemu.qapi.common.*;
 public class CpuInfo extends QApiType {
 
 	@SerializedName("CPU")
-	@Nonnull public long cpu;
+	@Nonnull
+	public long cpu;
 	@SerializedName("current")
-	@Nonnull public boolean current;
+	@Nonnull
+	public boolean current;
 	@SerializedName("halted")
-	@Nonnull public boolean halted;
+	@Nonnull
+	public boolean halted;
 	@SerializedName("pc")
-	@CheckForNull public long pc;
+	@CheckForNull
+	public long pc;
 	@SerializedName("nip")
-	@CheckForNull public long nip;
+	@CheckForNull
+	public long nip;
 	@SerializedName("npc")
-	@CheckForNull public long npc;
+	@CheckForNull
+	public long npc;
 	@SerializedName("PC")
-	@CheckForNull public long PC;
+	@CheckForNull
+	public long PC;
 	@SerializedName("thread_id")
-	@Nonnull public long threadId;
+	@Nonnull
+	public long threadId;
 }

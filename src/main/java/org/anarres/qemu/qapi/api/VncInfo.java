@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class VncInfo extends QApiType {
 
 	@SerializedName("enabled")
-	@Nonnull public boolean enabled;
+	@Nonnull
+	public boolean enabled;
 	@SerializedName("host")
-	@CheckForNull public String host;
+	@CheckForNull
+	public java.lang.String host;
 	@SerializedName("family")
-	@CheckForNull public NetworkAddressFamily family;
+	@CheckForNull
+	public NetworkAddressFamily family;
 	@SerializedName("service")
-	@CheckForNull public String service;
+	@CheckForNull
+	public java.lang.String service;
 	@SerializedName("auth")
-	@CheckForNull public String auth;
+	@CheckForNull
+	public java.lang.String auth;
 	@SerializedName("clients")
-	@CheckForNull public List<VncClientInfo> clients;
+	@CheckForNull
+	public List<VncClientInfo> clients;
 }

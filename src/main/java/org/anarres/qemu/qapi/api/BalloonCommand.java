@@ -18,11 +18,12 @@ public class BalloonCommand extends QApiCommand<BalloonCommand.Arguments, Balloo
 	/** Compound arguments to a BalloonCommand. */
 	public static class Arguments {
 		@SerializedName("value")
-		@Nonnull public long value;
+		@Nonnull
+		public long value;
 	}
 
 	/** Response to a BalloonCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new BalloonCommand. */

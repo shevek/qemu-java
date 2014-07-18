@@ -18,15 +18,18 @@ public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.Arguments, Pmem
 	/** Compound arguments to a PmemsaveCommand. */
 	public static class Arguments {
 		@SerializedName("val")
-		@Nonnull public long val;
+		@Nonnull
+		public long val;
 		@SerializedName("size")
-		@Nonnull public long size;
+		@Nonnull
+		public long size;
 		@SerializedName("filename")
-		@Nonnull public String filename;
+		@Nonnull
+		public java.lang.String filename;
 	}
 
 	/** Response to a PmemsaveCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new PmemsaveCommand. */

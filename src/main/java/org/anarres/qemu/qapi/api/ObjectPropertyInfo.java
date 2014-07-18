@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class ObjectPropertyInfo extends QApiType {
 
 	@SerializedName("name")
-	@Nonnull public String name;
+	@Nonnull
+	public java.lang.String name;
 	@SerializedName("type")
-	@Nonnull public String type;
+	@Nonnull
+	public java.lang.String type;
 }

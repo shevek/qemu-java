@@ -18,11 +18,12 @@ public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, 
 	/** Compound arguments to a ScreendumpCommand. */
 	public static class Arguments {
 		@SerializedName("filename")
-		@Nonnull public String filename;
+		@Nonnull
+		public java.lang.String filename;
 	}
 
 	/** Response to a ScreendumpCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new ScreendumpCommand. */

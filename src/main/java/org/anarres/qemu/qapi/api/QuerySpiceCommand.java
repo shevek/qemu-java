@@ -14,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiCommandDescriptor{name=query-spice, returns=SpiceInfo, data=null}</pre></p>
  */
 // QApiCommandDescriptor{name=query-spice, returns=SpiceInfo, data=null}
-public class QuerySpiceCommand extends QApiCommand<Void, QuerySpiceCommand.Response> {
+public class QuerySpiceCommand extends QApiCommand<java.lang.Void, QuerySpiceCommand.Response> {
 
 	/** Response to a QuerySpiceCommand. */
 	public static class Response extends QApiResponse<SpiceInfo> {

@@ -16,7 +16,9 @@ import org.anarres.qemu.qapi.common.*;
 public class Netdev extends QApiType {
 
 	@SerializedName("id")
-	@Nonnull public String id;
+	@Nonnull
+	public java.lang.String id;
 	@SerializedName("opts")
-	@Nonnull public NetClientOptions opts;
+	@Nonnull
+	public NetClientOptions opts;
 }

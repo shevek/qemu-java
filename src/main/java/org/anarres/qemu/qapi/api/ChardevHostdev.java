@@ -16,5 +16,6 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevHostdev extends QApiType {
 
 	@SerializedName("device")
-	@Nonnull public String device;
+	@Nonnull
+	public java.lang.String device;
 }

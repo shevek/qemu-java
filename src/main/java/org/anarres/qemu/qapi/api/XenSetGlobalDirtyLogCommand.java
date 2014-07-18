@@ -18,11 +18,12 @@ public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLo
 	/** Compound arguments to a XenSetGlobalDirtyLogCommand. */
 	public static class Arguments {
 		@SerializedName("enable")
-		@Nonnull public boolean enable;
+		@Nonnull
+		public boolean enable;
 	}
 
 	/** Response to a XenSetGlobalDirtyLogCommand. */
-	public static class Response extends QApiResponse<Void> {
+	public static class Response extends QApiResponse<java.lang.Void> {
 	}
 
 	/** Constructs a new XenSetGlobalDirtyLogCommand. */

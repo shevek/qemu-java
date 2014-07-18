@@ -15,7 +15,9 @@ import org.anarres.qemu.qapi.common.*;
 // QApiEventDescriptor{name=SPICE_INITIALIZED, data={server=SpiceServerInfo, client=SpiceChannel}}
 public class SpiceInitializedEvent extends QApiEvent {
 	@SerializedName("server")
-	@Nonnull public SpiceServerInfo server;
+	@Nonnull
+	public SpiceServerInfo server;
 	@SerializedName("client")
-	@Nonnull public SpiceChannel client;
+	@Nonnull
+	public SpiceChannel client;
 }

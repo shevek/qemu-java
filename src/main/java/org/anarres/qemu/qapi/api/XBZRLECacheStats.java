@@ -16,15 +16,21 @@ import org.anarres.qemu.qapi.common.*;
 public class XBZRLECacheStats extends QApiType {
 
 	@SerializedName("cache-size")
-	@Nonnull public long cacheSize;
+	@Nonnull
+	public long cacheSize;
 	@SerializedName("bytes")
-	@Nonnull public long bytes;
+	@Nonnull
+	public long bytes;
 	@SerializedName("pages")
-	@Nonnull public long pages;
+	@Nonnull
+	public long pages;
 	@SerializedName("cache-miss")
-	@Nonnull public long cacheMiss;
+	@Nonnull
+	public long cacheMiss;
 	@SerializedName("cache-miss-rate")
-	@Nonnull public double cacheMissRate;
+	@Nonnull
+	public double cacheMissRate;
 	@SerializedName("overflow")
-	@Nonnull public long overflow;
+	@Nonnull
+	public long overflow;
 }
