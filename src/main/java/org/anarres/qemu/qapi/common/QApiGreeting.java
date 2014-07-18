@@ -14,23 +14,23 @@ import java.util.List;
  *
  * @author shevek
  */
-public class QApiGreeting {
+public class QApiGreeting extends QApiObject {
 
-    public static class QEmuVersion {
+    public static class QEmuVersion extends QApiObject {
 
         public int major;
         public int minor;
         public int micro;
     }
 
-    public static class QApiVersion {
+    public static class QApiVersion extends QApiObject {
 
         public QEmuVersion qemu;
         @SerializedName("package")
         public String _package;
     }
 
-    public static class QMPVersion {
+    public static class QMPVersion extends QApiObject {
 
         public QApiVersion version;
         public List<Object> capabilities;

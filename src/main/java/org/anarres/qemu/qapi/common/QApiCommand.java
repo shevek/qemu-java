@@ -21,7 +21,7 @@ public class QApiCommand<Argument, Response extends QApiResponse<?>> extends QAp
 
     @SerializedName("execute")
     private final String commandName;
-    private final Class<Response> returnType;
+    private transient final Class<Response> returnType;
     @SerializedName("data")
     private final Argument argument;
 

@@ -10,9 +10,13 @@ import com.google.gson.annotations.SerializedName;
  *
  * @author shevek
  */
-public class QApiResponse<V> {
+public class QApiResponse<V> extends QApiObject {
 
     @SerializedName("return")
     public V _return;
     public String error;
+
+    public boolean isError() {
+        return error != null;
+    }
 }
