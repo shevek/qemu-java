@@ -42,4 +42,19 @@ public class BlockDeviceStats extends QApiType {
 	@SerializedName("wr_highest_offset")
 	@Nonnull
 	public long wrHighestOffset;
+
+	public BlockDeviceStats() {
+	}
+
+	public BlockDeviceStats(long rdBytes, long wrBytes, long rdOperations, long wrOperations, long flushOperations, long flushTotalTimeNs, long wrTotalTimeNs, long rdTotalTimeNs, long wrHighestOffset) {
+		this.rdBytes = rdBytes;
+		this.wrBytes = wrBytes;
+		this.rdOperations = rdOperations;
+		this.wrOperations = wrOperations;
+		this.flushOperations = flushOperations;
+		this.flushTotalTimeNs = flushTotalTimeNs;
+		this.wrTotalTimeNs = wrTotalTimeNs;
+		this.rdTotalTimeNs = rdTotalTimeNs;
+		this.wrHighestOffset = wrHighestOffset;
+	}
 }

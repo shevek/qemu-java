@@ -30,4 +30,15 @@ public class BlockdevOptionsBlkdebug extends QApiType {
 	@SerializedName("set-state")
 	@CheckForNull
 	public List<BlkdebugSetStateOptions> setState;
+
+	public BlockdevOptionsBlkdebug() {
+	}
+
+	public BlockdevOptionsBlkdebug(BlockdevRef image, java.lang.String config, long align, List<BlkdebugInjectErrorOptions> injectError, List<BlkdebugSetStateOptions> setState) {
+		this.image = image;
+		this.config = config;
+		this.align = align;
+		this.injectError = injectError;
+		this.setState = setState;
+	}
 }

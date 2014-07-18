@@ -24,4 +24,5 @@ public class QueryPciCommand extends QApiCommand<java.lang.Void, QueryPciCommand
 	public QueryPciCommand() {
 		super("query-pci", Response.class, null);
 	}
+
 }

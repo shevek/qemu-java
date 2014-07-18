@@ -24,4 +24,13 @@ public class ChardevInfo extends QApiType {
 	@SerializedName("frontend-open")
 	@Nonnull
 	public boolean frontendOpen;
+
+	public ChardevInfo() {
+	}
+
+	public ChardevInfo(java.lang.String label, java.lang.String filename, boolean frontendOpen) {
+		this.label = label;
+		this.filename = filename;
+		this.frontendOpen = frontendOpen;
+	}
 }

@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments, BlockStreamCommand.Response> {
 	/** Compound arguments to a BlockStreamCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -32,6 +33,17 @@ public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments
 		@SerializedName("on-error")
 		@CheckForNull
 		public BlockdevOnError onError;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String base, java.lang.String backingFile, long speed, BlockdevOnError onError) {
+			this.device = device;
+			this.base = base;
+			this.backingFile = backingFile;
+			this.speed = speed;
+			this.onError = onError;
+		}
 	}
 
 	/** Response to a BlockStreamCommand. */
@@ -41,5 +53,10 @@ public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments
 	/** Constructs a new BlockStreamCommand. */
 	public BlockStreamCommand(@Nonnull BlockStreamCommand.Arguments argument) {
 		super("block-stream", Response.class, argument);
+	}
+
+	public BlockStreamCommand(
+		java.lang.String device, java.lang.String base, java.lang.String backingFile, long speed, BlockdevOnError onError			) {
+		this(new Arguments(device, base, backingFile, speed, onError));
 	}
 }

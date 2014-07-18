@@ -24,4 +24,5 @@ public class BlockdevSnapshotInternalSyncCommand extends QApiCommand<BlockdevSna
 	public BlockdevSnapshotInternalSyncCommand(@Nonnull BlockdevSnapshotInternal argument) {
 		super("blockdev-snapshot-internal-sync", Response.class, argument);
 	}
+
 }

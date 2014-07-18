@@ -21,4 +21,12 @@ public class InputBtnEvent extends QApiType {
 	@SerializedName("down")
 	@Nonnull
 	public boolean down;
+
+	public InputBtnEvent() {
+	}
+
+	public InputBtnEvent(InputButton button, boolean down) {
+		this.button = button;
+		this.down = down;
+	}
 }

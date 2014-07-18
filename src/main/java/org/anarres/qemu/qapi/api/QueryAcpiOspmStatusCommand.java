@@ -24,4 +24,5 @@ public class QueryAcpiOspmStatusCommand extends QApiCommand<java.lang.Void, Quer
 	public QueryAcpiOspmStatusCommand() {
 		super("query-acpi-ospm-status", Response.class, null);
 	}
+
 }

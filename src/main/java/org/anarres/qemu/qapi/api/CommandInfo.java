@@ -18,4 +18,11 @@ public class CommandInfo extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public CommandInfo() {
+	}
+
+	public CommandInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

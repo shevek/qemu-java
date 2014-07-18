@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, ScreendumpCommand.Response> {
 	/** Compound arguments to a ScreendumpCommand. */
 	public static class Arguments {
+
 		@SerializedName("filename")
 		@Nonnull
 		public java.lang.String filename;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String filename) {
+			this.filename = filename;
+		}
 	}
 
 	/** Response to a ScreendumpCommand. */
@@ -29,5 +37,10 @@ public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, 
 	/** Constructs a new ScreendumpCommand. */
 	public ScreendumpCommand(@Nonnull ScreendumpCommand.Arguments argument) {
 		super("screendump", Response.class, argument);
+	}
+
+	public ScreendumpCommand(
+		java.lang.String filename			) {
+		this(new Arguments(filename));
 	}
 }

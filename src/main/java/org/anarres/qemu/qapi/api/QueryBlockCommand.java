@@ -24,4 +24,5 @@ public class QueryBlockCommand extends QApiCommand<java.lang.Void, QueryBlockCom
 	public QueryBlockCommand() {
 		super("query-block", Response.class, null);
 	}
+
 }

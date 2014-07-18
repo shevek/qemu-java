@@ -24,4 +24,5 @@ public class QueryVersionCommand extends QApiCommand<java.lang.Void, QueryVersio
 	public QueryVersionCommand() {
 		super("query-version", Response.class, null);
 	}
+
 }

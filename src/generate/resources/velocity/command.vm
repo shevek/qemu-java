@@ -14,11 +14,21 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 #if ($element.argumentType)
 	/** Compound arguments to a ${element.className}. */
 	public static class $element.argumentType.className {
+
 #foreach ($field in $element.argumentType.fields)
 		@SerializedName("$field.serializedName")
 		$field.annotations
 		public $field.typeName $field.name;
 #end
+
+		public ${element.argumentType.className}() {
+		}
+
+		public ${element.argumentType.className}(#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}) {
+#foreach ($field in $element.argumentType.fields)
+			this.$field.name = $field.name;
+#end
+		}
 	}
 #end
 
@@ -30,4 +40,12 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	public ${element.className}(#{if} ($element.argumentTypeName)@Nonnull $element.argumentTypeName argument#{end}) {
 		super("$element.name", Response.class, #{if} ($element.argumentTypeName)argument#{else}null#{end});
 	}
+
+#if ($element.argumentType)
+	public ${element.className}(
+		#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}
+			) {
+		this(new ${element.argumentType.className}(#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.name#{end}));
+	}
+#end
 }

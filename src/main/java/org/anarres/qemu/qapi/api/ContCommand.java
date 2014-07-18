@@ -24,4 +24,5 @@ public class ContCommand extends QApiCommand<java.lang.Void, ContCommand.Respons
 	public ContCommand() {
 		super("cont", Response.class, null);
 	}
+
 }

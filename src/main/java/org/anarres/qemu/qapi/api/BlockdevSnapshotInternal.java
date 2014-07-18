@@ -21,4 +21,12 @@ public class BlockdevSnapshotInternal extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public BlockdevSnapshotInternal() {
+	}
+
+	public BlockdevSnapshotInternal(java.lang.String device, java.lang.String name) {
+		this.device = device;
+		this.name = name;
+	}
 }

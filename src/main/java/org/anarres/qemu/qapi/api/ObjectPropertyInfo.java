@@ -21,4 +21,12 @@ public class ObjectPropertyInfo extends QApiType {
 	@SerializedName("type")
 	@Nonnull
 	public java.lang.String type;
+
+	public ObjectPropertyInfo() {
+	}
+
+	public ObjectPropertyInfo(java.lang.String name, java.lang.String type) {
+		this.name = name;
+		this.type = type;
+	}
 }

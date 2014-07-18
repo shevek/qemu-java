@@ -21,4 +21,12 @@ public class AddfdInfo extends QApiType {
 	@SerializedName("fd")
 	@Nonnull
 	public long fd;
+
+	public AddfdInfo() {
+	}
+
+	public AddfdInfo(long fdsetId, long fd) {
+		this.fdsetId = fdsetId;
+		this.fd = fd;
+	}
 }

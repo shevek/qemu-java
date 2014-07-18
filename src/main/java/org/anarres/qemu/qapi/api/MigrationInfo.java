@@ -39,4 +39,18 @@ public class MigrationInfo extends QApiType {
 	@SerializedName("setup-time")
 	@CheckForNull
 	public long setupTime;
+
+	public MigrationInfo() {
+	}
+
+	public MigrationInfo(java.lang.String status, MigrationStats ram, MigrationStats disk, XBZRLECacheStats xbzrleCache, long totalTime, long expectedDowntime, long downtime, long setupTime) {
+		this.status = status;
+		this.ram = ram;
+		this.disk = disk;
+		this.xbzrleCache = xbzrleCache;
+		this.totalTime = totalTime;
+		this.expectedDowntime = expectedDowntime;
+		this.downtime = downtime;
+		this.setupTime = setupTime;
+	}
 }

@@ -21,4 +21,12 @@ public class DevicePropertyInfo extends QApiType {
 	@SerializedName("type")
 	@Nonnull
 	public java.lang.String type;
+
+	public DevicePropertyInfo() {
+	}
+
+	public DevicePropertyInfo(java.lang.String name, java.lang.String type) {
+		this.name = name;
+		this.type = type;
+	}
 }

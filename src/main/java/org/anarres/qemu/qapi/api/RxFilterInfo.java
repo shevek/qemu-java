@@ -51,4 +51,22 @@ public class RxFilterInfo extends QApiType {
 	@SerializedName("multicast-table")
 	@Nonnull
 	public List<java.lang.String> multicastTable;
+
+	public RxFilterInfo() {
+	}
+
+	public RxFilterInfo(java.lang.String name, boolean promiscuous, RxState multicast, RxState unicast, RxState vlan, boolean broadcastAllowed, boolean multicastOverflow, boolean unicastOverflow, java.lang.String mainMac, List<java.lang.Long> vlanTable, List<java.lang.String> unicastTable, List<java.lang.String> multicastTable) {
+		this.name = name;
+		this.promiscuous = promiscuous;
+		this.multicast = multicast;
+		this.unicast = unicast;
+		this.vlan = vlan;
+		this.broadcastAllowed = broadcastAllowed;
+		this.multicastOverflow = multicastOverflow;
+		this.unicastOverflow = unicastOverflow;
+		this.mainMac = mainMac;
+		this.vlanTable = vlanTable;
+		this.unicastTable = unicastTable;
+		this.multicastTable = multicastTable;
+	}
 }

@@ -18,4 +18,11 @@ public class String extends QApiType {
 	@SerializedName("str")
 	@Nonnull
 	public java.lang.String str;
+
+	public String() {
+	}
+
+	public String(java.lang.String str) {
+		this.str = str;
+	}
 }

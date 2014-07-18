@@ -18,4 +18,11 @@ public class ChardevReturn extends QApiType {
 	@SerializedName("pty")
 	@CheckForNull
 	public java.lang.String pty;
+
+	public ChardevReturn() {
+	}
+
+	public ChardevReturn(java.lang.String pty) {
+		this.pty = pty;
+	}
 }

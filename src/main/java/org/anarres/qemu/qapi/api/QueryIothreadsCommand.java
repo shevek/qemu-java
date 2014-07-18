@@ -24,4 +24,5 @@ public class QueryIothreadsCommand extends QApiCommand<java.lang.Void, QueryIoth
 	public QueryIothreadsCommand() {
 		super("query-iothreads", Response.class, null);
 	}
+
 }

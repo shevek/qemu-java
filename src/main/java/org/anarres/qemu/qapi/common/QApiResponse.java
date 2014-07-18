@@ -19,4 +19,10 @@ public class QApiResponse<V> extends QApiObject {
     public boolean isError() {
         return error != null;
     }
+
+    public V getResult() throws QApiException {
+        if (isError())
+            throw new QApiException(error);
+        return _return;
+    }
 }

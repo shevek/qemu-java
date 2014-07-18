@@ -24,4 +24,5 @@ public class QueryUuidCommand extends QApiCommand<java.lang.Void, QueryUuidComma
 	public QueryUuidCommand() {
 		super("query-uuid", Response.class, null);
 	}
+
 }

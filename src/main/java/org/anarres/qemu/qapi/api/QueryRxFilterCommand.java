@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Arguments, QueryRxFilterCommand.Response> {
 	/** Compound arguments to a QueryRxFilterCommand. */
 	public static class Arguments {
+
 		@SerializedName("name")
 		@CheckForNull
 		public java.lang.String name;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String name) {
+			this.name = name;
+		}
 	}
 
 	/** Response to a QueryRxFilterCommand. */
@@ -29,5 +37,10 @@ public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Argum
 	/** Constructs a new QueryRxFilterCommand. */
 	public QueryRxFilterCommand(@Nonnull QueryRxFilterCommand.Arguments argument) {
 		super("query-rx-filter", Response.class, argument);
+	}
+
+	public QueryRxFilterCommand(
+		java.lang.String name			) {
+		this(new Arguments(name));
 	}
 }

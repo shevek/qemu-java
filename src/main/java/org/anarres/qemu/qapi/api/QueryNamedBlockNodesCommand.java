@@ -24,4 +24,5 @@ public class QueryNamedBlockNodesCommand extends QApiCommand<java.lang.Void, Que
 	public QueryNamedBlockNodesCommand() {
 		super("query-named-block-nodes", Response.class, null);
 	}
+
 }

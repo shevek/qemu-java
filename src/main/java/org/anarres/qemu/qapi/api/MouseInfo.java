@@ -27,4 +27,14 @@ public class MouseInfo extends QApiType {
 	@SerializedName("absolute")
 	@Nonnull
 	public boolean absolute;
+
+	public MouseInfo() {
+	}
+
+	public MouseInfo(java.lang.String name, long index, boolean current, boolean absolute) {
+		this.name = name;
+		this.index = index;
+		this.current = current;
+		this.absolute = absolute;
+	}
 }

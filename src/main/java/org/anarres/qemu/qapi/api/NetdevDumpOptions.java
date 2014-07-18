@@ -21,4 +21,12 @@ public class NetdevDumpOptions extends QApiType {
 	@SerializedName("file")
 	@CheckForNull
 	public java.lang.String file;
+
+	public NetdevDumpOptions() {
+	}
+
+	public NetdevDumpOptions(long len, java.lang.String file) {
+		this.len = len;
+		this.file = file;
+	}
 }

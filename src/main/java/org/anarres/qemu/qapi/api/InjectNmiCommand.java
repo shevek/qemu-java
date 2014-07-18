@@ -24,4 +24,5 @@ public class InjectNmiCommand extends QApiCommand<java.lang.Void, InjectNmiComma
 	public InjectNmiCommand() {
 		super("inject-nmi", Response.class, null);
 	}
+
 }

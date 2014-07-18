@@ -21,4 +21,12 @@ public class PciInfo extends QApiType {
 	@SerializedName("devices")
 	@Nonnull
 	public List<PciDeviceInfo> devices;
+
+	public PciInfo() {
+	}
+
+	public PciInfo(long bus, List<PciDeviceInfo> devices) {
+		this.bus = bus;
+		this.devices = devices;
+	}
 }

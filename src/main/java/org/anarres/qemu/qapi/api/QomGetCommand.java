@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class QomGetCommand extends QApiCommand<QomGetCommand.Arguments, QomGetCommand.Response> {
 	/** Compound arguments to a QomGetCommand. */
 	public static class Arguments {
+
 		@SerializedName("path")
 		@Nonnull
 		public java.lang.String path;
 		@SerializedName("property")
 		@Nonnull
 		public java.lang.String property;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String path, java.lang.String property) {
+			this.path = path;
+			this.property = property;
+		}
 	}
 
 	/** Response to a QomGetCommand. */
@@ -32,5 +41,10 @@ public class QomGetCommand extends QApiCommand<QomGetCommand.Arguments, QomGetCo
 	/** Constructs a new QomGetCommand. */
 	public QomGetCommand(@Nonnull QomGetCommand.Arguments argument) {
 		super("qom-get", Response.class, argument);
+	}
+
+	public QomGetCommand(
+		java.lang.String path, java.lang.String property			) {
+		this(new Arguments(path, property));
 	}
 }

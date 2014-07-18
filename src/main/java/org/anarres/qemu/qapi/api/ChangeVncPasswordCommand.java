@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class ChangeVncPasswordCommand extends QApiCommand<ChangeVncPasswordCommand.Arguments, ChangeVncPasswordCommand.Response> {
 	/** Compound arguments to a ChangeVncPasswordCommand. */
 	public static class Arguments {
+
 		@SerializedName("password")
 		@Nonnull
 		public java.lang.String password;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String password) {
+			this.password = password;
+		}
 	}
 
 	/** Response to a ChangeVncPasswordCommand. */
@@ -29,5 +37,10 @@ public class ChangeVncPasswordCommand extends QApiCommand<ChangeVncPasswordComma
 	/** Constructs a new ChangeVncPasswordCommand. */
 	public ChangeVncPasswordCommand(@Nonnull ChangeVncPasswordCommand.Arguments argument) {
 		super("change-vnc-password", Response.class, argument);
+	}
+
+	public ChangeVncPasswordCommand(
+		java.lang.String password			) {
+		this(new Arguments(password));
 	}
 }

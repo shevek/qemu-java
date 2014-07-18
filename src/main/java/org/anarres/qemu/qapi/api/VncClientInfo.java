@@ -21,4 +21,12 @@ public class VncClientInfo extends QApiType {
 	@SerializedName("sasl_username")
 	@CheckForNull
 	public java.lang.String saslUsername;
+
+	public VncClientInfo() {
+	}
+
+	public VncClientInfo(java.lang.String x509Dname, java.lang.String saslUsername) {
+		this.x509Dname = x509Dname;
+		this.saslUsername = saslUsername;
+	}
 }

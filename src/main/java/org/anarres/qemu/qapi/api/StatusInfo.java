@@ -24,4 +24,13 @@ public class StatusInfo extends QApiType {
 	@SerializedName("status")
 	@Nonnull
 	public RunState status;
+
+	public StatusInfo() {
+	}
+
+	public StatusInfo(boolean running, boolean singlestep, RunState status) {
+		this.running = running;
+		this.singlestep = singlestep;
+		this.status = status;
+	}
 }

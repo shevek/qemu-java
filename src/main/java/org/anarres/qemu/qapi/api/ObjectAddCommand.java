@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, ObjectAddCommand.Response> {
 	/** Compound arguments to a ObjectAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("qom-type")
 		@Nonnull
 		public java.lang.String qomType;
@@ -26,6 +27,15 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 		@SerializedName("props")
 		@CheckForNull
 		public Map<String, String> props;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String qomType, java.lang.String id, Map<String, String> props) {
+			this.qomType = qomType;
+			this.id = id;
+			this.props = props;
+		}
 	}
 
 	/** Response to a ObjectAddCommand. */
@@ -35,5 +45,10 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 	/** Constructs a new ObjectAddCommand. */
 	public ObjectAddCommand(@Nonnull ObjectAddCommand.Arguments argument) {
 		super("object-add", Response.class, argument);
+	}
+
+	public ObjectAddCommand(
+		java.lang.String qomType, java.lang.String id, Map<String, String> props			) {
+		this(new Arguments(qomType, id, props));
 	}
 }

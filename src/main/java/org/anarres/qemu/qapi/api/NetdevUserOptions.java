@@ -57,4 +57,24 @@ public class NetdevUserOptions extends QApiType {
 	@SerializedName("guestfwd")
 	@CheckForNull
 	public List<String> guestfwd;
+
+	public NetdevUserOptions() {
+	}
+
+	public NetdevUserOptions(java.lang.String hostname, boolean restrict, java.lang.String ip, java.lang.String net, java.lang.String host, java.lang.String tftp, java.lang.String bootfile, java.lang.String dhcpstart, java.lang.String dns, List<String> dnssearch, java.lang.String smb, java.lang.String smbserver, List<String> hostfwd, List<String> guestfwd) {
+		this.hostname = hostname;
+		this.restrict = restrict;
+		this.ip = ip;
+		this.net = net;
+		this.host = host;
+		this.tftp = tftp;
+		this.bootfile = bootfile;
+		this.dhcpstart = dhcpstart;
+		this.dns = dns;
+		this.dnssearch = dnssearch;
+		this.smb = smb;
+		this.smbserver = smbserver;
+		this.hostfwd = hostfwd;
+		this.guestfwd = guestfwd;
+	}
 }

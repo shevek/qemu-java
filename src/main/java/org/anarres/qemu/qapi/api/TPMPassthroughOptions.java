@@ -21,4 +21,12 @@ public class TPMPassthroughOptions extends QApiType {
 	@SerializedName("cancel-path")
 	@CheckForNull
 	public java.lang.String cancelPath;
+
+	public TPMPassthroughOptions() {
+	}
+
+	public TPMPassthroughOptions(java.lang.String path, java.lang.String cancelPath) {
+		this.path = path;
+		this.cancelPath = cancelPath;
+	}
 }

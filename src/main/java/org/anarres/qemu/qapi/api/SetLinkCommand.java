@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class SetLinkCommand extends QApiCommand<SetLinkCommand.Arguments, SetLinkCommand.Response> {
 	/** Compound arguments to a SetLinkCommand. */
 	public static class Arguments {
+
 		@SerializedName("name")
 		@Nonnull
 		public java.lang.String name;
 		@SerializedName("up")
 		@Nonnull
 		public boolean up;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String name, boolean up) {
+			this.name = name;
+			this.up = up;
+		}
 	}
 
 	/** Response to a SetLinkCommand. */
@@ -32,5 +41,10 @@ public class SetLinkCommand extends QApiCommand<SetLinkCommand.Arguments, SetLin
 	/** Constructs a new SetLinkCommand. */
 	public SetLinkCommand(@Nonnull SetLinkCommand.Arguments argument) {
 		super("set_link", Response.class, argument);
+	}
+
+	public SetLinkCommand(
+		java.lang.String name, boolean up			) {
+		this(new Arguments(name, up));
 	}
 }

@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCommand.Arguments, BlockSetIoThrottleCommand.Response> {
 	/** Compound arguments to a BlockSetIoThrottleCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -59,6 +60,26 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 		@SerializedName("iops_size")
 		@CheckForNull
 		public long iopsSize;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
+			this.device = device;
+			this.bps = bps;
+			this.bpsRd = bpsRd;
+			this.bpsWr = bpsWr;
+			this.iops = iops;
+			this.iopsRd = iopsRd;
+			this.iopsWr = iopsWr;
+			this.bpsMax = bpsMax;
+			this.bpsRdMax = bpsRdMax;
+			this.bpsWrMax = bpsWrMax;
+			this.iopsMax = iopsMax;
+			this.iopsRdMax = iopsRdMax;
+			this.iopsWrMax = iopsWrMax;
+			this.iopsSize = iopsSize;
+		}
 	}
 
 	/** Response to a BlockSetIoThrottleCommand. */
@@ -68,5 +89,10 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	/** Constructs a new BlockSetIoThrottleCommand. */
 	public BlockSetIoThrottleCommand(@Nonnull BlockSetIoThrottleCommand.Arguments argument) {
 		super("block_set_io_throttle", Response.class, argument);
+	}
+
+	public BlockSetIoThrottleCommand(
+		java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize			) {
+		this(new Arguments(device, bps, bpsRd, bpsWr, iops, iopsRd, iopsWr, bpsMax, bpsRdMax, bpsWrMax, iopsMax, iopsRdMax, iopsWrMax, iopsSize));
 	}
 }

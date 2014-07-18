@@ -24,4 +24,5 @@ public class SystemPowerdownCommand extends QApiCommand<java.lang.Void, SystemPo
 	public SystemPowerdownCommand() {
 		super("system_powerdown", Response.class, null);
 	}
+
 }

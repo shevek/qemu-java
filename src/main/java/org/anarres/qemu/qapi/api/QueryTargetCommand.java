@@ -24,4 +24,5 @@ public class QueryTargetCommand extends QApiCommand<java.lang.Void, QueryTargetC
 	public QueryTargetCommand() {
 		super("query-target", Response.class, null);
 	}
+
 }

@@ -21,4 +21,12 @@ public class BlockDirtyInfo extends QApiType {
 	@SerializedName("granularity")
 	@Nonnull
 	public long granularity;
+
+	public BlockDirtyInfo() {
+	}
+
+	public BlockDirtyInfo(long count, long granularity) {
+		this.count = count;
+		this.granularity = granularity;
+	}
 }

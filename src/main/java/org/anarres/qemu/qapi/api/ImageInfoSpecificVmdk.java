@@ -27,4 +27,14 @@ public class ImageInfoSpecificVmdk extends QApiType {
 	@SerializedName("extents")
 	@Nonnull
 	public List<ImageInfo> extents;
+
+	public ImageInfoSpecificVmdk() {
+	}
+
+	public ImageInfoSpecificVmdk(java.lang.String createType, long cid, long parentCid, List<ImageInfo> extents) {
+		this.createType = createType;
+		this.cid = cid;
+		this.parentCid = parentCid;
+		this.extents = extents;
+	}
 }

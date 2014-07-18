@@ -18,4 +18,11 @@ public class TargetInfo extends QApiType {
 	@SerializedName("arch")
 	@Nonnull
 	public java.lang.String arch;
+
+	public TargetInfo() {
+	}
+
+	public TargetInfo(java.lang.String arch) {
+		this.arch = arch;
+	}
 }

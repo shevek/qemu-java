@@ -25,4 +25,15 @@ public class $element.className extends QApiType {
 	$field.annotations
 	public $field.typeName $field.name;
 #end
+
+	public ${element.className}() {
+	}
+#if ($element.fields.size() > 0)
+
+	public ${element.className}(#{foreach} ($field in $element.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}) {
+#foreach ($field in $element.fields)
+		this.$field.name = $field.name;
+#end
+	}
+#end
 }

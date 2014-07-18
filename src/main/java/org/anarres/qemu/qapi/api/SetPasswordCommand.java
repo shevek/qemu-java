@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments, SetPasswordCommand.Response> {
 	/** Compound arguments to a SetPasswordCommand. */
 	public static class Arguments {
+
 		@SerializedName("protocol")
 		@Nonnull
 		public java.lang.String protocol;
@@ -26,6 +27,15 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments
 		@SerializedName("connected")
 		@CheckForNull
 		public java.lang.String connected;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String protocol, java.lang.String password, java.lang.String connected) {
+			this.protocol = protocol;
+			this.password = password;
+			this.connected = connected;
+		}
 	}
 
 	/** Response to a SetPasswordCommand. */
@@ -35,5 +45,10 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments
 	/** Constructs a new SetPasswordCommand. */
 	public SetPasswordCommand(@Nonnull SetPasswordCommand.Arguments argument) {
 		super("set_password", Response.class, argument);
+	}
+
+	public SetPasswordCommand(
+		java.lang.String protocol, java.lang.String password, java.lang.String connected			) {
+		this(new Arguments(protocol, password, connected));
 	}
 }

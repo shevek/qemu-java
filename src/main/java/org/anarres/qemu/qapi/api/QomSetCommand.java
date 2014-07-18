@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCommand.Response> {
 	/** Compound arguments to a QomSetCommand. */
 	public static class Arguments {
+
 		@SerializedName("path")
 		@Nonnull
 		public java.lang.String path;
@@ -26,6 +27,15 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 		@SerializedName("value")
 		@Nonnull
 		public java.lang.Object value;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String path, java.lang.String property, java.lang.Object value) {
+			this.path = path;
+			this.property = property;
+			this.value = value;
+		}
 	}
 
 	/** Response to a QomSetCommand. */
@@ -35,5 +45,10 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 	/** Constructs a new QomSetCommand. */
 	public QomSetCommand(@Nonnull QomSetCommand.Arguments argument) {
 		super("qom-set", Response.class, argument);
+	}
+
+	public QomSetCommand(
+		java.lang.String path, java.lang.String property, java.lang.Object value			) {
+		this(new Arguments(path, property, value));
 	}
 }

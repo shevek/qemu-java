@@ -24,4 +24,5 @@ public class QueryMiceCommand extends QApiCommand<java.lang.Void, QueryMiceComma
 	public QueryMiceCommand() {
 		super("query-mice", Response.class, null);
 	}
+
 }

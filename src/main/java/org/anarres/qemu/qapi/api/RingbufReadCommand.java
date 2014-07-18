@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments, RingbufReadCommand.Response> {
 	/** Compound arguments to a RingbufReadCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments
 		@SerializedName("format")
 		@CheckForNull
 		public DataFormat format;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, long size, DataFormat format) {
+			this.device = device;
+			this.size = size;
+			this.format = format;
+		}
 	}
 
 	/** Response to a RingbufReadCommand. */
@@ -35,5 +45,10 @@ public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments
 	/** Constructs a new RingbufReadCommand. */
 	public RingbufReadCommand(@Nonnull RingbufReadCommand.Arguments argument) {
 		super("ringbuf-read", Response.class, argument);
+	}
+
+	public RingbufReadCommand(
+		java.lang.String device, long size, DataFormat format			) {
+		this(new Arguments(device, size, format));
 	}
 }

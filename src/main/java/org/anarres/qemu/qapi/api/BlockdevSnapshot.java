@@ -33,4 +33,16 @@ public class BlockdevSnapshot extends QApiType {
 	@SerializedName("mode")
 	@CheckForNull
 	public NewImageMode mode;
+
+	public BlockdevSnapshot() {
+	}
+
+	public BlockdevSnapshot(java.lang.String device, java.lang.String nodeName, java.lang.String snapshotFile, java.lang.String snapshotNodeName, java.lang.String format, NewImageMode mode) {
+		this.device = device;
+		this.nodeName = nodeName;
+		this.snapshotFile = snapshotFile;
+		this.snapshotNodeName = snapshotNodeName;
+		this.format = format;
+		this.mode = mode;
+	}
 }

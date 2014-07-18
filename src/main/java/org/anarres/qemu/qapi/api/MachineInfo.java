@@ -27,4 +27,14 @@ public class MachineInfo extends QApiType {
 	@SerializedName("cpu-max")
 	@Nonnull
 	public long cpuMax;
+
+	public MachineInfo() {
+	}
+
+	public MachineInfo(java.lang.String name, java.lang.String alias, boolean isDefault, long cpuMax) {
+		this.name = name;
+		this.alias = alias;
+		this.isDefault = isDefault;
+		this.cpuMax = cpuMax;
+	}
 }

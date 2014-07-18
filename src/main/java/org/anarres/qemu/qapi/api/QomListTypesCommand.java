@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Arguments, QomListTypesCommand.Response> {
 	/** Compound arguments to a QomListTypesCommand. */
 	public static class Arguments {
+
 		@SerializedName("implements")
 		@CheckForNull
 		public java.lang.String _implements;
 		@SerializedName("abstract")
 		@CheckForNull
 		public boolean _abstract;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String _implements, boolean _abstract) {
+			this._implements = _implements;
+			this._abstract = _abstract;
+		}
 	}
 
 	/** Response to a QomListTypesCommand. */
@@ -32,5 +41,10 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Argumen
 	/** Constructs a new QomListTypesCommand. */
 	public QomListTypesCommand(@Nonnull QomListTypesCommand.Arguments argument) {
 		super("qom-list-types", Response.class, argument);
+	}
+
+	public QomListTypesCommand(
+		java.lang.String _implements, boolean _abstract			) {
+		this(new Arguments(_implements, _abstract));
 	}
 }

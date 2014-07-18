@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKeyCommand.Response> {
 	/** Compound arguments to a SendKeyCommand. */
 	public static class Arguments {
+
 		@SerializedName("keys")
 		@Nonnull
 		public List<KeyValue> keys;
 		@SerializedName("hold-time")
 		@CheckForNull
 		public long holdTime;
+
+		public Arguments() {
+		}
+
+		public Arguments(List<KeyValue> keys, long holdTime) {
+			this.keys = keys;
+			this.holdTime = holdTime;
+		}
 	}
 
 	/** Response to a SendKeyCommand. */
@@ -32,5 +41,10 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKe
 	/** Constructs a new SendKeyCommand. */
 	public SendKeyCommand(@Nonnull SendKeyCommand.Arguments argument) {
 		super("send-key", Response.class, argument);
+	}
+
+	public SendKeyCommand(
+		List<KeyValue> keys, long holdTime			) {
+		this(new Arguments(keys, holdTime));
 	}
 }

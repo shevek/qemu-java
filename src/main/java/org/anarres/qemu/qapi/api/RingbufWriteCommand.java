@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Arguments, RingbufWriteCommand.Response> {
 	/** Compound arguments to a RingbufWriteCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Argumen
 		@SerializedName("format")
 		@CheckForNull
 		public DataFormat format;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String data, DataFormat format) {
+			this.device = device;
+			this.data = data;
+			this.format = format;
+		}
 	}
 
 	/** Response to a RingbufWriteCommand. */
@@ -35,5 +45,10 @@ public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Argumen
 	/** Constructs a new RingbufWriteCommand. */
 	public RingbufWriteCommand(@Nonnull RingbufWriteCommand.Arguments argument) {
 		super("ringbuf-write", Response.class, argument);
+	}
+
+	public RingbufWriteCommand(
+		java.lang.String device, java.lang.String data, DataFormat format			) {
+		this(new Arguments(device, data, format));
 	}
 }

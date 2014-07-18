@@ -18,4 +18,11 @@ public class BlockdevOptionsGenericFormat extends QApiType {
 	@SerializedName("file")
 	@Nonnull
 	public BlockdevRef file;
+
+	public BlockdevOptionsGenericFormat() {
+	}
+
+	public BlockdevOptionsGenericFormat(BlockdevRef file) {
+		this.file = file;
+	}
 }

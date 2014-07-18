@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.Arguments, PmemsaveCommand.Response> {
 	/** Compound arguments to a PmemsaveCommand. */
 	public static class Arguments {
+
 		@SerializedName("val")
 		@Nonnull
 		public long val;
@@ -26,6 +27,15 @@ public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.Arguments, Pmem
 		@SerializedName("filename")
 		@Nonnull
 		public java.lang.String filename;
+
+		public Arguments() {
+		}
+
+		public Arguments(long val, long size, java.lang.String filename) {
+			this.val = val;
+			this.size = size;
+			this.filename = filename;
+		}
 	}
 
 	/** Response to a PmemsaveCommand. */
@@ -35,5 +45,10 @@ public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.Arguments, Pmem
 	/** Constructs a new PmemsaveCommand. */
 	public PmemsaveCommand(@Nonnull PmemsaveCommand.Arguments argument) {
 		super("pmemsave", Response.class, argument);
+	}
+
+	public PmemsaveCommand(
+		long val, long size, java.lang.String filename			) {
+		this(new Arguments(val, size, filename));
 	}
 }

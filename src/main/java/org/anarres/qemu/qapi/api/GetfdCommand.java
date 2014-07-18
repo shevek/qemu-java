@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class GetfdCommand extends QApiCommand<GetfdCommand.Arguments, GetfdCommand.Response> {
 	/** Compound arguments to a GetfdCommand. */
 	public static class Arguments {
+
 		@SerializedName("fdname")
 		@Nonnull
 		public java.lang.String fdname;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String fdname) {
+			this.fdname = fdname;
+		}
 	}
 
 	/** Response to a GetfdCommand. */
@@ -29,5 +37,10 @@ public class GetfdCommand extends QApiCommand<GetfdCommand.Arguments, GetfdComma
 	/** Constructs a new GetfdCommand. */
 	public GetfdCommand(@Nonnull GetfdCommand.Arguments argument) {
 		super("getfd", Response.class, argument);
+	}
+
+	public GetfdCommand(
+		java.lang.String fdname			) {
+		this(new Arguments(fdname));
 	}
 }

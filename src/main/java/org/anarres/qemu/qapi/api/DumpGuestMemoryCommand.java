@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.Arguments, DumpGuestMemoryCommand.Response> {
 	/** Compound arguments to a DumpGuestMemoryCommand. */
 	public static class Arguments {
+
 		@SerializedName("paging")
 		@Nonnull
 		public boolean paging;
@@ -32,6 +33,17 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 		@SerializedName("format")
 		@CheckForNull
 		public DumpGuestMemoryFormat format;
+
+		public Arguments() {
+		}
+
+		public Arguments(boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format) {
+			this.paging = paging;
+			this.protocol = protocol;
+			this.begin = begin;
+			this.length = length;
+			this.format = format;
+		}
 	}
 
 	/** Response to a DumpGuestMemoryCommand. */
@@ -41,5 +53,10 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 	/** Constructs a new DumpGuestMemoryCommand. */
 	public DumpGuestMemoryCommand(@Nonnull DumpGuestMemoryCommand.Arguments argument) {
 		super("dump-guest-memory", Response.class, argument);
+	}
+
+	public DumpGuestMemoryCommand(
+		boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format			) {
+		this(new Arguments(paging, protocol, begin, length, format));
 	}
 }

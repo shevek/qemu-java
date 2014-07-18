@@ -24,4 +24,5 @@ public class StopCommand extends QApiCommand<java.lang.Void, StopCommand.Respons
 	public StopCommand() {
 		super("stop", Response.class, null);
 	}
+
 }

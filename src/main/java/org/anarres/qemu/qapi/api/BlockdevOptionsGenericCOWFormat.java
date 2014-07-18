@@ -18,4 +18,11 @@ public class BlockdevOptionsGenericCOWFormat extends QApiType {
 	@SerializedName("backing")
 	@CheckForNull
 	public BlockdevRef backing;
+
+	public BlockdevOptionsGenericCOWFormat() {
+	}
+
+	public BlockdevOptionsGenericCOWFormat(BlockdevRef backing) {
+		this.backing = backing;
+	}
 }

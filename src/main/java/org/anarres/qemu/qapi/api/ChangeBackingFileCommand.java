@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class ChangeBackingFileCommand extends QApiCommand<ChangeBackingFileCommand.Arguments, ChangeBackingFileCommand.Response> {
 	/** Compound arguments to a ChangeBackingFileCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class ChangeBackingFileCommand extends QApiCommand<ChangeBackingFileComma
 		@SerializedName("backing-file")
 		@Nonnull
 		public java.lang.String backingFile;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String imageNodeName, java.lang.String backingFile) {
+			this.device = device;
+			this.imageNodeName = imageNodeName;
+			this.backingFile = backingFile;
+		}
 	}
 
 	/** Response to a ChangeBackingFileCommand. */
@@ -35,5 +45,10 @@ public class ChangeBackingFileCommand extends QApiCommand<ChangeBackingFileComma
 	/** Constructs a new ChangeBackingFileCommand. */
 	public ChangeBackingFileCommand(@Nonnull ChangeBackingFileCommand.Arguments argument) {
 		super("change-backing-file", Response.class, argument);
+	}
+
+	public ChangeBackingFileCommand(
+		java.lang.String device, java.lang.String imageNodeName, java.lang.String backingFile			) {
+		this(new Arguments(device, imageNodeName, backingFile));
 	}
 }

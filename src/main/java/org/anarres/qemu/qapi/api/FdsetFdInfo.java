@@ -21,4 +21,12 @@ public class FdsetFdInfo extends QApiType {
 	@SerializedName("opaque")
 	@CheckForNull
 	public java.lang.String opaque;
+
+	public FdsetFdInfo() {
+	}
+
+	public FdsetFdInfo(long fd, java.lang.String opaque) {
+		this.fd = fd;
+		this.opaque = opaque;
+	}
 }

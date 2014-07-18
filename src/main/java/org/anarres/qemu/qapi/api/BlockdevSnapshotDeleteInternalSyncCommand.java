@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<BlockdevSnapshotDeleteInternalSyncCommand.Arguments, BlockdevSnapshotDeleteInternalSyncCommand.Response> {
 	/** Compound arguments to a BlockdevSnapshotDeleteInternalSyncCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 		@SerializedName("name")
 		@CheckForNull
 		public java.lang.String name;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String id, java.lang.String name) {
+			this.device = device;
+			this.id = id;
+			this.name = name;
+		}
 	}
 
 	/** Response to a BlockdevSnapshotDeleteInternalSyncCommand. */
@@ -35,5 +45,10 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 	/** Constructs a new BlockdevSnapshotDeleteInternalSyncCommand. */
 	public BlockdevSnapshotDeleteInternalSyncCommand(@Nonnull BlockdevSnapshotDeleteInternalSyncCommand.Arguments argument) {
 		super("blockdev-snapshot-delete-internal-sync", Response.class, argument);
+	}
+
+	public BlockdevSnapshotDeleteInternalSyncCommand(
+		java.lang.String device, java.lang.String id, java.lang.String name			) {
+		this(new Arguments(device, id, name));
 	}
 }

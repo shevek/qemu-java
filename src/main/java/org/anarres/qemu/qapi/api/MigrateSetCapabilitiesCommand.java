@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabilitiesCommand.Arguments, MigrateSetCapabilitiesCommand.Response> {
 	/** Compound arguments to a MigrateSetCapabilitiesCommand. */
 	public static class Arguments {
+
 		@SerializedName("capabilities")
 		@Nonnull
 		public List<MigrationCapabilityStatus> capabilities;
+
+		public Arguments() {
+		}
+
+		public Arguments(List<MigrationCapabilityStatus> capabilities) {
+			this.capabilities = capabilities;
+		}
 	}
 
 	/** Response to a MigrateSetCapabilitiesCommand. */
@@ -29,5 +37,10 @@ public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabil
 	/** Constructs a new MigrateSetCapabilitiesCommand. */
 	public MigrateSetCapabilitiesCommand(@Nonnull MigrateSetCapabilitiesCommand.Arguments argument) {
 		super("migrate-set-capabilities", Response.class, argument);
+	}
+
+	public MigrateSetCapabilitiesCommand(
+		List<MigrationCapabilityStatus> capabilities			) {
+		this(new Arguments(capabilities));
 	}
 }

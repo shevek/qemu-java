@@ -18,4 +18,11 @@ public class NameInfo extends QApiType {
 	@SerializedName("name")
 	@CheckForNull
 	public java.lang.String name;
+
+	public NameInfo() {
+	}
+
+	public NameInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

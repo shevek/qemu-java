@@ -24,4 +24,5 @@ public class NbdServerStopCommand extends QApiCommand<java.lang.Void, NbdServerS
 	public NbdServerStopCommand() {
 		super("nbd-server-stop", Response.class, null);
 	}
+
 }

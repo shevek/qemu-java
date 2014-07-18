@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, MemsaveCommand.Response> {
 	/** Compound arguments to a MemsaveCommand. */
 	public static class Arguments {
+
 		@SerializedName("val")
 		@Nonnull
 		public long val;
@@ -29,6 +30,16 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 		@SerializedName("cpu-index")
 		@CheckForNull
 		public long cpuIndex;
+
+		public Arguments() {
+		}
+
+		public Arguments(long val, long size, java.lang.String filename, long cpuIndex) {
+			this.val = val;
+			this.size = size;
+			this.filename = filename;
+			this.cpuIndex = cpuIndex;
+		}
 	}
 
 	/** Response to a MemsaveCommand. */
@@ -38,5 +49,10 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 	/** Constructs a new MemsaveCommand. */
 	public MemsaveCommand(@Nonnull MemsaveCommand.Arguments argument) {
 		super("memsave", Response.class, argument);
+	}
+
+	public MemsaveCommand(
+		long val, long size, java.lang.String filename, long cpuIndex			) {
+		this(new Arguments(val, size, filename, cpuIndex));
 	}
 }

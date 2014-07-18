@@ -24,4 +24,5 @@ public class SystemWakeupCommand extends QApiCommand<java.lang.Void, SystemWakeu
 	public SystemWakeupCommand() {
 		super("system_wakeup", Response.class, null);
 	}
+
 }

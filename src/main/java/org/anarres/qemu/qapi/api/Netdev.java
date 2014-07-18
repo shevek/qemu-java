@@ -21,4 +21,12 @@ public class Netdev extends QApiType {
 	@SerializedName("opts")
 	@Nonnull
 	public NetClientOptions opts;
+
+	public Netdev() {
+	}
+
+	public Netdev(java.lang.String id, NetClientOptions opts) {
+		this.id = id;
+		this.opts = opts;
+	}
 }

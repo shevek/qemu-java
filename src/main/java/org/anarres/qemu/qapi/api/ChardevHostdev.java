@@ -18,4 +18,11 @@ public class ChardevHostdev extends QApiType {
 	@SerializedName("device")
 	@Nonnull
 	public java.lang.String device;
+
+	public ChardevHostdev() {
+	}
+
+	public ChardevHostdev(java.lang.String device) {
+		this.device = device;
+	}
 }

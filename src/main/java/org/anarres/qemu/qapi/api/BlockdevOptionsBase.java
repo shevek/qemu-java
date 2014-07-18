@@ -45,4 +45,20 @@ public class BlockdevOptionsBase extends QApiType {
 	@SerializedName("detect-zeroes")
 	@CheckForNull
 	public BlockdevDetectZeroesOptions detectZeroes;
+
+	public BlockdevOptionsBase() {
+	}
+
+	public BlockdevOptionsBase(BlockdevDriver driver, java.lang.String id, java.lang.String nodeName, BlockdevDiscardOptions discard, BlockdevCacheOptions cache, BlockdevAioOptions aio, BlockdevOnError rerror, BlockdevOnError werror, boolean readOnly, BlockdevDetectZeroesOptions detectZeroes) {
+		this.driver = driver;
+		this.id = id;
+		this.nodeName = nodeName;
+		this.discard = discard;
+		this.cache = cache;
+		this.aio = aio;
+		this.rerror = rerror;
+		this.werror = werror;
+		this.readOnly = readOnly;
+		this.detectZeroes = detectZeroes;
+	}
 }

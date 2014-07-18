@@ -36,4 +36,17 @@ public class SnapshotInfo extends QApiType {
 	@SerializedName("vm-clock-nsec")
 	@Nonnull
 	public long vmClockNsec;
+
+	public SnapshotInfo() {
+	}
+
+	public SnapshotInfo(java.lang.String id, java.lang.String name, long vmStateSize, long dateSec, long dateNsec, long vmClockSec, long vmClockNsec) {
+		this.id = id;
+		this.name = name;
+		this.vmStateSize = vmStateSize;
+		this.dateSec = dateSec;
+		this.dateNsec = dateNsec;
+		this.vmClockSec = vmClockSec;
+		this.vmClockNsec = vmClockNsec;
+	}
 }

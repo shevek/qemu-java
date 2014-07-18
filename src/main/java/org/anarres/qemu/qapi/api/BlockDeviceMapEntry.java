@@ -33,4 +33,16 @@ public class BlockDeviceMapEntry extends QApiType {
 	@SerializedName("offset")
 	@CheckForNull
 	public long offset;
+
+	public BlockDeviceMapEntry() {
+	}
+
+	public BlockDeviceMapEntry(long start, long length, long depth, boolean zero, boolean data, long offset) {
+		this.start = start;
+		this.length = length;
+		this.depth = depth;
+		this.zero = zero;
+		this.data = data;
+		this.offset = offset;
+	}
 }

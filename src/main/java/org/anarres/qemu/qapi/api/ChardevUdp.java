@@ -21,4 +21,12 @@ public class ChardevUdp extends QApiType {
 	@SerializedName("local")
 	@CheckForNull
 	public SocketAddress local;
+
+	public ChardevUdp() {
+	}
+
+	public ChardevUdp(SocketAddress remote, SocketAddress local) {
+		this.remote = remote;
+		this.local = local;
+	}
 }

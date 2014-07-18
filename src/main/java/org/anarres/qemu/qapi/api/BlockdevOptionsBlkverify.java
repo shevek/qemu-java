@@ -21,4 +21,12 @@ public class BlockdevOptionsBlkverify extends QApiType {
 	@SerializedName("raw")
 	@Nonnull
 	public BlockdevRef raw;
+
+	public BlockdevOptionsBlkverify() {
+	}
+
+	public BlockdevOptionsBlkverify(BlockdevRef test, BlockdevRef raw) {
+		this.test = test;
+		this.raw = raw;
+	}
 }

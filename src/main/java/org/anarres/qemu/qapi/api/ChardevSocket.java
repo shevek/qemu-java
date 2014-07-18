@@ -30,4 +30,15 @@ public class ChardevSocket extends QApiType {
 	@SerializedName("telnet")
 	@CheckForNull
 	public boolean telnet;
+
+	public ChardevSocket() {
+	}
+
+	public ChardevSocket(SocketAddress addr, boolean server, boolean wait, boolean nodelay, boolean telnet) {
+		this.addr = addr;
+		this.server = server;
+		this.wait = wait;
+		this.nodelay = nodelay;
+		this.telnet = telnet;
+	}
 }

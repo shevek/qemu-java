@@ -18,4 +18,11 @@ public class EventInfo extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public EventInfo() {
+	}
+
+	public EventInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

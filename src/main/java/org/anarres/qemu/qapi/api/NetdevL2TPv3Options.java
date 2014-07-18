@@ -57,4 +57,24 @@ public class NetdevL2TPv3Options extends QApiType {
 	@SerializedName("offset")
 	@CheckForNull
 	public long offset;
+
+	public NetdevL2TPv3Options() {
+	}
+
+	public NetdevL2TPv3Options(java.lang.String src, java.lang.String dst, java.lang.String srcport, java.lang.String dstport, boolean ipv6, boolean udp, boolean cookie64, boolean counter, boolean pincounter, long txcookie, long rxcookie, long txsession, long rxsession, long offset) {
+		this.src = src;
+		this.dst = dst;
+		this.srcport = srcport;
+		this.dstport = dstport;
+		this.ipv6 = ipv6;
+		this.udp = udp;
+		this.cookie64 = cookie64;
+		this.counter = counter;
+		this.pincounter = pincounter;
+		this.txcookie = txcookie;
+		this.rxcookie = rxcookie;
+		this.txsession = txsession;
+		this.rxsession = rxsession;
+		this.offset = offset;
+	}
 }

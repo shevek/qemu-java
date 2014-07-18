@@ -27,4 +27,14 @@ public class BlockdevOptionsQcow2 extends QApiType {
 	@SerializedName("pass-discard-other")
 	@CheckForNull
 	public boolean passDiscardOther;
+
+	public BlockdevOptionsQcow2() {
+	}
+
+	public BlockdevOptionsQcow2(boolean lazyRefcounts, boolean passDiscardRequest, boolean passDiscardSnapshot, boolean passDiscardOther) {
+		this.lazyRefcounts = lazyRefcounts;
+		this.passDiscardRequest = passDiscardRequest;
+		this.passDiscardSnapshot = passDiscardSnapshot;
+		this.passDiscardOther = passDiscardOther;
+	}
 }

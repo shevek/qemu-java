@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class CpuCommand extends QApiCommand<CpuCommand.Arguments, CpuCommand.Response> {
 	/** Compound arguments to a CpuCommand. */
 	public static class Arguments {
+
 		@SerializedName("index")
 		@Nonnull
 		public long index;
+
+		public Arguments() {
+		}
+
+		public Arguments(long index) {
+			this.index = index;
+		}
 	}
 
 	/** Response to a CpuCommand. */
@@ -29,5 +37,10 @@ public class CpuCommand extends QApiCommand<CpuCommand.Arguments, CpuCommand.Res
 	/** Constructs a new CpuCommand. */
 	public CpuCommand(@Nonnull CpuCommand.Arguments argument) {
 		super("cpu", Response.class, argument);
+	}
+
+	public CpuCommand(
+		long index			) {
+		this(new Arguments(index));
 	}
 }

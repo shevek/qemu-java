@@ -15,4 +15,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiTypeDescriptor{name=Abort, data={}, innerTypes=null}
 public class Abort extends QApiType {
 
+
+	public Abort() {
+	}
 }

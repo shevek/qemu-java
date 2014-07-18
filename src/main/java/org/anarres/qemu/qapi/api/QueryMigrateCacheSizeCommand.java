@@ -24,4 +24,5 @@ public class QueryMigrateCacheSizeCommand extends QApiCommand<java.lang.Void, Qu
 	public QueryMigrateCacheSizeCommand() {
 		super("query-migrate-cache-size", Response.class, null);
 	}
+
 }

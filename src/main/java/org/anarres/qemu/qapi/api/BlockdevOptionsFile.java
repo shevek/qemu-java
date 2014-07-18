@@ -18,4 +18,11 @@ public class BlockdevOptionsFile extends QApiType {
 	@SerializedName("filename")
 	@Nonnull
 	public java.lang.String filename;
+
+	public BlockdevOptionsFile() {
+	}
+
+	public BlockdevOptionsFile(java.lang.String filename) {
+		this.filename = filename;
+	}
 }

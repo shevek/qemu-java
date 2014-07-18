@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class ChangeCommand extends QApiCommand<ChangeCommand.Arguments, ChangeCommand.Response> {
 	/** Compound arguments to a ChangeCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class ChangeCommand extends QApiCommand<ChangeCommand.Arguments, ChangeCo
 		@SerializedName("arg")
 		@CheckForNull
 		public java.lang.String arg;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String target, java.lang.String arg) {
+			this.device = device;
+			this.target = target;
+			this.arg = arg;
+		}
 	}
 
 	/** Response to a ChangeCommand. */
@@ -35,5 +45,10 @@ public class ChangeCommand extends QApiCommand<ChangeCommand.Arguments, ChangeCo
 	/** Constructs a new ChangeCommand. */
 	public ChangeCommand(@Nonnull ChangeCommand.Arguments argument) {
 		super("change", Response.class, argument);
+	}
+
+	public ChangeCommand(
+		java.lang.String device, java.lang.String target, java.lang.String arg			) {
+		this(new Arguments(device, target, arg));
 	}
 }

@@ -27,4 +27,14 @@ public class NetLegacy extends QApiType {
 	@SerializedName("opts")
 	@Nonnull
 	public NetClientOptions opts;
+
+	public NetLegacy() {
+	}
+
+	public NetLegacy(int vlan, java.lang.String id, java.lang.String name, NetClientOptions opts) {
+		this.vlan = vlan;
+		this.id = id;
+		this.name = name;
+		this.opts = opts;
+	}
 }

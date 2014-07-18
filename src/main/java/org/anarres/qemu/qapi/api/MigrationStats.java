@@ -45,4 +45,20 @@ public class MigrationStats extends QApiType {
 	@SerializedName("dirty-sync-count")
 	@Nonnull
 	public long dirtySyncCount;
+
+	public MigrationStats() {
+	}
+
+	public MigrationStats(long transferred, long remaining, long total, long duplicate, long skipped, long normal, long normalBytes, long dirtyPagesRate, double mbps, long dirtySyncCount) {
+		this.transferred = transferred;
+		this.remaining = remaining;
+		this.total = total;
+		this.duplicate = duplicate;
+		this.skipped = skipped;
+		this.normal = normal;
+		this.normalBytes = normalBytes;
+		this.dirtyPagesRate = dirtyPagesRate;
+		this.mbps = mbps;
+		this.dirtySyncCount = dirtySyncCount;
+	}
 }

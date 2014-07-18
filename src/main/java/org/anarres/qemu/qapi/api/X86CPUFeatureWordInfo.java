@@ -27,4 +27,14 @@ public class X86CPUFeatureWordInfo extends QApiType {
 	@SerializedName("features")
 	@Nonnull
 	public long features;
+
+	public X86CPUFeatureWordInfo() {
+	}
+
+	public X86CPUFeatureWordInfo(long cpuidInputEax, long cpuidInputEcx, X86CPURegister32 cpuidRegister, long features) {
+		this.cpuidInputEax = cpuidInputEax;
+		this.cpuidInputEcx = cpuidInputEcx;
+		this.cpuidRegister = cpuidRegister;
+		this.features = features;
+	}
 }

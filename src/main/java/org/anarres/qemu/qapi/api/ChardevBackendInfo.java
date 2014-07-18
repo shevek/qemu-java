@@ -18,4 +18,11 @@ public class ChardevBackendInfo extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public ChardevBackendInfo() {
+	}
+
+	public ChardevBackendInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

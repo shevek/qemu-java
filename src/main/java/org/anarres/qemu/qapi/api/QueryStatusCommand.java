@@ -24,4 +24,5 @@ public class QueryStatusCommand extends QApiCommand<java.lang.Void, QueryStatusC
 	public QueryStatusCommand() {
 		super("query-status", Response.class, null);
 	}
+
 }

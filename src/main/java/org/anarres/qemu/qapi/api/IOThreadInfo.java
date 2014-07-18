@@ -21,4 +21,12 @@ public class IOThreadInfo extends QApiType {
 	@SerializedName("thread-id")
 	@Nonnull
 	public long threadId;
+
+	public IOThreadInfo() {
+	}
+
+	public IOThreadInfo(java.lang.String id, long threadId) {
+		this.id = id;
+		this.threadId = threadId;
+	}
 }

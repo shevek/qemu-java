@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class ClosefdCommand extends QApiCommand<ClosefdCommand.Arguments, ClosefdCommand.Response> {
 	/** Compound arguments to a ClosefdCommand. */
 	public static class Arguments {
+
 		@SerializedName("fdname")
 		@Nonnull
 		public java.lang.String fdname;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String fdname) {
+			this.fdname = fdname;
+		}
 	}
 
 	/** Response to a ClosefdCommand. */
@@ -29,5 +37,10 @@ public class ClosefdCommand extends QApiCommand<ClosefdCommand.Arguments, Closef
 	/** Constructs a new ClosefdCommand. */
 	public ClosefdCommand(@Nonnull ClosefdCommand.Arguments argument) {
 		super("closefd", Response.class, argument);
+	}
+
+	public ClosefdCommand(
+		java.lang.String fdname			) {
+		this(new Arguments(fdname));
 	}
 }

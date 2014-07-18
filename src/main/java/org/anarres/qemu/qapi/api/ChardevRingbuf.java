@@ -18,4 +18,11 @@ public class ChardevRingbuf extends QApiType {
 	@SerializedName("size")
 	@CheckForNull
 	public long size;
+
+	public ChardevRingbuf() {
+	}
+
+	public ChardevRingbuf(long size) {
+		this.size = size;
+	}
 }

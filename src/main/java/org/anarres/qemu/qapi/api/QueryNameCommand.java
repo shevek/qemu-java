@@ -24,4 +24,5 @@ public class QueryNameCommand extends QApiCommand<java.lang.Void, QueryNameComma
 	public QueryNameCommand() {
 		super("query-name", Response.class, null);
 	}
+
 }

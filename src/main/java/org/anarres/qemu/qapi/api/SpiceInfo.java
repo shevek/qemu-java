@@ -42,4 +42,19 @@ public class SpiceInfo extends QApiType {
 	@SerializedName("channels")
 	@CheckForNull
 	public List<SpiceChannel> channels;
+
+	public SpiceInfo() {
+	}
+
+	public SpiceInfo(boolean enabled, boolean migrated, java.lang.String host, long port, long tlsPort, java.lang.String auth, java.lang.String compiledVersion, SpiceQueryMouseMode mouseMode, List<SpiceChannel> channels) {
+		this.enabled = enabled;
+		this.migrated = migrated;
+		this.host = host;
+		this.port = port;
+		this.tlsPort = tlsPort;
+		this.auth = auth;
+		this.compiledVersion = compiledVersion;
+		this.mouseMode = mouseMode;
+		this.channels = channels;
+	}
 }

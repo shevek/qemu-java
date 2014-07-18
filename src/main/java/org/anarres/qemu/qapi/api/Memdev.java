@@ -33,4 +33,16 @@ public class Memdev extends QApiType {
 	@SerializedName("policy")
 	@Nonnull
 	public HostMemPolicy policy;
+
+	public Memdev() {
+	}
+
+	public Memdev(long size, boolean merge, boolean dump, boolean prealloc, List<java.lang.Integer> hostNodes, HostMemPolicy policy) {
+		this.size = size;
+		this.merge = merge;
+		this.dump = dump;
+		this.prealloc = prealloc;
+		this.hostNodes = hostNodes;
+		this.policy = policy;
+	}
 }

@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLogCommand.Arguments, XenSetGlobalDirtyLogCommand.Response> {
 	/** Compound arguments to a XenSetGlobalDirtyLogCommand. */
 	public static class Arguments {
+
 		@SerializedName("enable")
 		@Nonnull
 		public boolean enable;
+
+		public Arguments() {
+		}
+
+		public Arguments(boolean enable) {
+			this.enable = enable;
+		}
 	}
 
 	/** Response to a XenSetGlobalDirtyLogCommand. */
@@ -29,5 +37,10 @@ public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLo
 	/** Constructs a new XenSetGlobalDirtyLogCommand. */
 	public XenSetGlobalDirtyLogCommand(@Nonnull XenSetGlobalDirtyLogCommand.Arguments argument) {
 		super("xen-set-global-dirty-log", Response.class, argument);
+	}
+
+	public XenSetGlobalDirtyLogCommand(
+		boolean enable			) {
+		this(new Arguments(enable));
 	}
 }

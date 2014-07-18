@@ -33,4 +33,16 @@ public class PciMemoryRegion extends QApiType {
 	@SerializedName("mem_type_64")
 	@CheckForNull
 	public boolean memType64;
+
+	public PciMemoryRegion() {
+	}
+
+	public PciMemoryRegion(long bar, java.lang.String type, long address, long size, boolean prefetch, boolean memType64) {
+		this.bar = bar;
+		this.type = type;
+		this.address = address;
+		this.size = size;
+		this.prefetch = prefetch;
+		this.memType64 = memType64;
+	}
 }

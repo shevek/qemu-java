@@ -24,4 +24,13 @@ public class TPMInfo extends QApiType {
 	@SerializedName("options")
 	@Nonnull
 	public TpmTypeOptions options;
+
+	public TPMInfo() {
+	}
+
+	public TPMInfo(java.lang.String id, TpmModel model, TpmTypeOptions options) {
+		this.id = id;
+		this.model = model;
+		this.options = options;
+	}
 }

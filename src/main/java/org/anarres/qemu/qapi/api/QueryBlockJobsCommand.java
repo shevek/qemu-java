@@ -24,4 +24,5 @@ public class QueryBlockJobsCommand extends QApiCommand<java.lang.Void, QueryBloc
 	public QueryBlockJobsCommand() {
 		super("query-block-jobs", Response.class, null);
 	}
+
 }

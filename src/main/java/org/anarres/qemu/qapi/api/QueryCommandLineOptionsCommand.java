@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.Arguments, QueryCommandLineOptionsCommand.Response> {
 	/** Compound arguments to a QueryCommandLineOptionsCommand. */
 	public static class Arguments {
+
 		@SerializedName("option")
 		@CheckForNull
 		public java.lang.String option;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String option) {
+			this.option = option;
+		}
 	}
 
 	/** Response to a QueryCommandLineOptionsCommand. */
@@ -29,5 +37,10 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 	/** Constructs a new QueryCommandLineOptionsCommand. */
 	public QueryCommandLineOptionsCommand(@Nonnull QueryCommandLineOptionsCommand.Arguments argument) {
 		super("query-command-line-options", Response.class, argument);
+	}
+
+	public QueryCommandLineOptionsCommand(
+		java.lang.String option			) {
+		this(new Arguments(option));
 	}
 }

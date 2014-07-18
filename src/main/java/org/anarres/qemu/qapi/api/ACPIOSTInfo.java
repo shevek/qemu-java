@@ -30,4 +30,15 @@ public class ACPIOSTInfo extends QApiType {
 	@SerializedName("status")
 	@Nonnull
 	public long status;
+
+	public ACPIOSTInfo() {
+	}
+
+	public ACPIOSTInfo(java.lang.String device, java.lang.String slot, ACPISlotType slotType, long source, long status) {
+		this.device = device;
+		this.slot = slot;
+		this.slotType = slotType;
+		this.source = source;
+		this.status = status;
+	}
 }

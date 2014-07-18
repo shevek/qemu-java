@@ -18,4 +18,11 @@ public class CpuDefinitionInfo extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public CpuDefinitionInfo() {
+	}
+
+	public CpuDefinitionInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

@@ -24,4 +24,5 @@ public class QueryTpmModelsCommand extends QApiCommand<java.lang.Void, QueryTpmM
 	public QueryTpmModelsCommand() {
 		super("query-tpm-models", Response.class, null);
 	}
+
 }

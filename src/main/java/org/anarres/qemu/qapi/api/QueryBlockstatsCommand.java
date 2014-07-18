@@ -24,4 +24,5 @@ public class QueryBlockstatsCommand extends QApiCommand<java.lang.Void, QueryBlo
 	public QueryBlockstatsCommand() {
 		super("query-blockstats", Response.class, null);
 	}
+
 }

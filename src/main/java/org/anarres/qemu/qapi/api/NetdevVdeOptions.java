@@ -27,4 +27,14 @@ public class NetdevVdeOptions extends QApiType {
 	@SerializedName("mode")
 	@CheckForNull
 	public int mode;
+
+	public NetdevVdeOptions() {
+	}
+
+	public NetdevVdeOptions(java.lang.String sock, int port, java.lang.String group, int mode) {
+		this.sock = sock;
+		this.port = port;
+		this.group = group;
+		this.mode = mode;
+	}
 }

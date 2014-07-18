@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeCommand.Arguments, MigrateSetCacheSizeCommand.Response> {
 	/** Compound arguments to a MigrateSetCacheSizeCommand. */
 	public static class Arguments {
+
 		@SerializedName("value")
 		@Nonnull
 		public long value;
+
+		public Arguments() {
+		}
+
+		public Arguments(long value) {
+			this.value = value;
+		}
 	}
 
 	/** Response to a MigrateSetCacheSizeCommand. */
@@ -29,5 +37,10 @@ public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeC
 	/** Constructs a new MigrateSetCacheSizeCommand. */
 	public MigrateSetCacheSizeCommand(@Nonnull MigrateSetCacheSizeCommand.Arguments argument) {
 		super("migrate-set-cache-size", Response.class, argument);
+	}
+
+	public MigrateSetCacheSizeCommand(
+		long value			) {
+		this(new Arguments(value));
 	}
 }

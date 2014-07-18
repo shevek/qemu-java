@@ -21,4 +21,12 @@ public class ChardevFile extends QApiType {
 	@SerializedName("out")
 	@Nonnull
 	public java.lang.String out;
+
+	public ChardevFile() {
+	}
+
+	public ChardevFile(java.lang.String in, java.lang.String out) {
+		this.in = in;
+		this.out = out;
+	}
 }

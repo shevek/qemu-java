@@ -24,4 +24,13 @@ public class SpiceBasicInfo extends QApiType {
 	@SerializedName("family")
 	@Nonnull
 	public NetworkAddressFamily family;
+
+	public SpiceBasicInfo() {
+	}
+
+	public SpiceBasicInfo(java.lang.String host, java.lang.String port, NetworkAddressFamily family) {
+		this.host = host;
+		this.port = port;
+		this.family = family;
+	}
 }

@@ -24,4 +24,5 @@ public class QueryDumpGuestMemoryCapabilityCommand extends QApiCommand<java.lang
 	public QueryDumpGuestMemoryCapabilityCommand() {
 		super("query-dump-guest-memory-capability", Response.class, null);
 	}
+
 }

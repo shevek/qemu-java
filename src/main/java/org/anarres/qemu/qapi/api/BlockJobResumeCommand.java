@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockJobResumeCommand extends QApiCommand<BlockJobResumeCommand.Arguments, BlockJobResumeCommand.Response> {
 	/** Compound arguments to a BlockJobResumeCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device) {
+			this.device = device;
+		}
 	}
 
 	/** Response to a BlockJobResumeCommand. */
@@ -29,5 +37,10 @@ public class BlockJobResumeCommand extends QApiCommand<BlockJobResumeCommand.Arg
 	/** Constructs a new BlockJobResumeCommand. */
 	public BlockJobResumeCommand(@Nonnull BlockJobResumeCommand.Arguments argument) {
 		super("block-job-resume", Response.class, argument);
+	}
+
+	public BlockJobResumeCommand(
+		java.lang.String device			) {
+		this(new Arguments(device));
 	}
 }

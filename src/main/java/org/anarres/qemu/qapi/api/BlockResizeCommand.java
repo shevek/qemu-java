@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.Arguments, BlockResizeCommand.Response> {
 	/** Compound arguments to a BlockResizeCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@CheckForNull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.Arguments
 		@SerializedName("size")
 		@Nonnull
 		public long size;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String nodeName, long size) {
+			this.device = device;
+			this.nodeName = nodeName;
+			this.size = size;
+		}
 	}
 
 	/** Response to a BlockResizeCommand. */
@@ -35,5 +45,10 @@ public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.Arguments
 	/** Constructs a new BlockResizeCommand. */
 	public BlockResizeCommand(@Nonnull BlockResizeCommand.Arguments argument) {
 		super("block_resize", Response.class, argument);
+	}
+
+	public BlockResizeCommand(
+		java.lang.String device, java.lang.String nodeName, long size			) {
+		this(new Arguments(device, nodeName, size));
 	}
 }

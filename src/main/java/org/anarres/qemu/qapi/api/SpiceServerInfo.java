@@ -18,4 +18,11 @@ public class SpiceServerInfo extends QApiType {
 	@SerializedName("auth")
 	@CheckForNull
 	public java.lang.String auth;
+
+	public SpiceServerInfo() {
+	}
+
+	public SpiceServerInfo(java.lang.String auth) {
+		this.auth = auth;
+	}
 }

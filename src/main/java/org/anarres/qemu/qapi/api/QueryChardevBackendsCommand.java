@@ -24,4 +24,5 @@ public class QueryChardevBackendsCommand extends QApiCommand<java.lang.Void, Que
 	public QueryChardevBackendsCommand() {
 		super("query-chardev-backends", Response.class, null);
 	}
+
 }

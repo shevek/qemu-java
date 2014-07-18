@@ -18,4 +18,11 @@ public class DumpGuestMemoryCapability extends QApiType {
 	@SerializedName("formats")
 	@Nonnull
 	public List<DumpGuestMemoryFormat> formats;
+
+	public DumpGuestMemoryCapability() {
+	}
+
+	public DumpGuestMemoryCapability(List<DumpGuestMemoryFormat> formats) {
+		this.formats = formats;
+	}
 }

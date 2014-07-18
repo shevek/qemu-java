@@ -18,4 +18,11 @@ public class ChardevSpicePort extends QApiType {
 	@SerializedName("fqdn")
 	@Nonnull
 	public java.lang.String fqdn;
+
+	public ChardevSpicePort() {
+	}
+
+	public ChardevSpicePort(java.lang.String fqdn) {
+		this.fqdn = fqdn;
+	}
 }

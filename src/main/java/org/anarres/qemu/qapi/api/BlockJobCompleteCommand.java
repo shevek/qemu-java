@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockJobCompleteCommand extends QApiCommand<BlockJobCompleteCommand.Arguments, BlockJobCompleteCommand.Response> {
 	/** Compound arguments to a BlockJobCompleteCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device) {
+			this.device = device;
+		}
 	}
 
 	/** Response to a BlockJobCompleteCommand. */
@@ -29,5 +37,10 @@ public class BlockJobCompleteCommand extends QApiCommand<BlockJobCompleteCommand
 	/** Constructs a new BlockJobCompleteCommand. */
 	public BlockJobCompleteCommand(@Nonnull BlockJobCompleteCommand.Arguments argument) {
 		super("block-job-complete", Response.class, argument);
+	}
+
+	public BlockJobCompleteCommand(
+		java.lang.String device			) {
+		this(new Arguments(device));
 	}
 }

@@ -54,4 +54,23 @@ public class NetdevTapOptions extends QApiType {
 	@SerializedName("queues")
 	@CheckForNull
 	public long queues;
+
+	public NetdevTapOptions() {
+	}
+
+	public NetdevTapOptions(java.lang.String ifname, java.lang.String fd, java.lang.String fds, java.lang.String script, java.lang.String downscript, java.lang.String helper, long sndbuf, boolean vnetHdr, boolean vhost, java.lang.String vhostfd, java.lang.String vhostfds, boolean vhostforce, long queues) {
+		this.ifname = ifname;
+		this.fd = fd;
+		this.fds = fds;
+		this.script = script;
+		this.downscript = downscript;
+		this.helper = helper;
+		this.sndbuf = sndbuf;
+		this.vnetHdr = vnetHdr;
+		this.vhost = vhost;
+		this.vhostfd = vhostfd;
+		this.vhostfds = vhostfds;
+		this.vhostforce = vhostforce;
+		this.queues = queues;
+	}
 }

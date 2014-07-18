@@ -24,4 +24,5 @@ public class QueryFdsetsCommand extends QApiCommand<java.lang.Void, QueryFdsetsC
 	public QueryFdsetsCommand() {
 		super("query-fdsets", Response.class, null);
 	}
+
 }

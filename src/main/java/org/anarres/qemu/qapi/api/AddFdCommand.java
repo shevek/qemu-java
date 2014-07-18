@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdCommand.Response> {
 	/** Compound arguments to a AddFdCommand. */
 	public static class Arguments {
+
 		@SerializedName("fdset-id")
 		@CheckForNull
 		public long fdsetId;
 		@SerializedName("opaque")
 		@CheckForNull
 		public java.lang.String opaque;
+
+		public Arguments() {
+		}
+
+		public Arguments(long fdsetId, java.lang.String opaque) {
+			this.fdsetId = fdsetId;
+			this.opaque = opaque;
+		}
 	}
 
 	/** Response to a AddFdCommand. */
@@ -32,5 +41,10 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdComma
 	/** Constructs a new AddFdCommand. */
 	public AddFdCommand(@Nonnull AddFdCommand.Arguments argument) {
 		super("add-fd", Response.class, argument);
+	}
+
+	public AddFdCommand(
+		long fdsetId, java.lang.String opaque			) {
+		this(new Arguments(fdsetId, opaque));
 	}
 }

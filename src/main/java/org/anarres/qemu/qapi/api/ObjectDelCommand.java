@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.Arguments, ObjectDelCommand.Response> {
 	/** Compound arguments to a ObjectDelCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public java.lang.String id;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String id) {
+			this.id = id;
+		}
 	}
 
 	/** Response to a ObjectDelCommand. */
@@ -29,5 +37,10 @@ public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.Arguments, Ob
 	/** Constructs a new ObjectDelCommand. */
 	public ObjectDelCommand(@Nonnull ObjectDelCommand.Arguments argument) {
 		super("object-del", Response.class, argument);
+	}
+
+	public ObjectDelCommand(
+		java.lang.String id			) {
+		this(new Arguments(id));
 	}
 }

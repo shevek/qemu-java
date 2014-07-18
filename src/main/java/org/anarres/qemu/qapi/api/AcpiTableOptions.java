@@ -42,4 +42,19 @@ public class AcpiTableOptions extends QApiType {
 	@SerializedName("data")
 	@CheckForNull
 	public java.lang.String data;
+
+	public AcpiTableOptions() {
+	}
+
+	public AcpiTableOptions(java.lang.String sig, char rev, java.lang.String oemId, java.lang.String oemTableId, long oemRev, java.lang.String aslCompilerId, long aslCompilerRev, java.lang.String file, java.lang.String data) {
+		this.sig = sig;
+		this.rev = rev;
+		this.oemId = oemId;
+		this.oemTableId = oemTableId;
+		this.oemRev = oemRev;
+		this.aslCompilerId = aslCompilerId;
+		this.aslCompilerRev = aslCompilerRev;
+		this.file = file;
+		this.data = data;
+	}
 }

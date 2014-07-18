@@ -21,4 +21,12 @@ public class ImageInfoSpecificQCow2 extends QApiType {
 	@SerializedName("lazy-refcounts")
 	@CheckForNull
 	public boolean lazyRefcounts;
+
+	public ImageInfoSpecificQCow2() {
+	}
+
+	public ImageInfoSpecificQCow2(java.lang.String compat, boolean lazyRefcounts) {
+		this.compat = compat;
+		this.lazyRefcounts = lazyRefcounts;
+	}
 }

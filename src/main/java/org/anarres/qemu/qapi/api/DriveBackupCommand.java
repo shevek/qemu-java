@@ -24,4 +24,5 @@ public class DriveBackupCommand extends QApiCommand<DriveBackup, DriveBackupComm
 	public DriveBackupCommand(@Nonnull DriveBackup argument) {
 		super("drive-backup", Response.class, argument);
 	}
+
 }

@@ -18,4 +18,11 @@ public class UuidInfo extends QApiType {
 	@SerializedName("UUID")
 	@Nonnull
 	public java.lang.String uuid;
+
+	public UuidInfo() {
+	}
+
+	public UuidInfo(java.lang.String uuid) {
+		this.uuid = uuid;
+	}
 }

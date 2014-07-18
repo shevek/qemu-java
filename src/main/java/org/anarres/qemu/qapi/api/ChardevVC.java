@@ -27,4 +27,14 @@ public class ChardevVC extends QApiType {
 	@SerializedName("rows")
 	@CheckForNull
 	public long rows;
+
+	public ChardevVC() {
+	}
+
+	public ChardevVC(long width, long height, long cols, long rows) {
+		this.width = width;
+		this.height = height;
+		this.cols = cols;
+		this.rows = rows;
+	}
 }

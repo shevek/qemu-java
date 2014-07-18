@@ -24,4 +24,5 @@ public class QueryMemdevCommand extends QApiCommand<java.lang.Void, QueryMemdevC
 	public QueryMemdevCommand() {
 		super("query-memdev", Response.class, null);
 	}
+
 }

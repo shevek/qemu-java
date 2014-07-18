@@ -21,4 +21,12 @@ public class KvmInfo extends QApiType {
 	@SerializedName("present")
 	@Nonnull
 	public boolean present;
+
+	public KvmInfo() {
+	}
+
+	public KvmInfo(boolean enabled, boolean present) {
+		this.enabled = enabled;
+		this.present = present;
+	}
 }

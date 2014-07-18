@@ -33,4 +33,16 @@ public class NetdevSocketOptions extends QApiType {
 	@SerializedName("udp")
 	@CheckForNull
 	public java.lang.String udp;
+
+	public NetdevSocketOptions() {
+	}
+
+	public NetdevSocketOptions(java.lang.String fd, java.lang.String listen, java.lang.String connect, java.lang.String mcast, java.lang.String localaddr, java.lang.String udp) {
+		this.fd = fd;
+		this.listen = listen;
+		this.connect = connect;
+		this.mcast = mcast;
+		this.localaddr = localaddr;
+		this.udp = udp;
+	}
 }

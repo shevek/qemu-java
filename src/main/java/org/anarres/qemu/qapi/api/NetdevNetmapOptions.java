@@ -21,4 +21,12 @@ public class NetdevNetmapOptions extends QApiType {
 	@SerializedName("devname")
 	@CheckForNull
 	public java.lang.String devname;
+
+	public NetdevNetmapOptions() {
+	}
+
+	public NetdevNetmapOptions(java.lang.String ifname, java.lang.String devname) {
+		this.ifname = ifname;
+		this.devname = devname;
+	}
 }

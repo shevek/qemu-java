@@ -21,4 +21,12 @@ public class InputKeyEvent extends QApiType {
 	@SerializedName("down")
 	@Nonnull
 	public boolean down;
+
+	public InputKeyEvent() {
+	}
+
+	public InputKeyEvent(KeyValue key, boolean down) {
+		this.key = key;
+		this.down = down;
+	}
 }

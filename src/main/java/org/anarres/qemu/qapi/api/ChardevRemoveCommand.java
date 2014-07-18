@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.Arguments, ChardevRemoveCommand.Response> {
 	/** Compound arguments to a ChardevRemoveCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public java.lang.String id;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String id) {
+			this.id = id;
+		}
 	}
 
 	/** Response to a ChardevRemoveCommand. */
@@ -29,5 +37,10 @@ public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.Argum
 	/** Constructs a new ChardevRemoveCommand. */
 	public ChardevRemoveCommand(@Nonnull ChardevRemoveCommand.Arguments argument) {
 		super("chardev-remove", Response.class, argument);
+	}
+
+	public ChardevRemoveCommand(
+		java.lang.String id			) {
+		this(new Arguments(id));
 	}
 }

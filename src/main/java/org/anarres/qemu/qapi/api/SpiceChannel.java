@@ -27,4 +27,14 @@ public class SpiceChannel extends QApiType {
 	@SerializedName("tls")
 	@Nonnull
 	public boolean tls;
+
+	public SpiceChannel() {
+	}
+
+	public SpiceChannel(long connectionId, long channelType, long channelId, boolean tls) {
+		this.connectionId = connectionId;
+		this.channelType = channelType;
+		this.channelId = channelId;
+		this.tls = tls;
+	}
 }

@@ -24,4 +24,5 @@ public class SystemResetCommand extends QApiCommand<java.lang.Void, SystemResetC
 	public SystemResetCommand() {
 		super("system_reset", Response.class, null);
 	}
+
 }

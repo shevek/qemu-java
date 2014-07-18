@@ -30,4 +30,15 @@ public class InetSocketAddress extends QApiType {
 	@SerializedName("ipv6")
 	@CheckForNull
 	public boolean ipv6;
+
+	public InetSocketAddress() {
+	}
+
+	public InetSocketAddress(java.lang.String host, java.lang.String port, int to, boolean ipv4, boolean ipv6) {
+		this.host = host;
+		this.port = port;
+		this.to = to;
+		this.ipv4 = ipv4;
+		this.ipv6 = ipv6;
+	}
 }

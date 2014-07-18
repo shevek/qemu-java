@@ -24,4 +24,5 @@ public class QueryKvmCommand extends QApiCommand<java.lang.Void, QueryKvmCommand
 	public QueryKvmCommand() {
 		super("query-kvm", Response.class, null);
 	}
+
 }

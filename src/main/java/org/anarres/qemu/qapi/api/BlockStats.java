@@ -27,4 +27,14 @@ public class BlockStats extends QApiType {
 	@SerializedName("backing")
 	@CheckForNull
 	public BlockStats backing;
+
+	public BlockStats() {
+	}
+
+	public BlockStats(java.lang.String device, BlockDeviceStats stats, BlockStats parent, BlockStats backing) {
+		this.device = device;
+		this.stats = stats;
+		this.parent = parent;
+		this.backing = backing;
+	}
 }

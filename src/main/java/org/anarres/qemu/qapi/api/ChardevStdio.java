@@ -18,4 +18,11 @@ public class ChardevStdio extends QApiType {
 	@SerializedName("signal")
 	@CheckForNull
 	public boolean signal;
+
+	public ChardevStdio() {
+	}
+
+	public ChardevStdio(boolean signal) {
+		this.signal = signal;
+	}
 }

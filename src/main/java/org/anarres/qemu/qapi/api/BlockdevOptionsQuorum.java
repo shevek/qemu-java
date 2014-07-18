@@ -27,4 +27,14 @@ public class BlockdevOptionsQuorum extends QApiType {
 	@SerializedName("rewrite-corrupted")
 	@CheckForNull
 	public boolean rewriteCorrupted;
+
+	public BlockdevOptionsQuorum() {
+	}
+
+	public BlockdevOptionsQuorum(boolean blkverify, List<BlockdevRef> children, long voteThreshold, boolean rewriteCorrupted) {
+		this.blkverify = blkverify;
+		this.children = children;
+		this.voteThreshold = voteThreshold;
+		this.rewriteCorrupted = rewriteCorrupted;
+	}
 }

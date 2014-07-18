@@ -56,4 +56,19 @@ public class PciDeviceInfo extends QApiType {
 	@SerializedName("regions")
 	@Nonnull
 	public List<PciMemoryRegion> regions;
+
+	public PciDeviceInfo() {
+	}
+
+	public PciDeviceInfo(long bus, long slot, long function, _Tclass_info classInfo, _Tid id, long irq, java.lang.String qdevId, PciBridgeInfo pciBridge, List<PciMemoryRegion> regions) {
+		this.bus = bus;
+		this.slot = slot;
+		this.function = function;
+		this.classInfo = classInfo;
+		this.id = id;
+		this.irq = irq;
+		this.qdevId = qdevId;
+		this.pciBridge = pciBridge;
+		this.regions = regions;
+	}
 }

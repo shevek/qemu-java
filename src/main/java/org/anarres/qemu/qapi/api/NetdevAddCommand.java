@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, NetdevAddCommand.Response> {
 	/** Compound arguments to a NetdevAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("type")
 		@Nonnull
 		public java.lang.String type;
@@ -26,6 +27,15 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, Ne
 		@SerializedName("props")
 		@CheckForNull
 		public java.lang.Object props;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String type, java.lang.String id, java.lang.Object props) {
+			this.type = type;
+			this.id = id;
+			this.props = props;
+		}
 	}
 
 	/** Response to a NetdevAddCommand. */
@@ -35,5 +45,10 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, Ne
 	/** Constructs a new NetdevAddCommand. */
 	public NetdevAddCommand(@Nonnull NetdevAddCommand.Arguments argument) {
 		super("netdev_add", Response.class, argument);
+	}
+
+	public NetdevAddCommand(
+		java.lang.String type, java.lang.String id, java.lang.Object props			) {
+		this(new Arguments(type, id, props));
 	}
 }

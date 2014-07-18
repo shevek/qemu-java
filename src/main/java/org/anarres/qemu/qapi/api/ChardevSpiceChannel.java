@@ -18,4 +18,11 @@ public class ChardevSpiceChannel extends QApiType {
 	@SerializedName("type")
 	@Nonnull
 	public java.lang.String type;
+
+	public ChardevSpiceChannel() {
+	}
+
+	public ChardevSpiceChannel(java.lang.String type) {
+		this.type = type;
+	}
 }

@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Arguments, NbdServerStartCommand.Response> {
 	/** Compound arguments to a NbdServerStartCommand. */
 	public static class Arguments {
+
 		@SerializedName("addr")
 		@Nonnull
 		public SocketAddress addr;
+
+		public Arguments() {
+		}
+
+		public Arguments(SocketAddress addr) {
+			this.addr = addr;
+		}
 	}
 
 	/** Response to a NbdServerStartCommand. */
@@ -29,5 +37,10 @@ public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Arg
 	/** Constructs a new NbdServerStartCommand. */
 	public NbdServerStartCommand(@Nonnull NbdServerStartCommand.Arguments argument) {
 		super("nbd-server-start", Response.class, argument);
+	}
+
+	public NbdServerStartCommand(
+		SocketAddress addr			) {
+		this(new Arguments(addr));
 	}
 }

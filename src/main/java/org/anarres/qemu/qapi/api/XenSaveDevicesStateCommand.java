@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateCommand.Arguments, XenSaveDevicesStateCommand.Response> {
 	/** Compound arguments to a XenSaveDevicesStateCommand. */
 	public static class Arguments {
+
 		@SerializedName("filename")
 		@Nonnull
 		public java.lang.String filename;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String filename) {
+			this.filename = filename;
+		}
 	}
 
 	/** Response to a XenSaveDevicesStateCommand. */
@@ -29,5 +37,10 @@ public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateC
 	/** Constructs a new XenSaveDevicesStateCommand. */
 	public XenSaveDevicesStateCommand(@Nonnull XenSaveDevicesStateCommand.Arguments argument) {
 		super("xen-save-devices-state", Response.class, argument);
+	}
+
+	public XenSaveDevicesStateCommand(
+		java.lang.String filename			) {
+		this(new Arguments(filename));
 	}
 }

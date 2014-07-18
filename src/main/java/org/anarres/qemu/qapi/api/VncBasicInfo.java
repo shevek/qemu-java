@@ -24,4 +24,13 @@ public class VncBasicInfo extends QApiType {
 	@SerializedName("family")
 	@Nonnull
 	public NetworkAddressFamily family;
+
+	public VncBasicInfo() {
+	}
+
+	public VncBasicInfo(java.lang.String host, java.lang.String service, NetworkAddressFamily family) {
+		this.host = host;
+		this.service = service;
+		this.family = family;
+	}
 }

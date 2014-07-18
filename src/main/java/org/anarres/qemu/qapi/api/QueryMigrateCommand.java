@@ -24,4 +24,5 @@ public class QueryMigrateCommand extends QApiCommand<java.lang.Void, QueryMigrat
 	public QueryMigrateCommand() {
 		super("query-migrate", Response.class, null);
 	}
+
 }

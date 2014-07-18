@@ -57,4 +57,24 @@ public class ImageInfo extends QApiType {
 	@SerializedName("format-specific")
 	@CheckForNull
 	public ImageInfoSpecific formatSpecific;
+
+	public ImageInfo() {
+	}
+
+	public ImageInfo(java.lang.String filename, java.lang.String format, boolean dirtyFlag, long actualSize, long virtualSize, long clusterSize, boolean encrypted, boolean compressed, java.lang.String backingFilename, java.lang.String fullBackingFilename, java.lang.String backingFilenameFormat, List<SnapshotInfo> snapshots, ImageInfo backingImage, ImageInfoSpecific formatSpecific) {
+		this.filename = filename;
+		this.format = format;
+		this.dirtyFlag = dirtyFlag;
+		this.actualSize = actualSize;
+		this.virtualSize = virtualSize;
+		this.clusterSize = clusterSize;
+		this.encrypted = encrypted;
+		this.compressed = compressed;
+		this.backingFilename = backingFilename;
+		this.fullBackingFilename = fullBackingFilename;
+		this.backingFilenameFormat = backingFilenameFormat;
+		this.snapshots = snapshots;
+		this.backingImage = backingImage;
+		this.formatSpecific = formatSpecific;
+	}
 }

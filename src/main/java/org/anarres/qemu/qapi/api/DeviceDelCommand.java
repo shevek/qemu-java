@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.Arguments, DeviceDelCommand.Response> {
 	/** Compound arguments to a DeviceDelCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public java.lang.String id;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String id) {
+			this.id = id;
+		}
 	}
 
 	/** Response to a DeviceDelCommand. */
@@ -29,5 +37,10 @@ public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.Arguments, De
 	/** Constructs a new DeviceDelCommand. */
 	public DeviceDelCommand(@Nonnull DeviceDelCommand.Arguments argument) {
 		super("device_del", Response.class, argument);
+	}
+
+	public DeviceDelCommand(
+		java.lang.String id			) {
+		this(new Arguments(id));
 	}
 }

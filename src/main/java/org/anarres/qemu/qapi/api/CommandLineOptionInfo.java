@@ -21,4 +21,12 @@ public class CommandLineOptionInfo extends QApiType {
 	@SerializedName("parameters")
 	@Nonnull
 	public List<CommandLineParameterInfo> parameters;
+
+	public CommandLineOptionInfo() {
+	}
+
+	public CommandLineOptionInfo(java.lang.String option, List<CommandLineParameterInfo> parameters) {
+		this.option = option;
+		this.parameters = parameters;
+	}
 }

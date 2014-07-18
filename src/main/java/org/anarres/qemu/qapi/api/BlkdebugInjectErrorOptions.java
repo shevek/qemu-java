@@ -33,4 +33,16 @@ public class BlkdebugInjectErrorOptions extends QApiType {
 	@SerializedName("immediately")
 	@CheckForNull
 	public boolean immediately;
+
+	public BlkdebugInjectErrorOptions() {
+	}
+
+	public BlkdebugInjectErrorOptions(BlkdebugEvent event, long state, long errno, long sector, boolean once, boolean immediately) {
+		this.event = event;
+		this.state = state;
+		this.errno = errno;
+		this.sector = sector;
+		this.once = once;
+		this.immediately = immediately;
+	}
 }

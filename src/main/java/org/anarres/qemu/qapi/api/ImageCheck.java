@@ -51,4 +51,22 @@ public class ImageCheck extends QApiType {
 	@SerializedName("compressed-clusters")
 	@CheckForNull
 	public long compressedClusters;
+
+	public ImageCheck() {
+	}
+
+	public ImageCheck(java.lang.String filename, java.lang.String format, long checkErrors, long imageEndOffset, long corruptions, long leaks, long corruptionsFixed, long leaksFixed, long totalClusters, long allocatedClusters, long fragmentedClusters, long compressedClusters) {
+		this.filename = filename;
+		this.format = format;
+		this.checkErrors = checkErrors;
+		this.imageEndOffset = imageEndOffset;
+		this.corruptions = corruptions;
+		this.leaks = leaks;
+		this.corruptionsFixed = corruptionsFixed;
+		this.leaksFixed = leaksFixed;
+		this.totalClusters = totalClusters;
+		this.allocatedClusters = allocatedClusters;
+		this.fragmentedClusters = fragmentedClusters;
+		this.compressedClusters = compressedClusters;
+	}
 }

@@ -24,4 +24,5 @@ public class QueryMachinesCommand extends QApiCommand<java.lang.Void, QueryMachi
 	public QueryMachinesCommand() {
 		super("query-machines", Response.class, null);
 	}
+
 }

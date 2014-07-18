@@ -24,4 +24,13 @@ public class BlkdebugSetStateOptions extends QApiType {
 	@SerializedName("new_state")
 	@Nonnull
 	public long newState;
+
+	public BlkdebugSetStateOptions() {
+	}
+
+	public BlkdebugSetStateOptions(BlkdebugEvent event, long state, long newState) {
+		this.event = event;
+		this.state = state;
+		this.newState = newState;
+	}
 }

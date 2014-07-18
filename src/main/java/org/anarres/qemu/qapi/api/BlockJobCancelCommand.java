@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arguments, BlockJobCancelCommand.Response> {
 	/** Compound arguments to a BlockJobCancelCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
 		@SerializedName("force")
 		@CheckForNull
 		public boolean force;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, boolean force) {
+			this.device = device;
+			this.force = force;
+		}
 	}
 
 	/** Response to a BlockJobCancelCommand. */
@@ -32,5 +41,10 @@ public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arg
 	/** Constructs a new BlockJobCancelCommand. */
 	public BlockJobCancelCommand(@Nonnull BlockJobCancelCommand.Arguments argument) {
 		super("block-job-cancel", Response.class, argument);
+	}
+
+	public BlockJobCancelCommand(
+		java.lang.String device, boolean force			) {
+		this(new Arguments(device, force));
 	}
 }

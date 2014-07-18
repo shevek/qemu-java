@@ -27,4 +27,14 @@ public class CommandLineParameterInfo extends QApiType {
 	@SerializedName("default")
 	@CheckForNull
 	public java.lang.String _default;
+
+	public CommandLineParameterInfo() {
+	}
+
+	public CommandLineParameterInfo(java.lang.String name, CommandLineParameterType type, java.lang.String help, java.lang.String _default) {
+		this.name = name;
+		this.type = type;
+		this.help = help;
+		this._default = _default;
+	}
 }

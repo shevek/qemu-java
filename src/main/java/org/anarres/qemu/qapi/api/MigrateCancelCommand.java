@@ -24,4 +24,5 @@ public class MigrateCancelCommand extends QApiCommand<java.lang.Void, MigrateCan
 	public MigrateCancelCommand() {
 		super("migrate_cancel", Response.class, null);
 	}
+
 }

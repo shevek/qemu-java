@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments, TransactionCommand.Response> {
 	/** Compound arguments to a TransactionCommand. */
 	public static class Arguments {
+
 		@SerializedName("actions")
 		@Nonnull
 		public List<TransactionAction> actions;
+
+		public Arguments() {
+		}
+
+		public Arguments(List<TransactionAction> actions) {
+			this.actions = actions;
+		}
 	}
 
 	/** Response to a TransactionCommand. */
@@ -29,5 +37,10 @@ public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments
 	/** Constructs a new TransactionCommand. */
 	public TransactionCommand(@Nonnull TransactionCommand.Arguments argument) {
 		super("transaction", Response.class, argument);
+	}
+
+	public TransactionCommand(
+		List<TransactionAction> actions			) {
+		this(new Arguments(actions));
 	}
 }

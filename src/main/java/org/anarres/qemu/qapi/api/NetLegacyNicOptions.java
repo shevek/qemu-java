@@ -30,4 +30,15 @@ public class NetLegacyNicOptions extends QApiType {
 	@SerializedName("vectors")
 	@CheckForNull
 	public long vectors;
+
+	public NetLegacyNicOptions() {
+	}
+
+	public NetLegacyNicOptions(java.lang.String netdev, java.lang.String macaddr, java.lang.String model, java.lang.String addr, long vectors) {
+		this.netdev = netdev;
+		this.macaddr = macaddr;
+		this.model = model;
+		this.addr = addr;
+		this.vectors = vectors;
+	}
 }

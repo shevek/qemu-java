@@ -21,4 +21,12 @@ public class NetdevBridgeOptions extends QApiType {
 	@SerializedName("helper")
 	@CheckForNull
 	public java.lang.String helper;
+
+	public NetdevBridgeOptions() {
+	}
+
+	public NetdevBridgeOptions(java.lang.String br, java.lang.String helper) {
+		this.br = br;
+		this.helper = helper;
+	}
 }

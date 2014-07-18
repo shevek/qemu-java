@@ -24,4 +24,5 @@ public class RtcResetReinjectionCommand extends QApiCommand<java.lang.Void, RtcR
 	public RtcResetReinjectionCommand() {
 		super("rtc-reset-reinjection", Response.class, null);
 	}
+
 }

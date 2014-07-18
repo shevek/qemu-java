@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.Arguments, MigrateSetSpeedCommand.Response> {
 	/** Compound arguments to a MigrateSetSpeedCommand. */
 	public static class Arguments {
+
 		@SerializedName("value")
 		@Nonnull
 		public long value;
+
+		public Arguments() {
+		}
+
+		public Arguments(long value) {
+			this.value = value;
+		}
 	}
 
 	/** Response to a MigrateSetSpeedCommand. */
@@ -29,5 +37,10 @@ public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.A
 	/** Constructs a new MigrateSetSpeedCommand. */
 	public MigrateSetSpeedCommand(@Nonnull MigrateSetSpeedCommand.Arguments argument) {
 		super("migrate_set_speed", Response.class, argument);
+	}
+
+	public MigrateSetSpeedCommand(
+		long value			) {
+		this(new Arguments(value));
 	}
 }

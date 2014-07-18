@@ -15,4 +15,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiTypeDescriptor{name=NetdevNoneOptions, data={}, innerTypes=null}
 public class NetdevNoneOptions extends QApiType {
 
+
+	public NetdevNoneOptions() {
+	}
 }

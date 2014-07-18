@@ -21,4 +21,12 @@ public class PciMemoryRange extends QApiType {
 	@SerializedName("limit")
 	@Nonnull
 	public long limit;
+
+	public PciMemoryRange() {
+	}
+
+	public PciMemoryRange(long base, long limit) {
+		this.base = base;
+		this.limit = limit;
+	}
 }

@@ -24,4 +24,5 @@ public class QueryCpuDefinitionsCommand extends QApiCommand<java.lang.Void, Quer
 	public QueryCpuDefinitionsCommand() {
 		super("query-cpu-definitions", Response.class, null);
 	}
+
 }

@@ -27,4 +27,14 @@ public class NumaNodeOptions extends QApiType {
 	@SerializedName("memdev")
 	@CheckForNull
 	public java.lang.String memdev;
+
+	public NumaNodeOptions() {
+	}
+
+	public NumaNodeOptions(int nodeid, List<java.lang.Integer> cpus, long mem, java.lang.String memdev) {
+		this.nodeid = nodeid;
+		this.cpus = cpus;
+		this.mem = mem;
+		this.memdev = memdev;
+	}
 }

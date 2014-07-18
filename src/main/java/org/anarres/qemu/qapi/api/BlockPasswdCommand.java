@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments, BlockPasswdCommand.Response> {
 	/** Compound arguments to a BlockPasswdCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@CheckForNull
 		public java.lang.String device;
@@ -26,6 +27,15 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments
 		@SerializedName("password")
 		@Nonnull
 		public java.lang.String password;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String nodeName, java.lang.String password) {
+			this.device = device;
+			this.nodeName = nodeName;
+			this.password = password;
+		}
 	}
 
 	/** Response to a BlockPasswdCommand. */
@@ -35,5 +45,10 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments
 	/** Constructs a new BlockPasswdCommand. */
 	public BlockPasswdCommand(@Nonnull BlockPasswdCommand.Arguments argument) {
 		super("block_passwd", Response.class, argument);
+	}
+
+	public BlockPasswdCommand(
+		java.lang.String device, java.lang.String nodeName, java.lang.String password			) {
+		this(new Arguments(device, nodeName, password));
 	}
 }

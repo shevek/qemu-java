@@ -84,4 +84,33 @@ public class BlockDeviceInfo extends QApiType {
 	@SerializedName("iops_size")
 	@CheckForNull
 	public long iopsSize;
+
+	public BlockDeviceInfo() {
+	}
+
+	public BlockDeviceInfo(java.lang.String file, java.lang.String nodeName, boolean ro, java.lang.String drv, java.lang.String backingFile, long backingFileDepth, boolean encrypted, boolean encryptionKeyMissing, BlockdevDetectZeroesOptions detectZeroes, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, ImageInfo image, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
+		this.file = file;
+		this.nodeName = nodeName;
+		this.ro = ro;
+		this.drv = drv;
+		this.backingFile = backingFile;
+		this.backingFileDepth = backingFileDepth;
+		this.encrypted = encrypted;
+		this.encryptionKeyMissing = encryptionKeyMissing;
+		this.detectZeroes = detectZeroes;
+		this.bps = bps;
+		this.bpsRd = bpsRd;
+		this.bpsWr = bpsWr;
+		this.iops = iops;
+		this.iopsRd = iopsRd;
+		this.iopsWr = iopsWr;
+		this.image = image;
+		this.bpsMax = bpsMax;
+		this.bpsRdMax = bpsRdMax;
+		this.bpsWrMax = bpsWrMax;
+		this.iopsMax = iopsMax;
+		this.iopsRdMax = iopsRdMax;
+		this.iopsWrMax = iopsWrMax;
+		this.iopsSize = iopsSize;
+	}
 }

@@ -18,4 +18,11 @@ public class BalloonInfo extends QApiType {
 	@SerializedName("actual")
 	@Nonnull
 	public long actual;
+
+	public BalloonInfo() {
+	}
+
+	public BalloonInfo(long actual) {
+		this.actual = actual;
+	}
 }

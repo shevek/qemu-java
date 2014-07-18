@@ -21,4 +21,12 @@ public class MigrationCapabilityStatus extends QApiType {
 	@SerializedName("state")
 	@Nonnull
 	public boolean state;
+
+	public MigrationCapabilityStatus() {
+	}
+
+	public MigrationCapabilityStatus(MigrationCapability capability, boolean state) {
+		this.capability = capability;
+		this.state = state;
+	}
 }

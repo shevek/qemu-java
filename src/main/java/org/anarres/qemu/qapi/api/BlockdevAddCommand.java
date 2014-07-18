@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.Arguments, BlockdevAddCommand.Response> {
 	/** Compound arguments to a BlockdevAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("options")
 		@Nonnull
 		public BlockdevOptions options;
+
+		public Arguments() {
+		}
+
+		public Arguments(BlockdevOptions options) {
+			this.options = options;
+		}
 	}
 
 	/** Response to a BlockdevAddCommand. */
@@ -29,5 +37,10 @@ public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.Arguments
 	/** Constructs a new BlockdevAddCommand. */
 	public BlockdevAddCommand(@Nonnull BlockdevAddCommand.Arguments argument) {
 		super("blockdev-add", Response.class, argument);
+	}
+
+	public BlockdevAddCommand(
+		BlockdevOptions options			) {
+		this(new Arguments(options));
 	}
 }

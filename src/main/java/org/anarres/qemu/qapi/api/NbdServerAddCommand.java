@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Arguments, NbdServerAddCommand.Response> {
 	/** Compound arguments to a NbdServerAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
 		@SerializedName("writable")
 		@CheckForNull
 		public boolean writable;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, boolean writable) {
+			this.device = device;
+			this.writable = writable;
+		}
 	}
 
 	/** Response to a NbdServerAddCommand. */
@@ -32,5 +41,10 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Argumen
 	/** Constructs a new NbdServerAddCommand. */
 	public NbdServerAddCommand(@Nonnull NbdServerAddCommand.Arguments argument) {
 		super("nbd-server-add", Response.class, argument);
+	}
+
+	public NbdServerAddCommand(
+		java.lang.String device, boolean writable			) {
+		this(new Arguments(device, writable));
 	}
 }

@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class QomListCommand extends QApiCommand<QomListCommand.Arguments, QomListCommand.Response> {
 	/** Compound arguments to a QomListCommand. */
 	public static class Arguments {
+
 		@SerializedName("path")
 		@Nonnull
 		public java.lang.String path;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String path) {
+			this.path = path;
+		}
 	}
 
 	/** Response to a QomListCommand. */
@@ -29,5 +37,10 @@ public class QomListCommand extends QApiCommand<QomListCommand.Arguments, QomLis
 	/** Constructs a new QomListCommand. */
 	public QomListCommand(@Nonnull QomListCommand.Arguments argument) {
 		super("qom-list", Response.class, argument);
+	}
+
+	public QomListCommand(
+		java.lang.String path			) {
+		this(new Arguments(path));
 	}
 }

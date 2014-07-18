@@ -18,4 +18,11 @@ public class NetdevHubPortOptions extends QApiType {
 	@SerializedName("hubid")
 	@Nonnull
 	public int hubid;
+
+	public NetdevHubPortOptions() {
+	}
+
+	public NetdevHubPortOptions(int hubid) {
+		this.hubid = hubid;
+	}
 }

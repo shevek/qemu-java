@@ -39,4 +39,18 @@ public class BlockJobInfo extends QApiType {
 	@SerializedName("io-status")
 	@Nonnull
 	public BlockDeviceIoStatus ioStatus;
+
+	public BlockJobInfo() {
+	}
+
+	public BlockJobInfo(java.lang.String type, java.lang.String device, long len, long offset, boolean busy, boolean paused, long speed, BlockDeviceIoStatus ioStatus) {
+		this.type = type;
+		this.device = device;
+		this.len = len;
+		this.offset = offset;
+		this.busy = busy;
+		this.paused = paused;
+		this.speed = speed;
+		this.ioStatus = ioStatus;
+	}
 }

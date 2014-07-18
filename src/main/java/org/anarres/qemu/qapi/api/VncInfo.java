@@ -33,4 +33,16 @@ public class VncInfo extends QApiType {
 	@SerializedName("clients")
 	@CheckForNull
 	public List<VncClientInfo> clients;
+
+	public VncInfo() {
+	}
+
+	public VncInfo(boolean enabled, java.lang.String host, NetworkAddressFamily family, java.lang.String service, java.lang.String auth, List<VncClientInfo> clients) {
+		this.enabled = enabled;
+		this.host = host;
+		this.family = family;
+		this.service = service;
+		this.auth = auth;
+		this.clients = clients;
+	}
 }

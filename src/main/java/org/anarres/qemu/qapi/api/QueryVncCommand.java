@@ -24,4 +24,5 @@ public class QueryVncCommand extends QApiCommand<java.lang.Void, QueryVncCommand
 	public QueryVncCommand() {
 		super("query-vnc", Response.class, null);
 	}
+
 }

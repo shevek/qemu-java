@@ -39,4 +39,18 @@ public class BlockInfo extends QApiType {
 	@SerializedName("dirty-bitmaps")
 	@CheckForNull
 	public List<BlockDirtyInfo> dirtyBitmaps;
+
+	public BlockInfo() {
+	}
+
+	public BlockInfo(java.lang.String device, java.lang.String type, boolean removable, boolean locked, BlockDeviceInfo inserted, boolean trayOpen, BlockDeviceIoStatus ioStatus, List<BlockDirtyInfo> dirtyBitmaps) {
+		this.device = device;
+		this.type = type;
+		this.removable = removable;
+		this.locked = locked;
+		this.inserted = inserted;
+		this.trayOpen = trayOpen;
+		this.ioStatus = ioStatus;
+		this.dirtyBitmaps = dirtyBitmaps;
+	}
 }

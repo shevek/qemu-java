@@ -24,4 +24,5 @@ public class QueryCommandsCommand extends QApiCommand<java.lang.Void, QueryComma
 	public QueryCommandsCommand() {
 		super("query-commands", Response.class, null);
 	}
+
 }

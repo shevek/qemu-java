@@ -39,4 +39,18 @@ public class PCDIMMDeviceInfo extends QApiType {
 	@SerializedName("hotpluggable")
 	@Nonnull
 	public boolean hotpluggable;
+
+	public PCDIMMDeviceInfo() {
+	}
+
+	public PCDIMMDeviceInfo(java.lang.String id, long addr, long size, long slot, long node, java.lang.String memdev, boolean hotplugged, boolean hotpluggable) {
+		this.id = id;
+		this.addr = addr;
+		this.size = size;
+		this.slot = slot;
+		this.node = node;
+		this.memdev = memdev;
+		this.hotplugged = hotplugged;
+		this.hotpluggable = hotpluggable;
+	}
 }

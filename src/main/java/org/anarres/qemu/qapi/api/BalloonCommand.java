@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class BalloonCommand extends QApiCommand<BalloonCommand.Arguments, BalloonCommand.Response> {
 	/** Compound arguments to a BalloonCommand. */
 	public static class Arguments {
+
 		@SerializedName("value")
 		@Nonnull
 		public long value;
+
+		public Arguments() {
+		}
+
+		public Arguments(long value) {
+			this.value = value;
+		}
 	}
 
 	/** Response to a BalloonCommand. */
@@ -29,5 +37,10 @@ public class BalloonCommand extends QApiCommand<BalloonCommand.Arguments, Balloo
 	/** Constructs a new BalloonCommand. */
 	public BalloonCommand(@Nonnull BalloonCommand.Arguments argument) {
 		super("balloon", Response.class, argument);
+	}
+
+	public BalloonCommand(
+		long value			) {
+		this(new Arguments(value));
 	}
 }

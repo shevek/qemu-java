@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class EjectCommand extends QApiCommand<EjectCommand.Arguments, EjectCommand.Response> {
 	/** Compound arguments to a EjectCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
 		@SerializedName("force")
 		@CheckForNull
 		public boolean force;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, boolean force) {
+			this.device = device;
+			this.force = force;
+		}
 	}
 
 	/** Response to a EjectCommand. */
@@ -32,5 +41,10 @@ public class EjectCommand extends QApiCommand<EjectCommand.Arguments, EjectComma
 	/** Constructs a new EjectCommand. */
 	public EjectCommand(@Nonnull EjectCommand.Arguments argument) {
 		super("eject", Response.class, argument);
+	}
+
+	public EjectCommand(
+		java.lang.String device, boolean force			) {
+		this(new Arguments(device, force));
 	}
 }

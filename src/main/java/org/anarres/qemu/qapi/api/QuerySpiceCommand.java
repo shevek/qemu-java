@@ -24,4 +24,5 @@ public class QuerySpiceCommand extends QApiCommand<java.lang.Void, QuerySpiceCom
 	public QuerySpiceCommand() {
 		super("query-spice", Response.class, null);
 	}
+
 }

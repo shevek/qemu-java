@@ -24,4 +24,5 @@ public class QueryBalloonCommand extends QApiCommand<java.lang.Void, QueryBalloo
 	public QueryBalloonCommand() {
 		super("query-balloon", Response.class, null);
 	}
+
 }

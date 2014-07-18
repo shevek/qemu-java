@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand.Arguments, BlockJobSetSpeedCommand.Response> {
 	/** Compound arguments to a BlockJobSetSpeedCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
 		@SerializedName("speed")
 		@Nonnull
 		public long speed;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, long speed) {
+			this.device = device;
+			this.speed = speed;
+		}
 	}
 
 	/** Response to a BlockJobSetSpeedCommand. */
@@ -32,5 +41,10 @@ public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand
 	/** Constructs a new BlockJobSetSpeedCommand. */
 	public BlockJobSetSpeedCommand(@Nonnull BlockJobSetSpeedCommand.Arguments argument) {
 		super("block-job-set-speed", Response.class, argument);
+	}
+
+	public BlockJobSetSpeedCommand(
+		java.lang.String device, long speed			) {
+		this(new Arguments(device, speed));
 	}
 }

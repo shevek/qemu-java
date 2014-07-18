@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class CpuAddCommand extends QApiCommand<CpuAddCommand.Arguments, CpuAddCommand.Response> {
 	/** Compound arguments to a CpuAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public long id;
+
+		public Arguments() {
+		}
+
+		public Arguments(long id) {
+			this.id = id;
+		}
 	}
 
 	/** Response to a CpuAddCommand. */
@@ -29,5 +37,10 @@ public class CpuAddCommand extends QApiCommand<CpuAddCommand.Arguments, CpuAddCo
 	/** Constructs a new CpuAddCommand. */
 	public CpuAddCommand(@Nonnull CpuAddCommand.Arguments argument) {
 		super("cpu-add", Response.class, argument);
+	}
+
+	public CpuAddCommand(
+		long id			) {
+		this(new Arguments(id));
 	}
 }

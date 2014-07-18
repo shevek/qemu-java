@@ -15,4 +15,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiTypeDescriptor{name=ChardevDummy, data={}, innerTypes=null}
 public class ChardevDummy extends QApiType {
 
+
+	public ChardevDummy() {
+	}
 }

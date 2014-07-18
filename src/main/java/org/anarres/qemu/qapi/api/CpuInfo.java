@@ -39,4 +39,18 @@ public class CpuInfo extends QApiType {
 	@SerializedName("thread_id")
 	@Nonnull
 	public long threadId;
+
+	public CpuInfo() {
+	}
+
+	public CpuInfo(long cpu, boolean current, boolean halted, long pc, long nip, long npc, long PC, long threadId) {
+		this.cpu = cpu;
+		this.current = current;
+		this.halted = halted;
+		this.pc = pc;
+		this.nip = nip;
+		this.npc = npc;
+		this.PC = PC;
+		this.threadId = threadId;
+	}
 }

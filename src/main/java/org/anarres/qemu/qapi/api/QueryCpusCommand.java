@@ -24,4 +24,5 @@ public class QueryCpusCommand extends QApiCommand<java.lang.Void, QueryCpusComma
 	public QueryCpusCommand() {
 		super("query-cpus", Response.class, null);
 	}
+
 }

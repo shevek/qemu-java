@@ -21,4 +21,12 @@ public class NetdevVhostUserOptions extends QApiType {
 	@SerializedName("vhostforce")
 	@CheckForNull
 	public boolean vhostforce;
+
+	public NetdevVhostUserOptions() {
+	}
+
+	public NetdevVhostUserOptions(java.lang.String chardev, boolean vhostforce) {
+		this.chardev = chardev;
+		this.vhostforce = vhostforce;
+	}
 }

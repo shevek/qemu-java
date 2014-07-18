@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments, DriveMirrorCommand.Response> {
 	/** Compound arguments to a DriveMirrorCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -53,6 +54,24 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 		@SerializedName("on-target-error")
 		@CheckForNull
 		public BlockdevOnError onTargetError;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
+			this.device = device;
+			this.target = target;
+			this.format = format;
+			this.nodeName = nodeName;
+			this.replaces = replaces;
+			this.sync = sync;
+			this.mode = mode;
+			this.speed = speed;
+			this.granularity = granularity;
+			this.bufSize = bufSize;
+			this.onSourceError = onSourceError;
+			this.onTargetError = onTargetError;
+		}
 	}
 
 	/** Response to a DriveMirrorCommand. */
@@ -62,5 +81,10 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 	/** Constructs a new DriveMirrorCommand. */
 	public DriveMirrorCommand(@Nonnull DriveMirrorCommand.Arguments argument) {
 		super("drive-mirror", Response.class, argument);
+	}
+
+	public DriveMirrorCommand(
+		java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError			) {
+		this(new Arguments(device, target, format, nodeName, replaces, sync, mode, speed, granularity, bufSize, onSourceError, onTargetError));
 	}
 }

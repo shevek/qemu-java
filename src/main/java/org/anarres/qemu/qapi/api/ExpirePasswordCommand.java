@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Arguments, ExpirePasswordCommand.Response> {
 	/** Compound arguments to a ExpirePasswordCommand. */
 	public static class Arguments {
+
 		@SerializedName("protocol")
 		@Nonnull
 		public java.lang.String protocol;
 		@SerializedName("time")
 		@Nonnull
 		public java.lang.String time;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String protocol, java.lang.String time) {
+			this.protocol = protocol;
+			this.time = time;
+		}
 	}
 
 	/** Response to a ExpirePasswordCommand. */
@@ -32,5 +41,10 @@ public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Arg
 	/** Constructs a new ExpirePasswordCommand. */
 	public ExpirePasswordCommand(@Nonnull ExpirePasswordCommand.Arguments argument) {
 		super("expire_password", Response.class, argument);
+	}
+
+	public ExpirePasswordCommand(
+		java.lang.String protocol, java.lang.String time			) {
+		this(new Arguments(protocol, time));
 	}
 }

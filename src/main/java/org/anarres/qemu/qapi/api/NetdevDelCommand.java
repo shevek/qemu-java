@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.Arguments, NetdevDelCommand.Response> {
 	/** Compound arguments to a NetdevDelCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public java.lang.String id;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String id) {
+			this.id = id;
+		}
 	}
 
 	/** Response to a NetdevDelCommand. */
@@ -29,5 +37,10 @@ public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.Arguments, Ne
 	/** Constructs a new NetdevDelCommand. */
 	public NetdevDelCommand(@Nonnull NetdevDelCommand.Arguments argument) {
 		super("netdev_del", Response.class, argument);
+	}
+
+	public NetdevDelCommand(
+		java.lang.String id			) {
+		this(new Arguments(id));
 	}
 }

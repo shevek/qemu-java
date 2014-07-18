@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.Arguments, ChardevAddCommand.Response> {
 	/** Compound arguments to a ChardevAddCommand. */
 	public static class Arguments {
+
 		@SerializedName("id")
 		@Nonnull
 		public java.lang.String id;
 		@SerializedName("backend")
 		@Nonnull
 		public ChardevBackend backend;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String id, ChardevBackend backend) {
+			this.id = id;
+			this.backend = backend;
+		}
 	}
 
 	/** Response to a ChardevAddCommand. */
@@ -32,5 +41,10 @@ public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.Arguments, 
 	/** Constructs a new ChardevAddCommand. */
 	public ChardevAddCommand(@Nonnull ChardevAddCommand.Arguments argument) {
 		super("chardev-add", Response.class, argument);
+	}
+
+	public ChardevAddCommand(
+		java.lang.String id, ChardevBackend backend			) {
+		this(new Arguments(id, backend));
 	}
 }

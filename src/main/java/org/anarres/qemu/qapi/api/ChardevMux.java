@@ -18,4 +18,11 @@ public class ChardevMux extends QApiType {
 	@SerializedName("chardev")
 	@Nonnull
 	public java.lang.String chardev;
+
+	public ChardevMux() {
+	}
+
+	public ChardevMux(java.lang.String chardev) {
+		this.chardev = chardev;
+	}
 }

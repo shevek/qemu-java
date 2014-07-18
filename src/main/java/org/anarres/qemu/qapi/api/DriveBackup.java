@@ -39,4 +39,18 @@ public class DriveBackup extends QApiType {
 	@SerializedName("on-target-error")
 	@CheckForNull
 	public BlockdevOnError onTargetError;
+
+	public DriveBackup() {
+	}
+
+	public DriveBackup(java.lang.String device, java.lang.String target, java.lang.String format, MirrorSyncMode sync, NewImageMode mode, long speed, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
+		this.device = device;
+		this.target = target;
+		this.format = format;
+		this.sync = sync;
+		this.mode = mode;
+		this.speed = speed;
+		this.onSourceError = onSourceError;
+		this.onTargetError = onTargetError;
+	}
 }

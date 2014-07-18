@@ -24,4 +24,5 @@ public class QueryEventsCommand extends QApiCommand<java.lang.Void, QueryEventsC
 	public QueryEventsCommand() {
 		super("query-events", Response.class, null);
 	}
+
 }

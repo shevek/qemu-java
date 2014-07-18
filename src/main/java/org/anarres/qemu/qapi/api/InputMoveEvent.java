@@ -21,4 +21,12 @@ public class InputMoveEvent extends QApiType {
 	@SerializedName("value")
 	@Nonnull
 	public long value;
+
+	public InputMoveEvent() {
+	}
+
+	public InputMoveEvent(InputAxis axis, long value) {
+		this.axis = axis;
+		this.value = value;
+	}
 }

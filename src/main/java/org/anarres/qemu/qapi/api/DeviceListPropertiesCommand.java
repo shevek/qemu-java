@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.Arguments, DeviceListPropertiesCommand.Response> {
 	/** Compound arguments to a DeviceListPropertiesCommand. */
 	public static class Arguments {
+
 		@SerializedName("typename")
 		@Nonnull
 		public java.lang.String typename;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String typename) {
+			this.typename = typename;
+		}
 	}
 
 	/** Response to a DeviceListPropertiesCommand. */
@@ -29,5 +37,10 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 	/** Constructs a new DeviceListPropertiesCommand. */
 	public DeviceListPropertiesCommand(@Nonnull DeviceListPropertiesCommand.Arguments argument) {
 		super("device-list-properties", Response.class, argument);
+	}
+
+	public DeviceListPropertiesCommand(
+		java.lang.String typename			) {
+		this(new Arguments(typename));
 	}
 }

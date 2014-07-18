@@ -24,4 +24,5 @@ public class QueryMemoryDevicesCommand extends QApiCommand<java.lang.Void, Query
 	public QueryMemoryDevicesCommand() {
 		super("query-memory-devices", Response.class, null);
 	}
+
 }

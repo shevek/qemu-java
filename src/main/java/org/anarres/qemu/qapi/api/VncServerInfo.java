@@ -18,4 +18,11 @@ public class VncServerInfo extends QApiType {
 	@SerializedName("auth")
 	@CheckForNull
 	public java.lang.String auth;
+
+	public VncServerInfo() {
+	}
+
+	public VncServerInfo(java.lang.String auth) {
+		this.auth = auth;
+	}
 }

@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, RemoveFdCommand.Response> {
 	/** Compound arguments to a RemoveFdCommand. */
 	public static class Arguments {
+
 		@SerializedName("fdset-id")
 		@Nonnull
 		public long fdsetId;
 		@SerializedName("fd")
 		@CheckForNull
 		public long fd;
+
+		public Arguments() {
+		}
+
+		public Arguments(long fdsetId, long fd) {
+			this.fdsetId = fdsetId;
+			this.fd = fd;
+		}
 	}
 
 	/** Response to a RemoveFdCommand. */
@@ -32,5 +41,10 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, Remo
 	/** Constructs a new RemoveFdCommand. */
 	public RemoveFdCommand(@Nonnull RemoveFdCommand.Arguments argument) {
 		super("remove-fd", Response.class, argument);
+	}
+
+	public RemoveFdCommand(
+		long fdsetId, long fd			) {
+		this(new Arguments(fdsetId, fd));
 	}
 }

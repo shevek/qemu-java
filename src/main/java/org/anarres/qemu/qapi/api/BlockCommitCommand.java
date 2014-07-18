@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments, BlockCommitCommand.Response> {
 	/** Compound arguments to a BlockCommitCommand. */
 	public static class Arguments {
+
 		@SerializedName("device")
 		@Nonnull
 		public java.lang.String device;
@@ -32,6 +33,17 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments
 		@SerializedName("speed")
 		@CheckForNull
 		public long speed;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed) {
+			this.device = device;
+			this.base = base;
+			this.top = top;
+			this.backingFile = backingFile;
+			this.speed = speed;
+		}
 	}
 
 	/** Response to a BlockCommitCommand. */
@@ -41,5 +53,10 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments
 	/** Constructs a new BlockCommitCommand. */
 	public BlockCommitCommand(@Nonnull BlockCommitCommand.Arguments argument) {
 		super("block-commit", Response.class, argument);
+	}
+
+	public BlockCommitCommand(
+		java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed			) {
+		this(new Arguments(device, base, top, backingFile, speed));
 	}
 }

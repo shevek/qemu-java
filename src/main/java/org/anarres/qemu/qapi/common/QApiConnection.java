@@ -70,6 +70,11 @@ public class QApiConnection implements Closeable {
         return read(returnType);
     }
 
+    @Nonnull
+    public <Result, Response extends QApiResponse<Result>> Result call(@Nonnull QApiCommand<?, Response> command) throws IOException, QApiException {
+        return invoke(command).getResult();
+    }
+
     @Override
     public void close() throws IOException {
         socket.close();

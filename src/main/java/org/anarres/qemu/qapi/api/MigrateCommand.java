@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, MigrateCommand.Response> {
 	/** Compound arguments to a MigrateCommand. */
 	public static class Arguments {
+
 		@SerializedName("uri")
 		@Nonnull
 		public java.lang.String uri;
@@ -29,6 +30,16 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 		@SerializedName("detach")
 		@CheckForNull
 		public boolean detach;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String uri, boolean blk, boolean inc, boolean detach) {
+			this.uri = uri;
+			this.blk = blk;
+			this.inc = inc;
+			this.detach = detach;
+		}
 	}
 
 	/** Response to a MigrateCommand. */
@@ -38,5 +49,10 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 	/** Constructs a new MigrateCommand. */
 	public MigrateCommand(@Nonnull MigrateCommand.Arguments argument) {
 		super("migrate", Response.class, argument);
+	}
+
+	public MigrateCommand(
+		java.lang.String uri, boolean blk, boolean inc, boolean detach			) {
+		this(new Arguments(uri, blk, inc, detach));
 	}
 }

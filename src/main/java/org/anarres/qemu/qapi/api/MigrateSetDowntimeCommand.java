@@ -17,9 +17,17 @@ import org.anarres.qemu.qapi.common.*;
 public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCommand.Arguments, MigrateSetDowntimeCommand.Response> {
 	/** Compound arguments to a MigrateSetDowntimeCommand. */
 	public static class Arguments {
+
 		@SerializedName("value")
 		@Nonnull
 		public double value;
+
+		public Arguments() {
+		}
+
+		public Arguments(double value) {
+			this.value = value;
+		}
 	}
 
 	/** Response to a MigrateSetDowntimeCommand. */
@@ -29,5 +37,10 @@ public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCom
 	/** Constructs a new MigrateSetDowntimeCommand. */
 	public MigrateSetDowntimeCommand(@Nonnull MigrateSetDowntimeCommand.Arguments argument) {
 		super("migrate_set_downtime", Response.class, argument);
+	}
+
+	public MigrateSetDowntimeCommand(
+		double value			) {
+		this(new Arguments(value));
 	}
 }

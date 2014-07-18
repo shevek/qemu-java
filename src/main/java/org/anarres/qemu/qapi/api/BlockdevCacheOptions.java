@@ -24,4 +24,13 @@ public class BlockdevCacheOptions extends QApiType {
 	@SerializedName("no-flush")
 	@CheckForNull
 	public boolean noFlush;
+
+	public BlockdevCacheOptions() {
+	}
+
+	public BlockdevCacheOptions(boolean writeback, boolean direct, boolean noFlush) {
+		this.writeback = writeback;
+		this.direct = direct;
+		this.noFlush = noFlush;
+	}
 }

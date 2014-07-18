@@ -24,4 +24,5 @@ public class QuitCommand extends QApiCommand<java.lang.Void, QuitCommand.Respons
 	public QuitCommand() {
 		super("quit", Response.class, null);
 	}
+
 }

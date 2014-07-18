@@ -18,4 +18,11 @@ public class ObjectTypeInfo extends QApiType {
 	@SerializedName("name")
 	@Nonnull
 	public java.lang.String name;
+
+	public ObjectTypeInfo() {
+	}
+
+	public ObjectTypeInfo(java.lang.String name) {
+		this.name = name;
+	}
 }

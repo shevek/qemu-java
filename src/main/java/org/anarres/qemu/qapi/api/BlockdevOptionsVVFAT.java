@@ -27,4 +27,14 @@ public class BlockdevOptionsVVFAT extends QApiType {
 	@SerializedName("rw")
 	@CheckForNull
 	public boolean rw;
+
+	public BlockdevOptionsVVFAT() {
+	}
+
+	public BlockdevOptionsVVFAT(java.lang.String dir, long fatType, boolean floppy, boolean rw) {
+		this.dir = dir;
+		this.fatType = fatType;
+		this.floppy = floppy;
+		this.rw = rw;
+	}
 }

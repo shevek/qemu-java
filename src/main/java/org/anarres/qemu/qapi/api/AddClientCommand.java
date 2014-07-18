@@ -17,6 +17,7 @@ import org.anarres.qemu.qapi.common.*;
 public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, AddClientCommand.Response> {
 	/** Compound arguments to a AddClientCommand. */
 	public static class Arguments {
+
 		@SerializedName("protocol")
 		@Nonnull
 		public java.lang.String protocol;
@@ -29,6 +30,16 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 		@SerializedName("tls")
 		@CheckForNull
 		public boolean tls;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls) {
+			this.protocol = protocol;
+			this.fdname = fdname;
+			this.skipauth = skipauth;
+			this.tls = tls;
+		}
 	}
 
 	/** Response to a AddClientCommand. */
@@ -38,5 +49,10 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 	/** Constructs a new AddClientCommand. */
 	public AddClientCommand(@Nonnull AddClientCommand.Arguments argument) {
 		super("add_client", Response.class, argument);
+	}
+
+	public AddClientCommand(
+		java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls			) {
+		this(new Arguments(protocol, fdname, skipauth, tls));
 	}
 }

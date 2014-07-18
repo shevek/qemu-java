@@ -17,12 +17,21 @@ import org.anarres.qemu.qapi.common.*;
 public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandCommand.Arguments, HumanMonitorCommandCommand.Response> {
 	/** Compound arguments to a HumanMonitorCommandCommand. */
 	public static class Arguments {
+
 		@SerializedName("command-line")
 		@Nonnull
 		public java.lang.String commandLine;
 		@SerializedName("cpu-index")
 		@CheckForNull
 		public long cpuIndex;
+
+		public Arguments() {
+		}
+
+		public Arguments(java.lang.String commandLine, long cpuIndex) {
+			this.commandLine = commandLine;
+			this.cpuIndex = cpuIndex;
+		}
 	}
 
 	/** Response to a HumanMonitorCommandCommand. */
@@ -32,5 +41,10 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	/** Constructs a new HumanMonitorCommandCommand. */
 	public HumanMonitorCommandCommand(@Nonnull HumanMonitorCommandCommand.Arguments argument) {
 		super("human-monitor-command", Response.class, argument);
+	}
+
+	public HumanMonitorCommandCommand(
+		java.lang.String commandLine, long cpuIndex			) {
+		this(new Arguments(commandLine, cpuIndex));
 	}
 }

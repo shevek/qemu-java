@@ -33,4 +33,16 @@ public class XBZRLECacheStats extends QApiType {
 	@SerializedName("overflow")
 	@Nonnull
 	public long overflow;
+
+	public XBZRLECacheStats() {
+	}
+
+	public XBZRLECacheStats(long cacheSize, long bytes, long pages, long cacheMiss, double cacheMissRate, long overflow) {
+		this.cacheSize = cacheSize;
+		this.bytes = bytes;
+		this.pages = pages;
+		this.cacheMiss = cacheMiss;
+		this.cacheMissRate = cacheMissRate;
+		this.overflow = overflow;
+	}
 }
