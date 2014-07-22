@@ -47,8 +47,8 @@ public class PmemsaveCommand extends QApiCommand<PmemsaveCommand.Arguments, Pmem
 		super("pmemsave", Response.class, argument);
 	}
 
-	public PmemsaveCommand(
-		long val, long size, java.lang.String filename			) {
+	/** Constructs a new PmemsaveCommand. */
+	public PmemsaveCommand(long val, long size, java.lang.String filename) {
 		this(new Arguments(val, size, filename));
 	}
 }

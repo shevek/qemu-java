@@ -39,8 +39,8 @@ public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, 
 		super("screendump", Response.class, argument);
 	}
 
-	public ScreendumpCommand(
-		java.lang.String filename			) {
+	/** Constructs a new ScreendumpCommand. */
+	public ScreendumpCommand(java.lang.String filename) {
 		this(new Arguments(filename));
 	}
 }

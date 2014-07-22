@@ -39,8 +39,8 @@ public class GetfdCommand extends QApiCommand<GetfdCommand.Arguments, GetfdComma
 		super("getfd", Response.class, argument);
 	}
 
-	public GetfdCommand(
-		java.lang.String fdname			) {
+	/** Constructs a new GetfdCommand. */
+	public GetfdCommand(java.lang.String fdname) {
 		this(new Arguments(fdname));
 	}
 }

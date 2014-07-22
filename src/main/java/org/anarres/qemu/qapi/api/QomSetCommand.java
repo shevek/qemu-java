@@ -47,8 +47,8 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 		super("qom-set", Response.class, argument);
 	}
 
-	public QomSetCommand(
-		java.lang.String path, java.lang.String property, java.lang.Object value			) {
+	/** Constructs a new QomSetCommand. */
+	public QomSetCommand(java.lang.String path, java.lang.String property, java.lang.Object value) {
 		this(new Arguments(path, property, value));
 	}
 }

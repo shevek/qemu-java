@@ -39,8 +39,8 @@ public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabil
 		super("migrate-set-capabilities", Response.class, argument);
 	}
 
-	public MigrateSetCapabilitiesCommand(
-		List<MigrationCapabilityStatus> capabilities			) {
+	/** Constructs a new MigrateSetCapabilitiesCommand. */
+	public MigrateSetCapabilitiesCommand(List<MigrationCapabilityStatus> capabilities) {
 		this(new Arguments(capabilities));
 	}
 }

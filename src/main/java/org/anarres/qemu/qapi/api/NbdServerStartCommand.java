@@ -39,8 +39,8 @@ public class NbdServerStartCommand extends QApiCommand<NbdServerStartCommand.Arg
 		super("nbd-server-start", Response.class, argument);
 	}
 
-	public NbdServerStartCommand(
-		SocketAddress addr			) {
+	/** Constructs a new NbdServerStartCommand. */
+	public NbdServerStartCommand(SocketAddress addr) {
 		this(new Arguments(addr));
 	}
 }

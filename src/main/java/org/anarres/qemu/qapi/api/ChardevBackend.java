@@ -12,7 +12,6 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=ChardevBackend, data={file=ChardevFile, serial=ChardevHostdev, parallel=ChardevHostdev, pipe=ChardevHostdev, socket=ChardevSocket, udp=ChardevUdp, pty=ChardevDummy, null=ChardevDummy, mux=ChardevMux, msmouse=ChardevDummy, braille=ChardevDummy, stdio=ChardevStdio, console=ChardevDummy, spicevmc=ChardevSpiceChannel, spiceport=ChardevSpicePort, vc=ChardevVC, ringbuf=ChardevRingbuf, memory=ChardevRingbuf}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=ChardevBackend, data={file=ChardevFile, serial=ChardevHostdev, parallel=ChardevHostdev, pipe=ChardevHostdev, socket=ChardevSocket, udp=ChardevUdp, pty=ChardevDummy, null=ChardevDummy, mux=ChardevMux, msmouse=ChardevDummy, braille=ChardevDummy, stdio=ChardevStdio, console=ChardevDummy, spicevmc=ChardevSpiceChannel, spiceport=ChardevSpicePort, vc=ChardevVC, ringbuf=ChardevRingbuf, memory=ChardevRingbuf}, innerTypes=null, fields=null}
 public class ChardevBackend extends QApiUnion {
 	@SerializedName("file")
 	@Nonnull
@@ -68,6 +67,132 @@ public class ChardevBackend extends QApiUnion {
 	@SerializedName("memory")
 	@Nonnull
 	public ChardevRingbuf memory;
+
+	@Nonnull
+	public static ChardevBackend file(ChardevFile file) {
+		ChardevBackend self = new ChardevBackend();
+		self.file = file;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend serial(ChardevHostdev serial) {
+		ChardevBackend self = new ChardevBackend();
+		self.serial = serial;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend parallel(ChardevHostdev parallel) {
+		ChardevBackend self = new ChardevBackend();
+		self.parallel = parallel;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend pipe(ChardevHostdev pipe) {
+		ChardevBackend self = new ChardevBackend();
+		self.pipe = pipe;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend socket(ChardevSocket socket) {
+		ChardevBackend self = new ChardevBackend();
+		self.socket = socket;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend udp(ChardevUdp udp) {
+		ChardevBackend self = new ChardevBackend();
+		self.udp = udp;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend pty(ChardevDummy pty) {
+		ChardevBackend self = new ChardevBackend();
+		self.pty = pty;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend _null(ChardevDummy _null) {
+		ChardevBackend self = new ChardevBackend();
+		self._null = _null;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend mux(ChardevMux mux) {
+		ChardevBackend self = new ChardevBackend();
+		self.mux = mux;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend msmouse(ChardevDummy msmouse) {
+		ChardevBackend self = new ChardevBackend();
+		self.msmouse = msmouse;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend braille(ChardevDummy braille) {
+		ChardevBackend self = new ChardevBackend();
+		self.braille = braille;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend stdio(ChardevStdio stdio) {
+		ChardevBackend self = new ChardevBackend();
+		self.stdio = stdio;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend console(ChardevDummy console) {
+		ChardevBackend self = new ChardevBackend();
+		self.console = console;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend spicevmc(ChardevSpiceChannel spicevmc) {
+		ChardevBackend self = new ChardevBackend();
+		self.spicevmc = spicevmc;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend spiceport(ChardevSpicePort spiceport) {
+		ChardevBackend self = new ChardevBackend();
+		self.spiceport = spiceport;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend vc(ChardevVC vc) {
+		ChardevBackend self = new ChardevBackend();
+		self.vc = vc;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend ringbuf(ChardevRingbuf ringbuf) {
+		ChardevBackend self = new ChardevBackend();
+		self.ringbuf = ringbuf;
+		return self;
+	}
+
+	@Nonnull
+	public static ChardevBackend memory(ChardevRingbuf memory) {
+		ChardevBackend self = new ChardevBackend();
+		self.memory = memory;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

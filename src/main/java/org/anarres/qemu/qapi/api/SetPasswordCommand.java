@@ -47,8 +47,8 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments
 		super("set_password", Response.class, argument);
 	}
 
-	public SetPasswordCommand(
-		java.lang.String protocol, java.lang.String password, java.lang.String connected			) {
+	/** Constructs a new SetPasswordCommand. */
+	public SetPasswordCommand(java.lang.String protocol, java.lang.String password, java.lang.String connected) {
 		this(new Arguments(protocol, password, connected));
 	}
 }

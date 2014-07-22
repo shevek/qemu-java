@@ -47,8 +47,8 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 		super("blockdev-snapshot-delete-internal-sync", Response.class, argument);
 	}
 
-	public BlockdevSnapshotDeleteInternalSyncCommand(
-		java.lang.String device, java.lang.String id, java.lang.String name			) {
+	/** Constructs a new BlockdevSnapshotDeleteInternalSyncCommand. */
+	public BlockdevSnapshotDeleteInternalSyncCommand(java.lang.String device, java.lang.String id, java.lang.String name) {
 		this(new Arguments(device, id, name));
 	}
 }

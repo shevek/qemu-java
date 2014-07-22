@@ -12,7 +12,6 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=InputEvent, data={key=InputKeyEvent, btn=InputBtnEvent, rel=InputMoveEvent, abs=InputMoveEvent}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=InputEvent, data={key=InputKeyEvent, btn=InputBtnEvent, rel=InputMoveEvent, abs=InputMoveEvent}, innerTypes=null, fields=null}
 public class InputEvent extends QApiUnion {
 	@SerializedName("key")
 	@Nonnull
@@ -26,6 +25,34 @@ public class InputEvent extends QApiUnion {
 	@SerializedName("abs")
 	@Nonnull
 	public InputMoveEvent abs;
+
+	@Nonnull
+	public static InputEvent key(InputKeyEvent key) {
+		InputEvent self = new InputEvent();
+		self.key = key;
+		return self;
+	}
+
+	@Nonnull
+	public static InputEvent btn(InputBtnEvent btn) {
+		InputEvent self = new InputEvent();
+		self.btn = btn;
+		return self;
+	}
+
+	@Nonnull
+	public static InputEvent rel(InputMoveEvent rel) {
+		InputEvent self = new InputEvent();
+		self.rel = rel;
+		return self;
+	}
+
+	@Nonnull
+	public static InputEvent abs(InputMoveEvent abs) {
+		InputEvent self = new InputEvent();
+		self.abs = abs;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

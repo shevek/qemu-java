@@ -39,8 +39,8 @@ public class BlockJobResumeCommand extends QApiCommand<BlockJobResumeCommand.Arg
 		super("block-job-resume", Response.class, argument);
 	}
 
-	public BlockJobResumeCommand(
-		java.lang.String device			) {
+	/** Constructs a new BlockJobResumeCommand. */
+	public BlockJobResumeCommand(java.lang.String device) {
 		this(new Arguments(device));
 	}
 }

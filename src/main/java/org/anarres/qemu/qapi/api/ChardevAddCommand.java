@@ -43,8 +43,8 @@ public class ChardevAddCommand extends QApiCommand<ChardevAddCommand.Arguments, 
 		super("chardev-add", Response.class, argument);
 	}
 
-	public ChardevAddCommand(
-		java.lang.String id, ChardevBackend backend			) {
+	/** Constructs a new ChardevAddCommand. */
+	public ChardevAddCommand(java.lang.String id, ChardevBackend backend) {
 		this(new Arguments(id, backend));
 	}
 }

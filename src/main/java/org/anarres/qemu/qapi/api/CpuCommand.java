@@ -39,8 +39,8 @@ public class CpuCommand extends QApiCommand<CpuCommand.Arguments, CpuCommand.Res
 		super("cpu", Response.class, argument);
 	}
 
-	public CpuCommand(
-		long index			) {
+	/** Constructs a new CpuCommand. */
+	public CpuCommand(long index) {
 		this(new Arguments(index));
 	}
 }

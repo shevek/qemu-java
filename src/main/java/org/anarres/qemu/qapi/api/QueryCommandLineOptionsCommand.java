@@ -39,8 +39,8 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 		super("query-command-line-options", Response.class, argument);
 	}
 
-	public QueryCommandLineOptionsCommand(
-		java.lang.String option			) {
+	/** Constructs a new QueryCommandLineOptionsCommand. */
+	public QueryCommandLineOptionsCommand(java.lang.String option) {
 		this(new Arguments(option));
 	}
 }

@@ -43,8 +43,8 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdComma
 		super("add-fd", Response.class, argument);
 	}
 
-	public AddFdCommand(
-		long fdsetId, java.lang.String opaque			) {
+	/** Constructs a new AddFdCommand. */
+	public AddFdCommand(long fdsetId, java.lang.String opaque) {
 		this(new Arguments(fdsetId, opaque));
 	}
 }

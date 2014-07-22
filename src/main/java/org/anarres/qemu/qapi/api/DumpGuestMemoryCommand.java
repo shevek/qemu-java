@@ -55,8 +55,8 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 		super("dump-guest-memory", Response.class, argument);
 	}
 
-	public DumpGuestMemoryCommand(
-		boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format			) {
+	/** Constructs a new DumpGuestMemoryCommand. */
+	public DumpGuestMemoryCommand(boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format) {
 		this(new Arguments(paging, protocol, begin, length, format));
 	}
 }

@@ -43,8 +43,8 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Argumen
 		super("qom-list-types", Response.class, argument);
 	}
 
-	public QomListTypesCommand(
-		java.lang.String _implements, boolean _abstract			) {
+	/** Constructs a new QomListTypesCommand. */
+	public QomListTypesCommand(java.lang.String _implements, boolean _abstract) {
 		this(new Arguments(_implements, _abstract));
 	}
 }

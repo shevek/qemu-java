@@ -43,8 +43,8 @@ public class QomGetCommand extends QApiCommand<QomGetCommand.Arguments, QomGetCo
 		super("qom-get", Response.class, argument);
 	}
 
-	public QomGetCommand(
-		java.lang.String path, java.lang.String property			) {
+	/** Constructs a new QomGetCommand. */
+	public QomGetCommand(java.lang.String path, java.lang.String property) {
 		this(new Arguments(path, property));
 	}
 }

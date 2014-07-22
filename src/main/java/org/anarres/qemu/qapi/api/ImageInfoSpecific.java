@@ -12,7 +12,6 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=ImageInfoSpecific, data={qcow2=ImageInfoSpecificQCow2, vmdk=ImageInfoSpecificVmdk}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=ImageInfoSpecific, data={qcow2=ImageInfoSpecificQCow2, vmdk=ImageInfoSpecificVmdk}, innerTypes=null, fields=null}
 public class ImageInfoSpecific extends QApiUnion {
 	@SerializedName("qcow2")
 	@Nonnull
@@ -20,6 +19,20 @@ public class ImageInfoSpecific extends QApiUnion {
 	@SerializedName("vmdk")
 	@Nonnull
 	public ImageInfoSpecificVmdk vmdk;
+
+	@Nonnull
+	public static ImageInfoSpecific qcow2(ImageInfoSpecificQCow2 qcow2) {
+		ImageInfoSpecific self = new ImageInfoSpecific();
+		self.qcow2 = qcow2;
+		return self;
+	}
+
+	@Nonnull
+	public static ImageInfoSpecific vmdk(ImageInfoSpecificVmdk vmdk) {
+		ImageInfoSpecific self = new ImageInfoSpecific();
+		self.vmdk = vmdk;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

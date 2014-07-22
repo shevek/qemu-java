@@ -39,8 +39,8 @@ public class BlockJobCompleteCommand extends QApiCommand<BlockJobCompleteCommand
 		super("block-job-complete", Response.class, argument);
 	}
 
-	public BlockJobCompleteCommand(
-		java.lang.String device			) {
+	/** Constructs a new BlockJobCompleteCommand. */
+	public BlockJobCompleteCommand(java.lang.String device) {
 		this(new Arguments(device));
 	}
 }

@@ -91,8 +91,8 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 		super("block_set_io_throttle", Response.class, argument);
 	}
 
-	public BlockSetIoThrottleCommand(
-		java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize			) {
+	/** Constructs a new BlockSetIoThrottleCommand. */
+	public BlockSetIoThrottleCommand(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
 		this(new Arguments(device, bps, bpsRd, bpsWr, iops, iopsRd, iopsWr, bpsMax, bpsRdMax, bpsWrMax, iopsMax, iopsRdMax, iopsWrMax, iopsSize));
 	}
 }

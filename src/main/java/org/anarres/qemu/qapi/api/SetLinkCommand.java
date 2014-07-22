@@ -43,8 +43,8 @@ public class SetLinkCommand extends QApiCommand<SetLinkCommand.Arguments, SetLin
 		super("set_link", Response.class, argument);
 	}
 
-	public SetLinkCommand(
-		java.lang.String name, boolean up			) {
+	/** Constructs a new SetLinkCommand. */
+	public SetLinkCommand(java.lang.String name, boolean up) {
 		this(new Arguments(name, up));
 	}
 }

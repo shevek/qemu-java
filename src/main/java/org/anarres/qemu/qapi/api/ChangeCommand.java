@@ -47,8 +47,8 @@ public class ChangeCommand extends QApiCommand<ChangeCommand.Arguments, ChangeCo
 		super("change", Response.class, argument);
 	}
 
-	public ChangeCommand(
-		java.lang.String device, java.lang.String target, java.lang.String arg			) {
+	/** Constructs a new ChangeCommand. */
+	public ChangeCommand(java.lang.String device, java.lang.String target, java.lang.String arg) {
 		this(new Arguments(device, target, arg));
 	}
 }

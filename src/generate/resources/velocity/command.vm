@@ -42,9 +42,8 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	}
 
 #if ($element.argumentType)
-	public ${element.className}(
-		#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}
-			) {
+	/** Constructs a new ${element.className}. */
+	public ${element.className}(#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}) {
 		this(new ${element.argumentType.className}(#{foreach} ($field in $element.argumentType.fields)#{if} ($velocityCount > 1), #{end}$field.name#{end}));
 	}
 #end

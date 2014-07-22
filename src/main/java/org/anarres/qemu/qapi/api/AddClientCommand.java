@@ -51,8 +51,8 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 		super("add_client", Response.class, argument);
 	}
 
-	public AddClientCommand(
-		java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls			) {
+	/** Constructs a new AddClientCommand. */
+	public AddClientCommand(java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls) {
 		this(new Arguments(protocol, fdname, skipauth, tls));
 	}
 }

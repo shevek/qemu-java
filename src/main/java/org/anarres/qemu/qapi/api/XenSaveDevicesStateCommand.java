@@ -39,8 +39,8 @@ public class XenSaveDevicesStateCommand extends QApiCommand<XenSaveDevicesStateC
 		super("xen-save-devices-state", Response.class, argument);
 	}
 
-	public XenSaveDevicesStateCommand(
-		java.lang.String filename			) {
+	/** Constructs a new XenSaveDevicesStateCommand. */
+	public XenSaveDevicesStateCommand(java.lang.String filename) {
 		this(new Arguments(filename));
 	}
 }

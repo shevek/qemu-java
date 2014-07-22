@@ -39,8 +39,8 @@ public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Argum
 		super("query-rx-filter", Response.class, argument);
 	}
 
-	public QueryRxFilterCommand(
-		java.lang.String name			) {
+	/** Constructs a new QueryRxFilterCommand. */
+	public QueryRxFilterCommand(java.lang.String name) {
 		this(new Arguments(name));
 	}
 }

@@ -47,8 +47,8 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments
 		super("block_passwd", Response.class, argument);
 	}
 
-	public BlockPasswdCommand(
-		java.lang.String device, java.lang.String nodeName, java.lang.String password			) {
+	/** Constructs a new BlockPasswdCommand. */
+	public BlockPasswdCommand(java.lang.String device, java.lang.String nodeName, java.lang.String password) {
 		this(new Arguments(device, nodeName, password));
 	}
 }

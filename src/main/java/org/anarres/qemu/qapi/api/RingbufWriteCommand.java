@@ -47,8 +47,8 @@ public class RingbufWriteCommand extends QApiCommand<RingbufWriteCommand.Argumen
 		super("ringbuf-write", Response.class, argument);
 	}
 
-	public RingbufWriteCommand(
-		java.lang.String device, java.lang.String data, DataFormat format			) {
+	/** Constructs a new RingbufWriteCommand. */
+	public RingbufWriteCommand(java.lang.String device, java.lang.String data, DataFormat format) {
 		this(new Arguments(device, data, format));
 	}
 }

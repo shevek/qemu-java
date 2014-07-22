@@ -43,8 +43,8 @@ public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Arg
 		super("expire_password", Response.class, argument);
 	}
 
-	public ExpirePasswordCommand(
-		java.lang.String protocol, java.lang.String time			) {
+	/** Constructs a new ExpirePasswordCommand. */
+	public ExpirePasswordCommand(java.lang.String protocol, java.lang.String time) {
 		this(new Arguments(protocol, time));
 	}
 }

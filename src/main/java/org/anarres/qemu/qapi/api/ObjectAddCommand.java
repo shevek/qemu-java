@@ -47,8 +47,8 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 		super("object-add", Response.class, argument);
 	}
 
-	public ObjectAddCommand(
-		java.lang.String qomType, java.lang.String id, Map<String, String> props			) {
+	/** Constructs a new ObjectAddCommand. */
+	public ObjectAddCommand(java.lang.String qomType, java.lang.String id, Map<String, String> props) {
 		this(new Arguments(qomType, id, props));
 	}
 }

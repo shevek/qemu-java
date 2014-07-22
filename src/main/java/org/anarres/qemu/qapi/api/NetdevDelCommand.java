@@ -39,8 +39,8 @@ public class NetdevDelCommand extends QApiCommand<NetdevDelCommand.Arguments, Ne
 		super("netdev_del", Response.class, argument);
 	}
 
-	public NetdevDelCommand(
-		java.lang.String id			) {
+	/** Constructs a new NetdevDelCommand. */
+	public NetdevDelCommand(java.lang.String id) {
 		this(new Arguments(id));
 	}
 }

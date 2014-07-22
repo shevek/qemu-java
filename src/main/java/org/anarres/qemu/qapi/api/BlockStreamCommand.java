@@ -55,8 +55,8 @@ public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments
 		super("block-stream", Response.class, argument);
 	}
 
-	public BlockStreamCommand(
-		java.lang.String device, java.lang.String base, java.lang.String backingFile, long speed, BlockdevOnError onError			) {
+	/** Constructs a new BlockStreamCommand. */
+	public BlockStreamCommand(java.lang.String device, java.lang.String base, java.lang.String backingFile, long speed, BlockdevOnError onError) {
 		this(new Arguments(device, base, backingFile, speed, onError));
 	}
 }

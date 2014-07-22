@@ -43,8 +43,8 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Argumen
 		super("nbd-server-add", Response.class, argument);
 	}
 
-	public NbdServerAddCommand(
-		java.lang.String device, boolean writable			) {
+	/** Constructs a new NbdServerAddCommand. */
+	public NbdServerAddCommand(java.lang.String device, boolean writable) {
 		this(new Arguments(device, writable));
 	}
 }

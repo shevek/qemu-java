@@ -43,8 +43,8 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKe
 		super("send-key", Response.class, argument);
 	}
 
-	public SendKeyCommand(
-		List<KeyValue> keys, long holdTime			) {
+	/** Constructs a new SendKeyCommand. */
+	public SendKeyCommand(List<KeyValue> keys, long holdTime) {
 		this(new Arguments(keys, holdTime));
 	}
 }

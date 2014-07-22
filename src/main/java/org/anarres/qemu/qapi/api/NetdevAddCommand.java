@@ -47,8 +47,8 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, Ne
 		super("netdev_add", Response.class, argument);
 	}
 
-	public NetdevAddCommand(
-		java.lang.String type, java.lang.String id, java.lang.Object props			) {
+	/** Constructs a new NetdevAddCommand. */
+	public NetdevAddCommand(java.lang.String type, java.lang.String id, java.lang.Object props) {
 		this(new Arguments(type, id, props));
 	}
 }

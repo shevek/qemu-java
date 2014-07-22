@@ -51,8 +51,8 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 		super("memsave", Response.class, argument);
 	}
 
-	public MemsaveCommand(
-		long val, long size, java.lang.String filename, long cpuIndex			) {
+	/** Constructs a new MemsaveCommand. */
+	public MemsaveCommand(long val, long size, java.lang.String filename, long cpuIndex) {
 		this(new Arguments(val, size, filename, cpuIndex));
 	}
 }

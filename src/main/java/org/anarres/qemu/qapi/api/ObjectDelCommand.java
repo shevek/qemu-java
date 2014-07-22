@@ -39,8 +39,8 @@ public class ObjectDelCommand extends QApiCommand<ObjectDelCommand.Arguments, Ob
 		super("object-del", Response.class, argument);
 	}
 
-	public ObjectDelCommand(
-		java.lang.String id			) {
+	/** Constructs a new ObjectDelCommand. */
+	public ObjectDelCommand(java.lang.String id) {
 		this(new Arguments(id));
 	}
 }

@@ -39,8 +39,8 @@ public class BalloonCommand extends QApiCommand<BalloonCommand.Arguments, Balloo
 		super("balloon", Response.class, argument);
 	}
 
-	public BalloonCommand(
-		long value			) {
+	/** Constructs a new BalloonCommand. */
+	public BalloonCommand(long value) {
 		this(new Arguments(value));
 	}
 }

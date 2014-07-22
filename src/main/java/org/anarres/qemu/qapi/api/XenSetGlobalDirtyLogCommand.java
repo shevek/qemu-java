@@ -39,8 +39,8 @@ public class XenSetGlobalDirtyLogCommand extends QApiCommand<XenSetGlobalDirtyLo
 		super("xen-set-global-dirty-log", Response.class, argument);
 	}
 
-	public XenSetGlobalDirtyLogCommand(
-		boolean enable			) {
+	/** Constructs a new XenSetGlobalDirtyLogCommand. */
+	public XenSetGlobalDirtyLogCommand(boolean enable) {
 		this(new Arguments(enable));
 	}
 }

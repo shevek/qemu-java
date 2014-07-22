@@ -39,8 +39,8 @@ public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments
 		super("transaction", Response.class, argument);
 	}
 
-	public TransactionCommand(
-		List<TransactionAction> actions			) {
+	/** Constructs a new TransactionCommand. */
+	public TransactionCommand(List<TransactionAction> actions) {
 		this(new Arguments(actions));
 	}
 }

@@ -12,7 +12,6 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=SocketAddress, data={inet=InetSocketAddress, unix=UnixSocketAddress, fd=String}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=SocketAddress, data={inet=InetSocketAddress, unix=UnixSocketAddress, fd=String}, innerTypes=null, fields=null}
 public class SocketAddress extends QApiUnion {
 	@SerializedName("inet")
 	@Nonnull
@@ -23,6 +22,27 @@ public class SocketAddress extends QApiUnion {
 	@SerializedName("fd")
 	@Nonnull
 	public String fd;
+
+	@Nonnull
+	public static SocketAddress inet(InetSocketAddress inet) {
+		SocketAddress self = new SocketAddress();
+		self.inet = inet;
+		return self;
+	}
+
+	@Nonnull
+	public static SocketAddress unix(UnixSocketAddress unix) {
+		SocketAddress self = new SocketAddress();
+		self.unix = unix;
+		return self;
+	}
+
+	@Nonnull
+	public static SocketAddress fd(String fd) {
+		SocketAddress self = new SocketAddress();
+		self.fd = fd;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

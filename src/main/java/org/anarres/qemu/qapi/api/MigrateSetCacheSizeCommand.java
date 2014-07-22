@@ -39,8 +39,8 @@ public class MigrateSetCacheSizeCommand extends QApiCommand<MigrateSetCacheSizeC
 		super("migrate-set-cache-size", Response.class, argument);
 	}
 
-	public MigrateSetCacheSizeCommand(
-		long value			) {
+	/** Constructs a new MigrateSetCacheSizeCommand. */
+	public MigrateSetCacheSizeCommand(long value) {
 		this(new Arguments(value));
 	}
 }

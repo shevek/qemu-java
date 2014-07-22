@@ -39,8 +39,8 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 		super("device-list-properties", Response.class, argument);
 	}
 
-	public DeviceListPropertiesCommand(
-		java.lang.String typename			) {
+	/** Constructs a new DeviceListPropertiesCommand. */
+	public DeviceListPropertiesCommand(java.lang.String typename) {
 		this(new Arguments(typename));
 	}
 }

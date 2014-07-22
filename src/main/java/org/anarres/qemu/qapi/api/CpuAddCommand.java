@@ -39,8 +39,8 @@ public class CpuAddCommand extends QApiCommand<CpuAddCommand.Arguments, CpuAddCo
 		super("cpu-add", Response.class, argument);
 	}
 
-	public CpuAddCommand(
-		long id			) {
+	/** Constructs a new CpuAddCommand. */
+	public CpuAddCommand(long id) {
 		this(new Arguments(id));
 	}
 }

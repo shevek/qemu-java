@@ -39,8 +39,8 @@ public class MigrateSetDowntimeCommand extends QApiCommand<MigrateSetDowntimeCom
 		super("migrate_set_downtime", Response.class, argument);
 	}
 
-	public MigrateSetDowntimeCommand(
-		double value			) {
+	/** Constructs a new MigrateSetDowntimeCommand. */
+	public MigrateSetDowntimeCommand(double value) {
 		this(new Arguments(value));
 	}
 }

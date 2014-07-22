@@ -47,8 +47,8 @@ public class ChangeBackingFileCommand extends QApiCommand<ChangeBackingFileComma
 		super("change-backing-file", Response.class, argument);
 	}
 
-	public ChangeBackingFileCommand(
-		java.lang.String device, java.lang.String imageNodeName, java.lang.String backingFile			) {
+	/** Constructs a new ChangeBackingFileCommand. */
+	public ChangeBackingFileCommand(java.lang.String device, java.lang.String imageNodeName, java.lang.String backingFile) {
 		this(new Arguments(device, imageNodeName, backingFile));
 	}
 }

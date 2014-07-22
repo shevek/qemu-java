@@ -39,8 +39,8 @@ public class ClosefdCommand extends QApiCommand<ClosefdCommand.Arguments, Closef
 		super("closefd", Response.class, argument);
 	}
 
-	public ClosefdCommand(
-		java.lang.String fdname			) {
+	/** Constructs a new ClosefdCommand. */
+	public ClosefdCommand(java.lang.String fdname) {
 		this(new Arguments(fdname));
 	}
 }

@@ -39,8 +39,8 @@ public class BlockJobPauseCommand extends QApiCommand<BlockJobPauseCommand.Argum
 		super("block-job-pause", Response.class, argument);
 	}
 
-	public BlockJobPauseCommand(
-		java.lang.String device			) {
+	/** Constructs a new BlockJobPauseCommand. */
+	public BlockJobPauseCommand(java.lang.String device) {
 		this(new Arguments(device));
 	}
 }

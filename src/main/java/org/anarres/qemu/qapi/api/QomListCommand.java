@@ -39,8 +39,8 @@ public class QomListCommand extends QApiCommand<QomListCommand.Arguments, QomLis
 		super("qom-list", Response.class, argument);
 	}
 
-	public QomListCommand(
-		java.lang.String path			) {
+	/** Constructs a new QomListCommand. */
+	public QomListCommand(java.lang.String path) {
 		this(new Arguments(path));
 	}
 }

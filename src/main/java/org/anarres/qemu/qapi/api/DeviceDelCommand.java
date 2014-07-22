@@ -39,8 +39,8 @@ public class DeviceDelCommand extends QApiCommand<DeviceDelCommand.Arguments, De
 		super("device_del", Response.class, argument);
 	}
 
-	public DeviceDelCommand(
-		java.lang.String id			) {
+	/** Constructs a new DeviceDelCommand. */
+	public DeviceDelCommand(java.lang.String id) {
 		this(new Arguments(id));
 	}
 }

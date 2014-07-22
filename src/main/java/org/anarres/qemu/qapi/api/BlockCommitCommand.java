@@ -55,8 +55,8 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments
 		super("block-commit", Response.class, argument);
 	}
 
-	public BlockCommitCommand(
-		java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed			) {
+	/** Constructs a new BlockCommitCommand. */
+	public BlockCommitCommand(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed) {
 		this(new Arguments(device, base, top, backingFile, speed));
 	}
 }

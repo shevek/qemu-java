@@ -43,8 +43,8 @@ public class EjectCommand extends QApiCommand<EjectCommand.Arguments, EjectComma
 		super("eject", Response.class, argument);
 	}
 
-	public EjectCommand(
-		java.lang.String device, boolean force			) {
+	/** Constructs a new EjectCommand. */
+	public EjectCommand(java.lang.String device, boolean force) {
 		this(new Arguments(device, force));
 	}
 }

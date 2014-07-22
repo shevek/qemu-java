@@ -39,8 +39,8 @@ public class ChangeVncPasswordCommand extends QApiCommand<ChangeVncPasswordComma
 		super("change-vnc-password", Response.class, argument);
 	}
 
-	public ChangeVncPasswordCommand(
-		java.lang.String password			) {
+	/** Constructs a new ChangeVncPasswordCommand. */
+	public ChangeVncPasswordCommand(java.lang.String password) {
 		this(new Arguments(password));
 	}
 }

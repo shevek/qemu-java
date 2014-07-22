@@ -12,11 +12,17 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=TpmTypeOptions, data={passthrough=TPMPassthroughOptions}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=TpmTypeOptions, data={passthrough=TPMPassthroughOptions}, innerTypes=null, fields=null}
 public class TpmTypeOptions extends QApiUnion {
 	@SerializedName("passthrough")
 	@Nonnull
 	public TPMPassthroughOptions passthrough;
+
+	@Nonnull
+	public static TpmTypeOptions passthrough(TPMPassthroughOptions passthrough) {
+		TpmTypeOptions self = new TpmTypeOptions();
+		self.passthrough = passthrough;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

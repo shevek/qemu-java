@@ -47,8 +47,8 @@ public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments
 		super("ringbuf-read", Response.class, argument);
 	}
 
-	public RingbufReadCommand(
-		java.lang.String device, long size, DataFormat format			) {
+	/** Constructs a new RingbufReadCommand. */
+	public RingbufReadCommand(java.lang.String device, long size, DataFormat format) {
 		this(new Arguments(device, size, format));
 	}
 }

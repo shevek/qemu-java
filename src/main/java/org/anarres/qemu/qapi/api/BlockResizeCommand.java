@@ -47,8 +47,8 @@ public class BlockResizeCommand extends QApiCommand<BlockResizeCommand.Arguments
 		super("block_resize", Response.class, argument);
 	}
 
-	public BlockResizeCommand(
-		java.lang.String device, java.lang.String nodeName, long size			) {
+	/** Constructs a new BlockResizeCommand. */
+	public BlockResizeCommand(java.lang.String device, java.lang.String nodeName, long size) {
 		this(new Arguments(device, nodeName, size));
 	}
 }

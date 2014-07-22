@@ -43,8 +43,8 @@ public class BlockJobSetSpeedCommand extends QApiCommand<BlockJobSetSpeedCommand
 		super("block-job-set-speed", Response.class, argument);
 	}
 
-	public BlockJobSetSpeedCommand(
-		java.lang.String device, long speed			) {
+	/** Constructs a new BlockJobSetSpeedCommand. */
+	public BlockJobSetSpeedCommand(java.lang.String device, long speed) {
 		this(new Arguments(device, speed));
 	}
 }

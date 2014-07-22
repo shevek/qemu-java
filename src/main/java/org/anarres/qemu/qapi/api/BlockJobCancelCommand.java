@@ -43,8 +43,8 @@ public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arg
 		super("block-job-cancel", Response.class, argument);
 	}
 
-	public BlockJobCancelCommand(
-		java.lang.String device, boolean force			) {
+	/** Constructs a new BlockJobCancelCommand. */
+	public BlockJobCancelCommand(java.lang.String device, boolean force) {
 		this(new Arguments(device, force));
 	}
 }

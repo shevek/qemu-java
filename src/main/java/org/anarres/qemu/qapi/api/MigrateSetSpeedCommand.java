@@ -39,8 +39,8 @@ public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.A
 		super("migrate_set_speed", Response.class, argument);
 	}
 
-	public MigrateSetSpeedCommand(
-		long value			) {
+	/** Constructs a new MigrateSetSpeedCommand. */
+	public MigrateSetSpeedCommand(long value) {
 		this(new Arguments(value));
 	}
 }

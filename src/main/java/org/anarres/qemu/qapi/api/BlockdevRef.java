@@ -12,7 +12,6 @@ import org.anarres.qemu.qapi.common.*;
  *
  * <p><pre>QApiUnionDescriptor{name=BlockdevRef, data={definition=BlockdevOptions, reference=str}, innerTypes=null, fields=null}</pre></p>
  */
-// QApiUnionDescriptor{name=BlockdevRef, data={definition=BlockdevOptions, reference=str}, innerTypes=null, fields=null}
 public class BlockdevRef extends QApiUnion {
 	@SerializedName("definition")
 	@Nonnull
@@ -20,6 +19,20 @@ public class BlockdevRef extends QApiUnion {
 	@SerializedName("reference")
 	@Nonnull
 	public java.lang.String reference;
+
+	@Nonnull
+	public static BlockdevRef definition(BlockdevOptions definition) {
+		BlockdevRef self = new BlockdevRef();
+		self.definition = definition;
+		return self;
+	}
+
+	@Nonnull
+	public static BlockdevRef reference(java.lang.String reference) {
+		BlockdevRef self = new BlockdevRef();
+		self.reference = reference;
+		return self;
+	}
 
 	@Override
 	public boolean isUnion() {

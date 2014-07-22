@@ -39,8 +39,8 @@ public class BlockdevAddCommand extends QApiCommand<BlockdevAddCommand.Arguments
 		super("blockdev-add", Response.class, argument);
 	}
 
-	public BlockdevAddCommand(
-		BlockdevOptions options			) {
+	/** Constructs a new BlockdevAddCommand. */
+	public BlockdevAddCommand(BlockdevOptions options) {
 		this(new Arguments(options));
 	}
 }

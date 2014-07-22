@@ -39,8 +39,8 @@ public class ChardevRemoveCommand extends QApiCommand<ChardevRemoveCommand.Argum
 		super("chardev-remove", Response.class, argument);
 	}
 
-	public ChardevRemoveCommand(
-		java.lang.String id			) {
+	/** Constructs a new ChardevRemoveCommand. */
+	public ChardevRemoveCommand(java.lang.String id) {
 		this(new Arguments(id));
 	}
 }

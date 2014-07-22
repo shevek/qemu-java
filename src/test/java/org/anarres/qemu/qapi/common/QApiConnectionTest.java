@@ -7,11 +7,15 @@ package org.anarres.qemu.qapi.common;
 import java.net.InetSocketAddress;
 import org.anarres.qemu.qapi.api.DumpGuestMemoryCommand;
 import org.anarres.qemu.qapi.api.DumpGuestMemoryFormat;
+import org.anarres.qemu.qapi.api.MigrateCommand;
+import org.anarres.qemu.qapi.api.NbdServerAddCommand;
+import org.anarres.qemu.qapi.api.NbdServerStartCommand;
 import org.anarres.qemu.qapi.api.QueryChardevBackendsCommand;
 import org.anarres.qemu.qapi.api.QueryCpusCommand;
 import org.anarres.qemu.qapi.api.QueryDumpGuestMemoryCapabilityCommand;
 import org.anarres.qemu.qapi.api.QueryEventsCommand;
 import org.anarres.qemu.qapi.api.QueryMigrateCapabilitiesCommand;
+import org.anarres.qemu.qapi.api.SocketAddress;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -34,6 +38,7 @@ public class QApiConnectionTest {
         LOG.info("DumpMemory is " + connection.call(new QueryDumpGuestMemoryCapabilityCommand()));
         LOG.info("MigrateCapabilities is " + connection.call(new QueryMigrateCapabilitiesCommand()));
 
+        // new MigrateCommand(null);
         if (false) {
             DumpGuestMemoryCommand.Arguments arguments = new DumpGuestMemoryCommand.Arguments();
             arguments.format = DumpGuestMemoryFormat.kdump_snappy;
@@ -42,6 +47,9 @@ public class QApiConnectionTest {
             arguments.protocol = "foo";
             connection.call(new DumpGuestMemoryCommand(arguments));
         }
+
+        // connection.call(new NbdServerStartCommand(SocketAddress.inet(new InetSocketAddress("localhost", 4445))));
+        // connection.call(new NbdServerAddCommand("/dev/vda", false));
 
         connection.close();
     }

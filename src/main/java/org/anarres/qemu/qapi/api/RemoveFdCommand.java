@@ -43,8 +43,8 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, Remo
 		super("remove-fd", Response.class, argument);
 	}
 
-	public RemoveFdCommand(
-		long fdsetId, long fd			) {
+	/** Constructs a new RemoveFdCommand. */
+	public RemoveFdCommand(long fdsetId, long fd) {
 		this(new Arguments(fdsetId, fd));
 	}
 }

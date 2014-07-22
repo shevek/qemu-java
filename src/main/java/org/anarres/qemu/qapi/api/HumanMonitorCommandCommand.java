@@ -43,8 +43,8 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 		super("human-monitor-command", Response.class, argument);
 	}
 
-	public HumanMonitorCommandCommand(
-		java.lang.String commandLine, long cpuIndex			) {
+	/** Constructs a new HumanMonitorCommandCommand. */
+	public HumanMonitorCommandCommand(java.lang.String commandLine, long cpuIndex) {
 		this(new Arguments(commandLine, cpuIndex));
 	}
 }

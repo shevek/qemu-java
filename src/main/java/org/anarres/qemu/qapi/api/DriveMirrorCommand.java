@@ -83,8 +83,8 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 		super("drive-mirror", Response.class, argument);
 	}
 
-	public DriveMirrorCommand(
-		java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError			) {
+	/** Constructs a new DriveMirrorCommand. */
+	public DriveMirrorCommand(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
 		this(new Arguments(device, target, format, nodeName, replaces, sync, mode, speed, granularity, bufSize, onSourceError, onTargetError));
 	}
 }

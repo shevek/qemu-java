@@ -51,8 +51,8 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 		super("migrate", Response.class, argument);
 	}
 
-	public MigrateCommand(
-		java.lang.String uri, boolean blk, boolean inc, boolean detach			) {
+	/** Constructs a new MigrateCommand. */
+	public MigrateCommand(java.lang.String uri, boolean blk, boolean inc, boolean detach) {
 		this(new Arguments(uri, blk, inc, detach));
 	}
 }
