@@ -99,8 +99,8 @@
 <span class="sourceLineNo">091</span>                super("block_set_io_throttle", Response.class, argument);<a name="line.91"></a>
 <span class="sourceLineNo">092</span>        }<a name="line.92"></a>
 <span class="sourceLineNo">093</span><a name="line.93"></a>
-<span class="sourceLineNo">094</span>        public BlockSetIoThrottleCommand(<a name="line.94"></a>
-<span class="sourceLineNo">095</span>                java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize                  ) {<a name="line.95"></a>
+<span class="sourceLineNo">094</span>        /** Constructs a new BlockSetIoThrottleCommand. */<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        public BlockSetIoThrottleCommand(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {<a name="line.95"></a>
 <span class="sourceLineNo">096</span>                this(new Arguments(device, bps, bpsRd, bpsWr, iops, iopsRd, iopsWr, bpsMax, bpsRdMax, bpsWrMax, iopsMax, iopsRdMax, iopsWrMax, iopsSize));<a name="line.96"></a>
 <span class="sourceLineNo">097</span>        }<a name="line.97"></a>
 <span class="sourceLineNo">098</span>}<a name="line.98"></a>

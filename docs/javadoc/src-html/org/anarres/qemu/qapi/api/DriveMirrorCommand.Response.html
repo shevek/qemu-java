@@ -91,8 +91,8 @@
 <span class="sourceLineNo">083</span>                super("drive-mirror", Response.class, argument);<a name="line.83"></a>
 <span class="sourceLineNo">084</span>        }<a name="line.84"></a>
 <span class="sourceLineNo">085</span><a name="line.85"></a>
-<span class="sourceLineNo">086</span>        public DriveMirrorCommand(<a name="line.86"></a>
-<span class="sourceLineNo">087</span>                java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError                       ) {<a name="line.87"></a>
+<span class="sourceLineNo">086</span>        /** Constructs a new DriveMirrorCommand. */<a name="line.86"></a>
+<span class="sourceLineNo">087</span>        public DriveMirrorCommand(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {<a name="line.87"></a>
 <span class="sourceLineNo">088</span>                this(new Arguments(device, target, format, nodeName, replaces, sync, mode, speed, granularity, bufSize, onSourceError, onTargetError));<a name="line.88"></a>
 <span class="sourceLineNo">089</span>        }<a name="line.89"></a>
 <span class="sourceLineNo">090</span>}<a name="line.90"></a>
