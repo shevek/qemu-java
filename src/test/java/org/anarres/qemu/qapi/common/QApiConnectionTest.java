@@ -15,6 +15,7 @@ import org.anarres.qemu.qapi.api.QueryCpusCommand;
 import org.anarres.qemu.qapi.api.QueryDumpGuestMemoryCapabilityCommand;
 import org.anarres.qemu.qapi.api.QueryEventsCommand;
 import org.anarres.qemu.qapi.api.QueryMigrateCapabilitiesCommand;
+import org.anarres.qemu.qapi.api.QueryStatusCommand;
 import org.anarres.qemu.qapi.api.SocketAddress;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -32,6 +33,7 @@ public class QApiConnectionTest {
     public void testConnection() throws Exception {
         QApiConnection connection = new QApiConnection(new InetSocketAddress("localhost", 4444));
         LOG.info("Greeting is " + connection.getGreeting());
+        LOG.info("Status is " + connection.call(new QueryStatusCommand()));
         LOG.info("CPUs are " + connection.call(new QueryCpusCommand()));
         LOG.info("Chardevs are " + connection.call(new QueryChardevBackendsCommand()));
         LOG.info("Events are " + connection.call(new QueryEventsCommand()));
