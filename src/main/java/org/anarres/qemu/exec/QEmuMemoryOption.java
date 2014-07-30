@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.exec;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -38,13 +39,31 @@ public class QEmuMemoryOption extends AbstractQEmuOption {
     }
     // private final String host;
     private final long size;
+    private File path;
+    private boolean prealloc;
 
     public QEmuMemoryOption(long size, @Nonnull Magnitude magnitude) {
         this.size = magnitude.toUnit(size);
     }
 
+    @Nonnull
+    public QEmuMemoryOption withPath(File path) {
+        this.path = path;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuMemoryOption withPrealloc(boolean prealloc) {
+        this.prealloc = prealloc;
+        return this;
+    }
+
     @Override
     public void appendTo(List<? super String> line) {
         line.addAll(Arrays.asList("-m", String.valueOf(size)));
+        if (path != null)
+            line.addAll(Arrays.asList("-mem-path", path.getAbsolutePath()));
+        if (prealloc)
+            line.add("-mem-prealloc");
     }
 }

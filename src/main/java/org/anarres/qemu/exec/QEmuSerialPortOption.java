@@ -11,16 +11,16 @@ import org.anarres.qemu.exec.dev.HostDevice;
  *
  * @author shevek
  */
-public class QEmuQMPOption extends AbstractQEmuOption {
+public class QEmuSerialPortOption extends AbstractQEmuOption {
 
     private final HostDevice device;
 
-    public QEmuQMPOption(HostDevice device) {
+    public QEmuSerialPortOption(HostDevice device) {
         this.device = device;
     }
 
     @Override
     public void appendTo(List<? super String> line) {
-        add(line, "-qmp", device);
+        add(line, "-serial", device);
     }
 }

@@ -5,22 +5,22 @@
 package org.anarres.qemu.exec;
 
 import java.util.List;
-import org.anarres.qemu.exec.dev.HostDevice;
+import javax.annotation.Nonnull;
 
 /**
  *
  * @author shevek
  */
-public class QEmuQMPOption extends AbstractQEmuOption {
+public class QEmuUserOption extends AbstractQEmuOption {
 
-    private final HostDevice device;
+    private final List<? extends String> words;
 
-    public QEmuQMPOption(HostDevice device) {
-        this.device = device;
+    public QEmuUserOption(@Nonnull List<? extends String> words) {
+        this.words = words;
     }
 
     @Override
     public void appendTo(List<? super String> line) {
-        add(line, "-qmp", device);
+        line.addAll(words);
     }
 }

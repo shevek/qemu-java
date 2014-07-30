@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.disk.Disk;
+import org.anarres.qemu.exec.disk.FileDisk;
 
 /**
  *
@@ -61,7 +63,7 @@ public class QEmuDriveOption extends AbstractQEmuOption {
 
         off, on
     }
-    public File file;
+    public Disk disk;
     // bus, unit
     public int index;
     public Interface iface;
@@ -77,9 +79,13 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     public QEmuDriveOption() {
     }
 
-    public QEmuDriveOption(int index, File file) {
-        this.file = file;
+    public QEmuDriveOption(int index, Disk disk) {
+        this.disk = disk;
         this.index = index;
+    }
+
+    public QEmuDriveOption(int index, File file) {
+        this(index, new FileDisk(file));
     }
 
     public QEmuDriveOption(int index, String file) {
@@ -87,9 +93,14 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     }
 
     @Nonnull
-    public QEmuDriveOption withFile(@Nonnull File file) {
-        this.file = file;
+    public QEmuDriveOption withDisk(@Nonnull Disk disk) {
+        this.disk = disk;
         return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withFile(@Nonnull File file) {
+        return withDisk(new FileDisk(file));
     }
 
     @Nonnull
@@ -99,15 +110,63 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     }
 
     @Nonnull
-    public QEmuDriveOption withInterface(@Nonnegative Interface iface) {
+    public QEmuDriveOption withInterface(@Nonnull Interface iface) {
         this.iface = iface;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withMedia(@Nonnull Media media) {
+        this.media = media;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withCache(@Nonnull Cache cache) {
+        this.cache = cache;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withAio(@Nonnull Aio aio) {
+        this.aio = aio;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withDiscard(@Nonnull Discard discard) {
+        this.discard = discard;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withWriteErrorAction(@Nonnull ErrorAction action) {
+        this.werror = action;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withReadErrorAction(@Nonnull ErrorAction action) {
+        this.rerror = action;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withReadOnly(boolean readonly) {
+        this.readonly = readonly;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withCopyOnRead(@Nonnull CopyOnRead copyOnRead) {
+        this.copyOnRead = copyOnRead;
         return this;
     }
 
     @Override
     public void appendTo(List<? super String> line) {
         StringBuilder buf = new StringBuilder();
-        appendTo(buf, "file", file);
+        appendTo(buf, "file", disk);
         appendTo(buf, "index", index);
         appendTo(buf, "if", iface);
         appendTo(buf, "media", media);
