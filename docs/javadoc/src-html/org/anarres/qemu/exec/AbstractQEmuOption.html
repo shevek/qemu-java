@@ -12,22 +12,37 @@
 <span class="sourceLineNo">004</span> */<a name="line.4"></a>
 <span class="sourceLineNo">005</span>package org.anarres.qemu.exec;<a name="line.5"></a>
 <span class="sourceLineNo">006</span><a name="line.6"></a>
-<span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
-<span class="sourceLineNo">008</span><a name="line.8"></a>
-<span class="sourceLineNo">009</span>/**<a name="line.9"></a>
-<span class="sourceLineNo">010</span> *<a name="line.10"></a>
-<span class="sourceLineNo">011</span> * @author shevek<a name="line.11"></a>
-<span class="sourceLineNo">012</span> */<a name="line.12"></a>
-<span class="sourceLineNo">013</span>public abstract class AbstractQEmuOption implements QEmuOption {<a name="line.13"></a>
-<span class="sourceLineNo">014</span><a name="line.14"></a>
-<span class="sourceLineNo">015</span>    protected static void appendTo(@Nonnull StringBuilder buf, String key, Object value) {<a name="line.15"></a>
-<span class="sourceLineNo">016</span>        if (value == null)<a name="line.16"></a>
-<span class="sourceLineNo">017</span>            return;<a name="line.17"></a>
-<span class="sourceLineNo">018</span>        if (buf.length() &gt; 0)<a name="line.18"></a>
-<span class="sourceLineNo">019</span>            buf.append(",");<a name="line.19"></a>
-<span class="sourceLineNo">020</span>        buf.append(key).append("=").append(value);<a name="line.20"></a>
-<span class="sourceLineNo">021</span>    }<a name="line.21"></a>
-<span class="sourceLineNo">022</span>}<a name="line.22"></a>
+<span class="sourceLineNo">007</span>import java.util.List;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import java.util.Map;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import javax.annotation.CheckForNull;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import javax.annotation.Nonnull;<a name="line.10"></a>
+<span class="sourceLineNo">011</span><a name="line.11"></a>
+<span class="sourceLineNo">012</span>/**<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * @author shevek<a name="line.14"></a>
+<span class="sourceLineNo">015</span> */<a name="line.15"></a>
+<span class="sourceLineNo">016</span>public abstract class AbstractQEmuOption implements QEmuOption {<a name="line.16"></a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span>    protected static void appendTo(@Nonnull StringBuilder buf, @Nonnull String key, @CheckForNull Object value) {<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        if (value == null)<a name="line.19"></a>
+<span class="sourceLineNo">020</span>            return;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        if (buf.length() &gt; 0)<a name="line.21"></a>
+<span class="sourceLineNo">022</span>            buf.append(",");<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        buf.append(key).append("=").append(value);<a name="line.23"></a>
+<span class="sourceLineNo">024</span>    }<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>    /** Allows use of ImmutableMap.of() patterns. */<a name="line.26"></a>
+<span class="sourceLineNo">027</span>    protected static void appendTo(@Nonnull StringBuilder buf, @Nonnull Map&lt;? extends String, ? extends Object&gt; values) {<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        for (Map.Entry&lt;? extends String, ? extends Object&gt; e : values.entrySet()) {<a name="line.28"></a>
+<span class="sourceLineNo">029</span>            appendTo(buf, e.getKey(), e.getValue());<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        }<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    }<a name="line.31"></a>
+<span class="sourceLineNo">032</span><a name="line.32"></a>
+<span class="sourceLineNo">033</span>    protected static void add(@Nonnull List&lt;? super String&gt; line, @Nonnull Object... words) {<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        for (Object word : words)<a name="line.34"></a>
+<span class="sourceLineNo">035</span>            line.add(word.toString());  // Deliberate NPE if word is null.<a name="line.35"></a>
+<span class="sourceLineNo">036</span>    }<a name="line.36"></a>
+<span class="sourceLineNo">037</span>}<a name="line.37"></a>
 
 
 

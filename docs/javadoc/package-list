@@ -1,3 +1,5 @@
 org.anarres.qemu.exec
+org.anarres.qemu.exec.dev
+org.anarres.qemu.exec.disk
 org.anarres.qemu.qapi.api
 org.anarres.qemu.qapi.common
