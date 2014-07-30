@@ -179,6 +179,6 @@ public class QEmuDriveOption extends AbstractQEmuOption {
             buf.append("readonly");
         appendTo(buf, "copy-on-read", copyOnRead);
 
-        line.addAll(Arrays.asList("-drive", buf.toString()));
+        add(line, "-drive", buf.toString());
     }
 }

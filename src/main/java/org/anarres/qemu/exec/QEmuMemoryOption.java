@@ -5,7 +5,6 @@
 package org.anarres.qemu.exec;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnull;
 
@@ -60,10 +59,10 @@ public class QEmuMemoryOption extends AbstractQEmuOption {
 
     @Override
     public void appendTo(List<? super String> line) {
-        line.addAll(Arrays.asList("-m", String.valueOf(size)));
+        add(line, "-m", String.valueOf(size));
         if (path != null)
-            line.addAll(Arrays.asList("-mem-path", path.getAbsolutePath()));
+            add(line, "-mem-path", path.getAbsolutePath());
         if (prealloc)
-            line.add("-mem-prealloc");
+            add(line, "-mem-prealloc");
     }
 }

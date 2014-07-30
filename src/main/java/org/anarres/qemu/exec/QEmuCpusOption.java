@@ -57,7 +57,7 @@ public class QEmuCpusOption extends AbstractQEmuOption {
     @Override
     public void appendTo(List<? super String> line) {
         if (model != null)
-            add(line, "-cpus", model);
+            add(line, "-cpu", model);
         StringBuilder smp = new StringBuilder();
         appendTo(smp, "cpus", cpus);
         appendTo(smp, "cores", cores);

@@ -11,11 +11,11 @@ import javax.annotation.Nonnull;
  *
  * @author shevek
  */
-public class QEmuUserOption extends AbstractQEmuOption {
+public class QEmuCustomOption extends AbstractQEmuOption {
 
     private final List<? extends String> words;
 
-    public QEmuUserOption(@Nonnull List<? extends String> words) {
+    public QEmuCustomOption(@Nonnull List<? extends String> words) {
         this.words = words;
     }
 

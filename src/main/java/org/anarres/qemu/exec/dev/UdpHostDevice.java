@@ -27,7 +27,7 @@ public class UdpHostDevice extends AbstractHostDevice {
     }
 
     @Nonnull
-    /* pp */ static String toHostString(@Nonnull InetSocketAddress address) {
+    public static String toHostString(@Nonnull InetSocketAddress address) {
         String text = address.getHostString();
         if (text != null)
             return text;

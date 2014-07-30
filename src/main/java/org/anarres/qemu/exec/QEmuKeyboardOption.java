@@ -4,7 +4,6 @@
  */
 package org.anarres.qemu.exec;
 
-import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnull;
 
@@ -73,6 +72,6 @@ public class QEmuKeyboardOption extends AbstractQEmuOption {
 
     @Override
     public void appendTo(List<? super String> line) {
-        line.addAll(Arrays.asList("-k", layout.getLayoutName()));
+        add(line, "-k", layout.getLayoutName());
     }
 }
