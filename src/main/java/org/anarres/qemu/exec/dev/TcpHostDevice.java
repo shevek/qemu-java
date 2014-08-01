@@ -5,6 +5,7 @@
 package org.anarres.qemu.exec.dev;
 
 import java.net.InetSocketAddress;
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -17,7 +18,7 @@ public class TcpHostDevice extends AbstractHostDevice {
     private boolean nowait;
     private boolean nodelay;
 
-    public TcpHostDevice(InetSocketAddress address, boolean server, boolean nowait, boolean nodelay) {
+    public TcpHostDevice(@Nonnull InetSocketAddress address, boolean server, boolean nowait, boolean nodelay) {
         this.address = address;
         this.server = server;
         this.nowait = nowait;
@@ -30,6 +31,17 @@ public class TcpHostDevice extends AbstractHostDevice {
 
     public TcpHostDevice(int port) {
         this(new InetSocketAddress(port), false, false, false);
+    }
+
+    @Nonnull
+    public InetSocketAddress getAddress() {
+        return address;
+    }
+
+    @Nonnull
+    public TcpHostDevice withServer(boolean server) {
+        this.server = server;
+        return this;
     }
 
     protected String getProtocol() {

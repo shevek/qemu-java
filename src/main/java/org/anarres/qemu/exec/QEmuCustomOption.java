@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.exec;
 
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnull;
 
@@ -17,6 +18,10 @@ public class QEmuCustomOption extends AbstractQEmuOption {
 
     public QEmuCustomOption(@Nonnull List<? extends String> words) {
         this.words = words;
+    }
+
+    public QEmuCustomOption(@Nonnull String... words) {
+        this(Arrays.asList(words));
     }
 
     @Override

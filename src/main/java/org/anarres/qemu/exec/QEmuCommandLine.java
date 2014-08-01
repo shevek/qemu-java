@@ -7,6 +7,7 @@ package org.anarres.qemu.exec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 /**
@@ -29,6 +30,28 @@ public class QEmuCommandLine {
 
     public void setArchitecture(@Nonnull QEmuArchitecture architecture) {
         this.architecture = architecture;
+    }
+
+    @Nonnull
+    public List<? extends QEmuOption> getOptions() {
+        return options;
+    }
+
+    @Nonnull
+    public <T extends QEmuOption> List<? extends T> getOptions(@Nonnull Class<T> type) {
+        List<T> out = new ArrayList<T>();
+        for (QEmuOption option : getOptions())
+            if (type.isInstance(option))
+                out.add(type.cast(option));
+        return out;
+    }
+
+    @CheckForNull
+    public <T extends QEmuOption> T getOption(@Nonnull Class<T> type) {
+        for (QEmuOption option : getOptions())
+            if (type.isInstance(option))
+                return type.cast(option);
+        return null;
     }
 
     public void addOptions(@Nonnull Iterable<? extends QEmuOption> options) {

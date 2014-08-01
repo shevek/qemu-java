@@ -18,7 +18,7 @@ public class QEmuKernelOption extends AbstractQEmuOption {
     private File initrd;
     private String append;
 
-    public QEmuKernelOption(File kernel) {
+    public QEmuKernelOption(@Nonnull File kernel) {
         this.kernel = kernel;
     }
 

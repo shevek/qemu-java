@@ -26,6 +26,11 @@ public class QEmuIdOption extends AbstractQEmuOption {
         this.name = name;
     }
 
+    @CheckForNull
+    public UUID getUuid() {
+        return uuid;
+    }
+
     @Nonnull
     public QEmuIdOption withUuid(@Nonnull UUID uuid) {
         this.uuid = uuid;
