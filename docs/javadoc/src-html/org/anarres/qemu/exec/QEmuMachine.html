@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * To change this template, choose Tools | Templates<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * and open the template in the editor.<a name="line.3"></a>
+<span class="sourceLineNo">004</span> */<a name="line.4"></a>
+<span class="sourceLineNo">005</span>package org.anarres.qemu.exec;<a name="line.5"></a>
+<span class="sourceLineNo">006</span><a name="line.6"></a>
+<span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
+<span class="sourceLineNo">008</span><a name="line.8"></a>
+<span class="sourceLineNo">009</span>/**<a name="line.9"></a>
+<span class="sourceLineNo">010</span> * A QEmu Machine.<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * <a name="line.11"></a>
+<span class="sourceLineNo">012</span> * If your machine isn't present, you may use a {@link QEmuCustomOption} instead.<a name="line.12"></a>
+<span class="sourceLineNo">013</span> *<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * @author shevek<a name="line.14"></a>
+<span class="sourceLineNo">015</span> */<a name="line.15"></a>
+<span class="sourceLineNo">016</span>public enum QEmuMachine {<a name="line.16"></a>
+<span class="sourceLineNo">017</span><a name="line.17"></a>
+<span class="sourceLineNo">018</span>    akita("akita"),<a name="line.18"></a>
+<span class="sourceLineNo">019</span>    an5206("an5206"),<a name="line.19"></a>
+<span class="sourceLineNo">020</span>    axis_dev88("axis-dev88"),<a name="line.20"></a>
+<span class="sourceLineNo">021</span>    bamboo("bamboo"),<a name="line.21"></a>
+<span class="sourceLineNo">022</span>    borzoi("borzoi"),<a name="line.22"></a>
+<span class="sourceLineNo">023</span>    canon_a1100("canon-a1100"),<a name="line.23"></a>
+<span class="sourceLineNo">024</span>    cheetah("cheetah"),<a name="line.24"></a>
+<span class="sourceLineNo">025</span>    clipper("clipper"),<a name="line.25"></a>
+<span class="sourceLineNo">026</span>    collie("collie"),<a name="line.26"></a>
+<span class="sourceLineNo">027</span>    connex("connex"),<a name="line.27"></a>
+<span class="sourceLineNo">028</span>    cubieboard("cubieboard"),<a name="line.28"></a>
+<span class="sourceLineNo">029</span>    dummy("dummy"),<a name="line.29"></a>
+<span class="sourceLineNo">030</span>    fulong2e("fulong2e"),<a name="line.30"></a>
+<span class="sourceLineNo">031</span>    g3beige("g3beige"),<a name="line.31"></a>
+<span class="sourceLineNo">032</span>    highbank("highbank"),<a name="line.32"></a>
+<span class="sourceLineNo">033</span>    integratorcp("integratorcp"),<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    isapc("isapc"),<a name="line.34"></a>
+<span class="sourceLineNo">035</span>    kc705("kc705"),<a name="line.35"></a>
+<span class="sourceLineNo">036</span>    kzm("kzm"),<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    leon3_generic("leon3_generic"),<a name="line.37"></a>
+<span class="sourceLineNo">038</span>    lm32_evr("lm32-evr"),<a name="line.38"></a>
+<span class="sourceLineNo">039</span>    lm32_uclinux("lm32-uclinux"),<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    lm3s6965evb("lm3s6965evb"),<a name="line.40"></a>
+<span class="sourceLineNo">041</span>    lm3s811evb("lm3s811evb"),<a name="line.41"></a>
+<span class="sourceLineNo">042</span>    LX("LX"),<a name="line.42"></a>
+<span class="sourceLineNo">043</span>    lx200("lx200"),<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    lx60("lx60"),<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    mac99("mac99"),<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    magnum("magnum"),<a name="line.46"></a>
+<span class="sourceLineNo">047</span>    mainstone("mainstone"),<a name="line.47"></a>
+<span class="sourceLineNo">048</span>    malta("malta"),<a name="line.48"></a>
+<span class="sourceLineNo">049</span>    mcf5208evb("mcf5208evb"),<a name="line.49"></a>
+<span class="sourceLineNo">050</span>    midway("midway"),<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    milkymist("milkymist"),<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    mips("mips"),<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    mipssim("mipssim"),<a name="line.53"></a>
+<span class="sourceLineNo">054</span>    ml605("ml605"),<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    moxiesim("moxiesim"),<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    mpc8544ds("mpc8544ds"),<a name="line.56"></a>
+<span class="sourceLineNo">057</span>    musicpal("musicpal"),<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    n800("n800"),<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    n810("n810"),<a name="line.59"></a>
+<span class="sourceLineNo">060</span>    Niagara("Niagara"),<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    none("none"),<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    nuri("nuri"),<a name="line.62"></a>
+<span class="sourceLineNo">063</span>    or32_sim("or32-sim"),<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    pc("pc"),<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    pc_0_10("pc-0.10"),<a name="line.65"></a>
+<span class="sourceLineNo">066</span>    pc_0_11("pc-0.11"),<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    pc_0_12("pc-0.12"),<a name="line.67"></a>
+<span class="sourceLineNo">068</span>    pc_0_13("pc-0.13"),<a name="line.68"></a>
+<span class="sourceLineNo">069</span>    pc_0_14("pc-0.14"),<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    pc_0_15("pc-0.15"),<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    pc_1_0("pc-1.0"),<a name="line.71"></a>
+<span class="sourceLineNo">072</span>    pc_1_1("pc-1.1"),<a name="line.72"></a>
+<span class="sourceLineNo">073</span>    pc_1_2("pc-1.2"),<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    pc_1_3("pc-1.3"),<a name="line.74"></a>
+<span class="sourceLineNo">075</span>    pc_i440fx_1_4("pc-i440fx-1.4"),<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    pc_i440fx_1_5("pc-i440fx-1.5"),<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    pc_i440fx_1_6("pc-i440fx-1.6"),<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    pc_i440fx_1_7("pc-i440fx-1.7"),<a name="line.78"></a>
+<span class="sourceLineNo">079</span>    pc_i440fx_2_0("pc-i440fx-2.0"),<a name="line.79"></a>
+<span class="sourceLineNo">080</span>    pc_i440fx_trusty("pc-i440fx-trusty"),<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    pc_q35_1_4("pc-q35-1.4"),<a name="line.81"></a>
+<span class="sourceLineNo">082</span>    pc_q35_1_5("pc-q35-1.5"),<a name="line.82"></a>
+<span class="sourceLineNo">083</span>    pc_q35_1_6("pc-q35-1.6"),<a name="line.83"></a>
+<span class="sourceLineNo">084</span>    pc_q35_1_7("pc-q35-1.7"),<a name="line.84"></a>
+<span class="sourceLineNo">085</span>    pc_q35_2_0("pc-q35-2.0"),<a name="line.85"></a>
+<span class="sourceLineNo">086</span>    petalogix_ml605("petalogix-ml605"),<a name="line.86"></a>
+<span class="sourceLineNo">087</span>    petalogix_s3adsp1800("petalogix-s3adsp1800"),<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    pica61("pica61"),<a name="line.88"></a>
+<span class="sourceLineNo">089</span>    ppce500("ppce500"),<a name="line.89"></a>
+<span class="sourceLineNo">090</span>    prep("prep"),<a name="line.90"></a>
+<span class="sourceLineNo">091</span>    pseries("pseries"),<a name="line.91"></a>
+<span class="sourceLineNo">092</span>    puv3("puv3"),<a name="line.92"></a>
+<span class="sourceLineNo">093</span>    q35("q35"),<a name="line.93"></a>
+<span class="sourceLineNo">094</span>    r2d("r2d"),<a name="line.94"></a>
+<span class="sourceLineNo">095</span>    realview_eb("realview-eb"),<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    realview_eb_mpcore("realview-eb-mpcore"),<a name="line.96"></a>
+<span class="sourceLineNo">097</span>    realview_pb_a8("realview-pb-a8"),<a name="line.97"></a>
+<span class="sourceLineNo">098</span>    realview_pbx_a9("realview-pbx-a9"),<a name="line.98"></a>
+<span class="sourceLineNo">099</span>    ref405ep("ref405ep"),<a name="line.99"></a>
+<span class="sourceLineNo">100</span>    s390("s390"),<a name="line.100"></a>
+<span class="sourceLineNo">101</span>    s390_ccw("s390-ccw"),<a name="line.101"></a>
+<span class="sourceLineNo">102</span>    s390_ccw_virtio("s390-ccw-virtio"),<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    s390_virtio("s390-virtio"),<a name="line.103"></a>
+<span class="sourceLineNo">104</span>    shix("shix"),<a name="line.104"></a>
+<span class="sourceLineNo">105</span>    sim("sim"),<a name="line.105"></a>
+<span class="sourceLineNo">106</span>    smdkc210("smdkc210"),<a name="line.106"></a>
+<span class="sourceLineNo">107</span>    SPARCbook("SPARCbook"),<a name="line.107"></a>
+<span class="sourceLineNo">108</span>    SPARCClassic("SPARCClassic"),<a name="line.108"></a>
+<span class="sourceLineNo">109</span>    spitz("spitz"),<a name="line.109"></a>
+<span class="sourceLineNo">110</span>    SS_10("SS-10"),<a name="line.110"></a>
+<span class="sourceLineNo">111</span>    SS_20("SS-20"),<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    SS_4("SS-4"),<a name="line.112"></a>
+<span class="sourceLineNo">113</span>    SS_5("SS-5"),<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    SS_600MP("SS-600MP"),<a name="line.114"></a>
+<span class="sourceLineNo">115</span>    sun4u("sun4u"),<a name="line.115"></a>
+<span class="sourceLineNo">116</span>    sun4v("sun4v"),<a name="line.116"></a>
+<span class="sourceLineNo">117</span>    sx1("sx1"),<a name="line.117"></a>
+<span class="sourceLineNo">118</span>    sx1_v1("sx1-v1"),<a name="line.118"></a>
+<span class="sourceLineNo">119</span>    taihu("taihu"),<a name="line.119"></a>
+<span class="sourceLineNo">120</span>    terrier("terrier"),<a name="line.120"></a>
+<span class="sourceLineNo">121</span>    tosa("tosa"),<a name="line.121"></a>
+<span class="sourceLineNo">122</span>    verdex("verdex"),<a name="line.122"></a>
+<span class="sourceLineNo">123</span>    versatileab("versatileab"),<a name="line.123"></a>
+<span class="sourceLineNo">124</span>    versatilepb("versatilepb"),<a name="line.124"></a>
+<span class="sourceLineNo">125</span>    vexpress_a15("vexpress-a15"),<a name="line.125"></a>
+<span class="sourceLineNo">126</span>    vexpress_a9("vexpress-a9"),<a name="line.126"></a>
+<span class="sourceLineNo">127</span>    virt("virt"),<a name="line.127"></a>
+<span class="sourceLineNo">128</span>    virtex_ml507("virtex-ml507"),<a name="line.128"></a>
+<span class="sourceLineNo">129</span>    Voyager("Voyager"),<a name="line.129"></a>
+<span class="sourceLineNo">130</span>    xenfv("xenfv"),<a name="line.130"></a>
+<span class="sourceLineNo">131</span>    xenpv("xenpv"),<a name="line.131"></a>
+<span class="sourceLineNo">132</span>    xilinx_zynq_a9("xilinx-zynq-a9"),<a name="line.132"></a>
+<span class="sourceLineNo">133</span>    z2("z2");<a name="line.133"></a>
+<span class="sourceLineNo">134</span>    private String text;<a name="line.134"></a>
+<span class="sourceLineNo">135</span><a name="line.135"></a>
+<span class="sourceLineNo">136</span>    private QEmuMachine(@Nonnull String text) {<a name="line.136"></a>
+<span class="sourceLineNo">137</span>        this.text = text;<a name="line.137"></a>
+<span class="sourceLineNo">138</span>    }<a name="line.138"></a>
+<span class="sourceLineNo">139</span><a name="line.139"></a>
+<span class="sourceLineNo">140</span>    @Override<a name="line.140"></a>
+<span class="sourceLineNo">141</span>    public String toString() {<a name="line.141"></a>
+<span class="sourceLineNo">142</span>        return text;<a name="line.142"></a>
+<span class="sourceLineNo">143</span>    }<a name="line.143"></a>
+<span class="sourceLineNo">144</span>}<a name="line.144"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

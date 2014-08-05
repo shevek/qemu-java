@@ -8,9 +8,9 @@
 <div class="sourceContainer">
 <pre><span class="sourceLineNo">001</span>package org.anarres.qemu.qapi.api;<a name="line.1"></a>
 <span class="sourceLineNo">002</span><a name="line.2"></a>
-<span class="sourceLineNo">003</span>import com.google.gson.annotations.SerializedName;<a name="line.3"></a>
-<span class="sourceLineNo">004</span>import java.util.List;<a name="line.4"></a>
-<span class="sourceLineNo">005</span>import java.util.Map;<a name="line.5"></a>
+<span class="sourceLineNo">003</span>import com.fasterxml.jackson.annotation.JsonInclude;<a name="line.3"></a>
+<span class="sourceLineNo">004</span>import com.fasterxml.jackson.annotation.JsonProperty;<a name="line.4"></a>
+<span class="sourceLineNo">005</span>import com.fasterxml.jackson.annotation.JsonUnwrapped;<a name="line.5"></a>
 <span class="sourceLineNo">006</span>import javax.annotation.CheckForNull;<a name="line.6"></a>
 <span class="sourceLineNo">007</span>import javax.annotation.Nonnull;<a name="line.7"></a>
 <span class="sourceLineNo">008</span>import org.anarres.qemu.qapi.common.*;<a name="line.8"></a>
@@ -21,23 +21,36 @@
 <span class="sourceLineNo">013</span> * &lt;p&gt;&lt;pre&gt;QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null}&lt;/pre&gt;&lt;/p&gt;<a name="line.13"></a>
 <span class="sourceLineNo">014</span> */<a name="line.14"></a>
 <span class="sourceLineNo">015</span>// QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null}<a name="line.15"></a>
-<span class="sourceLineNo">016</span>public class BlockDirtyInfo extends QApiType {<a name="line.16"></a>
-<span class="sourceLineNo">017</span><a name="line.17"></a>
-<span class="sourceLineNo">018</span>        @SerializedName("count")<a name="line.18"></a>
-<span class="sourceLineNo">019</span>        @Nonnull<a name="line.19"></a>
-<span class="sourceLineNo">020</span>        public long count;<a name="line.20"></a>
-<span class="sourceLineNo">021</span>        @SerializedName("granularity")<a name="line.21"></a>
-<span class="sourceLineNo">022</span>        @Nonnull<a name="line.22"></a>
-<span class="sourceLineNo">023</span>        public long granularity;<a name="line.23"></a>
-<span class="sourceLineNo">024</span><a name="line.24"></a>
-<span class="sourceLineNo">025</span>        public BlockDirtyInfo() {<a name="line.25"></a>
-<span class="sourceLineNo">026</span>        }<a name="line.26"></a>
-<span class="sourceLineNo">027</span><a name="line.27"></a>
-<span class="sourceLineNo">028</span>        public BlockDirtyInfo(long count, long granularity) {<a name="line.28"></a>
-<span class="sourceLineNo">029</span>                this.count = count;<a name="line.29"></a>
-<span class="sourceLineNo">030</span>                this.granularity = granularity;<a name="line.30"></a>
-<span class="sourceLineNo">031</span>        }<a name="line.31"></a>
-<span class="sourceLineNo">032</span>}<a name="line.32"></a>
+<span class="sourceLineNo">016</span>@JsonInclude(JsonInclude.Include.NON_EMPTY)<a name="line.16"></a>
+<span class="sourceLineNo">017</span>public class BlockDirtyInfo extends QApiType {<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>        @JsonProperty("count")<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        @Nonnull<a name="line.20"></a>
+<span class="sourceLineNo">021</span>        public long count;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>        @JsonProperty("granularity")<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        @Nonnull<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        public long granularity;<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>        @Nonnull<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        public BlockDirtyInfo withCount(long value) {<a name="line.27"></a>
+<span class="sourceLineNo">028</span>                this.count = value;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>                return this;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        }<a name="line.30"></a>
+<span class="sourceLineNo">031</span><a name="line.31"></a>
+<span class="sourceLineNo">032</span>        @Nonnull<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        public BlockDirtyInfo withGranularity(long value) {<a name="line.33"></a>
+<span class="sourceLineNo">034</span>                this.granularity = value;<a name="line.34"></a>
+<span class="sourceLineNo">035</span>                return this;<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        }<a name="line.36"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>        public BlockDirtyInfo() {<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        }<a name="line.39"></a>
+<span class="sourceLineNo">040</span><a name="line.40"></a>
+<span class="sourceLineNo">041</span>        public BlockDirtyInfo(long count, long granularity) {<a name="line.41"></a>
+<span class="sourceLineNo">042</span>                this.count = count;<a name="line.42"></a>
+<span class="sourceLineNo">043</span>                this.granularity = granularity;<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        }<a name="line.44"></a>
+<span class="sourceLineNo">045</span>}<a name="line.45"></a>
 
 
 
