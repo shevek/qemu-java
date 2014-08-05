@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,28 +13,59 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevSocket, data={addr=SocketAddress, *server=bool, *wait=bool, *nodelay=bool, *telnet=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevSocket, data={addr=SocketAddress, *server=bool, *wait=bool, *nodelay=bool, *telnet=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevSocket extends QApiType {
 
-	@SerializedName("addr")
+	@JsonProperty("addr")
 	@Nonnull
 	public SocketAddress addr;
-	@SerializedName("server")
+	@JsonProperty("server")
 	@CheckForNull
-	public boolean server;
-	@SerializedName("wait")
+	public java.lang.Boolean server;
+	@JsonProperty("wait")
 	@CheckForNull
-	public boolean wait;
-	@SerializedName("nodelay")
+	public java.lang.Boolean wait;
+	@JsonProperty("nodelay")
 	@CheckForNull
-	public boolean nodelay;
-	@SerializedName("telnet")
+	public java.lang.Boolean nodelay;
+	@JsonProperty("telnet")
 	@CheckForNull
-	public boolean telnet;
+	public java.lang.Boolean telnet;
+
+	@Nonnull
+	public ChardevSocket withAddr(SocketAddress value) {
+		this.addr = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevSocket withServer(java.lang.Boolean value) {
+		this.server = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevSocket withWait(java.lang.Boolean value) {
+		this.wait = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevSocket withNodelay(java.lang.Boolean value) {
+		this.nodelay = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevSocket withTelnet(java.lang.Boolean value) {
+		this.telnet = value;
+		return this;
+	}
 
 	public ChardevSocket() {
 	}
 
-	public ChardevSocket(SocketAddress addr, boolean server, boolean wait, boolean nodelay, boolean telnet) {
+	public ChardevSocket(SocketAddress addr, java.lang.Boolean server, java.lang.Boolean wait, java.lang.Boolean nodelay, java.lang.Boolean telnet) {
 		this.addr = addr;
 		this.server = server;
 		this.wait = wait;

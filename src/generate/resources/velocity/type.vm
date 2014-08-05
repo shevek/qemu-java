@@ -1,29 +1,40 @@
 package $packageName;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 #parse("/velocity/header.vm")
 // $element
-public class $element.className extends QApiType {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class $element.className extends #{if} ($element.superClassName)$element.superClassName#{else}QApiType#{end} {
 #foreach ($innerType in $element.innerTypes)
 	// $innerType
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class $innerType.name {
 #foreach ($field in $innerType.fields)
-		@SerializedName("$field.serializedName")
-		$field.annotations public $field.typeName $field.name;
+		@JsonProperty("$field.serializedName")
+		$field.annotations
+		public $field.typeName $field.name;
 #end
 	}
 #end
 
 #foreach ($field in $element.fields)
-	@SerializedName("$field.serializedName")
+	@JsonProperty("$field.serializedName")
 	$field.annotations
 	public $field.typeName $field.name;
+#end
+#foreach ($field in $element.fields)
+
+	@Nonnull
+	public $element.className with${field.capName}($field.typeName value) {
+		this.${field.name} = value;
+		return this;
+	}
 #end
 
 	public ${element.className}() {

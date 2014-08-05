@@ -8,16 +8,12 @@ import java.io.FilterReader;
 import java.io.IOException;
 import java.io.Reader;
 import javax.annotation.Nonnull;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  *
  * @author shevek
  */
 public class SchemaReader extends FilterReader {
-
-    private static final Log LOG = LogFactory.getLog(SchemaReader.class);
 
     private static enum State {
 

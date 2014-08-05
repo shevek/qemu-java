@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,37 +13,86 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=CpuInfo, data={CPU=int, current=bool, halted=bool, *pc=int, *nip=int, *npc=int, *PC=int, thread_id=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=CpuInfo, data={CPU=int, current=bool, halted=bool, *pc=int, *nip=int, *npc=int, *PC=int, thread_id=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CpuInfo extends QApiType {
 
-	@SerializedName("CPU")
+	@JsonProperty("CPU")
 	@Nonnull
 	public long cpu;
-	@SerializedName("current")
+	@JsonProperty("current")
 	@Nonnull
 	public boolean current;
-	@SerializedName("halted")
+	@JsonProperty("halted")
 	@Nonnull
 	public boolean halted;
-	@SerializedName("pc")
+	@JsonProperty("pc")
 	@CheckForNull
-	public long pc;
-	@SerializedName("nip")
+	public java.lang.Long pc;
+	@JsonProperty("nip")
 	@CheckForNull
-	public long nip;
-	@SerializedName("npc")
+	public java.lang.Long nip;
+	@JsonProperty("npc")
 	@CheckForNull
-	public long npc;
-	@SerializedName("PC")
+	public java.lang.Long npc;
+	@JsonProperty("PC")
 	@CheckForNull
-	public long PC;
-	@SerializedName("thread_id")
+	public java.lang.Long PC;
+	@JsonProperty("thread_id")
 	@Nonnull
 	public long threadId;
+
+	@Nonnull
+	public CpuInfo withCpu(long value) {
+		this.cpu = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withCurrent(boolean value) {
+		this.current = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withHalted(boolean value) {
+		this.halted = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withPc(java.lang.Long value) {
+		this.pc = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withNip(java.lang.Long value) {
+		this.nip = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withNpc(java.lang.Long value) {
+		this.npc = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withPC(java.lang.Long value) {
+		this.PC = value;
+		return this;
+	}
+
+	@Nonnull
+	public CpuInfo withThreadId(long value) {
+		this.threadId = value;
+		return this;
+	}
 
 	public CpuInfo() {
 	}
 
-	public CpuInfo(long cpu, boolean current, boolean halted, long pc, long nip, long npc, long PC, long threadId) {
+	public CpuInfo(long cpu, boolean current, boolean halted, java.lang.Long pc, java.lang.Long nip, java.lang.Long npc, java.lang.Long PC, long threadId) {
 		this.cpu = cpu;
 		this.current = current;
 		this.halted = halted;

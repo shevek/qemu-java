@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,19 +13,32 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=PciInfo, data={bus=int, devices=[PciDeviceInfo]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=PciInfo, data={bus=int, devices=[PciDeviceInfo]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PciInfo extends QApiType {
 
-	@SerializedName("bus")
+	@JsonProperty("bus")
 	@Nonnull
 	public long bus;
-	@SerializedName("devices")
+	@JsonProperty("devices")
 	@Nonnull
-	public List<PciDeviceInfo> devices;
+	public java.util.List<PciDeviceInfo> devices;
+
+	@Nonnull
+	public PciInfo withBus(long value) {
+		this.bus = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciInfo withDevices(java.util.List<PciDeviceInfo> value) {
+		this.devices = value;
+		return this;
+	}
 
 	public PciInfo() {
 	}
 
-	public PciInfo(long bus, List<PciDeviceInfo> devices) {
+	public PciInfo(long bus, java.util.List<PciDeviceInfo> devices) {
 		this.bus = bus;
 		this.devices = devices;
 	}

@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,14 +15,14 @@ public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabil
 	/** Compound arguments to a MigrateSetCapabilitiesCommand. */
 	public static class Arguments {
 
-		@SerializedName("capabilities")
+		@JsonProperty("capabilities")
 		@Nonnull
-		public List<MigrationCapabilityStatus> capabilities;
+		public java.util.List<MigrationCapabilityStatus> capabilities;
 
 		public Arguments() {
 		}
 
-		public Arguments(List<MigrationCapabilityStatus> capabilities) {
+		public Arguments(java.util.List<MigrationCapabilityStatus> capabilities) {
 			this.capabilities = capabilities;
 		}
 	}
@@ -40,7 +37,7 @@ public class MigrateSetCapabilitiesCommand extends QApiCommand<MigrateSetCapabil
 	}
 
 	/** Constructs a new MigrateSetCapabilitiesCommand. */
-	public MigrateSetCapabilitiesCommand(List<MigrationCapabilityStatus> capabilities) {
+	public MigrateSetCapabilitiesCommand(java.util.List<MigrationCapabilityStatus> capabilities) {
 		this(new Arguments(capabilities));
 	}
 }

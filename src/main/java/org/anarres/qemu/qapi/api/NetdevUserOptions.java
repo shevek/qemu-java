@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,55 +13,140 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevUserOptions, data={*hostname=str, *restrict=bool, *ip=str, *net=str, *host=str, *tftp=str, *bootfile=str, *dhcpstart=str, *dns=str, *dnssearch=[String], *smb=str, *smbserver=str, *hostfwd=[String], *guestfwd=[String]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevUserOptions, data={*hostname=str, *restrict=bool, *ip=str, *net=str, *host=str, *tftp=str, *bootfile=str, *dhcpstart=str, *dns=str, *dnssearch=[String], *smb=str, *smbserver=str, *hostfwd=[String], *guestfwd=[String]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevUserOptions extends QApiType {
 
-	@SerializedName("hostname")
+	@JsonProperty("hostname")
 	@CheckForNull
 	public java.lang.String hostname;
-	@SerializedName("restrict")
+	@JsonProperty("restrict")
 	@CheckForNull
-	public boolean restrict;
-	@SerializedName("ip")
+	public java.lang.Boolean restrict;
+	@JsonProperty("ip")
 	@CheckForNull
 	public java.lang.String ip;
-	@SerializedName("net")
+	@JsonProperty("net")
 	@CheckForNull
 	public java.lang.String net;
-	@SerializedName("host")
+	@JsonProperty("host")
 	@CheckForNull
 	public java.lang.String host;
-	@SerializedName("tftp")
+	@JsonProperty("tftp")
 	@CheckForNull
 	public java.lang.String tftp;
-	@SerializedName("bootfile")
+	@JsonProperty("bootfile")
 	@CheckForNull
 	public java.lang.String bootfile;
-	@SerializedName("dhcpstart")
+	@JsonProperty("dhcpstart")
 	@CheckForNull
 	public java.lang.String dhcpstart;
-	@SerializedName("dns")
+	@JsonProperty("dns")
 	@CheckForNull
 	public java.lang.String dns;
-	@SerializedName("dnssearch")
+	@JsonProperty("dnssearch")
 	@CheckForNull
-	public List<String> dnssearch;
-	@SerializedName("smb")
+	public java.util.List<String> dnssearch;
+	@JsonProperty("smb")
 	@CheckForNull
 	public java.lang.String smb;
-	@SerializedName("smbserver")
+	@JsonProperty("smbserver")
 	@CheckForNull
 	public java.lang.String smbserver;
-	@SerializedName("hostfwd")
+	@JsonProperty("hostfwd")
 	@CheckForNull
-	public List<String> hostfwd;
-	@SerializedName("guestfwd")
+	public java.util.List<String> hostfwd;
+	@JsonProperty("guestfwd")
 	@CheckForNull
-	public List<String> guestfwd;
+	public java.util.List<String> guestfwd;
+
+	@Nonnull
+	public NetdevUserOptions withHostname(java.lang.String value) {
+		this.hostname = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withRestrict(java.lang.Boolean value) {
+		this.restrict = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withIp(java.lang.String value) {
+		this.ip = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withNet(java.lang.String value) {
+		this.net = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withHost(java.lang.String value) {
+		this.host = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withTftp(java.lang.String value) {
+		this.tftp = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withBootfile(java.lang.String value) {
+		this.bootfile = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withDhcpstart(java.lang.String value) {
+		this.dhcpstart = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withDns(java.lang.String value) {
+		this.dns = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withDnssearch(java.util.List<String> value) {
+		this.dnssearch = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withSmb(java.lang.String value) {
+		this.smb = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withSmbserver(java.lang.String value) {
+		this.smbserver = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withHostfwd(java.util.List<String> value) {
+		this.hostfwd = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevUserOptions withGuestfwd(java.util.List<String> value) {
+		this.guestfwd = value;
+		return this;
+	}
 
 	public NetdevUserOptions() {
 	}
 
-	public NetdevUserOptions(java.lang.String hostname, boolean restrict, java.lang.String ip, java.lang.String net, java.lang.String host, java.lang.String tftp, java.lang.String bootfile, java.lang.String dhcpstart, java.lang.String dns, List<String> dnssearch, java.lang.String smb, java.lang.String smbserver, List<String> hostfwd, List<String> guestfwd) {
+	public NetdevUserOptions(java.lang.String hostname, java.lang.Boolean restrict, java.lang.String ip, java.lang.String net, java.lang.String host, java.lang.String tftp, java.lang.String bootfile, java.lang.String dhcpstart, java.lang.String dns, java.util.List<String> dnssearch, java.lang.String smb, java.lang.String smbserver, java.util.List<String> hostfwd, java.util.List<String> guestfwd) {
 		this.hostname = hostname;
 		this.restrict = restrict;
 		this.ip = ip;

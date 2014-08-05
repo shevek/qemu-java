@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 public class QueryTpmTypesCommand extends QApiCommand<java.lang.Void, QueryTpmTypesCommand.Response> {
 
 	/** Response to a QueryTpmTypesCommand. */
-	public static class Response extends QApiResponse<List<TpmType>> {
+	public static class Response extends QApiResponse<java.util.List<TpmType>> {
 	}
 
 	/** Constructs a new QueryTpmTypesCommand. */

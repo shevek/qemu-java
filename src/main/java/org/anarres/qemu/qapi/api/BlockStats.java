@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,20 +13,45 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockStats, data={*device=str, stats=BlockDeviceStats, *parent=BlockStats, *backing=BlockStats}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockStats, data={*device=str, stats=BlockDeviceStats, *parent=BlockStats, *backing=BlockStats}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockStats extends QApiType {
 
-	@SerializedName("device")
+	@JsonProperty("device")
 	@CheckForNull
 	public java.lang.String device;
-	@SerializedName("stats")
+	@JsonProperty("stats")
 	@Nonnull
 	public BlockDeviceStats stats;
-	@SerializedName("parent")
+	@JsonProperty("parent")
 	@CheckForNull
 	public BlockStats parent;
-	@SerializedName("backing")
+	@JsonProperty("backing")
 	@CheckForNull
 	public BlockStats backing;
+
+	@Nonnull
+	public BlockStats withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockStats withStats(BlockDeviceStats value) {
+		this.stats = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockStats withParent(BlockStats value) {
+		this.parent = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockStats withBacking(BlockStats value) {
+		this.backing = value;
+		return this;
+	}
 
 	public BlockStats() {
 	}

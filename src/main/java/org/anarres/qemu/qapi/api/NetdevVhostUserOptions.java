@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,19 +13,32 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevVhostUserOptions, data={chardev=str, *vhostforce=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevVhostUserOptions, data={chardev=str, *vhostforce=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevVhostUserOptions extends QApiType {
 
-	@SerializedName("chardev")
+	@JsonProperty("chardev")
 	@Nonnull
 	public java.lang.String chardev;
-	@SerializedName("vhostforce")
+	@JsonProperty("vhostforce")
 	@CheckForNull
-	public boolean vhostforce;
+	public java.lang.Boolean vhostforce;
+
+	@Nonnull
+	public NetdevVhostUserOptions withChardev(java.lang.String value) {
+		this.chardev = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevVhostUserOptions withVhostforce(java.lang.Boolean value) {
+		this.vhostforce = value;
+		return this;
+	}
 
 	public NetdevVhostUserOptions() {
 	}
 
-	public NetdevVhostUserOptions(java.lang.String chardev, boolean vhostforce) {
+	public NetdevVhostUserOptions(java.lang.String chardev, java.lang.Boolean vhostforce) {
 		this.chardev = chardev;
 		this.vhostforce = vhostforce;
 	}

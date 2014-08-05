@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,23 +13,40 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=VersionInfo, data={qemu={major=int, minor=int, micro=int}, package=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=VersionInfo, data={qemu={major=int, minor=int, micro=int}, package=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class VersionInfo extends QApiType {
 	// QApiTypeDescriptor{name=_Tqemu, data={major=int, minor=int, micro=int}, innerTypes=[]}
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class _Tqemu {
-		@SerializedName("major")
-		@Nonnull public long major;
-		@SerializedName("minor")
-		@Nonnull public long minor;
-		@SerializedName("micro")
-		@Nonnull public long micro;
+		@JsonProperty("major")
+		@Nonnull
+		public long major;
+		@JsonProperty("minor")
+		@Nonnull
+		public long minor;
+		@JsonProperty("micro")
+		@Nonnull
+		public long micro;
 	}
 
-	@SerializedName("qemu")
+	@JsonProperty("qemu")
 	@Nonnull
 	public _Tqemu qemu;
-	@SerializedName("package")
+	@JsonProperty("package")
 	@Nonnull
 	public java.lang.String _package;
+
+	@Nonnull
+	public VersionInfo withQemu(_Tqemu value) {
+		this.qemu = value;
+		return this;
+	}
+
+	@Nonnull
+	public VersionInfo with_package(java.lang.String value) {
+		this._package = value;
+		return this;
+	}
 
 	public VersionInfo() {
 	}

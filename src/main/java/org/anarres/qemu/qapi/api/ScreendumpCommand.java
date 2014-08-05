@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,7 +15,7 @@ public class ScreendumpCommand extends QApiCommand<ScreendumpCommand.Arguments, 
 	/** Compound arguments to a ScreendumpCommand. */
 	public static class Arguments {
 
-		@SerializedName("filename")
+		@JsonProperty("filename")
 		@Nonnull
 		public java.lang.String filename;
 

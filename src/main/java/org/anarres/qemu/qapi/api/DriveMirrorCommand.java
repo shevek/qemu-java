@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,47 +15,47 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 	/** Compound arguments to a DriveMirrorCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
-		@SerializedName("target")
+		@JsonProperty("target")
 		@Nonnull
 		public java.lang.String target;
-		@SerializedName("format")
+		@JsonProperty("format")
 		@CheckForNull
 		public java.lang.String format;
-		@SerializedName("node-name")
+		@JsonProperty("node-name")
 		@CheckForNull
 		public java.lang.String nodeName;
-		@SerializedName("replaces")
+		@JsonProperty("replaces")
 		@CheckForNull
 		public java.lang.String replaces;
-		@SerializedName("sync")
+		@JsonProperty("sync")
 		@Nonnull
 		public MirrorSyncMode sync;
-		@SerializedName("mode")
+		@JsonProperty("mode")
 		@CheckForNull
 		public NewImageMode mode;
-		@SerializedName("speed")
+		@JsonProperty("speed")
 		@CheckForNull
-		public long speed;
-		@SerializedName("granularity")
+		public java.lang.Long speed;
+		@JsonProperty("granularity")
 		@CheckForNull
-		public long granularity;
-		@SerializedName("buf-size")
+		public java.lang.Long granularity;
+		@JsonProperty("buf-size")
 		@CheckForNull
-		public long bufSize;
-		@SerializedName("on-source-error")
+		public java.lang.Long bufSize;
+		@JsonProperty("on-source-error")
 		@CheckForNull
 		public BlockdevOnError onSourceError;
-		@SerializedName("on-target-error")
+		@JsonProperty("on-target-error")
 		@CheckForNull
 		public BlockdevOnError onTargetError;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
+		public Arguments(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, java.lang.Long speed, java.lang.Long granularity, java.lang.Long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
 			this.device = device;
 			this.target = target;
 			this.format = format;
@@ -84,7 +81,7 @@ public class DriveMirrorCommand extends QApiCommand<DriveMirrorCommand.Arguments
 	}
 
 	/** Constructs a new DriveMirrorCommand. */
-	public DriveMirrorCommand(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, long speed, long granularity, long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
+	public DriveMirrorCommand(java.lang.String device, java.lang.String target, java.lang.String format, java.lang.String nodeName, java.lang.String replaces, MirrorSyncMode sync, NewImageMode mode, java.lang.Long speed, java.lang.Long granularity, java.lang.Long bufSize, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
 		this(new Arguments(device, target, format, nodeName, replaces, sync, mode, speed, granularity, bufSize, onSourceError, onTargetError));
 	}
 }

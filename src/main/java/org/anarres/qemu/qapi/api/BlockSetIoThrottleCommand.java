@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,53 +15,53 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	/** Compound arguments to a BlockSetIoThrottleCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
-		@SerializedName("bps")
+		@JsonProperty("bps")
 		@Nonnull
 		public long bps;
-		@SerializedName("bps_rd")
+		@JsonProperty("bps_rd")
 		@Nonnull
 		public long bpsRd;
-		@SerializedName("bps_wr")
+		@JsonProperty("bps_wr")
 		@Nonnull
 		public long bpsWr;
-		@SerializedName("iops")
+		@JsonProperty("iops")
 		@Nonnull
 		public long iops;
-		@SerializedName("iops_rd")
+		@JsonProperty("iops_rd")
 		@Nonnull
 		public long iopsRd;
-		@SerializedName("iops_wr")
+		@JsonProperty("iops_wr")
 		@Nonnull
 		public long iopsWr;
-		@SerializedName("bps_max")
+		@JsonProperty("bps_max")
 		@CheckForNull
-		public long bpsMax;
-		@SerializedName("bps_rd_max")
+		public java.lang.Long bpsMax;
+		@JsonProperty("bps_rd_max")
 		@CheckForNull
-		public long bpsRdMax;
-		@SerializedName("bps_wr_max")
+		public java.lang.Long bpsRdMax;
+		@JsonProperty("bps_wr_max")
 		@CheckForNull
-		public long bpsWrMax;
-		@SerializedName("iops_max")
+		public java.lang.Long bpsWrMax;
+		@JsonProperty("iops_max")
 		@CheckForNull
-		public long iopsMax;
-		@SerializedName("iops_rd_max")
+		public java.lang.Long iopsMax;
+		@JsonProperty("iops_rd_max")
 		@CheckForNull
-		public long iopsRdMax;
-		@SerializedName("iops_wr_max")
+		public java.lang.Long iopsRdMax;
+		@JsonProperty("iops_wr_max")
 		@CheckForNull
-		public long iopsWrMax;
-		@SerializedName("iops_size")
+		public java.lang.Long iopsWrMax;
+		@JsonProperty("iops_size")
 		@CheckForNull
-		public long iopsSize;
+		public java.lang.Long iopsSize;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
+		public Arguments(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, java.lang.Long bpsMax, java.lang.Long bpsRdMax, java.lang.Long bpsWrMax, java.lang.Long iopsMax, java.lang.Long iopsRdMax, java.lang.Long iopsWrMax, java.lang.Long iopsSize) {
 			this.device = device;
 			this.bps = bps;
 			this.bpsRd = bpsRd;
@@ -92,7 +89,7 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	}
 
 	/** Constructs a new BlockSetIoThrottleCommand. */
-	public BlockSetIoThrottleCommand(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
+	public BlockSetIoThrottleCommand(java.lang.String device, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, java.lang.Long bpsMax, java.lang.Long bpsRdMax, java.lang.Long bpsWrMax, java.lang.Long iopsMax, java.lang.Long iopsRdMax, java.lang.Long iopsWrMax, java.lang.Long iopsSize) {
 		this(new Arguments(device, bps, bpsRd, bpsWr, iops, iopsRd, iopsWr, bpsMax, bpsRdMax, bpsWrMax, iopsMax, iopsRdMax, iopsWrMax, iopsSize));
 	}
 }

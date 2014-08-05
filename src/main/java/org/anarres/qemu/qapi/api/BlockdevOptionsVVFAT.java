@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevOptionsVVFAT, data={dir=str, *fat-type=int, *floppy=bool, *rw=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevOptionsVVFAT, data={dir=str, *fat-type=int, *floppy=bool, *rw=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsVVFAT extends QApiType {
 
-	@SerializedName("dir")
+	@JsonProperty("dir")
 	@Nonnull
 	public java.lang.String dir;
-	@SerializedName("fat-type")
+	@JsonProperty("fat-type")
 	@CheckForNull
-	public long fatType;
-	@SerializedName("floppy")
+	public java.lang.Long fatType;
+	@JsonProperty("floppy")
 	@CheckForNull
-	public boolean floppy;
-	@SerializedName("rw")
+	public java.lang.Boolean floppy;
+	@JsonProperty("rw")
 	@CheckForNull
-	public boolean rw;
+	public java.lang.Boolean rw;
+
+	@Nonnull
+	public BlockdevOptionsVVFAT withDir(java.lang.String value) {
+		this.dir = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsVVFAT withFatType(java.lang.Long value) {
+		this.fatType = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsVVFAT withFloppy(java.lang.Boolean value) {
+		this.floppy = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsVVFAT withRw(java.lang.Boolean value) {
+		this.rw = value;
+		return this;
+	}
 
 	public BlockdevOptionsVVFAT() {
 	}
 
-	public BlockdevOptionsVVFAT(java.lang.String dir, long fatType, boolean floppy, boolean rw) {
+	public BlockdevOptionsVVFAT(java.lang.String dir, java.lang.Long fatType, java.lang.Boolean floppy, java.lang.Boolean rw) {
 		this.dir = dir;
 		this.fatType = fatType;
 		this.floppy = floppy;

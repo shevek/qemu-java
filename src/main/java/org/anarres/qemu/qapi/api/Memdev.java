@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,31 +13,68 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=Memdev, data={size=size, merge=bool, dump=bool, prealloc=bool, host-nodes=[uint16], policy=HostMemPolicy}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=Memdev, data={size=size, merge=bool, dump=bool, prealloc=bool, host-nodes=[uint16], policy=HostMemPolicy}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Memdev extends QApiType {
 
-	@SerializedName("size")
+	@JsonProperty("size")
 	@Nonnull
 	public long size;
-	@SerializedName("merge")
+	@JsonProperty("merge")
 	@Nonnull
 	public boolean merge;
-	@SerializedName("dump")
+	@JsonProperty("dump")
 	@Nonnull
 	public boolean dump;
-	@SerializedName("prealloc")
+	@JsonProperty("prealloc")
 	@Nonnull
 	public boolean prealloc;
-	@SerializedName("host-nodes")
+	@JsonProperty("host-nodes")
 	@Nonnull
-	public List<java.lang.Integer> hostNodes;
-	@SerializedName("policy")
+	public java.util.List<java.lang.Integer> hostNodes;
+	@JsonProperty("policy")
 	@Nonnull
 	public HostMemPolicy policy;
+
+	@Nonnull
+	public Memdev withSize(long value) {
+		this.size = value;
+		return this;
+	}
+
+	@Nonnull
+	public Memdev withMerge(boolean value) {
+		this.merge = value;
+		return this;
+	}
+
+	@Nonnull
+	public Memdev withDump(boolean value) {
+		this.dump = value;
+		return this;
+	}
+
+	@Nonnull
+	public Memdev withPrealloc(boolean value) {
+		this.prealloc = value;
+		return this;
+	}
+
+	@Nonnull
+	public Memdev withHostNodes(java.util.List<java.lang.Integer> value) {
+		this.hostNodes = value;
+		return this;
+	}
+
+	@Nonnull
+	public Memdev withPolicy(HostMemPolicy value) {
+		this.policy = value;
+		return this;
+	}
 
 	public Memdev() {
 	}
 
-	public Memdev(long size, boolean merge, boolean dump, boolean prealloc, List<java.lang.Integer> hostNodes, HostMemPolicy policy) {
+	public Memdev(long size, boolean merge, boolean dump, boolean prealloc, java.util.List<java.lang.Integer> hostNodes, HostMemPolicy policy) {
 		this.size = size;
 		this.merge = merge;
 		this.dump = dump;

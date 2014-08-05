@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NumaNodeOptions, data={*nodeid=uint16, *cpus=[uint16], *mem=size, *memdev=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NumaNodeOptions, data={*nodeid=uint16, *cpus=[uint16], *mem=size, *memdev=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NumaNodeOptions extends QApiType {
 
-	@SerializedName("nodeid")
+	@JsonProperty("nodeid")
 	@CheckForNull
-	public int nodeid;
-	@SerializedName("cpus")
+	public java.lang.Integer nodeid;
+	@JsonProperty("cpus")
 	@CheckForNull
-	public List<java.lang.Integer> cpus;
-	@SerializedName("mem")
+	public java.util.List<java.lang.Integer> cpus;
+	@JsonProperty("mem")
 	@CheckForNull
-	public long mem;
-	@SerializedName("memdev")
+	public java.lang.Long mem;
+	@JsonProperty("memdev")
 	@CheckForNull
 	public java.lang.String memdev;
+
+	@Nonnull
+	public NumaNodeOptions withNodeid(java.lang.Integer value) {
+		this.nodeid = value;
+		return this;
+	}
+
+	@Nonnull
+	public NumaNodeOptions withCpus(java.util.List<java.lang.Integer> value) {
+		this.cpus = value;
+		return this;
+	}
+
+	@Nonnull
+	public NumaNodeOptions withMem(java.lang.Long value) {
+		this.mem = value;
+		return this;
+	}
+
+	@Nonnull
+	public NumaNodeOptions withMemdev(java.lang.String value) {
+		this.memdev = value;
+		return this;
+	}
 
 	public NumaNodeOptions() {
 	}
 
-	public NumaNodeOptions(int nodeid, List<java.lang.Integer> cpus, long mem, java.lang.String memdev) {
+	public NumaNodeOptions(java.lang.Integer nodeid, java.util.List<java.lang.Integer> cpus, java.lang.Long mem, java.lang.String memdev) {
 		this.nodeid = nodeid;
 		this.cpus = cpus;
 		this.mem = mem;

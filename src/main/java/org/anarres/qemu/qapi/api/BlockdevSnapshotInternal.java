@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevSnapshotInternal, data={device=str, name=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevSnapshotInternal, data={device=str, name=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevSnapshotInternal extends QApiType {
 
-	@SerializedName("device")
+	@JsonProperty("device")
 	@Nonnull
 	public java.lang.String device;
-	@SerializedName("name")
+	@JsonProperty("name")
 	@Nonnull
 	public java.lang.String name;
+
+	@Nonnull
+	public BlockdevSnapshotInternal withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshotInternal withName(java.lang.String value) {
+		this.name = value;
+		return this;
+	}
 
 	public BlockdevSnapshotInternal() {
 	}

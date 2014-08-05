@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,7 +15,7 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 	/** Compound arguments to a QueryCommandLineOptionsCommand. */
 	public static class Arguments {
 
-		@SerializedName("option")
+		@JsonProperty("option")
 		@CheckForNull
 		public java.lang.String option;
 
@@ -31,7 +28,7 @@ public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLine
 	}
 
 	/** Response to a QueryCommandLineOptionsCommand. */
-	public static class Response extends QApiResponse<List<CommandLineOptionInfo>> {
+	public static class Response extends QApiResponse<java.util.List<CommandLineOptionInfo>> {
 	}
 
 	/** Constructs a new QueryCommandLineOptionsCommand. */

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,32 +13,81 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=PCDIMMDeviceInfo, data={*id=str, addr=int, size=int, slot=int, node=int, memdev=str, hotplugged=bool, hotpluggable=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=PCDIMMDeviceInfo, data={*id=str, addr=int, size=int, slot=int, node=int, memdev=str, hotplugged=bool, hotpluggable=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PCDIMMDeviceInfo extends QApiType {
 
-	@SerializedName("id")
+	@JsonProperty("id")
 	@CheckForNull
 	public java.lang.String id;
-	@SerializedName("addr")
+	@JsonProperty("addr")
 	@Nonnull
 	public long addr;
-	@SerializedName("size")
+	@JsonProperty("size")
 	@Nonnull
 	public long size;
-	@SerializedName("slot")
+	@JsonProperty("slot")
 	@Nonnull
 	public long slot;
-	@SerializedName("node")
+	@JsonProperty("node")
 	@Nonnull
 	public long node;
-	@SerializedName("memdev")
+	@JsonProperty("memdev")
 	@Nonnull
 	public java.lang.String memdev;
-	@SerializedName("hotplugged")
+	@JsonProperty("hotplugged")
 	@Nonnull
 	public boolean hotplugged;
-	@SerializedName("hotpluggable")
+	@JsonProperty("hotpluggable")
 	@Nonnull
 	public boolean hotpluggable;
+
+	@Nonnull
+	public PCDIMMDeviceInfo withId(java.lang.String value) {
+		this.id = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withAddr(long value) {
+		this.addr = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withSize(long value) {
+		this.size = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withSlot(long value) {
+		this.slot = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withNode(long value) {
+		this.node = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withMemdev(java.lang.String value) {
+		this.memdev = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withHotplugged(boolean value) {
+		this.hotplugged = value;
+		return this;
+	}
+
+	@Nonnull
+	public PCDIMMDeviceInfo withHotpluggable(boolean value) {
+		this.hotpluggable = value;
+		return this;
+	}
 
 	public PCDIMMDeviceInfo() {
 	}

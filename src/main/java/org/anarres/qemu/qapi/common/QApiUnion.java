@@ -9,12 +9,12 @@ package org.anarres.qemu.qapi.common;
  *
  * @author shevek
  */
-public abstract class QApiUnion extends QApiObject {
+public interface QApiUnion {
 
     /**
      * Returns true if this is a valid union.
      *
      * i.e. exactly one field is set.
      */
-    public abstract boolean isUnion();
+    public boolean isValidUnion();
 }

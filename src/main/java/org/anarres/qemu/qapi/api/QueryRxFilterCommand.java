@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,7 +15,7 @@ public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Argum
 	/** Compound arguments to a QueryRxFilterCommand. */
 	public static class Arguments {
 
-		@SerializedName("name")
+		@JsonProperty("name")
 		@CheckForNull
 		public java.lang.String name;
 
@@ -31,7 +28,7 @@ public class QueryRxFilterCommand extends QApiCommand<QueryRxFilterCommand.Argum
 	}
 
 	/** Response to a QueryRxFilterCommand. */
-	public static class Response extends QApiResponse<List<RxFilterInfo>> {
+	public static class Response extends QApiResponse<java.util.List<RxFilterInfo>> {
 	}
 
 	/** Constructs a new QueryRxFilterCommand. */

@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,16 +12,16 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=QUORUM_REPORT_BAD, data={*error=str, node-name=str, sector-num=int, sectors-count=int}}
 public class QuorumReportBadEvent extends QApiEvent {
-	@SerializedName("error")
+	@JsonProperty("error")
 	@CheckForNull
 	public java.lang.String error;
-	@SerializedName("node-name")
+	@JsonProperty("node-name")
 	@Nonnull
 	public java.lang.String nodeName;
-	@SerializedName("sector-num")
+	@JsonProperty("sector-num")
 	@Nonnull
 	public long sectorNum;
-	@SerializedName("sectors-count")
+	@JsonProperty("sectors-count")
 	@Nonnull
 	public long sectorsCount;
 }

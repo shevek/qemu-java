@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,23 +15,23 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 	/** Compound arguments to a MemsaveCommand. */
 	public static class Arguments {
 
-		@SerializedName("val")
+		@JsonProperty("val")
 		@Nonnull
 		public long val;
-		@SerializedName("size")
+		@JsonProperty("size")
 		@Nonnull
 		public long size;
-		@SerializedName("filename")
+		@JsonProperty("filename")
 		@Nonnull
 		public java.lang.String filename;
-		@SerializedName("cpu-index")
+		@JsonProperty("cpu-index")
 		@CheckForNull
-		public long cpuIndex;
+		public java.lang.Long cpuIndex;
 
 		public Arguments() {
 		}
 
-		public Arguments(long val, long size, java.lang.String filename, long cpuIndex) {
+		public Arguments(long val, long size, java.lang.String filename, java.lang.Long cpuIndex) {
 			this.val = val;
 			this.size = size;
 			this.filename = filename;
@@ -52,7 +49,7 @@ public class MemsaveCommand extends QApiCommand<MemsaveCommand.Arguments, Memsav
 	}
 
 	/** Constructs a new MemsaveCommand. */
-	public MemsaveCommand(long val, long size, java.lang.String filename, long cpuIndex) {
+	public MemsaveCommand(long val, long size, java.lang.String filename, java.lang.Long cpuIndex) {
 		this(new Arguments(val, size, filename, cpuIndex));
 	}
 }

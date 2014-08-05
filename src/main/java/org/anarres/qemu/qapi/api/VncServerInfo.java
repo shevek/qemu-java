@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=VncServerInfo, data={*auth=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=VncServerInfo, data={*auth=str}, innerTypes=null}
-public class VncServerInfo extends QApiType {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class VncServerInfo extends VncBasicInfo {
 
-	@SerializedName("auth")
+	@JsonProperty("auth")
 	@CheckForNull
 	public java.lang.String auth;
+
+	@Nonnull
+	public VncServerInfo withAuth(java.lang.String value) {
+		this.auth = value;
+		return this;
+	}
 
 	public VncServerInfo() {
 	}

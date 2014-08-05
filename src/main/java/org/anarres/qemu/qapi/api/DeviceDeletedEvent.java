@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,10 +12,10 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=DEVICE_DELETED, data={*device=str, path=str}}
 public class DeviceDeletedEvent extends QApiEvent {
-	@SerializedName("device")
+	@JsonProperty("device")
 	@CheckForNull
 	public java.lang.String device;
-	@SerializedName("path")
+	@JsonProperty("path")
 	@Nonnull
 	public java.lang.String path;
 }

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,28 +13,59 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=InetSocketAddress, data={host=str, port=str, *to=uint16, *ipv4=bool, *ipv6=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=InetSocketAddress, data={host=str, port=str, *to=uint16, *ipv4=bool, *ipv6=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class InetSocketAddress extends QApiType {
 
-	@SerializedName("host")
+	@JsonProperty("host")
 	@Nonnull
 	public java.lang.String host;
-	@SerializedName("port")
+	@JsonProperty("port")
 	@Nonnull
 	public java.lang.String port;
-	@SerializedName("to")
+	@JsonProperty("to")
 	@CheckForNull
-	public int to;
-	@SerializedName("ipv4")
+	public java.lang.Integer to;
+	@JsonProperty("ipv4")
 	@CheckForNull
-	public boolean ipv4;
-	@SerializedName("ipv6")
+	public java.lang.Boolean ipv4;
+	@JsonProperty("ipv6")
 	@CheckForNull
-	public boolean ipv6;
+	public java.lang.Boolean ipv6;
+
+	@Nonnull
+	public InetSocketAddress withHost(java.lang.String value) {
+		this.host = value;
+		return this;
+	}
+
+	@Nonnull
+	public InetSocketAddress withPort(java.lang.String value) {
+		this.port = value;
+		return this;
+	}
+
+	@Nonnull
+	public InetSocketAddress withTo(java.lang.Integer value) {
+		this.to = value;
+		return this;
+	}
+
+	@Nonnull
+	public InetSocketAddress withIpv4(java.lang.Boolean value) {
+		this.ipv4 = value;
+		return this;
+	}
+
+	@Nonnull
+	public InetSocketAddress withIpv6(java.lang.Boolean value) {
+		this.ipv6 = value;
+		return this;
+	}
 
 	public InetSocketAddress() {
 	}
 
-	public InetSocketAddress(java.lang.String host, java.lang.String port, int to, boolean ipv4, boolean ipv6) {
+	public InetSocketAddress(java.lang.String host, java.lang.String port, java.lang.Integer to, java.lang.Boolean ipv4, java.lang.Boolean ipv6) {
 		this.host = host;
 		this.port = port;
 		this.to = to;

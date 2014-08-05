@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=MigrationCapabilityStatus, data={capability=MigrationCapability, state=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=MigrationCapabilityStatus, data={capability=MigrationCapability, state=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MigrationCapabilityStatus extends QApiType {
 
-	@SerializedName("capability")
+	@JsonProperty("capability")
 	@Nonnull
 	public MigrationCapability capability;
-	@SerializedName("state")
+	@JsonProperty("state")
 	@Nonnull
 	public boolean state;
+
+	@Nonnull
+	public MigrationCapabilityStatus withCapability(MigrationCapability value) {
+		this.capability = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationCapabilityStatus withState(boolean value) {
+		this.state = value;
+		return this;
+	}
 
 	public MigrationCapabilityStatus() {
 	}

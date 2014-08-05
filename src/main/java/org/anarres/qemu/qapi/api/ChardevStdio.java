@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,16 +13,23 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevStdio, data={*signal=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevStdio, data={*signal=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevStdio extends QApiType {
 
-	@SerializedName("signal")
+	@JsonProperty("signal")
 	@CheckForNull
-	public boolean signal;
+	public java.lang.Boolean signal;
+
+	@Nonnull
+	public ChardevStdio withSignal(java.lang.Boolean value) {
+		this.signal = value;
+		return this;
+	}
 
 	public ChardevStdio() {
 	}
 
-	public ChardevStdio(boolean signal) {
+	public ChardevStdio(java.lang.Boolean signal) {
 		this.signal = signal;
 	}
 }

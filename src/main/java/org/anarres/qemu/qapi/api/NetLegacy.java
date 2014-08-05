@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetLegacy, data={*vlan=int32, *id=str, *name=str, opts=NetClientOptions}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetLegacy, data={*vlan=int32, *id=str, *name=str, opts=NetClientOptions}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetLegacy extends QApiType {
 
-	@SerializedName("vlan")
+	@JsonProperty("vlan")
 	@CheckForNull
-	public int vlan;
-	@SerializedName("id")
+	public java.lang.Integer vlan;
+	@JsonProperty("id")
 	@CheckForNull
 	public java.lang.String id;
-	@SerializedName("name")
+	@JsonProperty("name")
 	@CheckForNull
 	public java.lang.String name;
-	@SerializedName("opts")
+	@JsonProperty("opts")
 	@Nonnull
 	public NetClientOptions opts;
+
+	@Nonnull
+	public NetLegacy withVlan(java.lang.Integer value) {
+		this.vlan = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacy withId(java.lang.String value) {
+		this.id = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacy withName(java.lang.String value) {
+		this.name = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacy withOpts(NetClientOptions value) {
+		this.opts = value;
+		return this;
+	}
 
 	public NetLegacy() {
 	}
 
-	public NetLegacy(int vlan, java.lang.String id, java.lang.String name, NetClientOptions opts) {
+	public NetLegacy(java.lang.Integer vlan, java.lang.String id, java.lang.String name, NetClientOptions opts) {
 		this.vlan = vlan;
 		this.id = id;
 		this.name = name;

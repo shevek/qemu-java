@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,31 +13,68 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockDeviceMapEntry, data={start=int, length=int, depth=int, zero=bool, data=bool, *offset=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockDeviceMapEntry, data={start=int, length=int, depth=int, zero=bool, data=bool, *offset=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockDeviceMapEntry extends QApiType {
 
-	@SerializedName("start")
+	@JsonProperty("start")
 	@Nonnull
 	public long start;
-	@SerializedName("length")
+	@JsonProperty("length")
 	@Nonnull
 	public long length;
-	@SerializedName("depth")
+	@JsonProperty("depth")
 	@Nonnull
 	public long depth;
-	@SerializedName("zero")
+	@JsonProperty("zero")
 	@Nonnull
 	public boolean zero;
-	@SerializedName("data")
+	@JsonProperty("data")
 	@Nonnull
 	public boolean data;
-	@SerializedName("offset")
+	@JsonProperty("offset")
 	@CheckForNull
-	public long offset;
+	public java.lang.Long offset;
+
+	@Nonnull
+	public BlockDeviceMapEntry withStart(long value) {
+		this.start = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceMapEntry withLength(long value) {
+		this.length = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceMapEntry withDepth(long value) {
+		this.depth = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceMapEntry withZero(boolean value) {
+		this.zero = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceMapEntry withData(boolean value) {
+		this.data = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceMapEntry withOffset(java.lang.Long value) {
+		this.offset = value;
+		return this;
+	}
 
 	public BlockDeviceMapEntry() {
 	}
 
-	public BlockDeviceMapEntry(long start, long length, long depth, boolean zero, boolean data, long offset) {
+	public BlockDeviceMapEntry(long start, long length, long depth, boolean zero, boolean data, java.lang.Long offset) {
 		this.start = start;
 		this.length = length;
 		this.depth = depth;

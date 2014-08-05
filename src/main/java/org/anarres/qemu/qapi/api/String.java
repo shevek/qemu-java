@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=String, data={str=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=String, data={str=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class String extends QApiType {
 
-	@SerializedName("str")
+	@JsonProperty("str")
 	@Nonnull
 	public java.lang.String str;
+
+	@Nonnull
+	public String withStr(java.lang.String value) {
+		this.str = value;
+		return this;
+	}
 
 	public String() {
 	}

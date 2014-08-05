@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,31 +13,68 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=PciMemoryRegion, data={bar=int, type=str, address=int, size=int, *prefetch=bool, *mem_type_64=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=PciMemoryRegion, data={bar=int, type=str, address=int, size=int, *prefetch=bool, *mem_type_64=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PciMemoryRegion extends QApiType {
 
-	@SerializedName("bar")
+	@JsonProperty("bar")
 	@Nonnull
 	public long bar;
-	@SerializedName("type")
+	@JsonProperty("type")
 	@Nonnull
 	public java.lang.String type;
-	@SerializedName("address")
+	@JsonProperty("address")
 	@Nonnull
 	public long address;
-	@SerializedName("size")
+	@JsonProperty("size")
 	@Nonnull
 	public long size;
-	@SerializedName("prefetch")
+	@JsonProperty("prefetch")
 	@CheckForNull
-	public boolean prefetch;
-	@SerializedName("mem_type_64")
+	public java.lang.Boolean prefetch;
+	@JsonProperty("mem_type_64")
 	@CheckForNull
-	public boolean memType64;
+	public java.lang.Boolean memType64;
+
+	@Nonnull
+	public PciMemoryRegion withBar(long value) {
+		this.bar = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciMemoryRegion withType(java.lang.String value) {
+		this.type = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciMemoryRegion withAddress(long value) {
+		this.address = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciMemoryRegion withSize(long value) {
+		this.size = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciMemoryRegion withPrefetch(java.lang.Boolean value) {
+		this.prefetch = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciMemoryRegion withMemType64(java.lang.Boolean value) {
+		this.memType64 = value;
+		return this;
+	}
 
 	public PciMemoryRegion() {
 	}
 
-	public PciMemoryRegion(long bar, java.lang.String type, long address, long size, boolean prefetch, boolean memType64) {
+	public PciMemoryRegion(long bar, java.lang.String type, long address, long size, java.lang.Boolean prefetch, java.lang.Boolean memType64) {
 		this.bar = bar;
 		this.type = type;
 		this.address = address;

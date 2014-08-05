@@ -4,7 +4,8 @@
  */
 package org.anarres.qemu.qapi.common;
 
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * The base of all QApi objects.
@@ -15,6 +16,11 @@ public abstract class QApiObject {
 
     @Override
     public String toString() {
-        return new GsonBuilder().create().toJson(this);
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return mapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            return String.valueOf(e);
+        }
     }
 }

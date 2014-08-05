@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,26 +13,63 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevSocketOptions, data={*fd=str, *listen=str, *connect=str, *mcast=str, *localaddr=str, *udp=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevSocketOptions, data={*fd=str, *listen=str, *connect=str, *mcast=str, *localaddr=str, *udp=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevSocketOptions extends QApiType {
 
-	@SerializedName("fd")
+	@JsonProperty("fd")
 	@CheckForNull
 	public java.lang.String fd;
-	@SerializedName("listen")
+	@JsonProperty("listen")
 	@CheckForNull
 	public java.lang.String listen;
-	@SerializedName("connect")
+	@JsonProperty("connect")
 	@CheckForNull
 	public java.lang.String connect;
-	@SerializedName("mcast")
+	@JsonProperty("mcast")
 	@CheckForNull
 	public java.lang.String mcast;
-	@SerializedName("localaddr")
+	@JsonProperty("localaddr")
 	@CheckForNull
 	public java.lang.String localaddr;
-	@SerializedName("udp")
+	@JsonProperty("udp")
 	@CheckForNull
 	public java.lang.String udp;
+
+	@Nonnull
+	public NetdevSocketOptions withFd(java.lang.String value) {
+		this.fd = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevSocketOptions withListen(java.lang.String value) {
+		this.listen = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevSocketOptions withConnect(java.lang.String value) {
+		this.connect = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevSocketOptions withMcast(java.lang.String value) {
+		this.mcast = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevSocketOptions withLocaladdr(java.lang.String value) {
+		this.localaddr = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevSocketOptions withUdp(java.lang.String value) {
+		this.udp = value;
+		return this;
+	}
 
 	public NetdevSocketOptions() {
 	}

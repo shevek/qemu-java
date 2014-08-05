@@ -7,19 +7,15 @@ package org.anarres.qemu.qapi.common;
 import java.net.InetSocketAddress;
 import org.anarres.qemu.qapi.api.DumpGuestMemoryCommand;
 import org.anarres.qemu.qapi.api.DumpGuestMemoryFormat;
-import org.anarres.qemu.qapi.api.MigrateCommand;
-import org.anarres.qemu.qapi.api.NbdServerAddCommand;
-import org.anarres.qemu.qapi.api.NbdServerStartCommand;
 import org.anarres.qemu.qapi.api.QueryChardevBackendsCommand;
 import org.anarres.qemu.qapi.api.QueryCpusCommand;
 import org.anarres.qemu.qapi.api.QueryDumpGuestMemoryCapabilityCommand;
 import org.anarres.qemu.qapi.api.QueryEventsCommand;
 import org.anarres.qemu.qapi.api.QueryMigrateCapabilitiesCommand;
 import org.anarres.qemu.qapi.api.QueryStatusCommand;
-import org.anarres.qemu.qapi.api.SocketAddress;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -27,7 +23,7 @@ import org.junit.Test;
  */
 public class QApiConnectionTest {
 
-    private static final Log LOG = LogFactory.getLog(QApiConnectionTest.class);
+    private static final Logger LOG = LoggerFactory.getLogger(QApiConnectionTest.class);
 
     @Test
     public void testConnection() throws Exception {
@@ -44,7 +40,7 @@ public class QApiConnectionTest {
         if (false) {
             DumpGuestMemoryCommand.Arguments arguments = new DumpGuestMemoryCommand.Arguments();
             arguments.format = DumpGuestMemoryFormat.kdump_snappy;
-            arguments.begin = 0;
+            arguments.begin = 0L;
             arguments.paging = false;
             arguments.protocol = "foo";
             connection.call(new DumpGuestMemoryCommand(arguments));

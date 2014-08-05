@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,19 +13,32 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevDumpOptions, data={*len=size, *file=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevDumpOptions, data={*len=size, *file=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevDumpOptions extends QApiType {
 
-	@SerializedName("len")
+	@JsonProperty("len")
 	@CheckForNull
-	public long len;
-	@SerializedName("file")
+	public java.lang.Long len;
+	@JsonProperty("file")
 	@CheckForNull
 	public java.lang.String file;
+
+	@Nonnull
+	public NetdevDumpOptions withLen(java.lang.Long value) {
+		this.len = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevDumpOptions withFile(java.lang.String value) {
+		this.file = value;
+		return this;
+	}
 
 	public NetdevDumpOptions() {
 	}
 
-	public NetdevDumpOptions(long len, java.lang.String file) {
+	public NetdevDumpOptions(java.lang.Long len, java.lang.String file) {
 		this.len = len;
 		this.file = file;
 	}

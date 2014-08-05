@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
@@ -26,8 +27,6 @@ import org.anarres.qemu.qapi.generator.model.QApiEventDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiIncludeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiTypeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiUnionDescriptor;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -35,7 +34,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class SchemaParser {
 
-    private static final Log LOG = LogFactory.getLog(SchemaParser.class);
     private final URL file;
     private final Gson gson = new GsonBuilder().create();
     private final JsonParser parser = new JsonParser();
@@ -97,7 +95,12 @@ public class SchemaParser {
                 // LOG.info("Tree is " + jsonTree + "; docs are " + state.schemaReader.getDocs());
 
                 TypeAdapter<?> adapter = gson.getAdapter(type);
-                Object object = adapter.fromJsonTree(jsonTree);
+                Object object;
+                try {
+                    object = adapter.fromJsonTree(jsonTree);
+                } catch (JsonSyntaxException e) {
+                    throw new JsonSyntaxException("Failed to parse " + jsonTree, e);
+                }
                 if (object instanceof QApiIncludeDescriptor) {
                     files.add(new URL(state.file, ((QApiIncludeDescriptor) object).include));
                     continue;

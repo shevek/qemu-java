@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,23 +13,54 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ACPIOSTInfo, data={*device=str, slot=str, slot-type=ACPISlotType, source=int, status=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ACPIOSTInfo, data={*device=str, slot=str, slot-type=ACPISlotType, source=int, status=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ACPIOSTInfo extends QApiType {
 
-	@SerializedName("device")
+	@JsonProperty("device")
 	@CheckForNull
 	public java.lang.String device;
-	@SerializedName("slot")
+	@JsonProperty("slot")
 	@Nonnull
 	public java.lang.String slot;
-	@SerializedName("slot-type")
+	@JsonProperty("slot-type")
 	@Nonnull
 	public ACPISlotType slotType;
-	@SerializedName("source")
+	@JsonProperty("source")
 	@Nonnull
 	public long source;
-	@SerializedName("status")
+	@JsonProperty("status")
 	@Nonnull
 	public long status;
+
+	@Nonnull
+	public ACPIOSTInfo withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public ACPIOSTInfo withSlot(java.lang.String value) {
+		this.slot = value;
+		return this;
+	}
+
+	@Nonnull
+	public ACPIOSTInfo withSlotType(ACPISlotType value) {
+		this.slotType = value;
+		return this;
+	}
+
+	@Nonnull
+	public ACPIOSTInfo withSource(long value) {
+		this.source = value;
+		return this;
+	}
+
+	@Nonnull
+	public ACPIOSTInfo withStatus(long value) {
+		this.status = value;
+		return this;
+	}
 
 	public ACPIOSTInfo() {
 	}

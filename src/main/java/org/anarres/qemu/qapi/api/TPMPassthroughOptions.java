@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=TPMPassthroughOptions, data={*path=str, *cancel-path=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=TPMPassthroughOptions, data={*path=str, *cancel-path=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class TPMPassthroughOptions extends QApiType {
 
-	@SerializedName("path")
+	@JsonProperty("path")
 	@CheckForNull
 	public java.lang.String path;
-	@SerializedName("cancel-path")
+	@JsonProperty("cancel-path")
 	@CheckForNull
 	public java.lang.String cancelPath;
+
+	@Nonnull
+	public TPMPassthroughOptions withPath(java.lang.String value) {
+		this.path = value;
+		return this;
+	}
+
+	@Nonnull
+	public TPMPassthroughOptions withCancelPath(java.lang.String value) {
+		this.cancelPath = value;
+		return this;
+	}
 
 	public TPMPassthroughOptions() {
 	}

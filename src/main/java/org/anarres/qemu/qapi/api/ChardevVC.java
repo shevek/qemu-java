@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevVC, data={*width=int, *height=int, *cols=int, *rows=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevVC, data={*width=int, *height=int, *cols=int, *rows=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevVC extends QApiType {
 
-	@SerializedName("width")
+	@JsonProperty("width")
 	@CheckForNull
-	public long width;
-	@SerializedName("height")
+	public java.lang.Long width;
+	@JsonProperty("height")
 	@CheckForNull
-	public long height;
-	@SerializedName("cols")
+	public java.lang.Long height;
+	@JsonProperty("cols")
 	@CheckForNull
-	public long cols;
-	@SerializedName("rows")
+	public java.lang.Long cols;
+	@JsonProperty("rows")
 	@CheckForNull
-	public long rows;
+	public java.lang.Long rows;
+
+	@Nonnull
+	public ChardevVC withWidth(java.lang.Long value) {
+		this.width = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevVC withHeight(java.lang.Long value) {
+		this.height = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevVC withCols(java.lang.Long value) {
+		this.cols = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevVC withRows(java.lang.Long value) {
+		this.rows = value;
+		return this;
+	}
 
 	public ChardevVC() {
 	}
 
-	public ChardevVC(long width, long height, long cols, long rows) {
+	public ChardevVC(java.lang.Long width, java.lang.Long height, java.lang.Long cols, java.lang.Long rows) {
 		this.width = width;
 		this.height = height;
 		this.cols = cols;

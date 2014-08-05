@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,22 +13,41 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlkdebugSetStateOptions, data={event=BlkdebugEvent, *state=int, new_state=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlkdebugSetStateOptions, data={event=BlkdebugEvent, *state=int, new_state=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlkdebugSetStateOptions extends QApiType {
 
-	@SerializedName("event")
+	@JsonProperty("event")
 	@Nonnull
 	public BlkdebugEvent event;
-	@SerializedName("state")
+	@JsonProperty("state")
 	@CheckForNull
-	public long state;
-	@SerializedName("new_state")
+	public java.lang.Long state;
+	@JsonProperty("new_state")
 	@Nonnull
 	public long newState;
+
+	@Nonnull
+	public BlkdebugSetStateOptions withEvent(BlkdebugEvent value) {
+		this.event = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugSetStateOptions withState(java.lang.Long value) {
+		this.state = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugSetStateOptions withNewState(long value) {
+		this.newState = value;
+		return this;
+	}
 
 	public BlkdebugSetStateOptions() {
 	}
 
-	public BlkdebugSetStateOptions(BlkdebugEvent event, long state, long newState) {
+	public BlkdebugSetStateOptions(BlkdebugEvent event, java.lang.Long state, long newState) {
 		this.event = event;
 		this.state = state;
 		this.newState = newState;

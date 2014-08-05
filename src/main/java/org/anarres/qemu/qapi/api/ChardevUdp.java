@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevUdp, data={remote=SocketAddress, *local=SocketAddress}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevUdp, data={remote=SocketAddress, *local=SocketAddress}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevUdp extends QApiType {
 
-	@SerializedName("remote")
+	@JsonProperty("remote")
 	@Nonnull
 	public SocketAddress remote;
-	@SerializedName("local")
+	@JsonProperty("local")
 	@CheckForNull
 	public SocketAddress local;
+
+	@Nonnull
+	public ChardevUdp withRemote(SocketAddress value) {
+		this.remote = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevUdp withLocal(SocketAddress value) {
+		this.local = value;
+		return this;
+	}
 
 	public ChardevUdp() {
 	}

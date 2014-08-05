@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevFile, data={*in=str, out=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevFile, data={*in=str, out=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevFile extends QApiType {
 
-	@SerializedName("in")
+	@JsonProperty("in")
 	@CheckForNull
 	public java.lang.String in;
-	@SerializedName("out")
+	@JsonProperty("out")
 	@Nonnull
 	public java.lang.String out;
+
+	@Nonnull
+	public ChardevFile withIn(java.lang.String value) {
+		this.in = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevFile withOut(java.lang.String value) {
+		this.out = value;
+		return this;
+	}
 
 	public ChardevFile() {
 	}

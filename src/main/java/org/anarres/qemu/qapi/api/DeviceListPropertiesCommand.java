@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,7 +15,7 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 	/** Compound arguments to a DeviceListPropertiesCommand. */
 	public static class Arguments {
 
-		@SerializedName("typename")
+		@JsonProperty("typename")
 		@Nonnull
 		public java.lang.String typename;
 
@@ -31,7 +28,7 @@ public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertie
 	}
 
 	/** Response to a DeviceListPropertiesCommand. */
-	public static class Response extends QApiResponse<List<DevicePropertyInfo>> {
+	public static class Response extends QApiResponse<java.util.List<DevicePropertyInfo>> {
 	}
 
 	/** Constructs a new DeviceListPropertiesCommand. */

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,55 +13,140 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ImageInfo, data={filename=str, format=str, *dirty-flag=bool, *actual-size=int, virtual-size=int, *cluster-size=int, *encrypted=bool, *compressed=bool, *backing-filename=str, *full-backing-filename=str, *backing-filename-format=str, *snapshots=[SnapshotInfo], *backing-image=ImageInfo, *format-specific=ImageInfoSpecific}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ImageInfo, data={filename=str, format=str, *dirty-flag=bool, *actual-size=int, virtual-size=int, *cluster-size=int, *encrypted=bool, *compressed=bool, *backing-filename=str, *full-backing-filename=str, *backing-filename-format=str, *snapshots=[SnapshotInfo], *backing-image=ImageInfo, *format-specific=ImageInfoSpecific}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImageInfo extends QApiType {
 
-	@SerializedName("filename")
+	@JsonProperty("filename")
 	@Nonnull
 	public java.lang.String filename;
-	@SerializedName("format")
+	@JsonProperty("format")
 	@Nonnull
 	public java.lang.String format;
-	@SerializedName("dirty-flag")
+	@JsonProperty("dirty-flag")
 	@CheckForNull
-	public boolean dirtyFlag;
-	@SerializedName("actual-size")
+	public java.lang.Boolean dirtyFlag;
+	@JsonProperty("actual-size")
 	@CheckForNull
-	public long actualSize;
-	@SerializedName("virtual-size")
+	public java.lang.Long actualSize;
+	@JsonProperty("virtual-size")
 	@Nonnull
 	public long virtualSize;
-	@SerializedName("cluster-size")
+	@JsonProperty("cluster-size")
 	@CheckForNull
-	public long clusterSize;
-	@SerializedName("encrypted")
+	public java.lang.Long clusterSize;
+	@JsonProperty("encrypted")
 	@CheckForNull
-	public boolean encrypted;
-	@SerializedName("compressed")
+	public java.lang.Boolean encrypted;
+	@JsonProperty("compressed")
 	@CheckForNull
-	public boolean compressed;
-	@SerializedName("backing-filename")
+	public java.lang.Boolean compressed;
+	@JsonProperty("backing-filename")
 	@CheckForNull
 	public java.lang.String backingFilename;
-	@SerializedName("full-backing-filename")
+	@JsonProperty("full-backing-filename")
 	@CheckForNull
 	public java.lang.String fullBackingFilename;
-	@SerializedName("backing-filename-format")
+	@JsonProperty("backing-filename-format")
 	@CheckForNull
 	public java.lang.String backingFilenameFormat;
-	@SerializedName("snapshots")
+	@JsonProperty("snapshots")
 	@CheckForNull
-	public List<SnapshotInfo> snapshots;
-	@SerializedName("backing-image")
+	public java.util.List<SnapshotInfo> snapshots;
+	@JsonProperty("backing-image")
 	@CheckForNull
 	public ImageInfo backingImage;
-	@SerializedName("format-specific")
+	@JsonProperty("format-specific")
 	@CheckForNull
 	public ImageInfoSpecific formatSpecific;
+
+	@Nonnull
+	public ImageInfo withFilename(java.lang.String value) {
+		this.filename = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withFormat(java.lang.String value) {
+		this.format = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withDirtyFlag(java.lang.Boolean value) {
+		this.dirtyFlag = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withActualSize(java.lang.Long value) {
+		this.actualSize = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withVirtualSize(long value) {
+		this.virtualSize = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withClusterSize(java.lang.Long value) {
+		this.clusterSize = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withEncrypted(java.lang.Boolean value) {
+		this.encrypted = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withCompressed(java.lang.Boolean value) {
+		this.compressed = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withBackingFilename(java.lang.String value) {
+		this.backingFilename = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withFullBackingFilename(java.lang.String value) {
+		this.fullBackingFilename = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withBackingFilenameFormat(java.lang.String value) {
+		this.backingFilenameFormat = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withSnapshots(java.util.List<SnapshotInfo> value) {
+		this.snapshots = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withBackingImage(ImageInfo value) {
+		this.backingImage = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfo withFormatSpecific(ImageInfoSpecific value) {
+		this.formatSpecific = value;
+		return this;
+	}
 
 	public ImageInfo() {
 	}
 
-	public ImageInfo(java.lang.String filename, java.lang.String format, boolean dirtyFlag, long actualSize, long virtualSize, long clusterSize, boolean encrypted, boolean compressed, java.lang.String backingFilename, java.lang.String fullBackingFilename, java.lang.String backingFilenameFormat, List<SnapshotInfo> snapshots, ImageInfo backingImage, ImageInfoSpecific formatSpecific) {
+	public ImageInfo(java.lang.String filename, java.lang.String format, java.lang.Boolean dirtyFlag, java.lang.Long actualSize, long virtualSize, java.lang.Long clusterSize, java.lang.Boolean encrypted, java.lang.Boolean compressed, java.lang.String backingFilename, java.lang.String fullBackingFilename, java.lang.String backingFilenameFormat, java.util.List<SnapshotInfo> snapshots, ImageInfo backingImage, ImageInfoSpecific formatSpecific) {
 		this.filename = filename;
 		this.format = format;
 		this.dirtyFlag = dirtyFlag;

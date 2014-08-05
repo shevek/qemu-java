@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,17 +13,36 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevInfo, data={label=str, filename=str, frontend-open=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevInfo, data={label=str, filename=str, frontend-open=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevInfo extends QApiType {
 
-	@SerializedName("label")
+	@JsonProperty("label")
 	@Nonnull
 	public java.lang.String label;
-	@SerializedName("filename")
+	@JsonProperty("filename")
 	@Nonnull
 	public java.lang.String filename;
-	@SerializedName("frontend-open")
+	@JsonProperty("frontend-open")
 	@Nonnull
 	public boolean frontendOpen;
+
+	@Nonnull
+	public ChardevInfo withLabel(java.lang.String value) {
+		this.label = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevInfo withFilename(java.lang.String value) {
+		this.filename = value;
+		return this;
+	}
+
+	@Nonnull
+	public ChardevInfo withFrontendOpen(boolean value) {
+		this.frontendOpen = value;
+		return this;
+	}
 
 	public ChardevInfo() {
 	}

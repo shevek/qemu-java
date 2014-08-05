@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,17 +15,17 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Argumen
 	/** Compound arguments to a NbdServerAddCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
-		@SerializedName("writable")
+		@JsonProperty("writable")
 		@CheckForNull
-		public boolean writable;
+		public java.lang.Boolean writable;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String device, boolean writable) {
+		public Arguments(java.lang.String device, java.lang.Boolean writable) {
 			this.device = device;
 			this.writable = writable;
 		}
@@ -44,7 +41,7 @@ public class NbdServerAddCommand extends QApiCommand<NbdServerAddCommand.Argumen
 	}
 
 	/** Constructs a new NbdServerAddCommand. */
-	public NbdServerAddCommand(java.lang.String device, boolean writable) {
+	public NbdServerAddCommand(java.lang.String device, java.lang.Boolean writable) {
 		this(new Arguments(device, writable));
 	}
 }

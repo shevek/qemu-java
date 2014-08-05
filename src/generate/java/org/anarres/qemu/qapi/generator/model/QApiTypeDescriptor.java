@@ -6,8 +6,6 @@ package org.anarres.qemu.qapi.generator.model;
 
 import com.google.common.base.Objects;
 import com.google.gson.annotations.SerializedName;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  *
@@ -15,7 +13,6 @@ import org.apache.commons.logging.LogFactory;
  */
 public class QApiTypeDescriptor extends AbstractQApiTypeDescriptor {
 
-    private static final Log LOG = LogFactory.getLog(QApiTypeDescriptor.class);
     @SerializedName("type")
     public String name;
 

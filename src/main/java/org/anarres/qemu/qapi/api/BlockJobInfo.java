@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,32 +13,81 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockJobInfo, data={type=str, device=str, len=int, offset=int, busy=bool, paused=bool, speed=int, io-status=BlockDeviceIoStatus}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockJobInfo, data={type=str, device=str, len=int, offset=int, busy=bool, paused=bool, speed=int, io-status=BlockDeviceIoStatus}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockJobInfo extends QApiType {
 
-	@SerializedName("type")
+	@JsonProperty("type")
 	@Nonnull
 	public java.lang.String type;
-	@SerializedName("device")
+	@JsonProperty("device")
 	@Nonnull
 	public java.lang.String device;
-	@SerializedName("len")
+	@JsonProperty("len")
 	@Nonnull
 	public long len;
-	@SerializedName("offset")
+	@JsonProperty("offset")
 	@Nonnull
 	public long offset;
-	@SerializedName("busy")
+	@JsonProperty("busy")
 	@Nonnull
 	public boolean busy;
-	@SerializedName("paused")
+	@JsonProperty("paused")
 	@Nonnull
 	public boolean paused;
-	@SerializedName("speed")
+	@JsonProperty("speed")
 	@Nonnull
 	public long speed;
-	@SerializedName("io-status")
+	@JsonProperty("io-status")
 	@Nonnull
 	public BlockDeviceIoStatus ioStatus;
+
+	@Nonnull
+	public BlockJobInfo withType(java.lang.String value) {
+		this.type = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withLen(long value) {
+		this.len = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withOffset(long value) {
+		this.offset = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withBusy(boolean value) {
+		this.busy = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withPaused(boolean value) {
+		this.paused = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withSpeed(long value) {
+		this.speed = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockJobInfo withIoStatus(BlockDeviceIoStatus value) {
+		this.ioStatus = value;
+		return this;
+	}
 
 	public BlockJobInfo() {
 	}

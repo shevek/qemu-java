@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,17 +13,36 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=VncBasicInfo, data={host=str, service=str, family=NetworkAddressFamily}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=VncBasicInfo, data={host=str, service=str, family=NetworkAddressFamily}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class VncBasicInfo extends QApiType {
 
-	@SerializedName("host")
+	@JsonProperty("host")
 	@Nonnull
 	public java.lang.String host;
-	@SerializedName("service")
+	@JsonProperty("service")
 	@Nonnull
 	public java.lang.String service;
-	@SerializedName("family")
+	@JsonProperty("family")
 	@Nonnull
 	public NetworkAddressFamily family;
+
+	@Nonnull
+	public VncBasicInfo withHost(java.lang.String value) {
+		this.host = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncBasicInfo withService(java.lang.String value) {
+		this.service = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncBasicInfo withFamily(NetworkAddressFamily value) {
+		this.family = value;
+		return this;
+	}
 
 	public VncBasicInfo() {
 	}

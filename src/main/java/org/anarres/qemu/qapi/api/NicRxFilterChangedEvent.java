@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,10 +12,10 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=NIC_RX_FILTER_CHANGED, data={*name=str, path=str}}
 public class NicRxFilterChangedEvent extends QApiEvent {
-	@SerializedName("name")
+	@JsonProperty("name")
 	@CheckForNull
 	public java.lang.String name;
-	@SerializedName("path")
+	@JsonProperty("path")
 	@Nonnull
 	public java.lang.String path;
 }

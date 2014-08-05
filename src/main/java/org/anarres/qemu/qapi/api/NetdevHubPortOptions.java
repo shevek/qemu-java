@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevHubPortOptions, data={hubid=int32}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevHubPortOptions, data={hubid=int32}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevHubPortOptions extends QApiType {
 
-	@SerializedName("hubid")
+	@JsonProperty("hubid")
 	@Nonnull
 	public int hubid;
+
+	@Nonnull
+	public NetdevHubPortOptions withHubid(int value) {
+		this.hubid = value;
+		return this;
+	}
 
 	public NetdevHubPortOptions() {
 	}

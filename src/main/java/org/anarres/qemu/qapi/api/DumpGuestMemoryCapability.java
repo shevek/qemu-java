@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,16 +13,23 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=DumpGuestMemoryCapability, data={formats=[DumpGuestMemoryFormat]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=DumpGuestMemoryCapability, data={formats=[DumpGuestMemoryFormat]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DumpGuestMemoryCapability extends QApiType {
 
-	@SerializedName("formats")
+	@JsonProperty("formats")
 	@Nonnull
-	public List<DumpGuestMemoryFormat> formats;
+	public java.util.List<DumpGuestMemoryFormat> formats;
+
+	@Nonnull
+	public DumpGuestMemoryCapability withFormats(java.util.List<DumpGuestMemoryFormat> value) {
+		this.formats = value;
+		return this;
+	}
 
 	public DumpGuestMemoryCapability() {
 	}
 
-	public DumpGuestMemoryCapability(List<DumpGuestMemoryFormat> formats) {
+	public DumpGuestMemoryCapability(java.util.List<DumpGuestMemoryFormat> formats) {
 		this.formats = formats;
 	}
 }

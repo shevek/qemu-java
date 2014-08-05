@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +15,13 @@ public class BlockdevSnapshotDeleteInternalSyncCommand extends QApiCommand<Block
 	/** Compound arguments to a BlockdevSnapshotDeleteInternalSyncCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
-		@SerializedName("id")
+		@JsonProperty("id")
 		@CheckForNull
 		public java.lang.String id;
-		@SerializedName("name")
+		@JsonProperty("name")
 		@CheckForNull
 		public java.lang.String name;
 

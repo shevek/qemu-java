@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,16 +13,23 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevRingbuf, data={*size=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevRingbuf, data={*size=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevRingbuf extends QApiType {
 
-	@SerializedName("size")
+	@JsonProperty("size")
 	@CheckForNull
-	public long size;
+	public java.lang.Long size;
+
+	@Nonnull
+	public ChardevRingbuf withSize(java.lang.Long value) {
+		this.size = value;
+		return this;
+	}
 
 	public ChardevRingbuf() {
 	}
 
-	public ChardevRingbuf(long size) {
+	public ChardevRingbuf(java.lang.Long size) {
 		this.size = size;
 	}
 }

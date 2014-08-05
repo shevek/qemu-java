@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,7 +12,7 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BALLOON_CHANGE, data={actual=int}}
 public class BalloonChangeEvent extends QApiEvent {
-	@SerializedName("actual")
+	@JsonProperty("actual")
 	@Nonnull
 	public long actual;
 }

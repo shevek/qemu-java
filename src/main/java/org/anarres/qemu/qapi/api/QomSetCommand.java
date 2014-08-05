@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +15,13 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 	/** Compound arguments to a QomSetCommand. */
 	public static class Arguments {
 
-		@SerializedName("path")
+		@JsonProperty("path")
 		@Nonnull
 		public java.lang.String path;
-		@SerializedName("property")
+		@JsonProperty("property")
 		@Nonnull
 		public java.lang.String property;
-		@SerializedName("value")
+		@JsonProperty("value")
 		@Nonnull
 		public java.lang.Object value;
 

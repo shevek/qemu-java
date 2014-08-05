@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,20 +15,20 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 	/** Compound arguments to a ObjectAddCommand. */
 	public static class Arguments {
 
-		@SerializedName("qom-type")
+		@JsonProperty("qom-type")
 		@Nonnull
 		public java.lang.String qomType;
-		@SerializedName("id")
+		@JsonProperty("id")
 		@Nonnull
 		public java.lang.String id;
-		@SerializedName("props")
+		@JsonProperty("props")
 		@CheckForNull
-		public Map<String, String> props;
+		public java.util.Map<String, String> props;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String qomType, java.lang.String id, Map<String, String> props) {
+		public Arguments(java.lang.String qomType, java.lang.String id, java.util.Map<String, String> props) {
 			this.qomType = qomType;
 			this.id = id;
 			this.props = props;
@@ -48,7 +45,7 @@ public class ObjectAddCommand extends QApiCommand<ObjectAddCommand.Arguments, Ob
 	}
 
 	/** Constructs a new ObjectAddCommand. */
-	public ObjectAddCommand(java.lang.String qomType, java.lang.String id, Map<String, String> props) {
+	public ObjectAddCommand(java.lang.String qomType, java.lang.String id, java.util.Map<String, String> props) {
 		this(new Arguments(qomType, id, props));
 	}
 }

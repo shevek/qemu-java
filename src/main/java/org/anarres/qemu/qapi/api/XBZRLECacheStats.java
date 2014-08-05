@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,26 +13,63 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=XBZRLECacheStats, data={cache-size=int, bytes=int, pages=int, cache-miss=int, cache-miss-rate=number, overflow=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=XBZRLECacheStats, data={cache-size=int, bytes=int, pages=int, cache-miss=int, cache-miss-rate=number, overflow=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class XBZRLECacheStats extends QApiType {
 
-	@SerializedName("cache-size")
+	@JsonProperty("cache-size")
 	@Nonnull
 	public long cacheSize;
-	@SerializedName("bytes")
+	@JsonProperty("bytes")
 	@Nonnull
 	public long bytes;
-	@SerializedName("pages")
+	@JsonProperty("pages")
 	@Nonnull
 	public long pages;
-	@SerializedName("cache-miss")
+	@JsonProperty("cache-miss")
 	@Nonnull
 	public long cacheMiss;
-	@SerializedName("cache-miss-rate")
+	@JsonProperty("cache-miss-rate")
 	@Nonnull
 	public double cacheMissRate;
-	@SerializedName("overflow")
+	@JsonProperty("overflow")
 	@Nonnull
 	public long overflow;
+
+	@Nonnull
+	public XBZRLECacheStats withCacheSize(long value) {
+		this.cacheSize = value;
+		return this;
+	}
+
+	@Nonnull
+	public XBZRLECacheStats withBytes(long value) {
+		this.bytes = value;
+		return this;
+	}
+
+	@Nonnull
+	public XBZRLECacheStats withPages(long value) {
+		this.pages = value;
+		return this;
+	}
+
+	@Nonnull
+	public XBZRLECacheStats withCacheMiss(long value) {
+		this.cacheMiss = value;
+		return this;
+	}
+
+	@Nonnull
+	public XBZRLECacheStats withCacheMissRate(double value) {
+		this.cacheMissRate = value;
+		return this;
+	}
+
+	@Nonnull
+	public XBZRLECacheStats withOverflow(long value) {
+		this.overflow = value;
+		return this;
+	}
 
 	public XBZRLECacheStats() {
 	}

@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,19 +12,19 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BLOCK_JOB_CANCELLED, data={type=BlockJobType, device=str, len=int, offset=int, speed=int}}
 public class BlockJobCancelledEvent extends QApiEvent {
-	@SerializedName("type")
+	@JsonProperty("type")
 	@Nonnull
 	public BlockJobType type;
-	@SerializedName("device")
+	@JsonProperty("device")
 	@Nonnull
 	public java.lang.String device;
-	@SerializedName("len")
+	@JsonProperty("len")
 	@Nonnull
 	public long len;
-	@SerializedName("offset")
+	@JsonProperty("offset")
 	@Nonnull
 	public long offset;
-	@SerializedName("speed")
+	@JsonProperty("speed")
 	@Nonnull
 	public long speed;
 }

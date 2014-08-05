@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,26 +15,26 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments
 	/** Compound arguments to a BlockCommitCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
-		@SerializedName("base")
+		@JsonProperty("base")
 		@CheckForNull
 		public java.lang.String base;
-		@SerializedName("top")
+		@JsonProperty("top")
 		@CheckForNull
 		public java.lang.String top;
-		@SerializedName("backing-file")
+		@JsonProperty("backing-file")
 		@CheckForNull
 		public java.lang.String backingFile;
-		@SerializedName("speed")
+		@JsonProperty("speed")
 		@CheckForNull
-		public long speed;
+		public java.lang.Long speed;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed) {
+		public Arguments(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, java.lang.Long speed) {
 			this.device = device;
 			this.base = base;
 			this.top = top;
@@ -56,7 +53,7 @@ public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments
 	}
 
 	/** Constructs a new BlockCommitCommand. */
-	public BlockCommitCommand(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, long speed) {
+	public BlockCommitCommand(java.lang.String device, java.lang.String base, java.lang.String top, java.lang.String backingFile, java.lang.Long speed) {
 		this(new Arguments(device, base, top, backingFile, speed));
 	}
 }

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevBridgeOptions, data={*br=str, *helper=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevBridgeOptions, data={*br=str, *helper=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevBridgeOptions extends QApiType {
 
-	@SerializedName("br")
+	@JsonProperty("br")
 	@CheckForNull
 	public java.lang.String br;
-	@SerializedName("helper")
+	@JsonProperty("helper")
 	@CheckForNull
 	public java.lang.String helper;
+
+	@Nonnull
+	public NetdevBridgeOptions withBr(java.lang.String value) {
+		this.br = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevBridgeOptions withHelper(java.lang.String value) {
+		this.helper = value;
+		return this;
+	}
 
 	public NetdevBridgeOptions() {
 	}

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,22 +13,41 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevCacheOptions, data={*writeback=bool, *direct=bool, *no-flush=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevCacheOptions, data={*writeback=bool, *direct=bool, *no-flush=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevCacheOptions extends QApiType {
 
-	@SerializedName("writeback")
+	@JsonProperty("writeback")
 	@CheckForNull
-	public boolean writeback;
-	@SerializedName("direct")
+	public java.lang.Boolean writeback;
+	@JsonProperty("direct")
 	@CheckForNull
-	public boolean direct;
-	@SerializedName("no-flush")
+	public java.lang.Boolean direct;
+	@JsonProperty("no-flush")
 	@CheckForNull
-	public boolean noFlush;
+	public java.lang.Boolean noFlush;
+
+	@Nonnull
+	public BlockdevCacheOptions withWriteback(java.lang.Boolean value) {
+		this.writeback = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevCacheOptions withDirect(java.lang.Boolean value) {
+		this.direct = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevCacheOptions withNoFlush(java.lang.Boolean value) {
+		this.noFlush = value;
+		return this;
+	}
 
 	public BlockdevCacheOptions() {
 	}
 
-	public BlockdevCacheOptions(boolean writeback, boolean direct, boolean noFlush) {
+	public BlockdevCacheOptions(java.lang.Boolean writeback, java.lang.Boolean direct, java.lang.Boolean noFlush) {
 		this.writeback = writeback;
 		this.direct = direct;
 		this.noFlush = noFlush;

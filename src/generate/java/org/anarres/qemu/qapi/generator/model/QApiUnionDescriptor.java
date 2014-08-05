@@ -6,6 +6,9 @@ package org.anarres.qemu.qapi.generator.model;
 
 import com.google.common.base.Objects;
 import com.google.gson.annotations.SerializedName;
+import java.util.Iterator;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -15,6 +18,38 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
 
     @SerializedName("union")
     public String name;
+    @CheckForNull
+    /**
+     * String -> existing field.
+     * {} -> by-type (unwrapped)
+     * null -> introduce a new 'type' discriminator.
+     */
+    public Object discriminator;
+    private Field discriminatorField;
+
+    @Override
+    protected boolean preprocess(AbstractQApiTypeDescriptor root) {
+        if (!super.preprocess(root))
+            return false;
+        FIELD:
+        if (discriminator instanceof String) {
+            if (false) {
+                for (Iterator<Field> it = getFields().iterator(); it.hasNext(); /* */) {
+                    Field field = it.next();
+                    if (discriminator.equals(field.name)) {
+                        discriminatorField = field;
+                        break FIELD;
+                    }
+                }
+                throw new IllegalArgumentException("Discriminator field " + discriminator + " not found in " + getFields());
+            } else {
+                discriminatorField = new Field();
+                discriminatorField.typeName = "BlockdevDriver"; // XXX TODO: HACK HACK - look this up in the global type dict.
+                discriminatorField.name = (String) discriminator;
+            }
+        }
+        return true;
+    }
 
     @Override
     public String getName() {
@@ -26,6 +61,27 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
         return "union";
     }
 
+    public boolean isEnumDiscriminated() {
+        return discriminator == null;
+    }
+
+    public boolean isFieldDiscriminated() {
+        return discriminator instanceof String;
+    }
+
+    public boolean isTypeDiscriminated() {
+        if (isEnumDiscriminated())
+            return false;
+        if (isFieldDiscriminated())
+            return false;
+        return true;
+    }
+
+    @Nonnull
+    public Field getDiscriminatorField() {
+        return discriminatorField;
+    }
+
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
@@ -33,6 +89,7 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
                 .add("data", data)
                 .add("innerTypes", innerTypes)
                 .add("fields", fields)
+                .add("discriminatorField", discriminatorField)
                 .toString();
     }
 }

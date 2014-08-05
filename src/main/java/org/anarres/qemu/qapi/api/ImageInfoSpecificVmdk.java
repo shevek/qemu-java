@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ImageInfoSpecificVmdk, data={create-type=str, cid=int, parent-cid=int, extents=[ImageInfo]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ImageInfoSpecificVmdk, data={create-type=str, cid=int, parent-cid=int, extents=[ImageInfo]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImageInfoSpecificVmdk extends QApiType {
 
-	@SerializedName("create-type")
+	@JsonProperty("create-type")
 	@Nonnull
 	public java.lang.String createType;
-	@SerializedName("cid")
+	@JsonProperty("cid")
 	@Nonnull
 	public long cid;
-	@SerializedName("parent-cid")
+	@JsonProperty("parent-cid")
 	@Nonnull
 	public long parentCid;
-	@SerializedName("extents")
+	@JsonProperty("extents")
 	@Nonnull
-	public List<ImageInfo> extents;
+	public java.util.List<ImageInfo> extents;
+
+	@Nonnull
+	public ImageInfoSpecificVmdk withCreateType(java.lang.String value) {
+		this.createType = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfoSpecificVmdk withCid(long value) {
+		this.cid = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfoSpecificVmdk withParentCid(long value) {
+		this.parentCid = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfoSpecificVmdk withExtents(java.util.List<ImageInfo> value) {
+		this.extents = value;
+		return this;
+	}
 
 	public ImageInfoSpecificVmdk() {
 	}
 
-	public ImageInfoSpecificVmdk(java.lang.String createType, long cid, long parentCid, List<ImageInfo> extents) {
+	public ImageInfoSpecificVmdk(java.lang.String createType, long cid, long parentCid, java.util.List<ImageInfo> extents) {
 		this.createType = createType;
 		this.cid = cid;
 		this.parentCid = parentCid;

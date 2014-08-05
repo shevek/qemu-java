@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=InputMoveEvent, data={axis=InputAxis, value=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=InputMoveEvent, data={axis=InputAxis, value=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class InputMoveEvent extends QApiType {
 
-	@SerializedName("axis")
+	@JsonProperty("axis")
 	@Nonnull
 	public InputAxis axis;
-	@SerializedName("value")
+	@JsonProperty("value")
 	@Nonnull
 	public long value;
+
+	@Nonnull
+	public InputMoveEvent withAxis(InputAxis value) {
+		this.axis = value;
+		return this;
+	}
+
+	@Nonnull
+	public InputMoveEvent withValue(long value) {
+		this.value = value;
+		return this;
+	}
 
 	public InputMoveEvent() {
 	}

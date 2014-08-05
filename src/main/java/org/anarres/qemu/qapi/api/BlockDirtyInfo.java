@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockDirtyInfo, data={count=int, granularity=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockDirtyInfo extends QApiType {
 
-	@SerializedName("count")
+	@JsonProperty("count")
 	@Nonnull
 	public long count;
-	@SerializedName("granularity")
+	@JsonProperty("granularity")
 	@Nonnull
 	public long granularity;
+
+	@Nonnull
+	public BlockDirtyInfo withCount(long value) {
+		this.count = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDirtyInfo withGranularity(long value) {
+		this.granularity = value;
+		return this;
+	}
 
 	public BlockDirtyInfo() {
 	}

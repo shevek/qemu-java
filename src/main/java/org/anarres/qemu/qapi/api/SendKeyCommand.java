@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,17 +15,17 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKe
 	/** Compound arguments to a SendKeyCommand. */
 	public static class Arguments {
 
-		@SerializedName("keys")
+		@JsonProperty("keys")
 		@Nonnull
-		public List<KeyValue> keys;
-		@SerializedName("hold-time")
+		public java.util.List<KeyValue> keys;
+		@JsonProperty("hold-time")
 		@CheckForNull
-		public long holdTime;
+		public java.lang.Long holdTime;
 
 		public Arguments() {
 		}
 
-		public Arguments(List<KeyValue> keys, long holdTime) {
+		public Arguments(java.util.List<KeyValue> keys, java.lang.Long holdTime) {
 			this.keys = keys;
 			this.holdTime = holdTime;
 		}
@@ -44,7 +41,7 @@ public class SendKeyCommand extends QApiCommand<SendKeyCommand.Arguments, SendKe
 	}
 
 	/** Constructs a new SendKeyCommand. */
-	public SendKeyCommand(List<KeyValue> keys, long holdTime) {
+	public SendKeyCommand(java.util.List<KeyValue> keys, java.lang.Long holdTime) {
 		this(new Arguments(keys, holdTime));
 	}
 }

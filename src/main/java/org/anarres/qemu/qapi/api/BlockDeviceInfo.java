@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,82 +13,221 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockDeviceInfo, data={file=str, *node-name=str, ro=bool, drv=str, *backing_file=str, backing_file_depth=int, encrypted=bool, encryption_key_missing=bool, detect_zeroes=BlockdevDetectZeroesOptions, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, image=ImageInfo, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockDeviceInfo, data={file=str, *node-name=str, ro=bool, drv=str, *backing_file=str, backing_file_depth=int, encrypted=bool, encryption_key_missing=bool, detect_zeroes=BlockdevDetectZeroesOptions, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, image=ImageInfo, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockDeviceInfo extends QApiType {
 
-	@SerializedName("file")
+	@JsonProperty("file")
 	@Nonnull
 	public java.lang.String file;
-	@SerializedName("node-name")
+	@JsonProperty("node-name")
 	@CheckForNull
 	public java.lang.String nodeName;
-	@SerializedName("ro")
+	@JsonProperty("ro")
 	@Nonnull
 	public boolean ro;
-	@SerializedName("drv")
+	@JsonProperty("drv")
 	@Nonnull
 	public java.lang.String drv;
-	@SerializedName("backing_file")
+	@JsonProperty("backing_file")
 	@CheckForNull
 	public java.lang.String backingFile;
-	@SerializedName("backing_file_depth")
+	@JsonProperty("backing_file_depth")
 	@Nonnull
 	public long backingFileDepth;
-	@SerializedName("encrypted")
+	@JsonProperty("encrypted")
 	@Nonnull
 	public boolean encrypted;
-	@SerializedName("encryption_key_missing")
+	@JsonProperty("encryption_key_missing")
 	@Nonnull
 	public boolean encryptionKeyMissing;
-	@SerializedName("detect_zeroes")
+	@JsonProperty("detect_zeroes")
 	@Nonnull
 	public BlockdevDetectZeroesOptions detectZeroes;
-	@SerializedName("bps")
+	@JsonProperty("bps")
 	@Nonnull
 	public long bps;
-	@SerializedName("bps_rd")
+	@JsonProperty("bps_rd")
 	@Nonnull
 	public long bpsRd;
-	@SerializedName("bps_wr")
+	@JsonProperty("bps_wr")
 	@Nonnull
 	public long bpsWr;
-	@SerializedName("iops")
+	@JsonProperty("iops")
 	@Nonnull
 	public long iops;
-	@SerializedName("iops_rd")
+	@JsonProperty("iops_rd")
 	@Nonnull
 	public long iopsRd;
-	@SerializedName("iops_wr")
+	@JsonProperty("iops_wr")
 	@Nonnull
 	public long iopsWr;
-	@SerializedName("image")
+	@JsonProperty("image")
 	@Nonnull
 	public ImageInfo image;
-	@SerializedName("bps_max")
+	@JsonProperty("bps_max")
 	@CheckForNull
-	public long bpsMax;
-	@SerializedName("bps_rd_max")
+	public java.lang.Long bpsMax;
+	@JsonProperty("bps_rd_max")
 	@CheckForNull
-	public long bpsRdMax;
-	@SerializedName("bps_wr_max")
+	public java.lang.Long bpsRdMax;
+	@JsonProperty("bps_wr_max")
 	@CheckForNull
-	public long bpsWrMax;
-	@SerializedName("iops_max")
+	public java.lang.Long bpsWrMax;
+	@JsonProperty("iops_max")
 	@CheckForNull
-	public long iopsMax;
-	@SerializedName("iops_rd_max")
+	public java.lang.Long iopsMax;
+	@JsonProperty("iops_rd_max")
 	@CheckForNull
-	public long iopsRdMax;
-	@SerializedName("iops_wr_max")
+	public java.lang.Long iopsRdMax;
+	@JsonProperty("iops_wr_max")
 	@CheckForNull
-	public long iopsWrMax;
-	@SerializedName("iops_size")
+	public java.lang.Long iopsWrMax;
+	@JsonProperty("iops_size")
 	@CheckForNull
-	public long iopsSize;
+	public java.lang.Long iopsSize;
+
+	@Nonnull
+	public BlockDeviceInfo withFile(java.lang.String value) {
+		this.file = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withNodeName(java.lang.String value) {
+		this.nodeName = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withRo(boolean value) {
+		this.ro = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withDrv(java.lang.String value) {
+		this.drv = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBackingFile(java.lang.String value) {
+		this.backingFile = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBackingFileDepth(long value) {
+		this.backingFileDepth = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withEncrypted(boolean value) {
+		this.encrypted = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withEncryptionKeyMissing(boolean value) {
+		this.encryptionKeyMissing = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withDetectZeroes(BlockdevDetectZeroesOptions value) {
+		this.detectZeroes = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBps(long value) {
+		this.bps = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBpsRd(long value) {
+		this.bpsRd = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBpsWr(long value) {
+		this.bpsWr = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIops(long value) {
+		this.iops = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsRd(long value) {
+		this.iopsRd = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsWr(long value) {
+		this.iopsWr = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withImage(ImageInfo value) {
+		this.image = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBpsMax(java.lang.Long value) {
+		this.bpsMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBpsRdMax(java.lang.Long value) {
+		this.bpsRdMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withBpsWrMax(java.lang.Long value) {
+		this.bpsWrMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsMax(java.lang.Long value) {
+		this.iopsMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsRdMax(java.lang.Long value) {
+		this.iopsRdMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsWrMax(java.lang.Long value) {
+		this.iopsWrMax = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceInfo withIopsSize(java.lang.Long value) {
+		this.iopsSize = value;
+		return this;
+	}
 
 	public BlockDeviceInfo() {
 	}
 
-	public BlockDeviceInfo(java.lang.String file, java.lang.String nodeName, boolean ro, java.lang.String drv, java.lang.String backingFile, long backingFileDepth, boolean encrypted, boolean encryptionKeyMissing, BlockdevDetectZeroesOptions detectZeroes, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, ImageInfo image, long bpsMax, long bpsRdMax, long bpsWrMax, long iopsMax, long iopsRdMax, long iopsWrMax, long iopsSize) {
+	public BlockDeviceInfo(java.lang.String file, java.lang.String nodeName, boolean ro, java.lang.String drv, java.lang.String backingFile, long backingFileDepth, boolean encrypted, boolean encryptionKeyMissing, BlockdevDetectZeroesOptions detectZeroes, long bps, long bpsRd, long bpsWr, long iops, long iopsRd, long iopsWr, ImageInfo image, java.lang.Long bpsMax, java.lang.Long bpsRdMax, java.lang.Long bpsWrMax, java.lang.Long iopsMax, java.lang.Long iopsRdMax, java.lang.Long iopsWrMax, java.lang.Long iopsSize) {
 		this.file = file;
 		this.nodeName = nodeName;
 		this.ro = ro;

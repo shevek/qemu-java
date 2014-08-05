@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,37 +13,86 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=MigrationInfo, data={*status=str, *ram=MigrationStats, *disk=MigrationStats, *xbzrle-cache=XBZRLECacheStats, *total-time=int, *expected-downtime=int, *downtime=int, *setup-time=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=MigrationInfo, data={*status=str, *ram=MigrationStats, *disk=MigrationStats, *xbzrle-cache=XBZRLECacheStats, *total-time=int, *expected-downtime=int, *downtime=int, *setup-time=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MigrationInfo extends QApiType {
 
-	@SerializedName("status")
+	@JsonProperty("status")
 	@CheckForNull
 	public java.lang.String status;
-	@SerializedName("ram")
+	@JsonProperty("ram")
 	@CheckForNull
 	public MigrationStats ram;
-	@SerializedName("disk")
+	@JsonProperty("disk")
 	@CheckForNull
 	public MigrationStats disk;
-	@SerializedName("xbzrle-cache")
+	@JsonProperty("xbzrle-cache")
 	@CheckForNull
 	public XBZRLECacheStats xbzrleCache;
-	@SerializedName("total-time")
+	@JsonProperty("total-time")
 	@CheckForNull
-	public long totalTime;
-	@SerializedName("expected-downtime")
+	public java.lang.Long totalTime;
+	@JsonProperty("expected-downtime")
 	@CheckForNull
-	public long expectedDowntime;
-	@SerializedName("downtime")
+	public java.lang.Long expectedDowntime;
+	@JsonProperty("downtime")
 	@CheckForNull
-	public long downtime;
-	@SerializedName("setup-time")
+	public java.lang.Long downtime;
+	@JsonProperty("setup-time")
 	@CheckForNull
-	public long setupTime;
+	public java.lang.Long setupTime;
+
+	@Nonnull
+	public MigrationInfo withStatus(java.lang.String value) {
+		this.status = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withRam(MigrationStats value) {
+		this.ram = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withDisk(MigrationStats value) {
+		this.disk = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withXbzrleCache(XBZRLECacheStats value) {
+		this.xbzrleCache = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withTotalTime(java.lang.Long value) {
+		this.totalTime = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withExpectedDowntime(java.lang.Long value) {
+		this.expectedDowntime = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withDowntime(java.lang.Long value) {
+		this.downtime = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationInfo withSetupTime(java.lang.Long value) {
+		this.setupTime = value;
+		return this;
+	}
 
 	public MigrationInfo() {
 	}
 
-	public MigrationInfo(java.lang.String status, MigrationStats ram, MigrationStats disk, XBZRLECacheStats xbzrleCache, long totalTime, long expectedDowntime, long downtime, long setupTime) {
+	public MigrationInfo(java.lang.String status, MigrationStats ram, MigrationStats disk, XBZRLECacheStats xbzrleCache, java.lang.Long totalTime, java.lang.Long expectedDowntime, java.lang.Long downtime, java.lang.Long setupTime) {
 		this.status = status;
 		this.ram = ram;
 		this.disk = disk;

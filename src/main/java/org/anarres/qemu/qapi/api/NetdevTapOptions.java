@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,52 +13,131 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetdevTapOptions, data={*ifname=str, *fd=str, *fds=str, *script=str, *downscript=str, *helper=str, *sndbuf=size, *vnet_hdr=bool, *vhost=bool, *vhostfd=str, *vhostfds=str, *vhostforce=bool, *queues=uint32}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetdevTapOptions, data={*ifname=str, *fd=str, *fds=str, *script=str, *downscript=str, *helper=str, *sndbuf=size, *vnet_hdr=bool, *vhost=bool, *vhostfd=str, *vhostfds=str, *vhostforce=bool, *queues=uint32}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevTapOptions extends QApiType {
 
-	@SerializedName("ifname")
+	@JsonProperty("ifname")
 	@CheckForNull
 	public java.lang.String ifname;
-	@SerializedName("fd")
+	@JsonProperty("fd")
 	@CheckForNull
 	public java.lang.String fd;
-	@SerializedName("fds")
+	@JsonProperty("fds")
 	@CheckForNull
 	public java.lang.String fds;
-	@SerializedName("script")
+	@JsonProperty("script")
 	@CheckForNull
 	public java.lang.String script;
-	@SerializedName("downscript")
+	@JsonProperty("downscript")
 	@CheckForNull
 	public java.lang.String downscript;
-	@SerializedName("helper")
+	@JsonProperty("helper")
 	@CheckForNull
 	public java.lang.String helper;
-	@SerializedName("sndbuf")
+	@JsonProperty("sndbuf")
 	@CheckForNull
-	public long sndbuf;
-	@SerializedName("vnet_hdr")
+	public java.lang.Long sndbuf;
+	@JsonProperty("vnet_hdr")
 	@CheckForNull
-	public boolean vnetHdr;
-	@SerializedName("vhost")
+	public java.lang.Boolean vnetHdr;
+	@JsonProperty("vhost")
 	@CheckForNull
-	public boolean vhost;
-	@SerializedName("vhostfd")
+	public java.lang.Boolean vhost;
+	@JsonProperty("vhostfd")
 	@CheckForNull
 	public java.lang.String vhostfd;
-	@SerializedName("vhostfds")
+	@JsonProperty("vhostfds")
 	@CheckForNull
 	public java.lang.String vhostfds;
-	@SerializedName("vhostforce")
+	@JsonProperty("vhostforce")
 	@CheckForNull
-	public boolean vhostforce;
-	@SerializedName("queues")
+	public java.lang.Boolean vhostforce;
+	@JsonProperty("queues")
 	@CheckForNull
-	public long queues;
+	public java.lang.Long queues;
+
+	@Nonnull
+	public NetdevTapOptions withIfname(java.lang.String value) {
+		this.ifname = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withFd(java.lang.String value) {
+		this.fd = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withFds(java.lang.String value) {
+		this.fds = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withScript(java.lang.String value) {
+		this.script = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withDownscript(java.lang.String value) {
+		this.downscript = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withHelper(java.lang.String value) {
+		this.helper = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withSndbuf(java.lang.Long value) {
+		this.sndbuf = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withVnetHdr(java.lang.Boolean value) {
+		this.vnetHdr = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withVhost(java.lang.Boolean value) {
+		this.vhost = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withVhostfd(java.lang.String value) {
+		this.vhostfd = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withVhostfds(java.lang.String value) {
+		this.vhostfds = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withVhostforce(java.lang.Boolean value) {
+		this.vhostforce = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetdevTapOptions withQueues(java.lang.Long value) {
+		this.queues = value;
+		return this;
+	}
 
 	public NetdevTapOptions() {
 	}
 
-	public NetdevTapOptions(java.lang.String ifname, java.lang.String fd, java.lang.String fds, java.lang.String script, java.lang.String downscript, java.lang.String helper, long sndbuf, boolean vnetHdr, boolean vhost, java.lang.String vhostfd, java.lang.String vhostfds, boolean vhostforce, long queues) {
+	public NetdevTapOptions(java.lang.String ifname, java.lang.String fd, java.lang.String fds, java.lang.String script, java.lang.String downscript, java.lang.String helper, java.lang.Long sndbuf, java.lang.Boolean vnetHdr, java.lang.Boolean vhost, java.lang.String vhostfd, java.lang.String vhostfds, java.lang.Boolean vhostforce, java.lang.Long queues) {
 		this.ifname = ifname;
 		this.fd = fd;
 		this.fds = fds;

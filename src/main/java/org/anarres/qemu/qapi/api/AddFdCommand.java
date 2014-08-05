@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,17 +15,17 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdComma
 	/** Compound arguments to a AddFdCommand. */
 	public static class Arguments {
 
-		@SerializedName("fdset-id")
+		@JsonProperty("fdset-id")
 		@CheckForNull
-		public long fdsetId;
-		@SerializedName("opaque")
+		public java.lang.Long fdsetId;
+		@JsonProperty("opaque")
 		@CheckForNull
 		public java.lang.String opaque;
 
 		public Arguments() {
 		}
 
-		public Arguments(long fdsetId, java.lang.String opaque) {
+		public Arguments(java.lang.Long fdsetId, java.lang.String opaque) {
 			this.fdsetId = fdsetId;
 			this.opaque = opaque;
 		}
@@ -44,7 +41,7 @@ public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdComma
 	}
 
 	/** Constructs a new AddFdCommand. */
-	public AddFdCommand(long fdsetId, java.lang.String opaque) {
+	public AddFdCommand(java.lang.Long fdsetId, java.lang.String opaque) {
 		this(new Arguments(fdsetId, opaque));
 	}
 }

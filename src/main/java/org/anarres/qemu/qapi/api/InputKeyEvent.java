@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=InputKeyEvent, data={key=KeyValue, down=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=InputKeyEvent, data={key=KeyValue, down=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class InputKeyEvent extends QApiType {
 
-	@SerializedName("key")
+	@JsonProperty("key")
 	@Nonnull
 	public KeyValue key;
-	@SerializedName("down")
+	@JsonProperty("down")
 	@Nonnull
 	public boolean down;
+
+	@Nonnull
+	public InputKeyEvent withKey(KeyValue value) {
+		this.key = value;
+		return this;
+	}
+
+	@Nonnull
+	public InputKeyEvent withDown(boolean value) {
+		this.down = value;
+		return this;
+	}
 
 	public InputKeyEvent() {
 	}

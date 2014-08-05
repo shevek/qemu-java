@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,19 +13,32 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ImageInfoSpecificQCow2, data={compat=str, *lazy-refcounts=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ImageInfoSpecificQCow2, data={compat=str, *lazy-refcounts=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImageInfoSpecificQCow2 extends QApiType {
 
-	@SerializedName("compat")
+	@JsonProperty("compat")
 	@Nonnull
 	public java.lang.String compat;
-	@SerializedName("lazy-refcounts")
+	@JsonProperty("lazy-refcounts")
 	@CheckForNull
-	public boolean lazyRefcounts;
+	public java.lang.Boolean lazyRefcounts;
+
+	@Nonnull
+	public ImageInfoSpecificQCow2 withCompat(java.lang.String value) {
+		this.compat = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageInfoSpecificQCow2 withLazyRefcounts(java.lang.Boolean value) {
+		this.lazyRefcounts = value;
+		return this;
+	}
 
 	public ImageInfoSpecificQCow2() {
 	}
 
-	public ImageInfoSpecificQCow2(java.lang.String compat, boolean lazyRefcounts) {
+	public ImageInfoSpecificQCow2(java.lang.String compat, java.lang.Boolean lazyRefcounts) {
 		this.compat = compat;
 		this.lazyRefcounts = lazyRefcounts;
 	}

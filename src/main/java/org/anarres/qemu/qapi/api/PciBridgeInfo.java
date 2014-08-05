@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,34 +13,54 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=PciBridgeInfo, data={bus={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, *devices=[PciDeviceInfo]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=PciBridgeInfo, data={bus={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, *devices=[PciDeviceInfo]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PciBridgeInfo extends QApiType {
 	// QApiTypeDescriptor{name=_Tbus, data={number=int, secondary=int, subordinate=int, io_range=PciMemoryRange, memory_range=PciMemoryRange, prefetchable_range=PciMemoryRange}, innerTypes=[]}
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class _Tbus {
-		@SerializedName("number")
-		@Nonnull public long number;
-		@SerializedName("secondary")
-		@Nonnull public long secondary;
-		@SerializedName("subordinate")
-		@Nonnull public long subordinate;
-		@SerializedName("io_range")
-		@Nonnull public PciMemoryRange ioRange;
-		@SerializedName("memory_range")
-		@Nonnull public PciMemoryRange memoryRange;
-		@SerializedName("prefetchable_range")
-		@Nonnull public PciMemoryRange prefetchableRange;
+		@JsonProperty("number")
+		@Nonnull
+		public long number;
+		@JsonProperty("secondary")
+		@Nonnull
+		public long secondary;
+		@JsonProperty("subordinate")
+		@Nonnull
+		public long subordinate;
+		@JsonProperty("io_range")
+		@Nonnull
+		public PciMemoryRange ioRange;
+		@JsonProperty("memory_range")
+		@Nonnull
+		public PciMemoryRange memoryRange;
+		@JsonProperty("prefetchable_range")
+		@Nonnull
+		public PciMemoryRange prefetchableRange;
 	}
 
-	@SerializedName("bus")
+	@JsonProperty("bus")
 	@Nonnull
 	public _Tbus bus;
-	@SerializedName("devices")
+	@JsonProperty("devices")
 	@CheckForNull
-	public List<PciDeviceInfo> devices;
+	public java.util.List<PciDeviceInfo> devices;
+
+	@Nonnull
+	public PciBridgeInfo withBus(_Tbus value) {
+		this.bus = value;
+		return this;
+	}
+
+	@Nonnull
+	public PciBridgeInfo withDevices(java.util.List<PciDeviceInfo> value) {
+		this.devices = value;
+		return this;
+	}
 
 	public PciBridgeInfo() {
 	}
 
-	public PciBridgeInfo(_Tbus bus, List<PciDeviceInfo> devices) {
+	public PciBridgeInfo(_Tbus bus, java.util.List<PciDeviceInfo> devices) {
 		this.bus = bus;
 		this.devices = devices;
 	}

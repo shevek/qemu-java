@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,38 +13,99 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=MigrationStats, data={transferred=int, remaining=int, total=int, duplicate=int, skipped=int, normal=int, normal-bytes=int, dirty-pages-rate=int, mbps=number, dirty-sync-count=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=MigrationStats, data={transferred=int, remaining=int, total=int, duplicate=int, skipped=int, normal=int, normal-bytes=int, dirty-pages-rate=int, mbps=number, dirty-sync-count=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MigrationStats extends QApiType {
 
-	@SerializedName("transferred")
+	@JsonProperty("transferred")
 	@Nonnull
 	public long transferred;
-	@SerializedName("remaining")
+	@JsonProperty("remaining")
 	@Nonnull
 	public long remaining;
-	@SerializedName("total")
+	@JsonProperty("total")
 	@Nonnull
 	public long total;
-	@SerializedName("duplicate")
+	@JsonProperty("duplicate")
 	@Nonnull
 	public long duplicate;
-	@SerializedName("skipped")
+	@JsonProperty("skipped")
 	@Nonnull
 	public long skipped;
-	@SerializedName("normal")
+	@JsonProperty("normal")
 	@Nonnull
 	public long normal;
-	@SerializedName("normal-bytes")
+	@JsonProperty("normal-bytes")
 	@Nonnull
 	public long normalBytes;
-	@SerializedName("dirty-pages-rate")
+	@JsonProperty("dirty-pages-rate")
 	@Nonnull
 	public long dirtyPagesRate;
-	@SerializedName("mbps")
+	@JsonProperty("mbps")
 	@Nonnull
 	public double mbps;
-	@SerializedName("dirty-sync-count")
+	@JsonProperty("dirty-sync-count")
 	@Nonnull
 	public long dirtySyncCount;
+
+	@Nonnull
+	public MigrationStats withTransferred(long value) {
+		this.transferred = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withRemaining(long value) {
+		this.remaining = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withTotal(long value) {
+		this.total = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withDuplicate(long value) {
+		this.duplicate = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withSkipped(long value) {
+		this.skipped = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withNormal(long value) {
+		this.normal = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withNormalBytes(long value) {
+		this.normalBytes = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withDirtyPagesRate(long value) {
+		this.dirtyPagesRate = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withMbps(double value) {
+		this.mbps = value;
+		return this;
+	}
+
+	@Nonnull
+	public MigrationStats withDirtySyncCount(long value) {
+		this.dirtySyncCount = value;
+		return this;
+	}
 
 	public MigrationStats() {
 	}

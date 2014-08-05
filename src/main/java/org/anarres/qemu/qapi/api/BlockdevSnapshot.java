@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,26 +13,63 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevSnapshot, data={*device=str, *node-name=str, snapshot-file=str, *snapshot-node-name=str, *format=str, *mode=NewImageMode}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevSnapshot, data={*device=str, *node-name=str, snapshot-file=str, *snapshot-node-name=str, *format=str, *mode=NewImageMode}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevSnapshot extends QApiType {
 
-	@SerializedName("device")
+	@JsonProperty("device")
 	@CheckForNull
 	public java.lang.String device;
-	@SerializedName("node-name")
+	@JsonProperty("node-name")
 	@CheckForNull
 	public java.lang.String nodeName;
-	@SerializedName("snapshot-file")
+	@JsonProperty("snapshot-file")
 	@Nonnull
 	public java.lang.String snapshotFile;
-	@SerializedName("snapshot-node-name")
+	@JsonProperty("snapshot-node-name")
 	@CheckForNull
 	public java.lang.String snapshotNodeName;
-	@SerializedName("format")
+	@JsonProperty("format")
 	@CheckForNull
 	public java.lang.String format;
-	@SerializedName("mode")
+	@JsonProperty("mode")
 	@CheckForNull
 	public NewImageMode mode;
+
+	@Nonnull
+	public BlockdevSnapshot withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshot withNodeName(java.lang.String value) {
+		this.nodeName = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshot withSnapshotFile(java.lang.String value) {
+		this.snapshotFile = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshot withSnapshotNodeName(java.lang.String value) {
+		this.snapshotNodeName = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshot withFormat(java.lang.String value) {
+		this.format = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevSnapshot withMode(NewImageMode value) {
+		this.mode = value;
+		return this;
+	}
 
 	public BlockdevSnapshot() {
 	}

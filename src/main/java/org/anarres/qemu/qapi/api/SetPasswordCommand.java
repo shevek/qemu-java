@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +15,13 @@ public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments
 	/** Compound arguments to a SetPasswordCommand. */
 	public static class Arguments {
 
-		@SerializedName("protocol")
+		@JsonProperty("protocol")
 		@Nonnull
 		public java.lang.String protocol;
-		@SerializedName("password")
+		@JsonProperty("password")
 		@Nonnull
 		public java.lang.String password;
-		@SerializedName("connected")
+		@JsonProperty("connected")
 		@CheckForNull
 		public java.lang.String connected;
 

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,31 +13,68 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlkdebugInjectErrorOptions, data={event=BlkdebugEvent, *state=int, *errno=int, *sector=int, *once=bool, *immediately=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlkdebugInjectErrorOptions, data={event=BlkdebugEvent, *state=int, *errno=int, *sector=int, *once=bool, *immediately=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlkdebugInjectErrorOptions extends QApiType {
 
-	@SerializedName("event")
+	@JsonProperty("event")
 	@Nonnull
 	public BlkdebugEvent event;
-	@SerializedName("state")
+	@JsonProperty("state")
 	@CheckForNull
-	public long state;
-	@SerializedName("errno")
+	public java.lang.Long state;
+	@JsonProperty("errno")
 	@CheckForNull
-	public long errno;
-	@SerializedName("sector")
+	public java.lang.Long errno;
+	@JsonProperty("sector")
 	@CheckForNull
-	public long sector;
-	@SerializedName("once")
+	public java.lang.Long sector;
+	@JsonProperty("once")
 	@CheckForNull
-	public boolean once;
-	@SerializedName("immediately")
+	public java.lang.Boolean once;
+	@JsonProperty("immediately")
 	@CheckForNull
-	public boolean immediately;
+	public java.lang.Boolean immediately;
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withEvent(BlkdebugEvent value) {
+		this.event = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withState(java.lang.Long value) {
+		this.state = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withErrno(java.lang.Long value) {
+		this.errno = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withSector(java.lang.Long value) {
+		this.sector = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withOnce(java.lang.Boolean value) {
+		this.once = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlkdebugInjectErrorOptions withImmediately(java.lang.Boolean value) {
+		this.immediately = value;
+		return this;
+	}
 
 	public BlkdebugInjectErrorOptions() {
 	}
 
-	public BlkdebugInjectErrorOptions(BlkdebugEvent event, long state, long errno, long sector, boolean once, boolean immediately) {
+	public BlkdebugInjectErrorOptions(BlkdebugEvent event, java.lang.Long state, java.lang.Long errno, java.lang.Long sector, java.lang.Boolean once, java.lang.Boolean immediately) {
 		this.event = event;
 		this.state = state;
 		this.errno = errno;

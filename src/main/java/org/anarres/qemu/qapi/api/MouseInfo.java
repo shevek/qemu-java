@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,20 +13,45 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=MouseInfo, data={name=str, index=int, current=bool, absolute=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=MouseInfo, data={name=str, index=int, current=bool, absolute=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class MouseInfo extends QApiType {
 
-	@SerializedName("name")
+	@JsonProperty("name")
 	@Nonnull
 	public java.lang.String name;
-	@SerializedName("index")
+	@JsonProperty("index")
 	@Nonnull
 	public long index;
-	@SerializedName("current")
+	@JsonProperty("current")
 	@Nonnull
 	public boolean current;
-	@SerializedName("absolute")
+	@JsonProperty("absolute")
 	@Nonnull
 	public boolean absolute;
+
+	@Nonnull
+	public MouseInfo withName(java.lang.String value) {
+		this.name = value;
+		return this;
+	}
+
+	@Nonnull
+	public MouseInfo withIndex(long value) {
+		this.index = value;
+		return this;
+	}
+
+	@Nonnull
+	public MouseInfo withCurrent(boolean value) {
+		this.current = value;
+		return this;
+	}
+
+	@Nonnull
+	public MouseInfo withAbsolute(boolean value) {
+		this.absolute = value;
+		return this;
+	}
 
 	public MouseInfo() {
 	}

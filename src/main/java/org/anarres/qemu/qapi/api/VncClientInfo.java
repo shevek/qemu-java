@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=VncClientInfo, data={*x509_dname=str, *sasl_username=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=VncClientInfo, data={*x509_dname=str, *sasl_username=str}, innerTypes=null}
-public class VncClientInfo extends QApiType {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class VncClientInfo extends VncBasicInfo {
 
-	@SerializedName("x509_dname")
+	@JsonProperty("x509_dname")
 	@CheckForNull
 	public java.lang.String x509Dname;
-	@SerializedName("sasl_username")
+	@JsonProperty("sasl_username")
 	@CheckForNull
 	public java.lang.String saslUsername;
+
+	@Nonnull
+	public VncClientInfo withX509Dname(java.lang.String value) {
+		this.x509Dname = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncClientInfo withSaslUsername(java.lang.String value) {
+		this.saslUsername = value;
+		return this;
+	}
 
 	public VncClientInfo() {
 	}

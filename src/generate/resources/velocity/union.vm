@@ -1,31 +1,72 @@
 package $packageName;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import com.fasterxml.jackson.annotation.JsonValue;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
 
 #parse("/velocity/header.vm")
-public class $element.className extends QApiUnion {
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class $element.className extends #{if} ($element.superClassName)$element.superClassName#{else}QApiType#{end} implements QApiUnion {
+#if ($element.enumDiscriminated)
+	public static enum Discriminator {
 #foreach ($field in $element.fields)
-	@SerializedName("$field.serializedName")
+		${field.name},
+#end
+		__NONE;
+	}
+
+	@Nonnull
+	@JsonProperty("type")
+	public Discriminator type;
+
+	@Nonnull
+	public final Discriminator getType() {
+		return type;
+	}
+#end
+
+	// union {
+#foreach ($field in $element.fields)
+	@JsonProperty("$field.serializedName")
+	@JsonUnwrapped
 	$field.annotations
 	public $field.typeNameWrapped $field.name;
 #end
+	// }
 #foreach ($field in $element.fields)
 
 	@Nonnull
 	public static ${element.className} ${field.name}(@Nonnull $field.typeName $field.name) {
 		$element.className self = new ${element.className}();
+#if ($element.enumDiscriminated)
+		self.type = Discriminator.${field.name};
+#end
+#if ($element.fieldDiscriminated)
+		self.${element.discriminatorField.name} = ${element.discriminatorField.typeName}.${field.serializedName};
+#end
 		self.${field.name} = $field.name;
 		return self;
 	}
 #end
+#if ($element.typeDiscriminated)
+
+	/** This overrides @JsonUnwrapped. */
+	@JsonValue
+	public Object toJsonValue() {
+#foreach ($field in $element.fields)
+		if ($field.name != null)
+			return $field.name;
+#end
+		return null;
+	}
+#end
 
 	@Override
-	public boolean isUnion() {
+	public boolean isValidUnion() {
 		int count = 0;
 #foreach ($field in $element.fields)
 		if ($field.name != null)

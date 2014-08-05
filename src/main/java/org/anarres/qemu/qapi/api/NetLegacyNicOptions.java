@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,28 +13,59 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=NetLegacyNicOptions, data={*netdev=str, *macaddr=str, *model=str, *addr=str, *vectors=uint32}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=NetLegacyNicOptions, data={*netdev=str, *macaddr=str, *model=str, *addr=str, *vectors=uint32}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetLegacyNicOptions extends QApiType {
 
-	@SerializedName("netdev")
+	@JsonProperty("netdev")
 	@CheckForNull
 	public java.lang.String netdev;
-	@SerializedName("macaddr")
+	@JsonProperty("macaddr")
 	@CheckForNull
 	public java.lang.String macaddr;
-	@SerializedName("model")
+	@JsonProperty("model")
 	@CheckForNull
 	public java.lang.String model;
-	@SerializedName("addr")
+	@JsonProperty("addr")
 	@CheckForNull
 	public java.lang.String addr;
-	@SerializedName("vectors")
+	@JsonProperty("vectors")
 	@CheckForNull
-	public long vectors;
+	public java.lang.Long vectors;
+
+	@Nonnull
+	public NetLegacyNicOptions withNetdev(java.lang.String value) {
+		this.netdev = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacyNicOptions withMacaddr(java.lang.String value) {
+		this.macaddr = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacyNicOptions withModel(java.lang.String value) {
+		this.model = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacyNicOptions withAddr(java.lang.String value) {
+		this.addr = value;
+		return this;
+	}
+
+	@Nonnull
+	public NetLegacyNicOptions withVectors(java.lang.Long value) {
+		this.vectors = value;
+		return this;
+	}
 
 	public NetLegacyNicOptions() {
 	}
 
-	public NetLegacyNicOptions(java.lang.String netdev, java.lang.String macaddr, java.lang.String model, java.lang.String addr, long vectors) {
+	public NetLegacyNicOptions(java.lang.String netdev, java.lang.String macaddr, java.lang.String model, java.lang.String addr, java.lang.Long vectors) {
 		this.netdev = netdev;
 		this.macaddr = macaddr;
 		this.model = model;

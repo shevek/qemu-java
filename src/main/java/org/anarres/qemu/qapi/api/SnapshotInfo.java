@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,29 +13,72 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=SnapshotInfo, data={id=str, name=str, vm-state-size=int, date-sec=int, date-nsec=int, vm-clock-sec=int, vm-clock-nsec=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=SnapshotInfo, data={id=str, name=str, vm-state-size=int, date-sec=int, date-nsec=int, vm-clock-sec=int, vm-clock-nsec=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SnapshotInfo extends QApiType {
 
-	@SerializedName("id")
+	@JsonProperty("id")
 	@Nonnull
 	public java.lang.String id;
-	@SerializedName("name")
+	@JsonProperty("name")
 	@Nonnull
 	public java.lang.String name;
-	@SerializedName("vm-state-size")
+	@JsonProperty("vm-state-size")
 	@Nonnull
 	public long vmStateSize;
-	@SerializedName("date-sec")
+	@JsonProperty("date-sec")
 	@Nonnull
 	public long dateSec;
-	@SerializedName("date-nsec")
+	@JsonProperty("date-nsec")
 	@Nonnull
 	public long dateNsec;
-	@SerializedName("vm-clock-sec")
+	@JsonProperty("vm-clock-sec")
 	@Nonnull
 	public long vmClockSec;
-	@SerializedName("vm-clock-nsec")
+	@JsonProperty("vm-clock-nsec")
 	@Nonnull
 	public long vmClockNsec;
+
+	@Nonnull
+	public SnapshotInfo withId(java.lang.String value) {
+		this.id = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withName(java.lang.String value) {
+		this.name = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withVmStateSize(long value) {
+		this.vmStateSize = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withDateSec(long value) {
+		this.dateSec = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withDateNsec(long value) {
+		this.dateNsec = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withVmClockSec(long value) {
+		this.vmClockSec = value;
+		return this;
+	}
+
+	@Nonnull
+	public SnapshotInfo withVmClockNsec(long value) {
+		this.vmClockNsec = value;
+		return this;
+	}
 
 	public SnapshotInfo() {
 	}

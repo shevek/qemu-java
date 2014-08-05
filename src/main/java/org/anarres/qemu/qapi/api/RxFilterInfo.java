@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,49 +13,122 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=RxFilterInfo, data={name=str, promiscuous=bool, multicast=RxState, unicast=RxState, vlan=RxState, broadcast-allowed=bool, multicast-overflow=bool, unicast-overflow=bool, main-mac=str, vlan-table=[int], unicast-table=[str], multicast-table=[str]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=RxFilterInfo, data={name=str, promiscuous=bool, multicast=RxState, unicast=RxState, vlan=RxState, broadcast-allowed=bool, multicast-overflow=bool, unicast-overflow=bool, main-mac=str, vlan-table=[int], unicast-table=[str], multicast-table=[str]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class RxFilterInfo extends QApiType {
 
-	@SerializedName("name")
+	@JsonProperty("name")
 	@Nonnull
 	public java.lang.String name;
-	@SerializedName("promiscuous")
+	@JsonProperty("promiscuous")
 	@Nonnull
 	public boolean promiscuous;
-	@SerializedName("multicast")
+	@JsonProperty("multicast")
 	@Nonnull
 	public RxState multicast;
-	@SerializedName("unicast")
+	@JsonProperty("unicast")
 	@Nonnull
 	public RxState unicast;
-	@SerializedName("vlan")
+	@JsonProperty("vlan")
 	@Nonnull
 	public RxState vlan;
-	@SerializedName("broadcast-allowed")
+	@JsonProperty("broadcast-allowed")
 	@Nonnull
 	public boolean broadcastAllowed;
-	@SerializedName("multicast-overflow")
+	@JsonProperty("multicast-overflow")
 	@Nonnull
 	public boolean multicastOverflow;
-	@SerializedName("unicast-overflow")
+	@JsonProperty("unicast-overflow")
 	@Nonnull
 	public boolean unicastOverflow;
-	@SerializedName("main-mac")
+	@JsonProperty("main-mac")
 	@Nonnull
 	public java.lang.String mainMac;
-	@SerializedName("vlan-table")
+	@JsonProperty("vlan-table")
 	@Nonnull
-	public List<java.lang.Long> vlanTable;
-	@SerializedName("unicast-table")
+	public java.util.List<java.lang.Long> vlanTable;
+	@JsonProperty("unicast-table")
 	@Nonnull
-	public List<java.lang.String> unicastTable;
-	@SerializedName("multicast-table")
+	public java.util.List<java.lang.String> unicastTable;
+	@JsonProperty("multicast-table")
 	@Nonnull
-	public List<java.lang.String> multicastTable;
+	public java.util.List<java.lang.String> multicastTable;
+
+	@Nonnull
+	public RxFilterInfo withName(java.lang.String value) {
+		this.name = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withPromiscuous(boolean value) {
+		this.promiscuous = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withMulticast(RxState value) {
+		this.multicast = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withUnicast(RxState value) {
+		this.unicast = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withVlan(RxState value) {
+		this.vlan = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withBroadcastAllowed(boolean value) {
+		this.broadcastAllowed = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withMulticastOverflow(boolean value) {
+		this.multicastOverflow = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withUnicastOverflow(boolean value) {
+		this.unicastOverflow = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withMainMac(java.lang.String value) {
+		this.mainMac = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withVlanTable(java.util.List<java.lang.Long> value) {
+		this.vlanTable = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withUnicastTable(java.util.List<java.lang.String> value) {
+		this.unicastTable = value;
+		return this;
+	}
+
+	@Nonnull
+	public RxFilterInfo withMulticastTable(java.util.List<java.lang.String> value) {
+		this.multicastTable = value;
+		return this;
+	}
 
 	public RxFilterInfo() {
 	}
 
-	public RxFilterInfo(java.lang.String name, boolean promiscuous, RxState multicast, RxState unicast, RxState vlan, boolean broadcastAllowed, boolean multicastOverflow, boolean unicastOverflow, java.lang.String mainMac, List<java.lang.Long> vlanTable, List<java.lang.String> unicastTable, List<java.lang.String> multicastTable) {
+	public RxFilterInfo(java.lang.String name, boolean promiscuous, RxState multicast, RxState unicast, RxState vlan, boolean broadcastAllowed, boolean multicastOverflow, boolean unicastOverflow, java.lang.String mainMac, java.util.List<java.lang.Long> vlanTable, java.util.List<java.lang.String> unicastTable, java.util.List<java.lang.String> multicastTable) {
 		this.name = name;
 		this.promiscuous = promiscuous;
 		this.multicast = multicast;

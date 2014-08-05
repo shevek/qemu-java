@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,23 +15,23 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 	/** Compound arguments to a AddClientCommand. */
 	public static class Arguments {
 
-		@SerializedName("protocol")
+		@JsonProperty("protocol")
 		@Nonnull
 		public java.lang.String protocol;
-		@SerializedName("fdname")
+		@JsonProperty("fdname")
 		@Nonnull
 		public java.lang.String fdname;
-		@SerializedName("skipauth")
+		@JsonProperty("skipauth")
 		@CheckForNull
-		public boolean skipauth;
-		@SerializedName("tls")
+		public java.lang.Boolean skipauth;
+		@JsonProperty("tls")
 		@CheckForNull
-		public boolean tls;
+		public java.lang.Boolean tls;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls) {
+		public Arguments(java.lang.String protocol, java.lang.String fdname, java.lang.Boolean skipauth, java.lang.Boolean tls) {
 			this.protocol = protocol;
 			this.fdname = fdname;
 			this.skipauth = skipauth;
@@ -52,7 +49,7 @@ public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, Ad
 	}
 
 	/** Constructs a new AddClientCommand. */
-	public AddClientCommand(java.lang.String protocol, java.lang.String fdname, boolean skipauth, boolean tls) {
+	public AddClientCommand(java.lang.String protocol, java.lang.String fdname, java.lang.Boolean skipauth, java.lang.Boolean tls) {
 		this(new Arguments(protocol, fdname, skipauth, tls));
 	}
 }

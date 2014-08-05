@@ -1,8 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -14,16 +12,16 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BLOCK_IMAGE_CORRUPTED, data={device=str, msg=str, *offset=int, *size=int}}
 public class BlockImageCorruptedEvent extends QApiEvent {
-	@SerializedName("device")
+	@JsonProperty("device")
 	@Nonnull
 	public java.lang.String device;
-	@SerializedName("msg")
+	@JsonProperty("msg")
 	@Nonnull
 	public java.lang.String msg;
-	@SerializedName("offset")
+	@JsonProperty("offset")
 	@CheckForNull
-	public long offset;
-	@SerializedName("size")
+	public java.lang.Long offset;
+	@JsonProperty("size")
 	@CheckForNull
-	public long size;
+	public java.lang.Long size;
 }

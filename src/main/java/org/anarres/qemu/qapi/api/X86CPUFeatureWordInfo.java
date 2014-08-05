@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=X86CPUFeatureWordInfo, data={cpuid-input-eax=int, *cpuid-input-ecx=int, cpuid-register=X86CPURegister32, features=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=X86CPUFeatureWordInfo, data={cpuid-input-eax=int, *cpuid-input-ecx=int, cpuid-register=X86CPURegister32, features=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class X86CPUFeatureWordInfo extends QApiType {
 
-	@SerializedName("cpuid-input-eax")
+	@JsonProperty("cpuid-input-eax")
 	@Nonnull
 	public long cpuidInputEax;
-	@SerializedName("cpuid-input-ecx")
+	@JsonProperty("cpuid-input-ecx")
 	@CheckForNull
-	public long cpuidInputEcx;
-	@SerializedName("cpuid-register")
+	public java.lang.Long cpuidInputEcx;
+	@JsonProperty("cpuid-register")
 	@Nonnull
 	public X86CPURegister32 cpuidRegister;
-	@SerializedName("features")
+	@JsonProperty("features")
 	@Nonnull
 	public long features;
+
+	@Nonnull
+	public X86CPUFeatureWordInfo withCpuidInputEax(long value) {
+		this.cpuidInputEax = value;
+		return this;
+	}
+
+	@Nonnull
+	public X86CPUFeatureWordInfo withCpuidInputEcx(java.lang.Long value) {
+		this.cpuidInputEcx = value;
+		return this;
+	}
+
+	@Nonnull
+	public X86CPUFeatureWordInfo withCpuidRegister(X86CPURegister32 value) {
+		this.cpuidRegister = value;
+		return this;
+	}
+
+	@Nonnull
+	public X86CPUFeatureWordInfo withFeatures(long value) {
+		this.features = value;
+		return this;
+	}
 
 	public X86CPUFeatureWordInfo() {
 	}
 
-	public X86CPUFeatureWordInfo(long cpuidInputEax, long cpuidInputEcx, X86CPURegister32 cpuidRegister, long features) {
+	public X86CPUFeatureWordInfo(long cpuidInputEax, java.lang.Long cpuidInputEcx, X86CPURegister32 cpuidRegister, long features) {
 		this.cpuidInputEax = cpuidInputEax;
 		this.cpuidInputEcx = cpuidInputEcx;
 		this.cpuidRegister = cpuidRegister;

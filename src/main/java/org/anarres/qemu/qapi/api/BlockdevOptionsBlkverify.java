@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevOptionsBlkverify, data={test=BlockdevRef, raw=BlockdevRef}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevOptionsBlkverify, data={test=BlockdevRef, raw=BlockdevRef}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsBlkverify extends QApiType {
 
-	@SerializedName("test")
+	@JsonProperty("test")
 	@Nonnull
 	public BlockdevRef test;
-	@SerializedName("raw")
+	@JsonProperty("raw")
 	@Nonnull
 	public BlockdevRef raw;
+
+	@Nonnull
+	public BlockdevOptionsBlkverify withTest(BlockdevRef value) {
+		this.test = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsBlkverify withRaw(BlockdevRef value) {
+		this.raw = value;
+		return this;
+	}
 
 	public BlockdevOptionsBlkverify() {
 	}

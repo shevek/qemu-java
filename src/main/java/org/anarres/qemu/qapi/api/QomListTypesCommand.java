@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,24 +15,24 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Argumen
 	/** Compound arguments to a QomListTypesCommand. */
 	public static class Arguments {
 
-		@SerializedName("implements")
+		@JsonProperty("implements")
 		@CheckForNull
 		public java.lang.String _implements;
-		@SerializedName("abstract")
+		@JsonProperty("abstract")
 		@CheckForNull
-		public boolean _abstract;
+		public java.lang.Boolean _abstract;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String _implements, boolean _abstract) {
+		public Arguments(java.lang.String _implements, java.lang.Boolean _abstract) {
 			this._implements = _implements;
 			this._abstract = _abstract;
 		}
 	}
 
 	/** Response to a QomListTypesCommand. */
-	public static class Response extends QApiResponse<List<ObjectTypeInfo>> {
+	public static class Response extends QApiResponse<java.util.List<ObjectTypeInfo>> {
 	}
 
 	/** Constructs a new QomListTypesCommand. */
@@ -44,7 +41,7 @@ public class QomListTypesCommand extends QApiCommand<QomListTypesCommand.Argumen
 	}
 
 	/** Constructs a new QomListTypesCommand. */
-	public QomListTypesCommand(java.lang.String _implements, boolean _abstract) {
+	public QomListTypesCommand(java.lang.String _implements, java.lang.Boolean _abstract) {
 		this(new Arguments(_implements, _abstract));
 	}
 }

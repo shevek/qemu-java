@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,26 +15,26 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 	/** Compound arguments to a DumpGuestMemoryCommand. */
 	public static class Arguments {
 
-		@SerializedName("paging")
+		@JsonProperty("paging")
 		@Nonnull
 		public boolean paging;
-		@SerializedName("protocol")
+		@JsonProperty("protocol")
 		@Nonnull
 		public java.lang.String protocol;
-		@SerializedName("begin")
+		@JsonProperty("begin")
 		@CheckForNull
-		public long begin;
-		@SerializedName("length")
+		public java.lang.Long begin;
+		@JsonProperty("length")
 		@CheckForNull
-		public long length;
-		@SerializedName("format")
+		public java.lang.Long length;
+		@JsonProperty("format")
 		@CheckForNull
 		public DumpGuestMemoryFormat format;
 
 		public Arguments() {
 		}
 
-		public Arguments(boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format) {
+		public Arguments(boolean paging, java.lang.String protocol, java.lang.Long begin, java.lang.Long length, DumpGuestMemoryFormat format) {
 			this.paging = paging;
 			this.protocol = protocol;
 			this.begin = begin;
@@ -56,7 +53,7 @@ public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.A
 	}
 
 	/** Constructs a new DumpGuestMemoryCommand. */
-	public DumpGuestMemoryCommand(boolean paging, java.lang.String protocol, long begin, long length, DumpGuestMemoryFormat format) {
+	public DumpGuestMemoryCommand(boolean paging, java.lang.String protocol, java.lang.Long begin, java.lang.Long length, DumpGuestMemoryFormat format) {
 		this(new Arguments(paging, protocol, begin, length, format));
 	}
 }

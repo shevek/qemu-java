@@ -4,7 +4,7 @@
  */
 package org.anarres.qemu.qapi.common;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 /**
@@ -18,22 +18,29 @@ public class QApiGreeting extends QApiObject {
 
     public static class QEmuVersion extends QApiObject {
 
+        @JsonProperty
         public int major;
+        @JsonProperty
         public int minor;
+        @JsonProperty
         public int micro;
     }
 
     public static class QApiVersion extends QApiObject {
 
+        @JsonProperty
         public QEmuVersion qemu;
-        @SerializedName("package")
+        @JsonProperty("package")
         public String _package;
     }
 
     public static class QMPVersion extends QApiObject {
 
+        @JsonProperty
         public QApiVersion version;
+        @JsonProperty
         public List<Object> capabilities;
     }
+    @JsonProperty
     public QMPVersion QMP;
 }

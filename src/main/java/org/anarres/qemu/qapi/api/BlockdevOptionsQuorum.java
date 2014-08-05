@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,25 +13,50 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevOptionsQuorum, data={*blkverify=bool, children=[BlockdevRef], vote-threshold=int, *rewrite-corrupted=bool}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevOptionsQuorum, data={*blkverify=bool, children=[BlockdevRef], vote-threshold=int, *rewrite-corrupted=bool}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsQuorum extends QApiType {
 
-	@SerializedName("blkverify")
+	@JsonProperty("blkverify")
 	@CheckForNull
-	public boolean blkverify;
-	@SerializedName("children")
+	public java.lang.Boolean blkverify;
+	@JsonProperty("children")
 	@Nonnull
-	public List<BlockdevRef> children;
-	@SerializedName("vote-threshold")
+	public java.util.List<BlockdevRef> children;
+	@JsonProperty("vote-threshold")
 	@Nonnull
 	public long voteThreshold;
-	@SerializedName("rewrite-corrupted")
+	@JsonProperty("rewrite-corrupted")
 	@CheckForNull
-	public boolean rewriteCorrupted;
+	public java.lang.Boolean rewriteCorrupted;
+
+	@Nonnull
+	public BlockdevOptionsQuorum withBlkverify(java.lang.Boolean value) {
+		this.blkverify = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsQuorum withChildren(java.util.List<BlockdevRef> value) {
+		this.children = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsQuorum withVoteThreshold(long value) {
+		this.voteThreshold = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsQuorum withRewriteCorrupted(java.lang.Boolean value) {
+		this.rewriteCorrupted = value;
+		return this;
+	}
 
 	public BlockdevOptionsQuorum() {
 	}
 
-	public BlockdevOptionsQuorum(boolean blkverify, List<BlockdevRef> children, long voteThreshold, boolean rewriteCorrupted) {
+	public BlockdevOptionsQuorum(java.lang.Boolean blkverify, java.util.List<BlockdevRef> children, long voteThreshold, java.lang.Boolean rewriteCorrupted) {
 		this.blkverify = blkverify;
 		this.children = children;
 		this.voteThreshold = voteThreshold;

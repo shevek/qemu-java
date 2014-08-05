@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,23 +15,23 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 	/** Compound arguments to a MigrateCommand. */
 	public static class Arguments {
 
-		@SerializedName("uri")
+		@JsonProperty("uri")
 		@Nonnull
 		public java.lang.String uri;
-		@SerializedName("blk")
+		@JsonProperty("blk")
 		@CheckForNull
-		public boolean blk;
-		@SerializedName("inc")
+		public java.lang.Boolean blk;
+		@JsonProperty("inc")
 		@CheckForNull
-		public boolean inc;
-		@SerializedName("detach")
+		public java.lang.Boolean inc;
+		@JsonProperty("detach")
 		@CheckForNull
-		public boolean detach;
+		public java.lang.Boolean detach;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String uri, boolean blk, boolean inc, boolean detach) {
+		public Arguments(java.lang.String uri, java.lang.Boolean blk, java.lang.Boolean inc, java.lang.Boolean detach) {
 			this.uri = uri;
 			this.blk = blk;
 			this.inc = inc;
@@ -52,7 +49,7 @@ public class MigrateCommand extends QApiCommand<MigrateCommand.Arguments, Migrat
 	}
 
 	/** Constructs a new MigrateCommand. */
-	public MigrateCommand(java.lang.String uri, boolean blk, boolean inc, boolean detach) {
+	public MigrateCommand(java.lang.String uri, java.lang.Boolean blk, java.lang.Boolean inc, java.lang.Boolean detach) {
 		this(new Arguments(uri, blk, inc, detach));
 	}
 }

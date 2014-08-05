@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevOptionsGenericFormat, data={file=BlockdevRef}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevOptionsGenericFormat, data={file=BlockdevRef}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsGenericFormat extends QApiType {
 
-	@SerializedName("file")
+	@JsonProperty("file")
 	@Nonnull
 	public BlockdevRef file;
+
+	@Nonnull
+	public BlockdevOptionsGenericFormat withFile(BlockdevRef value) {
+		this.file = value;
+		return this;
+	}
 
 	public BlockdevOptionsGenericFormat() {
 	}

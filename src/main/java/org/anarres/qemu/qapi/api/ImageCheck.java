@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,49 +13,122 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ImageCheck, data={filename=str, format=str, check-errors=int, *image-end-offset=int, *corruptions=int, *leaks=int, *corruptions-fixed=int, *leaks-fixed=int, *total-clusters=int, *allocated-clusters=int, *fragmented-clusters=int, *compressed-clusters=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ImageCheck, data={filename=str, format=str, check-errors=int, *image-end-offset=int, *corruptions=int, *leaks=int, *corruptions-fixed=int, *leaks-fixed=int, *total-clusters=int, *allocated-clusters=int, *fragmented-clusters=int, *compressed-clusters=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ImageCheck extends QApiType {
 
-	@SerializedName("filename")
+	@JsonProperty("filename")
 	@Nonnull
 	public java.lang.String filename;
-	@SerializedName("format")
+	@JsonProperty("format")
 	@Nonnull
 	public java.lang.String format;
-	@SerializedName("check-errors")
+	@JsonProperty("check-errors")
 	@Nonnull
 	public long checkErrors;
-	@SerializedName("image-end-offset")
+	@JsonProperty("image-end-offset")
 	@CheckForNull
-	public long imageEndOffset;
-	@SerializedName("corruptions")
+	public java.lang.Long imageEndOffset;
+	@JsonProperty("corruptions")
 	@CheckForNull
-	public long corruptions;
-	@SerializedName("leaks")
+	public java.lang.Long corruptions;
+	@JsonProperty("leaks")
 	@CheckForNull
-	public long leaks;
-	@SerializedName("corruptions-fixed")
+	public java.lang.Long leaks;
+	@JsonProperty("corruptions-fixed")
 	@CheckForNull
-	public long corruptionsFixed;
-	@SerializedName("leaks-fixed")
+	public java.lang.Long corruptionsFixed;
+	@JsonProperty("leaks-fixed")
 	@CheckForNull
-	public long leaksFixed;
-	@SerializedName("total-clusters")
+	public java.lang.Long leaksFixed;
+	@JsonProperty("total-clusters")
 	@CheckForNull
-	public long totalClusters;
-	@SerializedName("allocated-clusters")
+	public java.lang.Long totalClusters;
+	@JsonProperty("allocated-clusters")
 	@CheckForNull
-	public long allocatedClusters;
-	@SerializedName("fragmented-clusters")
+	public java.lang.Long allocatedClusters;
+	@JsonProperty("fragmented-clusters")
 	@CheckForNull
-	public long fragmentedClusters;
-	@SerializedName("compressed-clusters")
+	public java.lang.Long fragmentedClusters;
+	@JsonProperty("compressed-clusters")
 	@CheckForNull
-	public long compressedClusters;
+	public java.lang.Long compressedClusters;
+
+	@Nonnull
+	public ImageCheck withFilename(java.lang.String value) {
+		this.filename = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withFormat(java.lang.String value) {
+		this.format = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withCheckErrors(long value) {
+		this.checkErrors = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withImageEndOffset(java.lang.Long value) {
+		this.imageEndOffset = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withCorruptions(java.lang.Long value) {
+		this.corruptions = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withLeaks(java.lang.Long value) {
+		this.leaks = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withCorruptionsFixed(java.lang.Long value) {
+		this.corruptionsFixed = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withLeaksFixed(java.lang.Long value) {
+		this.leaksFixed = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withTotalClusters(java.lang.Long value) {
+		this.totalClusters = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withAllocatedClusters(java.lang.Long value) {
+		this.allocatedClusters = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withFragmentedClusters(java.lang.Long value) {
+		this.fragmentedClusters = value;
+		return this;
+	}
+
+	@Nonnull
+	public ImageCheck withCompressedClusters(java.lang.Long value) {
+		this.compressedClusters = value;
+		return this;
+	}
 
 	public ImageCheck() {
 	}
 
-	public ImageCheck(java.lang.String filename, java.lang.String format, long checkErrors, long imageEndOffset, long corruptions, long leaks, long corruptionsFixed, long leaksFixed, long totalClusters, long allocatedClusters, long fragmentedClusters, long compressedClusters) {
+	public ImageCheck(java.lang.String filename, java.lang.String format, long checkErrors, java.lang.Long imageEndOffset, java.lang.Long corruptions, java.lang.Long leaks, java.lang.Long corruptionsFixed, java.lang.Long leaksFixed, java.lang.Long totalClusters, java.lang.Long allocatedClusters, java.lang.Long fragmentedClusters, java.lang.Long compressedClusters) {
 		this.filename = filename;
 		this.format = format;
 		this.checkErrors = checkErrors;

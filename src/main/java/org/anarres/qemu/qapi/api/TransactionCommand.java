@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,14 +15,14 @@ public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments
 	/** Compound arguments to a TransactionCommand. */
 	public static class Arguments {
 
-		@SerializedName("actions")
+		@JsonProperty("actions")
 		@Nonnull
-		public List<TransactionAction> actions;
+		public java.util.List<TransactionAction> actions;
 
 		public Arguments() {
 		}
 
-		public Arguments(List<TransactionAction> actions) {
+		public Arguments(java.util.List<TransactionAction> actions) {
 			this.actions = actions;
 		}
 	}
@@ -40,7 +37,7 @@ public class TransactionCommand extends QApiCommand<TransactionCommand.Arguments
 	}
 
 	/** Constructs a new TransactionCommand. */
-	public TransactionCommand(List<TransactionAction> actions) {
+	public TransactionCommand(java.util.List<TransactionAction> actions) {
 		this(new Arguments(actions));
 	}
 }

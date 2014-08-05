@@ -4,7 +4,8 @@
  */
 package org.anarres.qemu.qapi.common;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
@@ -19,10 +20,11 @@ import javax.annotation.Nonnull;
  */
 public class QApiCommand<Argument, Response extends QApiResponse<?>> extends QApiObject {
 
-    @SerializedName("execute")
+    @JsonProperty("execute")
     private final String commandName;
+    @JsonIgnore
     private transient final Class<Response> returnType;
-    @SerializedName("data")
+    @JsonProperty("arguments")
     private final Argument argument;
 
     public QApiCommand(@Nonnull String commandName, @Nonnull Class<Response> returnType, @CheckForNull Argument argument) {
@@ -37,6 +39,7 @@ public class QApiCommand<Argument, Response extends QApiResponse<?>> extends QAp
     }
 
     @Nonnull
+    @JsonIgnore
     public Class<Response> getReturnType() {
         return returnType;
     }

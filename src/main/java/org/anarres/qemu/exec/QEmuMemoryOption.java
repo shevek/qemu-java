@@ -42,7 +42,7 @@ public class QEmuMemoryOption extends AbstractQEmuOption {
     private boolean prealloc;
 
     public QEmuMemoryOption(long size, @Nonnull Magnitude magnitude) {
-        this.size = magnitude.toUnit(size);
+        this.size = magnitude.toUnit(size) / Magnitude.MEGA.multiplier;
     }
 
     @Nonnull

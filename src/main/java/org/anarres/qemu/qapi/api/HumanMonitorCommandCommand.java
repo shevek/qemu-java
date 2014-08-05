@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,17 +15,17 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	/** Compound arguments to a HumanMonitorCommandCommand. */
 	public static class Arguments {
 
-		@SerializedName("command-line")
+		@JsonProperty("command-line")
 		@Nonnull
 		public java.lang.String commandLine;
-		@SerializedName("cpu-index")
+		@JsonProperty("cpu-index")
 		@CheckForNull
-		public long cpuIndex;
+		public java.lang.Long cpuIndex;
 
 		public Arguments() {
 		}
 
-		public Arguments(java.lang.String commandLine, long cpuIndex) {
+		public Arguments(java.lang.String commandLine, java.lang.Long cpuIndex) {
 			this.commandLine = commandLine;
 			this.cpuIndex = cpuIndex;
 		}
@@ -44,7 +41,7 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	}
 
 	/** Constructs a new HumanMonitorCommandCommand. */
-	public HumanMonitorCommandCommand(java.lang.String commandLine, long cpuIndex) {
+	public HumanMonitorCommandCommand(java.lang.String commandLine, java.lang.Long cpuIndex) {
 		this(new Arguments(commandLine, cpuIndex));
 	}
 }

@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +15,13 @@ public class NetdevAddCommand extends QApiCommand<NetdevAddCommand.Arguments, Ne
 	/** Compound arguments to a NetdevAddCommand. */
 	public static class Arguments {
 
-		@SerializedName("type")
+		@JsonProperty("type")
 		@Nonnull
 		public java.lang.String type;
-		@SerializedName("id")
+		@JsonProperty("id")
 		@Nonnull
 		public java.lang.String id;
-		@SerializedName("props")
+		@JsonProperty("props")
 		@CheckForNull
 		public java.lang.Object props;
 

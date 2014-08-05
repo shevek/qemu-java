@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevReturn, data={*pty=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevReturn, data={*pty=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevReturn extends QApiType {
 
-	@SerializedName("pty")
+	@JsonProperty("pty")
 	@CheckForNull
 	public java.lang.String pty;
+
+	@Nonnull
+	public ChardevReturn withPty(java.lang.String value) {
+		this.pty = value;
+		return this;
+	}
 
 	public ChardevReturn() {
 	}

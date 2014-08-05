@@ -46,7 +46,7 @@ public abstract class QApiElementDescriptor {
         if ("size".equals(jsonType))
             return Long.TYPE.getName();
         if ("dict".equals(jsonType))
-            return "Map<String, String>";
+            return "java.util.Map<String, String>";
         if ("visitor".equals(jsonType))
             return Object.class.getName(); // + " /* visitor */";
         if ("**".equals(jsonType))
@@ -58,12 +58,18 @@ public abstract class QApiElementDescriptor {
     protected static String toWrappedJavaType(@CheckForNull String name) {
         if (name == null)
             return Void.class.getName();
+        if ("byte".equals(name))
+            return Byte.class.getName();
+        if ("short".equals(name))
+            return Short.class.getName();
         if ("int".equals(name))
             return Integer.class.getName();
-        else if ("long".equals(name))
+        if ("long".equals(name))
             return Long.class.getName();
-        else if ("void".equals(name))
+        if ("void".equals(name))
             return Void.class.getName();
+        if ("boolean".equals(name))
+            return Boolean.class.getName();
         return name;
     }
 
@@ -73,7 +79,7 @@ public abstract class QApiElementDescriptor {
             return "void";
         if (jsonType instanceof List) {
             String inner = toNestedJavaType(Iterables.getOnlyElement((Iterable<?>) jsonType));
-            return "List<" + toWrappedJavaType(inner) + ">";
+            return "java.util.List<" + toWrappedJavaType(inner) + ">";
         }
         return toJavaType((String) jsonType);
     }
@@ -116,11 +122,16 @@ public abstract class QApiElementDescriptor {
     @Nonnull
     public abstract String getName();
 
+    protected static String toClassName(String name) {
+        name = name.replace('-', '_');
+        name = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
+        name = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, name);
+        return name;
+    }
+
     @Nonnull
     public String getClassName() {
-        String name = getName().replace('-', '_');
-        name = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, name);
-        return CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, name);
+        return toClassName(getName());
     }
 
     @Nonnull

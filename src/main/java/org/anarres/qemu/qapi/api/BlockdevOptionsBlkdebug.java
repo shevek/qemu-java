@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,28 +13,59 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockdevOptionsBlkdebug, data={image=BlockdevRef, *config=str, *align=int, *inject-error=[BlkdebugInjectErrorOptions], *set-state=[BlkdebugSetStateOptions]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockdevOptionsBlkdebug, data={image=BlockdevRef, *config=str, *align=int, *inject-error=[BlkdebugInjectErrorOptions], *set-state=[BlkdebugSetStateOptions]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsBlkdebug extends QApiType {
 
-	@SerializedName("image")
+	@JsonProperty("image")
 	@Nonnull
 	public BlockdevRef image;
-	@SerializedName("config")
+	@JsonProperty("config")
 	@CheckForNull
 	public java.lang.String config;
-	@SerializedName("align")
+	@JsonProperty("align")
 	@CheckForNull
-	public long align;
-	@SerializedName("inject-error")
+	public java.lang.Long align;
+	@JsonProperty("inject-error")
 	@CheckForNull
-	public List<BlkdebugInjectErrorOptions> injectError;
-	@SerializedName("set-state")
+	public java.util.List<BlkdebugInjectErrorOptions> injectError;
+	@JsonProperty("set-state")
 	@CheckForNull
-	public List<BlkdebugSetStateOptions> setState;
+	public java.util.List<BlkdebugSetStateOptions> setState;
+
+	@Nonnull
+	public BlockdevOptionsBlkdebug withImage(BlockdevRef value) {
+		this.image = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsBlkdebug withConfig(java.lang.String value) {
+		this.config = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsBlkdebug withAlign(java.lang.Long value) {
+		this.align = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsBlkdebug withInjectError(java.util.List<BlkdebugInjectErrorOptions> value) {
+		this.injectError = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockdevOptionsBlkdebug withSetState(java.util.List<BlkdebugSetStateOptions> value) {
+		this.setState = value;
+		return this;
+	}
 
 	public BlockdevOptionsBlkdebug() {
 	}
 
-	public BlockdevOptionsBlkdebug(BlockdevRef image, java.lang.String config, long align, List<BlkdebugInjectErrorOptions> injectError, List<BlkdebugSetStateOptions> setState) {
+	public BlockdevOptionsBlkdebug(BlockdevRef image, java.lang.String config, java.lang.Long align, java.util.List<BlkdebugInjectErrorOptions> injectError, java.util.List<BlkdebugSetStateOptions> setState) {
 		this.image = image;
 		this.config = config;
 		this.align = align;

@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,7 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 public class QueryPciCommand extends QApiCommand<java.lang.Void, QueryPciCommand.Response> {
 
 	/** Response to a QueryPciCommand. */
-	public static class Response extends QApiResponse<List<PciInfo>> {
+	public static class Response extends QApiResponse<java.util.List<PciInfo>> {
 	}
 
 	/** Constructs a new QueryPciCommand. */

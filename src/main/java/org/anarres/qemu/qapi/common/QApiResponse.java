@@ -4,7 +4,7 @@
  */
 package org.anarres.qemu.qapi.common;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  *
@@ -12,9 +12,10 @@ import com.google.gson.annotations.SerializedName;
  */
 public class QApiResponse<V> extends QApiObject {
 
-    @SerializedName("return")
+    @JsonProperty("return")
     public V _return;
-    public String error;
+    @JsonProperty
+    public QApiError error;
 
     public boolean isError() {
         return error != null;
@@ -22,7 +23,7 @@ public class QApiResponse<V> extends QApiObject {
 
     public V getResult() throws QApiException {
         if (isError())
-            throw new QApiException(error);
+            throw new QApiException(error.desc);
         return _return;
     }
 }

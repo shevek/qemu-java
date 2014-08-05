@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,17 +13,36 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=TPMInfo, data={id=str, model=TpmModel, options=TpmTypeOptions}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=TPMInfo, data={id=str, model=TpmModel, options=TpmTypeOptions}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class TPMInfo extends QApiType {
 
-	@SerializedName("id")
+	@JsonProperty("id")
 	@Nonnull
 	public java.lang.String id;
-	@SerializedName("model")
+	@JsonProperty("model")
 	@Nonnull
 	public TpmModel model;
-	@SerializedName("options")
+	@JsonProperty("options")
 	@Nonnull
 	public TpmTypeOptions options;
+
+	@Nonnull
+	public TPMInfo withId(java.lang.String value) {
+		this.id = value;
+		return this;
+	}
+
+	@Nonnull
+	public TPMInfo withModel(TpmModel value) {
+		this.model = value;
+		return this;
+	}
+
+	@Nonnull
+	public TPMInfo withOptions(TpmTypeOptions value) {
+		this.options = value;
+		return this;
+	}
 
 	public TPMInfo() {
 	}

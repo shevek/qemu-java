@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,37 +13,86 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=DriveBackup, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=DriveBackup, data={device=str, target=str, *format=str, sync=MirrorSyncMode, *mode=NewImageMode, *speed=int, *on-source-error=BlockdevOnError, *on-target-error=BlockdevOnError}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class DriveBackup extends QApiType {
 
-	@SerializedName("device")
+	@JsonProperty("device")
 	@Nonnull
 	public java.lang.String device;
-	@SerializedName("target")
+	@JsonProperty("target")
 	@Nonnull
 	public java.lang.String target;
-	@SerializedName("format")
+	@JsonProperty("format")
 	@CheckForNull
 	public java.lang.String format;
-	@SerializedName("sync")
+	@JsonProperty("sync")
 	@Nonnull
 	public MirrorSyncMode sync;
-	@SerializedName("mode")
+	@JsonProperty("mode")
 	@CheckForNull
 	public NewImageMode mode;
-	@SerializedName("speed")
+	@JsonProperty("speed")
 	@CheckForNull
-	public long speed;
-	@SerializedName("on-source-error")
+	public java.lang.Long speed;
+	@JsonProperty("on-source-error")
 	@CheckForNull
 	public BlockdevOnError onSourceError;
-	@SerializedName("on-target-error")
+	@JsonProperty("on-target-error")
 	@CheckForNull
 	public BlockdevOnError onTargetError;
+
+	@Nonnull
+	public DriveBackup withDevice(java.lang.String value) {
+		this.device = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withTarget(java.lang.String value) {
+		this.target = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withFormat(java.lang.String value) {
+		this.format = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withSync(MirrorSyncMode value) {
+		this.sync = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withMode(NewImageMode value) {
+		this.mode = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withSpeed(java.lang.Long value) {
+		this.speed = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withOnSourceError(BlockdevOnError value) {
+		this.onSourceError = value;
+		return this;
+	}
+
+	@Nonnull
+	public DriveBackup withOnTargetError(BlockdevOnError value) {
+		this.onTargetError = value;
+		return this;
+	}
 
 	public DriveBackup() {
 	}
 
-	public DriveBackup(java.lang.String device, java.lang.String target, java.lang.String format, MirrorSyncMode sync, NewImageMode mode, long speed, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
+	public DriveBackup(java.lang.String device, java.lang.String target, java.lang.String format, MirrorSyncMode sync, NewImageMode mode, java.lang.Long speed, BlockdevOnError onSourceError, BlockdevOnError onTargetError) {
 		this.device = device;
 		this.target = target;
 		this.format = format;

@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,17 +15,17 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, Remo
 	/** Compound arguments to a RemoveFdCommand. */
 	public static class Arguments {
 
-		@SerializedName("fdset-id")
+		@JsonProperty("fdset-id")
 		@Nonnull
 		public long fdsetId;
-		@SerializedName("fd")
+		@JsonProperty("fd")
 		@CheckForNull
-		public long fd;
+		public java.lang.Long fd;
 
 		public Arguments() {
 		}
 
-		public Arguments(long fdsetId, long fd) {
+		public Arguments(long fdsetId, java.lang.Long fd) {
 			this.fdsetId = fdsetId;
 			this.fd = fd;
 		}
@@ -44,7 +41,7 @@ public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, Remo
 	}
 
 	/** Constructs a new RemoveFdCommand. */
-	public RemoveFdCommand(long fdsetId, long fd) {
+	public RemoveFdCommand(long fdsetId, java.lang.Long fd) {
 		this(new Arguments(fdsetId, fd));
 	}
 }

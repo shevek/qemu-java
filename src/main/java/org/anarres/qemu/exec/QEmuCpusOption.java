@@ -60,10 +60,14 @@ public class QEmuCpusOption extends AbstractQEmuOption {
             add(line, "-cpu", model);
         StringBuilder smp = new StringBuilder();
         appendTo(smp, "cpus", cpus);
-        appendTo(smp, "cores", cores);
-        appendTo(smp, "threads", threads);
-        appendTo(smp, "sockets", sockets);
-        appendTo(smp, "maxcpus", maxcpus);
+        if (cores > 0)
+            appendTo(smp, "cores", cores);
+        if (threads > 0)
+            appendTo(smp, "threads", threads);
+        if (sockets > 0)
+            appendTo(smp, "sockets", sockets);
+        if (maxcpus > 0)
+            appendTo(smp, "maxcpus", maxcpus);
         add(line, "-smp", smp.toString());
     }
 }

@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,11 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=ChardevSpiceChannel, data={type=str}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=ChardevSpiceChannel, data={type=str}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ChardevSpiceChannel extends QApiType {
 
-	@SerializedName("type")
+	@JsonProperty("type")
 	@Nonnull
 	public java.lang.String type;
+
+	@Nonnull
+	public ChardevSpiceChannel withType(java.lang.String value) {
+		this.type = value;
+		return this;
+	}
 
 	public ChardevSpiceChannel() {
 	}

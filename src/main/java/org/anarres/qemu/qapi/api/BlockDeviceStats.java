@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,35 +13,90 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=BlockDeviceStats, data={rd_bytes=int, wr_bytes=int, rd_operations=int, wr_operations=int, flush_operations=int, flush_total_time_ns=int, wr_total_time_ns=int, rd_total_time_ns=int, wr_highest_offset=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=BlockDeviceStats, data={rd_bytes=int, wr_bytes=int, rd_operations=int, wr_operations=int, flush_operations=int, flush_total_time_ns=int, wr_total_time_ns=int, rd_total_time_ns=int, wr_highest_offset=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockDeviceStats extends QApiType {
 
-	@SerializedName("rd_bytes")
+	@JsonProperty("rd_bytes")
 	@Nonnull
 	public long rdBytes;
-	@SerializedName("wr_bytes")
+	@JsonProperty("wr_bytes")
 	@Nonnull
 	public long wrBytes;
-	@SerializedName("rd_operations")
+	@JsonProperty("rd_operations")
 	@Nonnull
 	public long rdOperations;
-	@SerializedName("wr_operations")
+	@JsonProperty("wr_operations")
 	@Nonnull
 	public long wrOperations;
-	@SerializedName("flush_operations")
+	@JsonProperty("flush_operations")
 	@Nonnull
 	public long flushOperations;
-	@SerializedName("flush_total_time_ns")
+	@JsonProperty("flush_total_time_ns")
 	@Nonnull
 	public long flushTotalTimeNs;
-	@SerializedName("wr_total_time_ns")
+	@JsonProperty("wr_total_time_ns")
 	@Nonnull
 	public long wrTotalTimeNs;
-	@SerializedName("rd_total_time_ns")
+	@JsonProperty("rd_total_time_ns")
 	@Nonnull
 	public long rdTotalTimeNs;
-	@SerializedName("wr_highest_offset")
+	@JsonProperty("wr_highest_offset")
 	@Nonnull
 	public long wrHighestOffset;
+
+	@Nonnull
+	public BlockDeviceStats withRdBytes(long value) {
+		this.rdBytes = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withWrBytes(long value) {
+		this.wrBytes = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withRdOperations(long value) {
+		this.rdOperations = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withWrOperations(long value) {
+		this.wrOperations = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withFlushOperations(long value) {
+		this.flushOperations = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withFlushTotalTimeNs(long value) {
+		this.flushTotalTimeNs = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withWrTotalTimeNs(long value) {
+		this.wrTotalTimeNs = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withRdTotalTimeNs(long value) {
+		this.rdTotalTimeNs = value;
+		return this;
+	}
+
+	@Nonnull
+	public BlockDeviceStats withWrHighestOffset(long value) {
+		this.wrHighestOffset = value;
+		return this;
+	}
 
 	public BlockDeviceStats() {
 	}

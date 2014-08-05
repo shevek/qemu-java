@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,31 +13,68 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=NetworkAddressFamily, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=VncInfo, data={enabled=bool, *host=str, *family=NetworkAddressFamily, *service=str, *auth=str, *clients=[VncClientInfo]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class VncInfo extends QApiType {
 
-	@SerializedName("enabled")
+	@JsonProperty("enabled")
 	@Nonnull
 	public boolean enabled;
-	@SerializedName("host")
+	@JsonProperty("host")
 	@CheckForNull
 	public java.lang.String host;
-	@SerializedName("family")
+	@JsonProperty("family")
 	@CheckForNull
 	public NetworkAddressFamily family;
-	@SerializedName("service")
+	@JsonProperty("service")
 	@CheckForNull
 	public java.lang.String service;
-	@SerializedName("auth")
+	@JsonProperty("auth")
 	@CheckForNull
 	public java.lang.String auth;
-	@SerializedName("clients")
+	@JsonProperty("clients")
 	@CheckForNull
-	public List<VncClientInfo> clients;
+	public java.util.List<VncClientInfo> clients;
+
+	@Nonnull
+	public VncInfo withEnabled(boolean value) {
+		this.enabled = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncInfo withHost(java.lang.String value) {
+		this.host = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncInfo withFamily(NetworkAddressFamily value) {
+		this.family = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncInfo withService(java.lang.String value) {
+		this.service = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncInfo withAuth(java.lang.String value) {
+		this.auth = value;
+		return this;
+	}
+
+	@Nonnull
+	public VncInfo withClients(java.util.List<VncClientInfo> value) {
+		this.clients = value;
+		return this;
+	}
 
 	public VncInfo() {
 	}
 
-	public VncInfo(boolean enabled, java.lang.String host, NetworkAddressFamily family, java.lang.String service, java.lang.String auth, List<VncClientInfo> clients) {
+	public VncInfo(boolean enabled, java.lang.String host, NetworkAddressFamily family, java.lang.String service, java.lang.String auth, java.util.List<VncClientInfo> clients) {
 		this.enabled = enabled;
 		this.host = host;
 		this.family = family;

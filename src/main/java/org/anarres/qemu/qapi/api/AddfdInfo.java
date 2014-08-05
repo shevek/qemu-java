@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,14 +13,27 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=AddfdInfo, data={fdset-id=int, fd=int}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=AddfdInfo, data={fdset-id=int, fd=int}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AddfdInfo extends QApiType {
 
-	@SerializedName("fdset-id")
+	@JsonProperty("fdset-id")
 	@Nonnull
 	public long fdsetId;
-	@SerializedName("fd")
+	@JsonProperty("fd")
 	@Nonnull
 	public long fd;
+
+	@Nonnull
+	public AddfdInfo withFdsetId(long value) {
+		this.fdsetId = value;
+		return this;
+	}
+
+	@Nonnull
+	public AddfdInfo withFd(long value) {
+		this.fd = value;
+		return this;
+	}
 
 	public AddfdInfo() {
 	}

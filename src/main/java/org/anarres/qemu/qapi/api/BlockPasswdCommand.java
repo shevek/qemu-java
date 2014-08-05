@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +15,13 @@ public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments
 	/** Compound arguments to a BlockPasswdCommand. */
 	public static class Arguments {
 
-		@SerializedName("device")
+		@JsonProperty("device")
 		@CheckForNull
 		public java.lang.String device;
-		@SerializedName("node-name")
+		@JsonProperty("node-name")
 		@CheckForNull
 		public java.lang.String nodeName;
-		@SerializedName("password")
+		@JsonProperty("password")
 		@Nonnull
 		public java.lang.String password;
 

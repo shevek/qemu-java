@@ -9,8 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.generator.model.QApiElementDescriptor;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.Template;
 import org.apache.velocity.app.VelocityEngine;
 import org.apache.velocity.context.Context;
@@ -23,8 +21,6 @@ import org.apache.velocity.tools.ToolManager;
  * @author shevek
  */
 public class SchemaWriter {
-
-    private static final Log LOG = LogFactory.getLog(SchemaWriter.class);
 
     @Nonnull
     private static VelocityEngine newVelocityEngine() {

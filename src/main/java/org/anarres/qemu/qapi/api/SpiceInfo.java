@@ -1,8 +1,8 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -13,40 +13,95 @@ import org.anarres.qemu.qapi.common.*;
  * <p><pre>QApiTypeDescriptor{name=SpiceInfo, data={enabled=bool, migrated=bool, *host=str, *port=int, *tls-port=int, *auth=str, *compiled-version=str, mouse-mode=SpiceQueryMouseMode, *channels=[SpiceChannel]}, innerTypes=null}</pre></p>
  */
 // QApiTypeDescriptor{name=SpiceInfo, data={enabled=bool, migrated=bool, *host=str, *port=int, *tls-port=int, *auth=str, *compiled-version=str, mouse-mode=SpiceQueryMouseMode, *channels=[SpiceChannel]}, innerTypes=null}
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SpiceInfo extends QApiType {
 
-	@SerializedName("enabled")
+	@JsonProperty("enabled")
 	@Nonnull
 	public boolean enabled;
-	@SerializedName("migrated")
+	@JsonProperty("migrated")
 	@Nonnull
 	public boolean migrated;
-	@SerializedName("host")
+	@JsonProperty("host")
 	@CheckForNull
 	public java.lang.String host;
-	@SerializedName("port")
+	@JsonProperty("port")
 	@CheckForNull
-	public long port;
-	@SerializedName("tls-port")
+	public java.lang.Long port;
+	@JsonProperty("tls-port")
 	@CheckForNull
-	public long tlsPort;
-	@SerializedName("auth")
+	public java.lang.Long tlsPort;
+	@JsonProperty("auth")
 	@CheckForNull
 	public java.lang.String auth;
-	@SerializedName("compiled-version")
+	@JsonProperty("compiled-version")
 	@CheckForNull
 	public java.lang.String compiledVersion;
-	@SerializedName("mouse-mode")
+	@JsonProperty("mouse-mode")
 	@Nonnull
 	public SpiceQueryMouseMode mouseMode;
-	@SerializedName("channels")
+	@JsonProperty("channels")
 	@CheckForNull
-	public List<SpiceChannel> channels;
+	public java.util.List<SpiceChannel> channels;
+
+	@Nonnull
+	public SpiceInfo withEnabled(boolean value) {
+		this.enabled = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withMigrated(boolean value) {
+		this.migrated = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withHost(java.lang.String value) {
+		this.host = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withPort(java.lang.Long value) {
+		this.port = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withTlsPort(java.lang.Long value) {
+		this.tlsPort = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withAuth(java.lang.String value) {
+		this.auth = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withCompiledVersion(java.lang.String value) {
+		this.compiledVersion = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withMouseMode(SpiceQueryMouseMode value) {
+		this.mouseMode = value;
+		return this;
+	}
+
+	@Nonnull
+	public SpiceInfo withChannels(java.util.List<SpiceChannel> value) {
+		this.channels = value;
+		return this;
+	}
 
 	public SpiceInfo() {
 	}
 
-	public SpiceInfo(boolean enabled, boolean migrated, java.lang.String host, long port, long tlsPort, java.lang.String auth, java.lang.String compiledVersion, SpiceQueryMouseMode mouseMode, List<SpiceChannel> channels) {
+	public SpiceInfo(boolean enabled, boolean migrated, java.lang.String host, java.lang.Long port, java.lang.Long tlsPort, java.lang.String auth, java.lang.String compiledVersion, SpiceQueryMouseMode mouseMode, java.util.List<SpiceChannel> channels) {
 		this.enabled = enabled;
 		this.migrated = migrated;
 		this.host = host;

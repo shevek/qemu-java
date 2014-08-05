@@ -1,9 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,7 +15,7 @@ public class BalloonCommand extends QApiCommand<BalloonCommand.Arguments, Balloo
 	/** Compound arguments to a BalloonCommand. */
 	public static class Arguments {
 
-		@SerializedName("value")
+		@JsonProperty("value")
 		@Nonnull
 		public long value;
 

@@ -71,4 +71,15 @@ public class QEmuCommandLine {
             option.appendTo(line);
         return line;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder buf = new StringBuilder();
+        for (String word : toCommandWords()) {
+            if (buf.length() > 0)
+                buf.append(' ');
+            buf.append(word);
+        }
+        return buf.toString();
+    }
 }
