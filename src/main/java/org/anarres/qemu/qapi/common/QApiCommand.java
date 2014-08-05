@@ -5,6 +5,7 @@
 package org.anarres.qemu.qapi.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -25,6 +26,7 @@ public class QApiCommand<Argument, Response extends QApiResponse<?>> extends QAp
     @JsonIgnore
     private transient final Class<Response> returnType;
     @JsonProperty("arguments")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private final Argument argument;
 
     public QApiCommand(@Nonnull String commandName, @Nonnull Class<Response> returnType, @CheckForNull Argument argument) {

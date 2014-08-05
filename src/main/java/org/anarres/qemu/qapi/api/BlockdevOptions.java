@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -332,6 +333,7 @@ public class BlockdevOptions extends BlockdevOptionsBase implements QApiUnion {
 	}
 
 	@Override
+	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;
 		if (file != null)

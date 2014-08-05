@@ -1,5 +1,6 @@
 package $packageName;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -66,6 +67,7 @@ public class $element.className extends #{if} ($element.superClassName)$element.
 #end
 
 	@Override
+	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;
 #foreach ($field in $element.fields)
