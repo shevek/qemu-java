@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class KvmInfo extends QApiType {
 	public KvmInfo(boolean enabled, boolean present) {
 		this.enabled = enabled;
 		this.present = present;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("enabled");
+		names.add("present");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("enabled".equals(name))
+			return enabled;
+		if ("present".equals(name))
+			return present;
+		return super.getFieldByName(name);
 	}
 }

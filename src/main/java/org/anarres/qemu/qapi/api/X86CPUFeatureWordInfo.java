@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class X86CPUFeatureWordInfo extends QApiType {
 		this.cpuidInputEcx = cpuidInputEcx;
 		this.cpuidRegister = cpuidRegister;
 		this.features = features;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("cpuid-input-eax");
+		names.add("cpuid-input-ecx");
+		names.add("cpuid-register");
+		names.add("features");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("cpuid-input-eax".equals(name))
+			return cpuidInputEax;
+		if ("cpuid-input-ecx".equals(name))
+			return cpuidInputEcx;
+		if ("cpuid-register".equals(name))
+			return cpuidRegister;
+		if ("features".equals(name))
+			return features;
+		return super.getFieldByName(name);
 	}
 }

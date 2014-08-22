@@ -46,6 +46,21 @@ public class NumaOptions extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("node");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("node".equals(name))
+			return node;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

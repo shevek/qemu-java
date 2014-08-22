@@ -15,8 +15,8 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuIdOption;
 import org.anarres.qemu.exec.QEmuQMPOption;
-import org.anarres.qemu.exec.dev.HostDevice;
-import org.anarres.qemu.exec.dev.TcpHostDevice;
+import org.anarres.qemu.exec.host.dev.HostDevice;
+import org.anarres.qemu.exec.host.dev.TcpHostDevice;
 
 /**
  *

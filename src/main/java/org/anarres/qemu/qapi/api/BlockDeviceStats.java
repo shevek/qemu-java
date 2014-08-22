@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -111,5 +112,44 @@ public class BlockDeviceStats extends QApiType {
 		this.wrTotalTimeNs = wrTotalTimeNs;
 		this.rdTotalTimeNs = rdTotalTimeNs;
 		this.wrHighestOffset = wrHighestOffset;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("rd_bytes");
+		names.add("wr_bytes");
+		names.add("rd_operations");
+		names.add("wr_operations");
+		names.add("flush_operations");
+		names.add("flush_total_time_ns");
+		names.add("wr_total_time_ns");
+		names.add("rd_total_time_ns");
+		names.add("wr_highest_offset");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("rd_bytes".equals(name))
+			return rdBytes;
+		if ("wr_bytes".equals(name))
+			return wrBytes;
+		if ("rd_operations".equals(name))
+			return rdOperations;
+		if ("wr_operations".equals(name))
+			return wrOperations;
+		if ("flush_operations".equals(name))
+			return flushOperations;
+		if ("flush_total_time_ns".equals(name))
+			return flushTotalTimeNs;
+		if ("wr_total_time_ns".equals(name))
+			return wrTotalTimeNs;
+		if ("rd_total_time_ns".equals(name))
+			return rdTotalTimeNs;
+		if ("wr_highest_offset".equals(name))
+			return wrHighestOffset;
+		return super.getFieldByName(name);
 	}
 }

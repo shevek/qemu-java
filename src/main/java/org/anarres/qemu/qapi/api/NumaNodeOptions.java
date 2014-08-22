@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class NumaNodeOptions extends QApiType {
 		this.cpus = cpus;
 		this.mem = mem;
 		this.memdev = memdev;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("nodeid");
+		names.add("cpus");
+		names.add("mem");
+		names.add("memdev");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("nodeid".equals(name))
+			return nodeid;
+		if ("cpus".equals(name))
+			return cpus;
+		if ("mem".equals(name))
+			return mem;
+		if ("memdev".equals(name))
+			return memdev;
+		return super.getFieldByName(name);
 	}
 }

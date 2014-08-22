@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -141,5 +142,53 @@ public class ImageCheck extends QApiType {
 		this.allocatedClusters = allocatedClusters;
 		this.fragmentedClusters = fragmentedClusters;
 		this.compressedClusters = compressedClusters;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("filename");
+		names.add("format");
+		names.add("check-errors");
+		names.add("image-end-offset");
+		names.add("corruptions");
+		names.add("leaks");
+		names.add("corruptions-fixed");
+		names.add("leaks-fixed");
+		names.add("total-clusters");
+		names.add("allocated-clusters");
+		names.add("fragmented-clusters");
+		names.add("compressed-clusters");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("filename".equals(name))
+			return filename;
+		if ("format".equals(name))
+			return format;
+		if ("check-errors".equals(name))
+			return checkErrors;
+		if ("image-end-offset".equals(name))
+			return imageEndOffset;
+		if ("corruptions".equals(name))
+			return corruptions;
+		if ("leaks".equals(name))
+			return leaks;
+		if ("corruptions-fixed".equals(name))
+			return corruptionsFixed;
+		if ("leaks-fixed".equals(name))
+			return leaksFixed;
+		if ("total-clusters".equals(name))
+			return totalClusters;
+		if ("allocated-clusters".equals(name))
+			return allocatedClusters;
+		if ("fragmented-clusters".equals(name))
+			return fragmentedClusters;
+		if ("compressed-clusters".equals(name))
+			return compressedClusters;
+		return super.getFieldByName(name);
 	}
 }

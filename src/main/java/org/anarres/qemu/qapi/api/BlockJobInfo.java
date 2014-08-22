@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class BlockJobInfo extends QApiType {
 		this.paused = paused;
 		this.speed = speed;
 		this.ioStatus = ioStatus;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("type");
+		names.add("device");
+		names.add("len");
+		names.add("offset");
+		names.add("busy");
+		names.add("paused");
+		names.add("speed");
+		names.add("io-status");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("type".equals(name))
+			return type;
+		if ("device".equals(name))
+			return device;
+		if ("len".equals(name))
+			return len;
+		if ("offset".equals(name))
+			return offset;
+		if ("busy".equals(name))
+			return busy;
+		if ("paused".equals(name))
+			return paused;
+		if ("speed".equals(name))
+			return speed;
+		if ("io-status".equals(name))
+			return ioStatus;
+		return super.getFieldByName(name);
 	}
 }

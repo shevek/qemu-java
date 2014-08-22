@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -251,5 +252,86 @@ public class BlockDeviceInfo extends QApiType {
 		this.iopsRdMax = iopsRdMax;
 		this.iopsWrMax = iopsWrMax;
 		this.iopsSize = iopsSize;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("file");
+		names.add("node-name");
+		names.add("ro");
+		names.add("drv");
+		names.add("backing_file");
+		names.add("backing_file_depth");
+		names.add("encrypted");
+		names.add("encryption_key_missing");
+		names.add("detect_zeroes");
+		names.add("bps");
+		names.add("bps_rd");
+		names.add("bps_wr");
+		names.add("iops");
+		names.add("iops_rd");
+		names.add("iops_wr");
+		names.add("image");
+		names.add("bps_max");
+		names.add("bps_rd_max");
+		names.add("bps_wr_max");
+		names.add("iops_max");
+		names.add("iops_rd_max");
+		names.add("iops_wr_max");
+		names.add("iops_size");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("file".equals(name))
+			return file;
+		if ("node-name".equals(name))
+			return nodeName;
+		if ("ro".equals(name))
+			return ro;
+		if ("drv".equals(name))
+			return drv;
+		if ("backing_file".equals(name))
+			return backingFile;
+		if ("backing_file_depth".equals(name))
+			return backingFileDepth;
+		if ("encrypted".equals(name))
+			return encrypted;
+		if ("encryption_key_missing".equals(name))
+			return encryptionKeyMissing;
+		if ("detect_zeroes".equals(name))
+			return detectZeroes;
+		if ("bps".equals(name))
+			return bps;
+		if ("bps_rd".equals(name))
+			return bpsRd;
+		if ("bps_wr".equals(name))
+			return bpsWr;
+		if ("iops".equals(name))
+			return iops;
+		if ("iops_rd".equals(name))
+			return iopsRd;
+		if ("iops_wr".equals(name))
+			return iopsWr;
+		if ("image".equals(name))
+			return image;
+		if ("bps_max".equals(name))
+			return bpsMax;
+		if ("bps_rd_max".equals(name))
+			return bpsRdMax;
+		if ("bps_wr_max".equals(name))
+			return bpsWrMax;
+		if ("iops_max".equals(name))
+			return iopsMax;
+		if ("iops_rd_max".equals(name))
+			return iopsRdMax;
+		if ("iops_wr_max".equals(name))
+			return iopsWrMax;
+		if ("iops_size".equals(name))
+			return iopsSize;
+		return super.getFieldByName(name);
 	}
 }

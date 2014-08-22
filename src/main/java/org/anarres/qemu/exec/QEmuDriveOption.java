@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
-import org.anarres.qemu.exec.disk.Disk;
-import org.anarres.qemu.exec.disk.FileDisk;
+import org.anarres.qemu.exec.host.disk.Disk;
+import org.anarres.qemu.exec.host.disk.FileDisk;
 
 /**
  *
@@ -21,12 +21,17 @@ public class QEmuDriveOption extends AbstractQEmuOption {
 
     public static enum Interface {
 
-        ide, scsi, sd, mtd, floppy, pflash, virtio
+        ide, scsi, sd, mtd, floppy, pflash, virtio, none
     }
 
     public static enum Media {
 
         disk, cdrom
+    }
+
+    public static enum Format {
+
+        raw
     }
 
     public static enum Cache {
@@ -65,9 +70,15 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     }
     public Disk disk;
     // bus, unit
+    public String id;
     public int index;
     public Interface iface;
+    // bus=, unit=
+    // addr= for virtio only?
+    public Format format;
     public Media media;
+    // cyls=c,heads=h,secs=s[,trans=t]
+    // snapshot=on|off
     public Cache cache;
     public Aio aio;
     public Discard discard;
@@ -104,6 +115,12 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     }
 
     @Nonnull
+    public QEmuDriveOption withId(@Nonnull String id) {
+        this.id = id;
+        return this;
+    }
+
+    @Nonnull
     public QEmuDriveOption withIndex(@Nonnegative int index) {
         this.index = index;
         return this;
@@ -112,6 +129,12 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     @Nonnull
     public QEmuDriveOption withInterface(@Nonnull Interface iface) {
         this.iface = iface;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withFormat(@Nonnull Format format) {
+        this.format = format;
         return this;
     }
 
@@ -168,7 +191,9 @@ public class QEmuDriveOption extends AbstractQEmuOption {
         StringBuilder buf = new StringBuilder();
         appendTo(buf, "file", disk);
         appendTo(buf, "index", index);
+        appendTo(buf, "id", id);
         appendTo(buf, "if", iface);
+        appendTo(buf, "format", format);
         appendTo(buf, "media", media);
         appendTo(buf, "cache", cache);
         appendTo(buf, "aio", aio);

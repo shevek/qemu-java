@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class Memdev extends QApiType {
 		this.prealloc = prealloc;
 		this.hostNodes = hostNodes;
 		this.policy = policy;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("size");
+		names.add("merge");
+		names.add("dump");
+		names.add("prealloc");
+		names.add("host-nodes");
+		names.add("policy");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("size".equals(name))
+			return size;
+		if ("merge".equals(name))
+			return merge;
+		if ("dump".equals(name))
+			return dump;
+		if ("prealloc".equals(name))
+			return prealloc;
+		if ("host-nodes".equals(name))
+			return hostNodes;
+		if ("policy".equals(name))
+			return policy;
+		return super.getFieldByName(name);
 	}
 }

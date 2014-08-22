@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -161,5 +162,59 @@ public class NetdevUserOptions extends QApiType {
 		this.smbserver = smbserver;
 		this.hostfwd = hostfwd;
 		this.guestfwd = guestfwd;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("hostname");
+		names.add("restrict");
+		names.add("ip");
+		names.add("net");
+		names.add("host");
+		names.add("tftp");
+		names.add("bootfile");
+		names.add("dhcpstart");
+		names.add("dns");
+		names.add("dnssearch");
+		names.add("smb");
+		names.add("smbserver");
+		names.add("hostfwd");
+		names.add("guestfwd");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("hostname".equals(name))
+			return hostname;
+		if ("restrict".equals(name))
+			return restrict;
+		if ("ip".equals(name))
+			return ip;
+		if ("net".equals(name))
+			return net;
+		if ("host".equals(name))
+			return host;
+		if ("tftp".equals(name))
+			return tftp;
+		if ("bootfile".equals(name))
+			return bootfile;
+		if ("dhcpstart".equals(name))
+			return dhcpstart;
+		if ("dns".equals(name))
+			return dns;
+		if ("dnssearch".equals(name))
+			return dnssearch;
+		if ("smb".equals(name))
+			return smb;
+		if ("smbserver".equals(name))
+			return smbserver;
+		if ("hostfwd".equals(name))
+			return hostfwd;
+		if ("guestfwd".equals(name))
+			return guestfwd;
+		return super.getFieldByName(name);
 	}
 }

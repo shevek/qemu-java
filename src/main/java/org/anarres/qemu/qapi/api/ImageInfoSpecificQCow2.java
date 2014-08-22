@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class ImageInfoSpecificQCow2 extends QApiType {
 	public ImageInfoSpecificQCow2(java.lang.String compat, java.lang.Boolean lazyRefcounts) {
 		this.compat = compat;
 		this.lazyRefcounts = lazyRefcounts;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("compat");
+		names.add("lazy-refcounts");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("compat".equals(name))
+			return compat;
+		if ("lazy-refcounts".equals(name))
+			return lazyRefcounts;
+		return super.getFieldByName(name);
 	}
 }

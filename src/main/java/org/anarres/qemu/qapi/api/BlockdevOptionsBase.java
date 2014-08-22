@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -121,5 +122,47 @@ public class BlockdevOptionsBase extends QApiType {
 		this.werror = werror;
 		this.readOnly = readOnly;
 		this.detectZeroes = detectZeroes;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("driver");
+		names.add("id");
+		names.add("node-name");
+		names.add("discard");
+		names.add("cache");
+		names.add("aio");
+		names.add("rerror");
+		names.add("werror");
+		names.add("read-only");
+		names.add("detect-zeroes");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("driver".equals(name))
+			return driver;
+		if ("id".equals(name))
+			return id;
+		if ("node-name".equals(name))
+			return nodeName;
+		if ("discard".equals(name))
+			return discard;
+		if ("cache".equals(name))
+			return cache;
+		if ("aio".equals(name))
+			return aio;
+		if ("rerror".equals(name))
+			return rerror;
+		if ("werror".equals(name))
+			return werror;
+		if ("read-only".equals(name))
+			return readOnly;
+		if ("detect-zeroes".equals(name))
+			return detectZeroes;
+		return super.getFieldByName(name);
 	}
 }

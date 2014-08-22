@@ -67,6 +67,25 @@ public class $element.className extends #{if} ($element.superClassName)$element.
 #end
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+#foreach ($field in $element.fields)
+		names.add("$field.serializedName");
+#end
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+#foreach ($field in $element.fields)
+		if ("$field.serializedName".equals(name))
+			return $field.name;
+#end
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

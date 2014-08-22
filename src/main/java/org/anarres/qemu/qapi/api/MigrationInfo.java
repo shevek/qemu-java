@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class MigrationInfo extends QApiType {
 		this.expectedDowntime = expectedDowntime;
 		this.downtime = downtime;
 		this.setupTime = setupTime;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("status");
+		names.add("ram");
+		names.add("disk");
+		names.add("xbzrle-cache");
+		names.add("total-time");
+		names.add("expected-downtime");
+		names.add("downtime");
+		names.add("setup-time");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("status".equals(name))
+			return status;
+		if ("ram".equals(name))
+			return ram;
+		if ("disk".equals(name))
+			return disk;
+		if ("xbzrle-cache".equals(name))
+			return xbzrleCache;
+		if ("total-time".equals(name))
+			return totalTime;
+		if ("expected-downtime".equals(name))
+			return expectedDowntime;
+		if ("downtime".equals(name))
+			return downtime;
+		if ("setup-time".equals(name))
+			return setupTime;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -161,5 +162,59 @@ public class NetdevL2TPv3Options extends QApiType {
 		this.txsession = txsession;
 		this.rxsession = rxsession;
 		this.offset = offset;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("src");
+		names.add("dst");
+		names.add("srcport");
+		names.add("dstport");
+		names.add("ipv6");
+		names.add("udp");
+		names.add("cookie64");
+		names.add("counter");
+		names.add("pincounter");
+		names.add("txcookie");
+		names.add("rxcookie");
+		names.add("txsession");
+		names.add("rxsession");
+		names.add("offset");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("src".equals(name))
+			return src;
+		if ("dst".equals(name))
+			return dst;
+		if ("srcport".equals(name))
+			return srcport;
+		if ("dstport".equals(name))
+			return dstport;
+		if ("ipv6".equals(name))
+			return ipv6;
+		if ("udp".equals(name))
+			return udp;
+		if ("cookie64".equals(name))
+			return cookie64;
+		if ("counter".equals(name))
+			return counter;
+		if ("pincounter".equals(name))
+			return pincounter;
+		if ("txcookie".equals(name))
+			return txcookie;
+		if ("rxcookie".equals(name))
+			return rxcookie;
+		if ("txsession".equals(name))
+			return txsession;
+		if ("rxsession".equals(name))
+			return rxsession;
+		if ("offset".equals(name))
+			return offset;
+		return super.getFieldByName(name);
 	}
 }

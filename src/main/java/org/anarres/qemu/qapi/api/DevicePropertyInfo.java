@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class DevicePropertyInfo extends QApiType {
 	public DevicePropertyInfo(java.lang.String name, java.lang.String type) {
 		this.name = name;
 		this.type = type;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("name");
+		names.add("type");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("name".equals(name))
+			return name;
+		if ("type".equals(name))
+			return type;
+		return super.getFieldByName(name);
 	}
 }

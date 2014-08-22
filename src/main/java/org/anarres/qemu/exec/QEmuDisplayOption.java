@@ -24,6 +24,7 @@ public class QEmuDisplayOption extends AbstractQEmuOption {
     }
     private final DisplayType displayType;
     private VgaType vgaType;
+    private VncDisplay vncDisplay;
 
     public QEmuDisplayOption(@Nonnull DisplayType displayType) {
         this.displayType = displayType;
@@ -35,6 +36,12 @@ public class QEmuDisplayOption extends AbstractQEmuOption {
         return this;
     }
 
+    @Nonnull
+    public QEmuDisplayOption withVncDisplay(@Nonnull VncDisplay vncDisplay) {
+        this.vncDisplay = vncDisplay;
+        return this;
+    }
+
     @Override
     public void appendTo(List<? super String> line) {
         if (displayType == DisplayType.nographic)
@@ -43,5 +50,7 @@ public class QEmuDisplayOption extends AbstractQEmuOption {
             add(line, "-display", displayType);
         if (vgaType != null)
             add(line, "-vga", vgaType);
+        if (vncDisplay != null)
+            add(line, "-vnc", vncDisplay);
     }
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class NetdevSocketOptions extends QApiType {
 		this.mcast = mcast;
 		this.localaddr = localaddr;
 		this.udp = udp;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("fd");
+		names.add("listen");
+		names.add("connect");
+		names.add("mcast");
+		names.add("localaddr");
+		names.add("udp");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("fd".equals(name))
+			return fd;
+		if ("listen".equals(name))
+			return listen;
+		if ("connect".equals(name))
+			return connect;
+		if ("mcast".equals(name))
+			return mcast;
+		if ("localaddr".equals(name))
+			return localaddr;
+		if ("udp".equals(name))
+			return udp;
+		return super.getFieldByName(name);
 	}
 }

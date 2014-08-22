@@ -46,6 +46,21 @@ public class TpmTypeOptions extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("passthrough");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("passthrough".equals(name))
+			return passthrough;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

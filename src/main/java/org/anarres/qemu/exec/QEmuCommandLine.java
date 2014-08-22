@@ -23,6 +23,11 @@ public class QEmuCommandLine {
         this.architecture = architecture;
     }
 
+    public QEmuCommandLine(@Nonnull QEmuArchitecture architecture, @Nonnull QEmuMachine machine) {
+        this(architecture);
+        addOptions(new QEmuMachineOption(machine));
+    }
+
     @Nonnull
     public QEmuArchitecture getArchitecture() {
         return architecture;
@@ -56,7 +61,8 @@ public class QEmuCommandLine {
 
     public void addOptions(@Nonnull Iterable<? extends QEmuOption> options) {
         for (QEmuOption option : options)
-            this.options.add(option);
+            if (option != null)
+                this.options.add(option);
     }
 
     public void addOptions(@Nonnull QEmuOption... options) {

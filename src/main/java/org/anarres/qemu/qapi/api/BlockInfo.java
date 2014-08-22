@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class BlockInfo extends QApiType {
 		this.trayOpen = trayOpen;
 		this.ioStatus = ioStatus;
 		this.dirtyBitmaps = dirtyBitmaps;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("device");
+		names.add("type");
+		names.add("removable");
+		names.add("locked");
+		names.add("inserted");
+		names.add("tray_open");
+		names.add("io-status");
+		names.add("dirty-bitmaps");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("device".equals(name))
+			return device;
+		if ("type".equals(name))
+			return type;
+		if ("removable".equals(name))
+			return removable;
+		if ("locked".equals(name))
+			return locked;
+		if ("inserted".equals(name))
+			return inserted;
+		if ("tray_open".equals(name))
+			return trayOpen;
+		if ("io-status".equals(name))
+			return ioStatus;
+		if ("dirty-bitmaps".equals(name))
+			return dirtyBitmaps;
+		return super.getFieldByName(name);
 	}
 }

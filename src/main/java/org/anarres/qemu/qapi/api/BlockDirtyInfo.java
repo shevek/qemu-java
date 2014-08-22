@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class BlockDirtyInfo extends QApiType {
 	public BlockDirtyInfo(long count, long granularity) {
 		this.count = count;
 		this.granularity = granularity;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("count");
+		names.add("granularity");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("count".equals(name))
+			return count;
+		if ("granularity".equals(name))
+			return granularity;
+		return super.getFieldByName(name);
 	}
 }

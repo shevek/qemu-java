@@ -59,6 +59,24 @@ public class ImageInfoSpecific extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("qcow2");
+		names.add("vmdk");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("qcow2".equals(name))
+			return qcow2;
+		if ("vmdk".equals(name))
+			return vmdk;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

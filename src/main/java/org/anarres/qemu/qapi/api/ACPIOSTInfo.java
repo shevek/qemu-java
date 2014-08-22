@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -71,5 +72,32 @@ public class ACPIOSTInfo extends QApiType {
 		this.slotType = slotType;
 		this.source = source;
 		this.status = status;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("device");
+		names.add("slot");
+		names.add("slot-type");
+		names.add("source");
+		names.add("status");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("device".equals(name))
+			return device;
+		if ("slot".equals(name))
+			return slot;
+		if ("slot-type".equals(name))
+			return slotType;
+		if ("source".equals(name))
+			return source;
+		if ("status".equals(name))
+			return status;
+		return super.getFieldByName(name);
 	}
 }

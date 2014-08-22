@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -91,5 +92,38 @@ public class SnapshotInfo extends QApiType {
 		this.dateNsec = dateNsec;
 		this.vmClockSec = vmClockSec;
 		this.vmClockNsec = vmClockNsec;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("id");
+		names.add("name");
+		names.add("vm-state-size");
+		names.add("date-sec");
+		names.add("date-nsec");
+		names.add("vm-clock-sec");
+		names.add("vm-clock-nsec");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("id".equals(name))
+			return id;
+		if ("name".equals(name))
+			return name;
+		if ("vm-state-size".equals(name))
+			return vmStateSize;
+		if ("date-sec".equals(name))
+			return dateSec;
+		if ("date-nsec".equals(name))
+			return dateNsec;
+		if ("vm-clock-sec".equals(name))
+			return vmClockSec;
+		if ("vm-clock-nsec".equals(name))
+			return vmClockNsec;
+		return super.getFieldByName(name);
 	}
 }

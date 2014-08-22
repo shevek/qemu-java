@@ -5,7 +5,7 @@
 package org.anarres.qemu.qapi.common;
 
 import java.net.InetSocketAddress;
-import org.anarres.qemu.exec.disk.IScsiDisk;
+import org.anarres.qemu.exec.host.disk.IScsiDisk;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;

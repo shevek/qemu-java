@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -51,5 +52,26 @@ public class TPMInfo extends QApiType {
 		this.id = id;
 		this.model = model;
 		this.options = options;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("id");
+		names.add("model");
+		names.add("options");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("id".equals(name))
+			return id;
+		if ("model".equals(name))
+			return model;
+		if ("options".equals(name))
+			return options;
+		return super.getFieldByName(name);
 	}
 }

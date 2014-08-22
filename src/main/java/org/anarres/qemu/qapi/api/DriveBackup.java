@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class DriveBackup extends QApiType {
 		this.speed = speed;
 		this.onSourceError = onSourceError;
 		this.onTargetError = onTargetError;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("device");
+		names.add("target");
+		names.add("format");
+		names.add("sync");
+		names.add("mode");
+		names.add("speed");
+		names.add("on-source-error");
+		names.add("on-target-error");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("device".equals(name))
+			return device;
+		if ("target".equals(name))
+			return target;
+		if ("format".equals(name))
+			return format;
+		if ("sync".equals(name))
+			return sync;
+		if ("mode".equals(name))
+			return mode;
+		if ("speed".equals(name))
+			return speed;
+		if ("on-source-error".equals(name))
+			return onSourceError;
+		if ("on-target-error".equals(name))
+			return onTargetError;
+		return super.getFieldByName(name);
 	}
 }

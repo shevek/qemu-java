@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class NetdevBridgeOptions extends QApiType {
 	public NetdevBridgeOptions(java.lang.String br, java.lang.String helper) {
 		this.br = br;
 		this.helper = helper;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("br");
+		names.add("helper");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("br".equals(name))
+			return br;
+		if ("helper".equals(name))
+			return helper;
+		return super.getFieldByName(name);
 	}
 }

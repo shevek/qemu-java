@@ -189,6 +189,54 @@ public class NetClientOptions extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("none");
+		names.add("nic");
+		names.add("user");
+		names.add("tap");
+		names.add("l2tpv3");
+		names.add("socket");
+		names.add("vde");
+		names.add("dump");
+		names.add("bridge");
+		names.add("hubport");
+		names.add("netmap");
+		names.add("vhost-user");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("none".equals(name))
+			return none;
+		if ("nic".equals(name))
+			return nic;
+		if ("user".equals(name))
+			return user;
+		if ("tap".equals(name))
+			return tap;
+		if ("l2tpv3".equals(name))
+			return l2tpv3;
+		if ("socket".equals(name))
+			return socket;
+		if ("vde".equals(name))
+			return vde;
+		if ("dump".equals(name))
+			return dump;
+		if ("bridge".equals(name))
+			return bridge;
+		if ("hubport".equals(name))
+			return hubport;
+		if ("netmap".equals(name))
+			return netmap;
+		if ("vhost-user".equals(name))
+			return vhostUser;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

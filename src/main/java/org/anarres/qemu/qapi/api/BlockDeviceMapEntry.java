@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class BlockDeviceMapEntry extends QApiType {
 		this.zero = zero;
 		this.data = data;
 		this.offset = offset;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("start");
+		names.add("length");
+		names.add("depth");
+		names.add("zero");
+		names.add("data");
+		names.add("offset");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("start".equals(name))
+			return start;
+		if ("length".equals(name))
+			return length;
+		if ("depth".equals(name))
+			return depth;
+		if ("zero".equals(name))
+			return zero;
+		if ("data".equals(name))
+			return data;
+		if ("offset".equals(name))
+			return offset;
+		return super.getFieldByName(name);
 	}
 }

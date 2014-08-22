@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -51,5 +52,26 @@ public class StatusInfo extends QApiType {
 		this.running = running;
 		this.singlestep = singlestep;
 		this.status = status;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("running");
+		names.add("singlestep");
+		names.add("status");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("running".equals(name))
+			return running;
+		if ("singlestep".equals(name))
+			return singlestep;
+		if ("status".equals(name))
+			return status;
+		return super.getFieldByName(name);
 	}
 }

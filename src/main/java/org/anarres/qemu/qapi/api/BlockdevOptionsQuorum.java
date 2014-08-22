@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class BlockdevOptionsQuorum extends QApiType {
 		this.children = children;
 		this.voteThreshold = voteThreshold;
 		this.rewriteCorrupted = rewriteCorrupted;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("blkverify");
+		names.add("children");
+		names.add("vote-threshold");
+		names.add("rewrite-corrupted");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("blkverify".equals(name))
+			return blkverify;
+		if ("children".equals(name))
+			return children;
+		if ("vote-threshold".equals(name))
+			return voteThreshold;
+		if ("rewrite-corrupted".equals(name))
+			return rewriteCorrupted;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -111,5 +112,44 @@ public class SpiceInfo extends QApiType {
 		this.compiledVersion = compiledVersion;
 		this.mouseMode = mouseMode;
 		this.channels = channels;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("enabled");
+		names.add("migrated");
+		names.add("host");
+		names.add("port");
+		names.add("tls-port");
+		names.add("auth");
+		names.add("compiled-version");
+		names.add("mouse-mode");
+		names.add("channels");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("enabled".equals(name))
+			return enabled;
+		if ("migrated".equals(name))
+			return migrated;
+		if ("host".equals(name))
+			return host;
+		if ("port".equals(name))
+			return port;
+		if ("tls-port".equals(name))
+			return tlsPort;
+		if ("auth".equals(name))
+			return auth;
+		if ("compiled-version".equals(name))
+			return compiledVersion;
+		if ("mouse-mode".equals(name))
+			return mouseMode;
+		if ("channels".equals(name))
+			return channels;
+		return super.getFieldByName(name);
 	}
 }

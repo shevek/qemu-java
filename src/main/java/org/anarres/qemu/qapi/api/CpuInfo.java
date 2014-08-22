@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class CpuInfo extends QApiType {
 		this.npc = npc;
 		this.PC = PC;
 		this.threadId = threadId;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("CPU");
+		names.add("current");
+		names.add("halted");
+		names.add("pc");
+		names.add("nip");
+		names.add("npc");
+		names.add("PC");
+		names.add("thread_id");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("CPU".equals(name))
+			return cpu;
+		if ("current".equals(name))
+			return current;
+		if ("halted".equals(name))
+			return halted;
+		if ("pc".equals(name))
+			return pc;
+		if ("nip".equals(name))
+			return nip;
+		if ("npc".equals(name))
+			return npc;
+		if ("PC".equals(name))
+			return PC;
+		if ("thread_id".equals(name))
+			return threadId;
+		return super.getFieldByName(name);
 	}
 }

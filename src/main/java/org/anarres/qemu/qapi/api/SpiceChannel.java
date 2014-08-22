@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class SpiceChannel extends SpiceBasicInfo {
 		this.channelType = channelType;
 		this.channelId = channelId;
 		this.tls = tls;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("connection-id");
+		names.add("channel-type");
+		names.add("channel-id");
+		names.add("tls");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("connection-id".equals(name))
+			return connectionId;
+		if ("channel-type".equals(name))
+			return channelType;
+		if ("channel-id".equals(name))
+			return channelId;
+		if ("tls".equals(name))
+			return tls;
+		return super.getFieldByName(name);
 	}
 }

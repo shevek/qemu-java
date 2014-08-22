@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class BlockdevOptionsBlkverify extends QApiType {
 	public BlockdevOptionsBlkverify(BlockdevRef test, BlockdevRef raw) {
 		this.test = test;
 		this.raw = raw;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("test");
+		names.add("raw");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("test".equals(name))
+			return test;
+		if ("raw".equals(name))
+			return raw;
+		return super.getFieldByName(name);
 	}
 }

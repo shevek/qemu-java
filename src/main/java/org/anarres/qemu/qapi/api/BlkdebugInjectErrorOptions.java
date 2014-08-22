@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class BlkdebugInjectErrorOptions extends QApiType {
 		this.sector = sector;
 		this.once = once;
 		this.immediately = immediately;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("event");
+		names.add("state");
+		names.add("errno");
+		names.add("sector");
+		names.add("once");
+		names.add("immediately");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("event".equals(name))
+			return event;
+		if ("state".equals(name))
+			return state;
+		if ("errno".equals(name))
+			return errno;
+		if ("sector".equals(name))
+			return sector;
+		if ("once".equals(name))
+			return once;
+		if ("immediately".equals(name))
+			return immediately;
+		return super.getFieldByName(name);
 	}
 }

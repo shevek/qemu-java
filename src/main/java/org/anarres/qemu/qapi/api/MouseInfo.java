@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class MouseInfo extends QApiType {
 		this.index = index;
 		this.current = current;
 		this.absolute = absolute;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("name");
+		names.add("index");
+		names.add("current");
+		names.add("absolute");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("name".equals(name))
+			return name;
+		if ("index".equals(name))
+			return index;
+		if ("current".equals(name))
+			return current;
+		if ("absolute".equals(name))
+			return absolute;
+		return super.getFieldByName(name);
 	}
 }

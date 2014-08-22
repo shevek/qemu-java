@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -101,5 +102,41 @@ public class PCDIMMDeviceInfo extends QApiType {
 		this.memdev = memdev;
 		this.hotplugged = hotplugged;
 		this.hotpluggable = hotpluggable;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("id");
+		names.add("addr");
+		names.add("size");
+		names.add("slot");
+		names.add("node");
+		names.add("memdev");
+		names.add("hotplugged");
+		names.add("hotpluggable");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("id".equals(name))
+			return id;
+		if ("addr".equals(name))
+			return addr;
+		if ("size".equals(name))
+			return size;
+		if ("slot".equals(name))
+			return slot;
+		if ("node".equals(name))
+			return node;
+		if ("memdev".equals(name))
+			return memdev;
+		if ("hotplugged".equals(name))
+			return hotplugged;
+		if ("hotpluggable".equals(name))
+			return hotpluggable;
+		return super.getFieldByName(name);
 	}
 }

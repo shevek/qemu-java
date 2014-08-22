@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -71,5 +72,32 @@ public class InetSocketAddress extends QApiType {
 		this.to = to;
 		this.ipv4 = ipv4;
 		this.ipv6 = ipv6;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("host");
+		names.add("port");
+		names.add("to");
+		names.add("ipv4");
+		names.add("ipv6");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("host".equals(name))
+			return host;
+		if ("port".equals(name))
+			return port;
+		if ("to".equals(name))
+			return to;
+		if ("ipv4".equals(name))
+			return ipv4;
+		if ("ipv6".equals(name))
+			return ipv6;
+		return super.getFieldByName(name);
 	}
 }

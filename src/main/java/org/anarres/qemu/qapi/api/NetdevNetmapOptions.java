@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class NetdevNetmapOptions extends QApiType {
 	public NetdevNetmapOptions(java.lang.String ifname, java.lang.String devname) {
 		this.ifname = ifname;
 		this.devname = devname;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("ifname");
+		names.add("devname");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("ifname".equals(name))
+			return ifname;
+		if ("devname".equals(name))
+			return devname;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -111,5 +112,44 @@ public class AcpiTableOptions extends QApiType {
 		this.aslCompilerRev = aslCompilerRev;
 		this.file = file;
 		this.data = data;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("sig");
+		names.add("rev");
+		names.add("oem_id");
+		names.add("oem_table_id");
+		names.add("oem_rev");
+		names.add("asl_compiler_id");
+		names.add("asl_compiler_rev");
+		names.add("file");
+		names.add("data");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("sig".equals(name))
+			return sig;
+		if ("rev".equals(name))
+			return rev;
+		if ("oem_id".equals(name))
+			return oemId;
+		if ("oem_table_id".equals(name))
+			return oemTableId;
+		if ("oem_rev".equals(name))
+			return oemRev;
+		if ("asl_compiler_id".equals(name))
+			return aslCompilerId;
+		if ("asl_compiler_rev".equals(name))
+			return aslCompilerRev;
+		if ("file".equals(name))
+			return file;
+		if ("data".equals(name))
+			return data;
+		return super.getFieldByName(name);
 	}
 }

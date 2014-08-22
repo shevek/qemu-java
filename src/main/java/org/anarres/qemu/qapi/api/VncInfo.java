@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class VncInfo extends QApiType {
 		this.service = service;
 		this.auth = auth;
 		this.clients = clients;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("enabled");
+		names.add("host");
+		names.add("family");
+		names.add("service");
+		names.add("auth");
+		names.add("clients");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("enabled".equals(name))
+			return enabled;
+		if ("host".equals(name))
+			return host;
+		if ("family".equals(name))
+			return family;
+		if ("service".equals(name))
+			return service;
+		if ("auth".equals(name))
+			return auth;
+		if ("clients".equals(name))
+			return clients;
+		return super.getFieldByName(name);
 	}
 }

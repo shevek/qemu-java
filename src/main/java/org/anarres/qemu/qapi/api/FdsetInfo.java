@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class FdsetInfo extends QApiType {
 	public FdsetInfo(long fdsetId, java.util.List<FdsetFdInfo> fds) {
 		this.fdsetId = fdsetId;
 		this.fds = fds;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("fdset-id");
+		names.add("fds");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("fdset-id".equals(name))
+			return fdsetId;
+		if ("fds".equals(name))
+			return fds;
+		return super.getFieldByName(name);
 	}
 }

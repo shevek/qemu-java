@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class BlockdevSnapshot extends QApiType {
 		this.snapshotNodeName = snapshotNodeName;
 		this.format = format;
 		this.mode = mode;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("device");
+		names.add("node-name");
+		names.add("snapshot-file");
+		names.add("snapshot-node-name");
+		names.add("format");
+		names.add("mode");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("device".equals(name))
+			return device;
+		if ("node-name".equals(name))
+			return nodeName;
+		if ("snapshot-file".equals(name))
+			return snapshotFile;
+		if ("snapshot-node-name".equals(name))
+			return snapshotNodeName;
+		if ("format".equals(name))
+			return format;
+		if ("mode".equals(name))
+			return mode;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -151,5 +152,56 @@ public class NetdevTapOptions extends QApiType {
 		this.vhostfds = vhostfds;
 		this.vhostforce = vhostforce;
 		this.queues = queues;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("ifname");
+		names.add("fd");
+		names.add("fds");
+		names.add("script");
+		names.add("downscript");
+		names.add("helper");
+		names.add("sndbuf");
+		names.add("vnet_hdr");
+		names.add("vhost");
+		names.add("vhostfd");
+		names.add("vhostfds");
+		names.add("vhostforce");
+		names.add("queues");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("ifname".equals(name))
+			return ifname;
+		if ("fd".equals(name))
+			return fd;
+		if ("fds".equals(name))
+			return fds;
+		if ("script".equals(name))
+			return script;
+		if ("downscript".equals(name))
+			return downscript;
+		if ("helper".equals(name))
+			return helper;
+		if ("sndbuf".equals(name))
+			return sndbuf;
+		if ("vnet_hdr".equals(name))
+			return vnetHdr;
+		if ("vhost".equals(name))
+			return vhost;
+		if ("vhostfd".equals(name))
+			return vhostfd;
+		if ("vhostfds".equals(name))
+			return vhostfds;
+		if ("vhostforce".equals(name))
+			return vhostforce;
+		if ("queues".equals(name))
+			return queues;
+		return super.getFieldByName(name);
 	}
 }

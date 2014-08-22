@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class BlockdevOptionsVVFAT extends QApiType {
 		this.fatType = fatType;
 		this.floppy = floppy;
 		this.rw = rw;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("dir");
+		names.add("fat-type");
+		names.add("floppy");
+		names.add("rw");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("dir".equals(name))
+			return dir;
+		if ("fat-type".equals(name))
+			return fatType;
+		if ("floppy".equals(name))
+			return floppy;
+		if ("rw".equals(name))
+			return rw;
+		return super.getFieldByName(name);
 	}
 }

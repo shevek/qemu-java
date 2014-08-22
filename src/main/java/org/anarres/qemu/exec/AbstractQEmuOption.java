@@ -26,7 +26,12 @@ public abstract class AbstractQEmuOption implements QEmuOption {
     /** Allows use of ImmutableMap.of() patterns. */
     protected static void appendTo(@Nonnull StringBuilder buf, @Nonnull Map<? extends String, ? extends Object> values) {
         for (Map.Entry<? extends String, ? extends Object> e : values.entrySet()) {
-            appendTo(buf, e.getKey(), e.getValue());
+            if (buf.length() > 0)
+                buf.append(",");
+            buf.append(e.getKey());
+            Object value = e.getValue();
+            if (value != null)
+                buf.append('=').append(value);
         }
     }
 

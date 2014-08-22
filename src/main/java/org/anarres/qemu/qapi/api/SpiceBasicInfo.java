@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -51,5 +52,26 @@ public class SpiceBasicInfo extends QApiType {
 		this.host = host;
 		this.port = port;
 		this.family = family;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("host");
+		names.add("port");
+		names.add("family");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("host".equals(name))
+			return host;
+		if ("port".equals(name))
+			return port;
+		if ("family".equals(name))
+			return family;
+		return super.getFieldByName(name);
 	}
 }

@@ -59,6 +59,24 @@ public class KeyValue extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("number");
+		names.add("qcode");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("number".equals(name))
+			return number;
+		if ("qcode".equals(name))
+			return qcode;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

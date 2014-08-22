@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -54,5 +55,23 @@ public class VersionInfo extends QApiType {
 	public VersionInfo(_Tqemu qemu, java.lang.String _package) {
 		this.qemu = qemu;
 		this._package = _package;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("qemu");
+		names.add("package");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("qemu".equals(name))
+			return qemu;
+		if ("package".equals(name))
+			return _package;
+		return super.getFieldByName(name);
 	}
 }

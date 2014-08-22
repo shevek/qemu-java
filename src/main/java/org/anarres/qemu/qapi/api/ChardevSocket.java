@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -71,5 +72,32 @@ public class ChardevSocket extends QApiType {
 		this.wait = wait;
 		this.nodelay = nodelay;
 		this.telnet = telnet;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("addr");
+		names.add("server");
+		names.add("wait");
+		names.add("nodelay");
+		names.add("telnet");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("addr".equals(name))
+			return addr;
+		if ("server".equals(name))
+			return server;
+		if ("wait".equals(name))
+			return wait;
+		if ("nodelay".equals(name))
+			return nodelay;
+		if ("telnet".equals(name))
+			return telnet;
+		return super.getFieldByName(name);
 	}
 }

@@ -48,6 +48,8 @@ dependencies {
 
 	testCompile "junit:junit:4.11"
 	testCompile "com.google.guava:guava:16.0.1"
+	// testCompile 'com.codahale.metrics:metrics-core:3.0.2'
+	testCompile 'com.codahale.metrics:metrics-graphite:3.0.2'
 
 	testRuntime "org.slf4j:slf4j-jcl:1.7.7"
 }

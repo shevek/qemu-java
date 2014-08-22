@@ -6,10 +6,15 @@ package org.anarres.qemu.exec;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
-import org.anarres.qemu.exec.dev.BrailleHostDevice;
-import org.anarres.qemu.exec.dev.LinuxParportDeviceHostDevice;
-import org.anarres.qemu.exec.dev.TcpHostDevice;
-import org.anarres.qemu.exec.disk.IScsiDisk;
+import java.util.UUID;
+import org.anarres.qemu.exec.host.dev.BrailleHostDevice;
+import org.anarres.qemu.exec.host.dev.LinuxParportDeviceHostDevice;
+import org.anarres.qemu.exec.host.dev.TcpHostDevice;
+import org.anarres.qemu.exec.host.disk.IScsiDisk;
+import org.anarres.qemu.exec.util.QEmuOptionsList;
+import org.anarres.qemu.exec.util.QEmuPciAllocator;
+import org.anarres.qemu.exec.util.QEmuVirtioDrive;
+import org.anarres.qemu.exec.util.QEmuVirtioNet;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +26,38 @@ import org.slf4j.LoggerFactory;
 public class QEmuCommandLineTest {
 
     private static final Logger LOG = LoggerFactory.getLogger(QEmuCommandLineTest.class);
+
+    @Test
+    public void testLibvirtCommandLine() {
+
+        QEmuOptionsList defaultOptions = new QEmuOptionsList(
+                QEmuMiscOptions.ENABLE_KVM,
+                QEmuMiscOptions.NO_USER_CONFIG,
+                QEmuMiscOptions.NO_DEFAULTS,
+                QEmuMiscOptions.NO_SHUTDOWN,
+                QEmuMiscOptions.NO_ACPI,
+                new QEmuRtcOption().withBase(QEmuRtcOption.Base.utc),
+                null);
+
+        QEmuPciAllocator allocator = new QEmuPciAllocator();
+        QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64, QEmuMachine.pc_1_3);
+        commandLine.addOptions(
+                defaultOptions,
+                new QEmuIdOption(UUID.randomUUID(), "sys-1"),
+                new QEmuMemoryOption(1, QEmuMemoryOption.Magnitude.GIGA),
+                new QEmuCpusOption(2).withSockets(2).withCores(1).withThreads(1),
+                new QEmuDisplayOption(QEmuDisplayOption.DisplayType.vnc).withVncDisplay(new VncDisplay.Socket(null, 0)),
+                // mon
+                new QEmuDeviceOption.Piix3Usb().withAddress(allocator),
+                new QEmuVirtioDrive(0, "/var/tmp/qemu/sys-1/vda").withAddress(allocator).withFormat(QEmuDriveOption.Format.raw).withCache(QEmuDriveOption.Cache.unsafe).withProperty("bootindex", "1"),
+                new QEmuVirtioNet().withAddress(allocator).withMac("fa:16:3e:13:ff:00"),
+                new QEmuVirtioNet().withAddress(allocator).withMac("fa:16:3e:13:ff:01"),
+                new QEmuKernelOption("/var/tmp/qemu/sys-1/kernel").withInitrd("/var/tmp/qemu/sys-1/initrd").withAppend("root=/dev/vda2 console=ttyS0"),
+                null);
+        // -chardev socket,id=charmonitor,path=/var/lib/libvirt/qemu/sys-1.monitor,server,nowait
+
+        LOG.info("Command is " + commandLine.toCommandWords());
+    }
 
     @Test
     public void testCommandLine() throws Exception {

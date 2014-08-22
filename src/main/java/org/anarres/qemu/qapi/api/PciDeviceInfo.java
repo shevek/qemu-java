@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -131,5 +132,44 @@ public class PciDeviceInfo extends QApiType {
 		this.qdevId = qdevId;
 		this.pciBridge = pciBridge;
 		this.regions = regions;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("bus");
+		names.add("slot");
+		names.add("function");
+		names.add("class_info");
+		names.add("id");
+		names.add("irq");
+		names.add("qdev_id");
+		names.add("pci_bridge");
+		names.add("regions");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("bus".equals(name))
+			return bus;
+		if ("slot".equals(name))
+			return slot;
+		if ("function".equals(name))
+			return function;
+		if ("class_info".equals(name))
+			return classInfo;
+		if ("id".equals(name))
+			return id;
+		if ("irq".equals(name))
+			return irq;
+		if ("qdev_id".equals(name))
+			return qdevId;
+		if ("pci_bridge".equals(name))
+			return pciBridge;
+		if ("regions".equals(name))
+			return regions;
+		return super.getFieldByName(name);
 	}
 }

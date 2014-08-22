@@ -72,6 +72,27 @@ public class SocketAddress extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("inet");
+		names.add("unix");
+		names.add("fd");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("inet".equals(name))
+			return inet;
+		if ("unix".equals(name))
+			return unix;
+		if ("fd".equals(name))
+			return fd;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

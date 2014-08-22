@@ -85,6 +85,30 @@ public class TransactionAction extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("blockdev-snapshot-sync");
+		names.add("drive-backup");
+		names.add("abort");
+		names.add("blockdev-snapshot-internal-sync");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("blockdev-snapshot-sync".equals(name))
+			return blockdevSnapshotSync;
+		if ("drive-backup".equals(name))
+			return driveBackup;
+		if ("abort".equals(name))
+			return abort;
+		if ("blockdev-snapshot-internal-sync".equals(name))
+			return blockdevSnapshotInternalSync;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

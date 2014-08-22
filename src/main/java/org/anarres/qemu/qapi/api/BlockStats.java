@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class BlockStats extends QApiType {
 		this.stats = stats;
 		this.parent = parent;
 		this.backing = backing;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("device");
+		names.add("stats");
+		names.add("parent");
+		names.add("backing");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("device".equals(name))
+			return device;
+		if ("stats".equals(name))
+			return stats;
+		if ("parent".equals(name))
+			return parent;
+		if ("backing".equals(name))
+			return backing;
+		return super.getFieldByName(name);
 	}
 }

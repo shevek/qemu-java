@@ -5,7 +5,7 @@
 package org.anarres.qemu.exec;
 
 import java.util.List;
-import org.anarres.qemu.exec.dev.HostDevice;
+import org.anarres.qemu.exec.host.dev.HostDevice;
 
 /**
  *

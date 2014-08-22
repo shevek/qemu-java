@@ -6,6 +6,7 @@ package org.anarres.qemu.exec;
 
 import java.io.File;
 import java.util.List;
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -15,11 +16,11 @@ public class QEmuBiosOption extends AbstractQEmuOption {
 
     private final File file;
 
-    public QEmuBiosOption(File file) {
+    public QEmuBiosOption(@Nonnull File file) {
         this.file = file;
     }
 
-    public QEmuBiosOption(String path) {
+    public QEmuBiosOption(@Nonnull String path) {
         this(new File(path));
     }
 

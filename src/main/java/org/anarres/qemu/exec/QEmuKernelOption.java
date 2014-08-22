@@ -22,10 +22,19 @@ public class QEmuKernelOption extends AbstractQEmuOption {
         this.kernel = kernel;
     }
 
+    public QEmuKernelOption(@Nonnull String kernel) {
+        this(new File(kernel));
+    }
+
     @Nonnull
     public QEmuKernelOption withInitrd(@Nonnull File initrd) {
         this.initrd = initrd;
         return this;
+    }
+
+    @Nonnull
+    public QEmuKernelOption withInitrd(@Nonnull String initrd) {
+        return withInitrd(new File(initrd));
     }
 
     @Nonnull

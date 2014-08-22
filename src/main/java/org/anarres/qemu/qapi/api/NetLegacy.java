@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class NetLegacy extends QApiType {
 		this.id = id;
 		this.name = name;
 		this.opts = opts;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("vlan");
+		names.add("id");
+		names.add("name");
+		names.add("opts");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("vlan".equals(name))
+			return vlan;
+		if ("id".equals(name))
+			return id;
+		if ("name".equals(name))
+			return name;
+		if ("opts".equals(name))
+			return opts;
+		return super.getFieldByName(name);
 	}
 }

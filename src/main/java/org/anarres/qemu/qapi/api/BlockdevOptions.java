@@ -333,6 +333,96 @@ public class BlockdevOptions extends BlockdevOptionsBase implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("file");
+		names.add("host_device");
+		names.add("host_cdrom");
+		names.add("host_floppy");
+		names.add("http");
+		names.add("https");
+		names.add("ftp");
+		names.add("ftps");
+		names.add("tftp");
+		names.add("vvfat");
+		names.add("blkdebug");
+		names.add("blkverify");
+		names.add("bochs");
+		names.add("cloop");
+		names.add("cow");
+		names.add("dmg");
+		names.add("parallels");
+		names.add("qcow");
+		names.add("qcow2");
+		names.add("qed");
+		names.add("raw");
+		names.add("vdi");
+		names.add("vhdx");
+		names.add("vmdk");
+		names.add("vpc");
+		names.add("quorum");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("file".equals(name))
+			return file;
+		if ("host_device".equals(name))
+			return hostDevice;
+		if ("host_cdrom".equals(name))
+			return hostCdrom;
+		if ("host_floppy".equals(name))
+			return hostFloppy;
+		if ("http".equals(name))
+			return http;
+		if ("https".equals(name))
+			return https;
+		if ("ftp".equals(name))
+			return ftp;
+		if ("ftps".equals(name))
+			return ftps;
+		if ("tftp".equals(name))
+			return tftp;
+		if ("vvfat".equals(name))
+			return vvfat;
+		if ("blkdebug".equals(name))
+			return blkdebug;
+		if ("blkverify".equals(name))
+			return blkverify;
+		if ("bochs".equals(name))
+			return bochs;
+		if ("cloop".equals(name))
+			return cloop;
+		if ("cow".equals(name))
+			return cow;
+		if ("dmg".equals(name))
+			return dmg;
+		if ("parallels".equals(name))
+			return parallels;
+		if ("qcow".equals(name))
+			return qcow;
+		if ("qcow2".equals(name))
+			return qcow2;
+		if ("qed".equals(name))
+			return qed;
+		if ("raw".equals(name))
+			return raw;
+		if ("vdi".equals(name))
+			return vdi;
+		if ("vhdx".equals(name))
+			return vhdx;
+		if ("vmdk".equals(name))
+			return vmdk;
+		if ("vpc".equals(name))
+			return vpc;
+		if ("quorum".equals(name))
+			return quorum;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

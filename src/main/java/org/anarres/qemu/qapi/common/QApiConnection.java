@@ -11,9 +11,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.Charset;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +44,16 @@ public class QApiConnection implements Closeable {
         // assert !capabilities.isError();
     }
 
+    public QApiConnection(@Nonnull InetAddress address, @Nonnegative int port) throws IOException {
+        this(new Socket(address, port));
+    }
+
+    public QApiConnection(@Nonnull String address, @Nonnegative int port) throws IOException {
+        this(InetAddress.getByName(address), port);
+    }
+
     public QApiConnection(@Nonnull InetSocketAddress address) throws IOException {
-        this(new Socket(address.getAddress(), address.getPort()));
+        this(address.getAddress(), address.getPort());
     }
 
     @Nonnull

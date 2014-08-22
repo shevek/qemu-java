@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -63,5 +64,23 @@ public class PciBridgeInfo extends QApiType {
 	public PciBridgeInfo(_Tbus bus, java.util.List<PciDeviceInfo> devices) {
 		this.bus = bus;
 		this.devices = devices;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("bus");
+		names.add("devices");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("bus".equals(name))
+			return bus;
+		if ("devices".equals(name))
+			return devices;
+		return super.getFieldByName(name);
 	}
 }

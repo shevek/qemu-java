@@ -6,8 +6,8 @@ package org.anarres.qemu.exec;
 
 import java.util.List;
 import javax.annotation.Nonnull;
-import org.anarres.qemu.exec.dev.HostDevice;
-import org.anarres.qemu.exec.dev.TcpHostDevice;
+import org.anarres.qemu.exec.host.dev.HostDevice;
+import org.anarres.qemu.exec.host.dev.TcpHostDevice;
 
 /**
  *

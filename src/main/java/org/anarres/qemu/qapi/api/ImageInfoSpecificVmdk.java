@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class ImageInfoSpecificVmdk extends QApiType {
 		this.cid = cid;
 		this.parentCid = parentCid;
 		this.extents = extents;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("create-type");
+		names.add("cid");
+		names.add("parent-cid");
+		names.add("extents");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("create-type".equals(name))
+			return createType;
+		if ("cid".equals(name))
+			return cid;
+		if ("parent-cid".equals(name))
+			return parentCid;
+		if ("extents".equals(name))
+			return extents;
+		return super.getFieldByName(name);
 	}
 }

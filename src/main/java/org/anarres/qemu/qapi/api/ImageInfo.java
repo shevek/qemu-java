@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -161,5 +162,59 @@ public class ImageInfo extends QApiType {
 		this.snapshots = snapshots;
 		this.backingImage = backingImage;
 		this.formatSpecific = formatSpecific;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("filename");
+		names.add("format");
+		names.add("dirty-flag");
+		names.add("actual-size");
+		names.add("virtual-size");
+		names.add("cluster-size");
+		names.add("encrypted");
+		names.add("compressed");
+		names.add("backing-filename");
+		names.add("full-backing-filename");
+		names.add("backing-filename-format");
+		names.add("snapshots");
+		names.add("backing-image");
+		names.add("format-specific");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("filename".equals(name))
+			return filename;
+		if ("format".equals(name))
+			return format;
+		if ("dirty-flag".equals(name))
+			return dirtyFlag;
+		if ("actual-size".equals(name))
+			return actualSize;
+		if ("virtual-size".equals(name))
+			return virtualSize;
+		if ("cluster-size".equals(name))
+			return clusterSize;
+		if ("encrypted".equals(name))
+			return encrypted;
+		if ("compressed".equals(name))
+			return compressed;
+		if ("backing-filename".equals(name))
+			return backingFilename;
+		if ("full-backing-filename".equals(name))
+			return fullBackingFilename;
+		if ("backing-filename-format".equals(name))
+			return backingFilenameFormat;
+		if ("snapshots".equals(name))
+			return snapshots;
+		if ("backing-image".equals(name))
+			return backingImage;
+		if ("format-specific".equals(name))
+			return formatSpecific;
+		return super.getFieldByName(name);
 	}
 }

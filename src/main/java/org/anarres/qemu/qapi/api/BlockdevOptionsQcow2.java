@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class BlockdevOptionsQcow2 extends BlockdevOptionsGenericCOWFormat {
 		this.passDiscardRequest = passDiscardRequest;
 		this.passDiscardSnapshot = passDiscardSnapshot;
 		this.passDiscardOther = passDiscardOther;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("lazy-refcounts");
+		names.add("pass-discard-request");
+		names.add("pass-discard-snapshot");
+		names.add("pass-discard-other");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("lazy-refcounts".equals(name))
+			return lazyRefcounts;
+		if ("pass-discard-request".equals(name))
+			return passDiscardRequest;
+		if ("pass-discard-snapshot".equals(name))
+			return passDiscardSnapshot;
+		if ("pass-discard-other".equals(name))
+			return passDiscardOther;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -71,5 +72,32 @@ public class BlockdevOptionsBlkdebug extends QApiType {
 		this.align = align;
 		this.injectError = injectError;
 		this.setState = setState;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("image");
+		names.add("config");
+		names.add("align");
+		names.add("inject-error");
+		names.add("set-state");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("image".equals(name))
+			return image;
+		if ("config".equals(name))
+			return config;
+		if ("align".equals(name))
+			return align;
+		if ("inject-error".equals(name))
+			return injectError;
+		if ("set-state".equals(name))
+			return setState;
+		return super.getFieldByName(name);
 	}
 }

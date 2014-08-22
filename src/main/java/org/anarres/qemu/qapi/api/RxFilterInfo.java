@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -141,5 +142,53 @@ public class RxFilterInfo extends QApiType {
 		this.vlanTable = vlanTable;
 		this.unicastTable = unicastTable;
 		this.multicastTable = multicastTable;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("name");
+		names.add("promiscuous");
+		names.add("multicast");
+		names.add("unicast");
+		names.add("vlan");
+		names.add("broadcast-allowed");
+		names.add("multicast-overflow");
+		names.add("unicast-overflow");
+		names.add("main-mac");
+		names.add("vlan-table");
+		names.add("unicast-table");
+		names.add("multicast-table");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("name".equals(name))
+			return name;
+		if ("promiscuous".equals(name))
+			return promiscuous;
+		if ("multicast".equals(name))
+			return multicast;
+		if ("unicast".equals(name))
+			return unicast;
+		if ("vlan".equals(name))
+			return vlan;
+		if ("broadcast-allowed".equals(name))
+			return broadcastAllowed;
+		if ("multicast-overflow".equals(name))
+			return multicastOverflow;
+		if ("unicast-overflow".equals(name))
+			return unicastOverflow;
+		if ("main-mac".equals(name))
+			return mainMac;
+		if ("vlan-table".equals(name))
+			return vlanTable;
+		if ("unicast-table".equals(name))
+			return unicastTable;
+		if ("multicast-table".equals(name))
+			return multicastTable;
+		return super.getFieldByName(name);
 	}
 }

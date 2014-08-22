@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -81,5 +82,35 @@ public class PciMemoryRegion extends QApiType {
 		this.size = size;
 		this.prefetch = prefetch;
 		this.memType64 = memType64;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("bar");
+		names.add("type");
+		names.add("address");
+		names.add("size");
+		names.add("prefetch");
+		names.add("mem_type_64");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("bar".equals(name))
+			return bar;
+		if ("type".equals(name))
+			return type;
+		if ("address".equals(name))
+			return address;
+		if ("size".equals(name))
+			return size;
+		if ("prefetch".equals(name))
+			return prefetch;
+		if ("mem_type_64".equals(name))
+			return memType64;
+		return super.getFieldByName(name);
 	}
 }

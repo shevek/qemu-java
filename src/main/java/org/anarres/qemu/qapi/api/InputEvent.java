@@ -85,6 +85,30 @@ public class InputEvent extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("key");
+		names.add("btn");
+		names.add("rel");
+		names.add("abs");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("key".equals(name))
+			return key;
+		if ("btn".equals(name))
+			return btn;
+		if ("rel".equals(name))
+			return rel;
+		if ("abs".equals(name))
+			return abs;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

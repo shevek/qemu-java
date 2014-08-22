@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class TPMPassthroughOptions extends QApiType {
 	public TPMPassthroughOptions(java.lang.String path, java.lang.String cancelPath) {
 		this.path = path;
 		this.cancelPath = cancelPath;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("path");
+		names.add("cancel-path");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("path".equals(name))
+			return path;
+		if ("cancel-path".equals(name))
+			return cancelPath;
+		return super.getFieldByName(name);
 	}
 }

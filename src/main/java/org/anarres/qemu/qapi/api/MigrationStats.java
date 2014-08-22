@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -121,5 +122,47 @@ public class MigrationStats extends QApiType {
 		this.dirtyPagesRate = dirtyPagesRate;
 		this.mbps = mbps;
 		this.dirtySyncCount = dirtySyncCount;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("transferred");
+		names.add("remaining");
+		names.add("total");
+		names.add("duplicate");
+		names.add("skipped");
+		names.add("normal");
+		names.add("normal-bytes");
+		names.add("dirty-pages-rate");
+		names.add("mbps");
+		names.add("dirty-sync-count");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("transferred".equals(name))
+			return transferred;
+		if ("remaining".equals(name))
+			return remaining;
+		if ("total".equals(name))
+			return total;
+		if ("duplicate".equals(name))
+			return duplicate;
+		if ("skipped".equals(name))
+			return skipped;
+		if ("normal".equals(name))
+			return normal;
+		if ("normal-bytes".equals(name))
+			return normalBytes;
+		if ("dirty-pages-rate".equals(name))
+			return dirtyPagesRate;
+		if ("mbps".equals(name))
+			return mbps;
+		if ("dirty-sync-count".equals(name))
+			return dirtySyncCount;
+		return super.getFieldByName(name);
 	}
 }

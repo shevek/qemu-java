@@ -267,6 +267,72 @@ public class ChardevBackend extends QApiType implements QApiUnion {
 	}
 
 	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("file");
+		names.add("serial");
+		names.add("parallel");
+		names.add("pipe");
+		names.add("socket");
+		names.add("udp");
+		names.add("pty");
+		names.add("null");
+		names.add("mux");
+		names.add("msmouse");
+		names.add("braille");
+		names.add("stdio");
+		names.add("console");
+		names.add("spicevmc");
+		names.add("spiceport");
+		names.add("vc");
+		names.add("ringbuf");
+		names.add("memory");
+		return names;
+	}
+
+	@JsonIgnore
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("file".equals(name))
+			return file;
+		if ("serial".equals(name))
+			return serial;
+		if ("parallel".equals(name))
+			return parallel;
+		if ("pipe".equals(name))
+			return pipe;
+		if ("socket".equals(name))
+			return socket;
+		if ("udp".equals(name))
+			return udp;
+		if ("pty".equals(name))
+			return pty;
+		if ("null".equals(name))
+			return _null;
+		if ("mux".equals(name))
+			return mux;
+		if ("msmouse".equals(name))
+			return msmouse;
+		if ("braille".equals(name))
+			return braille;
+		if ("stdio".equals(name))
+			return stdio;
+		if ("console".equals(name))
+			return console;
+		if ("spicevmc".equals(name))
+			return spicevmc;
+		if ("spiceport".equals(name))
+			return spiceport;
+		if ("vc".equals(name))
+			return vc;
+		if ("ringbuf".equals(name))
+			return ringbuf;
+		if ("memory".equals(name))
+			return memory;
+		return super.getFieldByName(name);
+	}
+
+	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

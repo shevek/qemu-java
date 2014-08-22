@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -41,5 +42,23 @@ public class CommandLineOptionInfo extends QApiType {
 	public CommandLineOptionInfo(java.lang.String option, java.util.List<CommandLineParameterInfo> parameters) {
 		this.option = option;
 		this.parameters = parameters;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("option");
+		names.add("parameters");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("option".equals(name))
+			return option;
+		if ("parameters".equals(name))
+			return parameters;
+		return super.getFieldByName(name);
 	}
 }

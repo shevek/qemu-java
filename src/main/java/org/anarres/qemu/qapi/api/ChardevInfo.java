@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -51,5 +52,26 @@ public class ChardevInfo extends QApiType {
 		this.label = label;
 		this.filename = filename;
 		this.frontendOpen = frontendOpen;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("label");
+		names.add("filename");
+		names.add("frontend-open");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("label".equals(name))
+			return label;
+		if ("filename".equals(name))
+			return filename;
+		if ("frontend-open".equals(name))
+			return frontendOpen;
+		return super.getFieldByName(name);
 	}
 }

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
@@ -61,5 +62,29 @@ public class NetdevVdeOptions extends QApiType {
 		this.port = port;
 		this.group = group;
 		this.mode = mode;
+	}
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+		names.add("sock");
+		names.add("port");
+		names.add("group");
+		names.add("mode");
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+		if ("sock".equals(name))
+			return sock;
+		if ("port".equals(name))
+			return port;
+		if ("group".equals(name))
+			return group;
+		if ("mode".equals(name))
+			return mode;
+		return super.getFieldByName(name);
 	}
 }
