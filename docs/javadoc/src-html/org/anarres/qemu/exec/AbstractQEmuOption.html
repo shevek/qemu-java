@@ -34,15 +34,20 @@
 <span class="sourceLineNo">026</span>    /** Allows use of ImmutableMap.of() patterns. */<a name="line.26"></a>
 <span class="sourceLineNo">027</span>    protected static void appendTo(@Nonnull StringBuilder buf, @Nonnull Map&lt;? extends String, ? extends Object&gt; values) {<a name="line.27"></a>
 <span class="sourceLineNo">028</span>        for (Map.Entry&lt;? extends String, ? extends Object&gt; e : values.entrySet()) {<a name="line.28"></a>
-<span class="sourceLineNo">029</span>            appendTo(buf, e.getKey(), e.getValue());<a name="line.29"></a>
-<span class="sourceLineNo">030</span>        }<a name="line.30"></a>
-<span class="sourceLineNo">031</span>    }<a name="line.31"></a>
-<span class="sourceLineNo">032</span><a name="line.32"></a>
-<span class="sourceLineNo">033</span>    protected static void add(@Nonnull List&lt;? super String&gt; line, @Nonnull Object... words) {<a name="line.33"></a>
-<span class="sourceLineNo">034</span>        for (Object word : words)<a name="line.34"></a>
-<span class="sourceLineNo">035</span>            line.add(word.toString());  // Deliberate NPE if word is null.<a name="line.35"></a>
+<span class="sourceLineNo">029</span>            if (buf.length() &gt; 0)<a name="line.29"></a>
+<span class="sourceLineNo">030</span>                buf.append(",");<a name="line.30"></a>
+<span class="sourceLineNo">031</span>            buf.append(e.getKey());<a name="line.31"></a>
+<span class="sourceLineNo">032</span>            Object value = e.getValue();<a name="line.32"></a>
+<span class="sourceLineNo">033</span>            if (value != null)<a name="line.33"></a>
+<span class="sourceLineNo">034</span>                buf.append('=').append(value);<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        }<a name="line.35"></a>
 <span class="sourceLineNo">036</span>    }<a name="line.36"></a>
-<span class="sourceLineNo">037</span>}<a name="line.37"></a>
+<span class="sourceLineNo">037</span><a name="line.37"></a>
+<span class="sourceLineNo">038</span>    protected static void add(@Nonnull List&lt;? super String&gt; line, @Nonnull Object... words) {<a name="line.38"></a>
+<span class="sourceLineNo">039</span>        for (Object word : words)<a name="line.39"></a>
+<span class="sourceLineNo">040</span>            line.add(word.toString());  // Deliberate NPE if word is null.<a name="line.40"></a>
+<span class="sourceLineNo">041</span>    }<a name="line.41"></a>
+<span class="sourceLineNo">042</span>}<a name="line.42"></a>
 
 
 

@@ -341,64 +341,154 @@
 <span class="sourceLineNo">333</span>        }<a name="line.333"></a>
 <span class="sourceLineNo">334</span><a name="line.334"></a>
 <span class="sourceLineNo">335</span>        @Override<a name="line.335"></a>
-<span class="sourceLineNo">336</span>        @JsonIgnore<a name="line.336"></a>
-<span class="sourceLineNo">337</span>        public boolean isValidUnion() {<a name="line.337"></a>
-<span class="sourceLineNo">338</span>                int count = 0;<a name="line.338"></a>
-<span class="sourceLineNo">339</span>                if (file != null)<a name="line.339"></a>
-<span class="sourceLineNo">340</span>                        count++;<a name="line.340"></a>
-<span class="sourceLineNo">341</span>                if (hostDevice != null)<a name="line.341"></a>
-<span class="sourceLineNo">342</span>                        count++;<a name="line.342"></a>
-<span class="sourceLineNo">343</span>                if (hostCdrom != null)<a name="line.343"></a>
-<span class="sourceLineNo">344</span>                        count++;<a name="line.344"></a>
-<span class="sourceLineNo">345</span>                if (hostFloppy != null)<a name="line.345"></a>
-<span class="sourceLineNo">346</span>                        count++;<a name="line.346"></a>
-<span class="sourceLineNo">347</span>                if (http != null)<a name="line.347"></a>
-<span class="sourceLineNo">348</span>                        count++;<a name="line.348"></a>
-<span class="sourceLineNo">349</span>                if (https != null)<a name="line.349"></a>
-<span class="sourceLineNo">350</span>                        count++;<a name="line.350"></a>
-<span class="sourceLineNo">351</span>                if (ftp != null)<a name="line.351"></a>
-<span class="sourceLineNo">352</span>                        count++;<a name="line.352"></a>
-<span class="sourceLineNo">353</span>                if (ftps != null)<a name="line.353"></a>
-<span class="sourceLineNo">354</span>                        count++;<a name="line.354"></a>
-<span class="sourceLineNo">355</span>                if (tftp != null)<a name="line.355"></a>
-<span class="sourceLineNo">356</span>                        count++;<a name="line.356"></a>
-<span class="sourceLineNo">357</span>                if (vvfat != null)<a name="line.357"></a>
-<span class="sourceLineNo">358</span>                        count++;<a name="line.358"></a>
-<span class="sourceLineNo">359</span>                if (blkdebug != null)<a name="line.359"></a>
-<span class="sourceLineNo">360</span>                        count++;<a name="line.360"></a>
-<span class="sourceLineNo">361</span>                if (blkverify != null)<a name="line.361"></a>
-<span class="sourceLineNo">362</span>                        count++;<a name="line.362"></a>
-<span class="sourceLineNo">363</span>                if (bochs != null)<a name="line.363"></a>
-<span class="sourceLineNo">364</span>                        count++;<a name="line.364"></a>
-<span class="sourceLineNo">365</span>                if (cloop != null)<a name="line.365"></a>
-<span class="sourceLineNo">366</span>                        count++;<a name="line.366"></a>
-<span class="sourceLineNo">367</span>                if (cow != null)<a name="line.367"></a>
-<span class="sourceLineNo">368</span>                        count++;<a name="line.368"></a>
-<span class="sourceLineNo">369</span>                if (dmg != null)<a name="line.369"></a>
-<span class="sourceLineNo">370</span>                        count++;<a name="line.370"></a>
-<span class="sourceLineNo">371</span>                if (parallels != null)<a name="line.371"></a>
-<span class="sourceLineNo">372</span>                        count++;<a name="line.372"></a>
-<span class="sourceLineNo">373</span>                if (qcow != null)<a name="line.373"></a>
-<span class="sourceLineNo">374</span>                        count++;<a name="line.374"></a>
-<span class="sourceLineNo">375</span>                if (qcow2 != null)<a name="line.375"></a>
-<span class="sourceLineNo">376</span>                        count++;<a name="line.376"></a>
-<span class="sourceLineNo">377</span>                if (qed != null)<a name="line.377"></a>
-<span class="sourceLineNo">378</span>                        count++;<a name="line.378"></a>
-<span class="sourceLineNo">379</span>                if (raw != null)<a name="line.379"></a>
-<span class="sourceLineNo">380</span>                        count++;<a name="line.380"></a>
-<span class="sourceLineNo">381</span>                if (vdi != null)<a name="line.381"></a>
-<span class="sourceLineNo">382</span>                        count++;<a name="line.382"></a>
-<span class="sourceLineNo">383</span>                if (vhdx != null)<a name="line.383"></a>
-<span class="sourceLineNo">384</span>                        count++;<a name="line.384"></a>
-<span class="sourceLineNo">385</span>                if (vmdk != null)<a name="line.385"></a>
-<span class="sourceLineNo">386</span>                        count++;<a name="line.386"></a>
-<span class="sourceLineNo">387</span>                if (vpc != null)<a name="line.387"></a>
-<span class="sourceLineNo">388</span>                        count++;<a name="line.388"></a>
-<span class="sourceLineNo">389</span>                if (quorum != null)<a name="line.389"></a>
-<span class="sourceLineNo">390</span>                        count++;<a name="line.390"></a>
-<span class="sourceLineNo">391</span>                return (count == 1);<a name="line.391"></a>
-<span class="sourceLineNo">392</span>        }<a name="line.392"></a>
-<span class="sourceLineNo">393</span>}<a name="line.393"></a>
+<span class="sourceLineNo">336</span>        public java.util.List&lt;java.lang.String&gt; getFieldNames() {<a name="line.336"></a>
+<span class="sourceLineNo">337</span>                java.util.List&lt;java.lang.String&gt; names = super.getFieldNames();<a name="line.337"></a>
+<span class="sourceLineNo">338</span>                names.add("file");<a name="line.338"></a>
+<span class="sourceLineNo">339</span>                names.add("host_device");<a name="line.339"></a>
+<span class="sourceLineNo">340</span>                names.add("host_cdrom");<a name="line.340"></a>
+<span class="sourceLineNo">341</span>                names.add("host_floppy");<a name="line.341"></a>
+<span class="sourceLineNo">342</span>                names.add("http");<a name="line.342"></a>
+<span class="sourceLineNo">343</span>                names.add("https");<a name="line.343"></a>
+<span class="sourceLineNo">344</span>                names.add("ftp");<a name="line.344"></a>
+<span class="sourceLineNo">345</span>                names.add("ftps");<a name="line.345"></a>
+<span class="sourceLineNo">346</span>                names.add("tftp");<a name="line.346"></a>
+<span class="sourceLineNo">347</span>                names.add("vvfat");<a name="line.347"></a>
+<span class="sourceLineNo">348</span>                names.add("blkdebug");<a name="line.348"></a>
+<span class="sourceLineNo">349</span>                names.add("blkverify");<a name="line.349"></a>
+<span class="sourceLineNo">350</span>                names.add("bochs");<a name="line.350"></a>
+<span class="sourceLineNo">351</span>                names.add("cloop");<a name="line.351"></a>
+<span class="sourceLineNo">352</span>                names.add("cow");<a name="line.352"></a>
+<span class="sourceLineNo">353</span>                names.add("dmg");<a name="line.353"></a>
+<span class="sourceLineNo">354</span>                names.add("parallels");<a name="line.354"></a>
+<span class="sourceLineNo">355</span>                names.add("qcow");<a name="line.355"></a>
+<span class="sourceLineNo">356</span>                names.add("qcow2");<a name="line.356"></a>
+<span class="sourceLineNo">357</span>                names.add("qed");<a name="line.357"></a>
+<span class="sourceLineNo">358</span>                names.add("raw");<a name="line.358"></a>
+<span class="sourceLineNo">359</span>                names.add("vdi");<a name="line.359"></a>
+<span class="sourceLineNo">360</span>                names.add("vhdx");<a name="line.360"></a>
+<span class="sourceLineNo">361</span>                names.add("vmdk");<a name="line.361"></a>
+<span class="sourceLineNo">362</span>                names.add("vpc");<a name="line.362"></a>
+<span class="sourceLineNo">363</span>                names.add("quorum");<a name="line.363"></a>
+<span class="sourceLineNo">364</span>                return names;<a name="line.364"></a>
+<span class="sourceLineNo">365</span>        }<a name="line.365"></a>
+<span class="sourceLineNo">366</span><a name="line.366"></a>
+<span class="sourceLineNo">367</span>        @JsonIgnore<a name="line.367"></a>
+<span class="sourceLineNo">368</span>        @Override<a name="line.368"></a>
+<span class="sourceLineNo">369</span>        public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {<a name="line.369"></a>
+<span class="sourceLineNo">370</span>                if ("file".equals(name))<a name="line.370"></a>
+<span class="sourceLineNo">371</span>                        return file;<a name="line.371"></a>
+<span class="sourceLineNo">372</span>                if ("host_device".equals(name))<a name="line.372"></a>
+<span class="sourceLineNo">373</span>                        return hostDevice;<a name="line.373"></a>
+<span class="sourceLineNo">374</span>                if ("host_cdrom".equals(name))<a name="line.374"></a>
+<span class="sourceLineNo">375</span>                        return hostCdrom;<a name="line.375"></a>
+<span class="sourceLineNo">376</span>                if ("host_floppy".equals(name))<a name="line.376"></a>
+<span class="sourceLineNo">377</span>                        return hostFloppy;<a name="line.377"></a>
+<span class="sourceLineNo">378</span>                if ("http".equals(name))<a name="line.378"></a>
+<span class="sourceLineNo">379</span>                        return http;<a name="line.379"></a>
+<span class="sourceLineNo">380</span>                if ("https".equals(name))<a name="line.380"></a>
+<span class="sourceLineNo">381</span>                        return https;<a name="line.381"></a>
+<span class="sourceLineNo">382</span>                if ("ftp".equals(name))<a name="line.382"></a>
+<span class="sourceLineNo">383</span>                        return ftp;<a name="line.383"></a>
+<span class="sourceLineNo">384</span>                if ("ftps".equals(name))<a name="line.384"></a>
+<span class="sourceLineNo">385</span>                        return ftps;<a name="line.385"></a>
+<span class="sourceLineNo">386</span>                if ("tftp".equals(name))<a name="line.386"></a>
+<span class="sourceLineNo">387</span>                        return tftp;<a name="line.387"></a>
+<span class="sourceLineNo">388</span>                if ("vvfat".equals(name))<a name="line.388"></a>
+<span class="sourceLineNo">389</span>                        return vvfat;<a name="line.389"></a>
+<span class="sourceLineNo">390</span>                if ("blkdebug".equals(name))<a name="line.390"></a>
+<span class="sourceLineNo">391</span>                        return blkdebug;<a name="line.391"></a>
+<span class="sourceLineNo">392</span>                if ("blkverify".equals(name))<a name="line.392"></a>
+<span class="sourceLineNo">393</span>                        return blkverify;<a name="line.393"></a>
+<span class="sourceLineNo">394</span>                if ("bochs".equals(name))<a name="line.394"></a>
+<span class="sourceLineNo">395</span>                        return bochs;<a name="line.395"></a>
+<span class="sourceLineNo">396</span>                if ("cloop".equals(name))<a name="line.396"></a>
+<span class="sourceLineNo">397</span>                        return cloop;<a name="line.397"></a>
+<span class="sourceLineNo">398</span>                if ("cow".equals(name))<a name="line.398"></a>
+<span class="sourceLineNo">399</span>                        return cow;<a name="line.399"></a>
+<span class="sourceLineNo">400</span>                if ("dmg".equals(name))<a name="line.400"></a>
+<span class="sourceLineNo">401</span>                        return dmg;<a name="line.401"></a>
+<span class="sourceLineNo">402</span>                if ("parallels".equals(name))<a name="line.402"></a>
+<span class="sourceLineNo">403</span>                        return parallels;<a name="line.403"></a>
+<span class="sourceLineNo">404</span>                if ("qcow".equals(name))<a name="line.404"></a>
+<span class="sourceLineNo">405</span>                        return qcow;<a name="line.405"></a>
+<span class="sourceLineNo">406</span>                if ("qcow2".equals(name))<a name="line.406"></a>
+<span class="sourceLineNo">407</span>                        return qcow2;<a name="line.407"></a>
+<span class="sourceLineNo">408</span>                if ("qed".equals(name))<a name="line.408"></a>
+<span class="sourceLineNo">409</span>                        return qed;<a name="line.409"></a>
+<span class="sourceLineNo">410</span>                if ("raw".equals(name))<a name="line.410"></a>
+<span class="sourceLineNo">411</span>                        return raw;<a name="line.411"></a>
+<span class="sourceLineNo">412</span>                if ("vdi".equals(name))<a name="line.412"></a>
+<span class="sourceLineNo">413</span>                        return vdi;<a name="line.413"></a>
+<span class="sourceLineNo">414</span>                if ("vhdx".equals(name))<a name="line.414"></a>
+<span class="sourceLineNo">415</span>                        return vhdx;<a name="line.415"></a>
+<span class="sourceLineNo">416</span>                if ("vmdk".equals(name))<a name="line.416"></a>
+<span class="sourceLineNo">417</span>                        return vmdk;<a name="line.417"></a>
+<span class="sourceLineNo">418</span>                if ("vpc".equals(name))<a name="line.418"></a>
+<span class="sourceLineNo">419</span>                        return vpc;<a name="line.419"></a>
+<span class="sourceLineNo">420</span>                if ("quorum".equals(name))<a name="line.420"></a>
+<span class="sourceLineNo">421</span>                        return quorum;<a name="line.421"></a>
+<span class="sourceLineNo">422</span>                return super.getFieldByName(name);<a name="line.422"></a>
+<span class="sourceLineNo">423</span>        }<a name="line.423"></a>
+<span class="sourceLineNo">424</span><a name="line.424"></a>
+<span class="sourceLineNo">425</span>        @Override<a name="line.425"></a>
+<span class="sourceLineNo">426</span>        @JsonIgnore<a name="line.426"></a>
+<span class="sourceLineNo">427</span>        public boolean isValidUnion() {<a name="line.427"></a>
+<span class="sourceLineNo">428</span>                int count = 0;<a name="line.428"></a>
+<span class="sourceLineNo">429</span>                if (file != null)<a name="line.429"></a>
+<span class="sourceLineNo">430</span>                        count++;<a name="line.430"></a>
+<span class="sourceLineNo">431</span>                if (hostDevice != null)<a name="line.431"></a>
+<span class="sourceLineNo">432</span>                        count++;<a name="line.432"></a>
+<span class="sourceLineNo">433</span>                if (hostCdrom != null)<a name="line.433"></a>
+<span class="sourceLineNo">434</span>                        count++;<a name="line.434"></a>
+<span class="sourceLineNo">435</span>                if (hostFloppy != null)<a name="line.435"></a>
+<span class="sourceLineNo">436</span>                        count++;<a name="line.436"></a>
+<span class="sourceLineNo">437</span>                if (http != null)<a name="line.437"></a>
+<span class="sourceLineNo">438</span>                        count++;<a name="line.438"></a>
+<span class="sourceLineNo">439</span>                if (https != null)<a name="line.439"></a>
+<span class="sourceLineNo">440</span>                        count++;<a name="line.440"></a>
+<span class="sourceLineNo">441</span>                if (ftp != null)<a name="line.441"></a>
+<span class="sourceLineNo">442</span>                        count++;<a name="line.442"></a>
+<span class="sourceLineNo">443</span>                if (ftps != null)<a name="line.443"></a>
+<span class="sourceLineNo">444</span>                        count++;<a name="line.444"></a>
+<span class="sourceLineNo">445</span>                if (tftp != null)<a name="line.445"></a>
+<span class="sourceLineNo">446</span>                        count++;<a name="line.446"></a>
+<span class="sourceLineNo">447</span>                if (vvfat != null)<a name="line.447"></a>
+<span class="sourceLineNo">448</span>                        count++;<a name="line.448"></a>
+<span class="sourceLineNo">449</span>                if (blkdebug != null)<a name="line.449"></a>
+<span class="sourceLineNo">450</span>                        count++;<a name="line.450"></a>
+<span class="sourceLineNo">451</span>                if (blkverify != null)<a name="line.451"></a>
+<span class="sourceLineNo">452</span>                        count++;<a name="line.452"></a>
+<span class="sourceLineNo">453</span>                if (bochs != null)<a name="line.453"></a>
+<span class="sourceLineNo">454</span>                        count++;<a name="line.454"></a>
+<span class="sourceLineNo">455</span>                if (cloop != null)<a name="line.455"></a>
+<span class="sourceLineNo">456</span>                        count++;<a name="line.456"></a>
+<span class="sourceLineNo">457</span>                if (cow != null)<a name="line.457"></a>
+<span class="sourceLineNo">458</span>                        count++;<a name="line.458"></a>
+<span class="sourceLineNo">459</span>                if (dmg != null)<a name="line.459"></a>
+<span class="sourceLineNo">460</span>                        count++;<a name="line.460"></a>
+<span class="sourceLineNo">461</span>                if (parallels != null)<a name="line.461"></a>
+<span class="sourceLineNo">462</span>                        count++;<a name="line.462"></a>
+<span class="sourceLineNo">463</span>                if (qcow != null)<a name="line.463"></a>
+<span class="sourceLineNo">464</span>                        count++;<a name="line.464"></a>
+<span class="sourceLineNo">465</span>                if (qcow2 != null)<a name="line.465"></a>
+<span class="sourceLineNo">466</span>                        count++;<a name="line.466"></a>
+<span class="sourceLineNo">467</span>                if (qed != null)<a name="line.467"></a>
+<span class="sourceLineNo">468</span>                        count++;<a name="line.468"></a>
+<span class="sourceLineNo">469</span>                if (raw != null)<a name="line.469"></a>
+<span class="sourceLineNo">470</span>                        count++;<a name="line.470"></a>
+<span class="sourceLineNo">471</span>                if (vdi != null)<a name="line.471"></a>
+<span class="sourceLineNo">472</span>                        count++;<a name="line.472"></a>
+<span class="sourceLineNo">473</span>                if (vhdx != null)<a name="line.473"></a>
+<span class="sourceLineNo">474</span>                        count++;<a name="line.474"></a>
+<span class="sourceLineNo">475</span>                if (vmdk != null)<a name="line.475"></a>
+<span class="sourceLineNo">476</span>                        count++;<a name="line.476"></a>
+<span class="sourceLineNo">477</span>                if (vpc != null)<a name="line.477"></a>
+<span class="sourceLineNo">478</span>                        count++;<a name="line.478"></a>
+<span class="sourceLineNo">479</span>                if (quorum != null)<a name="line.479"></a>
+<span class="sourceLineNo">480</span>                        count++;<a name="line.480"></a>
+<span class="sourceLineNo">481</span>                return (count == 1);<a name="line.481"></a>
+<span class="sourceLineNo">482</span>        }<a name="line.482"></a>
+<span class="sourceLineNo">483</span>}<a name="line.483"></a>
 
 
 

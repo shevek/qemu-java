@@ -67,16 +67,34 @@
 <span class="sourceLineNo">059</span>        }<a name="line.59"></a>
 <span class="sourceLineNo">060</span><a name="line.60"></a>
 <span class="sourceLineNo">061</span>        @Override<a name="line.61"></a>
-<span class="sourceLineNo">062</span>        @JsonIgnore<a name="line.62"></a>
-<span class="sourceLineNo">063</span>        public boolean isValidUnion() {<a name="line.63"></a>
-<span class="sourceLineNo">064</span>                int count = 0;<a name="line.64"></a>
-<span class="sourceLineNo">065</span>                if (qcow2 != null)<a name="line.65"></a>
-<span class="sourceLineNo">066</span>                        count++;<a name="line.66"></a>
-<span class="sourceLineNo">067</span>                if (vmdk != null)<a name="line.67"></a>
-<span class="sourceLineNo">068</span>                        count++;<a name="line.68"></a>
-<span class="sourceLineNo">069</span>                return (count == 1);<a name="line.69"></a>
-<span class="sourceLineNo">070</span>        }<a name="line.70"></a>
-<span class="sourceLineNo">071</span>}<a name="line.71"></a>
+<span class="sourceLineNo">062</span>        public java.util.List&lt;java.lang.String&gt; getFieldNames() {<a name="line.62"></a>
+<span class="sourceLineNo">063</span>                java.util.List&lt;java.lang.String&gt; names = super.getFieldNames();<a name="line.63"></a>
+<span class="sourceLineNo">064</span>                names.add("qcow2");<a name="line.64"></a>
+<span class="sourceLineNo">065</span>                names.add("vmdk");<a name="line.65"></a>
+<span class="sourceLineNo">066</span>                return names;<a name="line.66"></a>
+<span class="sourceLineNo">067</span>        }<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>        @JsonIgnore<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        @Override<a name="line.70"></a>
+<span class="sourceLineNo">071</span>        public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {<a name="line.71"></a>
+<span class="sourceLineNo">072</span>                if ("qcow2".equals(name))<a name="line.72"></a>
+<span class="sourceLineNo">073</span>                        return qcow2;<a name="line.73"></a>
+<span class="sourceLineNo">074</span>                if ("vmdk".equals(name))<a name="line.74"></a>
+<span class="sourceLineNo">075</span>                        return vmdk;<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                return super.getFieldByName(name);<a name="line.76"></a>
+<span class="sourceLineNo">077</span>        }<a name="line.77"></a>
+<span class="sourceLineNo">078</span><a name="line.78"></a>
+<span class="sourceLineNo">079</span>        @Override<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        @JsonIgnore<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        public boolean isValidUnion() {<a name="line.81"></a>
+<span class="sourceLineNo">082</span>                int count = 0;<a name="line.82"></a>
+<span class="sourceLineNo">083</span>                if (qcow2 != null)<a name="line.83"></a>
+<span class="sourceLineNo">084</span>                        count++;<a name="line.84"></a>
+<span class="sourceLineNo">085</span>                if (vmdk != null)<a name="line.85"></a>
+<span class="sourceLineNo">086</span>                        count++;<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                return (count == 1);<a name="line.87"></a>
+<span class="sourceLineNo">088</span>        }<a name="line.88"></a>
+<span class="sourceLineNo">089</span>}<a name="line.89"></a>
 
 
 

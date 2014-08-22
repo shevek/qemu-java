@@ -93,20 +93,44 @@
 <span class="sourceLineNo">085</span>        }<a name="line.85"></a>
 <span class="sourceLineNo">086</span><a name="line.86"></a>
 <span class="sourceLineNo">087</span>        @Override<a name="line.87"></a>
-<span class="sourceLineNo">088</span>        @JsonIgnore<a name="line.88"></a>
-<span class="sourceLineNo">089</span>        public boolean isValidUnion() {<a name="line.89"></a>
-<span class="sourceLineNo">090</span>                int count = 0;<a name="line.90"></a>
-<span class="sourceLineNo">091</span>                if (key != null)<a name="line.91"></a>
-<span class="sourceLineNo">092</span>                        count++;<a name="line.92"></a>
-<span class="sourceLineNo">093</span>                if (btn != null)<a name="line.93"></a>
-<span class="sourceLineNo">094</span>                        count++;<a name="line.94"></a>
-<span class="sourceLineNo">095</span>                if (rel != null)<a name="line.95"></a>
-<span class="sourceLineNo">096</span>                        count++;<a name="line.96"></a>
-<span class="sourceLineNo">097</span>                if (abs != null)<a name="line.97"></a>
-<span class="sourceLineNo">098</span>                        count++;<a name="line.98"></a>
-<span class="sourceLineNo">099</span>                return (count == 1);<a name="line.99"></a>
-<span class="sourceLineNo">100</span>        }<a name="line.100"></a>
-<span class="sourceLineNo">101</span>}<a name="line.101"></a>
+<span class="sourceLineNo">088</span>        public java.util.List&lt;java.lang.String&gt; getFieldNames() {<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                java.util.List&lt;java.lang.String&gt; names = super.getFieldNames();<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                names.add("key");<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                names.add("btn");<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                names.add("rel");<a name="line.92"></a>
+<span class="sourceLineNo">093</span>                names.add("abs");<a name="line.93"></a>
+<span class="sourceLineNo">094</span>                return names;<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        }<a name="line.95"></a>
+<span class="sourceLineNo">096</span><a name="line.96"></a>
+<span class="sourceLineNo">097</span>        @JsonIgnore<a name="line.97"></a>
+<span class="sourceLineNo">098</span>        @Override<a name="line.98"></a>
+<span class="sourceLineNo">099</span>        public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                if ("key".equals(name))<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                        return key;<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                if ("btn".equals(name))<a name="line.102"></a>
+<span class="sourceLineNo">103</span>                        return btn;<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                if ("rel".equals(name))<a name="line.104"></a>
+<span class="sourceLineNo">105</span>                        return rel;<a name="line.105"></a>
+<span class="sourceLineNo">106</span>                if ("abs".equals(name))<a name="line.106"></a>
+<span class="sourceLineNo">107</span>                        return abs;<a name="line.107"></a>
+<span class="sourceLineNo">108</span>                return super.getFieldByName(name);<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        }<a name="line.109"></a>
+<span class="sourceLineNo">110</span><a name="line.110"></a>
+<span class="sourceLineNo">111</span>        @Override<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        @JsonIgnore<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        public boolean isValidUnion() {<a name="line.113"></a>
+<span class="sourceLineNo">114</span>                int count = 0;<a name="line.114"></a>
+<span class="sourceLineNo">115</span>                if (key != null)<a name="line.115"></a>
+<span class="sourceLineNo">116</span>                        count++;<a name="line.116"></a>
+<span class="sourceLineNo">117</span>                if (btn != null)<a name="line.117"></a>
+<span class="sourceLineNo">118</span>                        count++;<a name="line.118"></a>
+<span class="sourceLineNo">119</span>                if (rel != null)<a name="line.119"></a>
+<span class="sourceLineNo">120</span>                        count++;<a name="line.120"></a>
+<span class="sourceLineNo">121</span>                if (abs != null)<a name="line.121"></a>
+<span class="sourceLineNo">122</span>                        count++;<a name="line.122"></a>
+<span class="sourceLineNo">123</span>                return (count == 1);<a name="line.123"></a>
+<span class="sourceLineNo">124</span>        }<a name="line.124"></a>
+<span class="sourceLineNo">125</span>}<a name="line.125"></a>
 
 
 

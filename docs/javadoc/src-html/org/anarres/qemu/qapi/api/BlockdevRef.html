@@ -61,16 +61,34 @@
 <span class="sourceLineNo">053</span>        }<a name="line.53"></a>
 <span class="sourceLineNo">054</span><a name="line.54"></a>
 <span class="sourceLineNo">055</span>        @Override<a name="line.55"></a>
-<span class="sourceLineNo">056</span>        @JsonIgnore<a name="line.56"></a>
-<span class="sourceLineNo">057</span>        public boolean isValidUnion() {<a name="line.57"></a>
-<span class="sourceLineNo">058</span>                int count = 0;<a name="line.58"></a>
-<span class="sourceLineNo">059</span>                if (definition != null)<a name="line.59"></a>
-<span class="sourceLineNo">060</span>                        count++;<a name="line.60"></a>
-<span class="sourceLineNo">061</span>                if (reference != null)<a name="line.61"></a>
-<span class="sourceLineNo">062</span>                        count++;<a name="line.62"></a>
-<span class="sourceLineNo">063</span>                return (count == 1);<a name="line.63"></a>
-<span class="sourceLineNo">064</span>        }<a name="line.64"></a>
-<span class="sourceLineNo">065</span>}<a name="line.65"></a>
+<span class="sourceLineNo">056</span>        public java.util.List&lt;java.lang.String&gt; getFieldNames() {<a name="line.56"></a>
+<span class="sourceLineNo">057</span>                java.util.List&lt;java.lang.String&gt; names = super.getFieldNames();<a name="line.57"></a>
+<span class="sourceLineNo">058</span>                names.add("definition");<a name="line.58"></a>
+<span class="sourceLineNo">059</span>                names.add("reference");<a name="line.59"></a>
+<span class="sourceLineNo">060</span>                return names;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        }<a name="line.61"></a>
+<span class="sourceLineNo">062</span><a name="line.62"></a>
+<span class="sourceLineNo">063</span>        @JsonIgnore<a name="line.63"></a>
+<span class="sourceLineNo">064</span>        @Override<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {<a name="line.65"></a>
+<span class="sourceLineNo">066</span>                if ("definition".equals(name))<a name="line.66"></a>
+<span class="sourceLineNo">067</span>                        return definition;<a name="line.67"></a>
+<span class="sourceLineNo">068</span>                if ("reference".equals(name))<a name="line.68"></a>
+<span class="sourceLineNo">069</span>                        return reference;<a name="line.69"></a>
+<span class="sourceLineNo">070</span>                return super.getFieldByName(name);<a name="line.70"></a>
+<span class="sourceLineNo">071</span>        }<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>        @Override<a name="line.73"></a>
+<span class="sourceLineNo">074</span>        @JsonIgnore<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        public boolean isValidUnion() {<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                int count = 0;<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                if (definition != null)<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                        count++;<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                if (reference != null)<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                        count++;<a name="line.80"></a>
+<span class="sourceLineNo">081</span>                return (count == 1);<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        }<a name="line.82"></a>
+<span class="sourceLineNo">083</span>}<a name="line.83"></a>
 
 
 

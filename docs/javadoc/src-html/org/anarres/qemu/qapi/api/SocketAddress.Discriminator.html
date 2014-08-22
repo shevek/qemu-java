@@ -80,18 +80,39 @@
 <span class="sourceLineNo">072</span>        }<a name="line.72"></a>
 <span class="sourceLineNo">073</span><a name="line.73"></a>
 <span class="sourceLineNo">074</span>        @Override<a name="line.74"></a>
-<span class="sourceLineNo">075</span>        @JsonIgnore<a name="line.75"></a>
-<span class="sourceLineNo">076</span>        public boolean isValidUnion() {<a name="line.76"></a>
-<span class="sourceLineNo">077</span>                int count = 0;<a name="line.77"></a>
-<span class="sourceLineNo">078</span>                if (inet != null)<a name="line.78"></a>
-<span class="sourceLineNo">079</span>                        count++;<a name="line.79"></a>
-<span class="sourceLineNo">080</span>                if (unix != null)<a name="line.80"></a>
-<span class="sourceLineNo">081</span>                        count++;<a name="line.81"></a>
-<span class="sourceLineNo">082</span>                if (fd != null)<a name="line.82"></a>
-<span class="sourceLineNo">083</span>                        count++;<a name="line.83"></a>
-<span class="sourceLineNo">084</span>                return (count == 1);<a name="line.84"></a>
-<span class="sourceLineNo">085</span>        }<a name="line.85"></a>
-<span class="sourceLineNo">086</span>}<a name="line.86"></a>
+<span class="sourceLineNo">075</span>        public java.util.List&lt;java.lang.String&gt; getFieldNames() {<a name="line.75"></a>
+<span class="sourceLineNo">076</span>                java.util.List&lt;java.lang.String&gt; names = super.getFieldNames();<a name="line.76"></a>
+<span class="sourceLineNo">077</span>                names.add("inet");<a name="line.77"></a>
+<span class="sourceLineNo">078</span>                names.add("unix");<a name="line.78"></a>
+<span class="sourceLineNo">079</span>                names.add("fd");<a name="line.79"></a>
+<span class="sourceLineNo">080</span>                return names;<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        }<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>        @JsonIgnore<a name="line.83"></a>
+<span class="sourceLineNo">084</span>        @Override<a name="line.84"></a>
+<span class="sourceLineNo">085</span>        public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {<a name="line.85"></a>
+<span class="sourceLineNo">086</span>                if ("inet".equals(name))<a name="line.86"></a>
+<span class="sourceLineNo">087</span>                        return inet;<a name="line.87"></a>
+<span class="sourceLineNo">088</span>                if ("unix".equals(name))<a name="line.88"></a>
+<span class="sourceLineNo">089</span>                        return unix;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>                if ("fd".equals(name))<a name="line.90"></a>
+<span class="sourceLineNo">091</span>                        return fd;<a name="line.91"></a>
+<span class="sourceLineNo">092</span>                return super.getFieldByName(name);<a name="line.92"></a>
+<span class="sourceLineNo">093</span>        }<a name="line.93"></a>
+<span class="sourceLineNo">094</span><a name="line.94"></a>
+<span class="sourceLineNo">095</span>        @Override<a name="line.95"></a>
+<span class="sourceLineNo">096</span>        @JsonIgnore<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        public boolean isValidUnion() {<a name="line.97"></a>
+<span class="sourceLineNo">098</span>                int count = 0;<a name="line.98"></a>
+<span class="sourceLineNo">099</span>                if (inet != null)<a name="line.99"></a>
+<span class="sourceLineNo">100</span>                        count++;<a name="line.100"></a>
+<span class="sourceLineNo">101</span>                if (unix != null)<a name="line.101"></a>
+<span class="sourceLineNo">102</span>                        count++;<a name="line.102"></a>
+<span class="sourceLineNo">103</span>                if (fd != null)<a name="line.103"></a>
+<span class="sourceLineNo">104</span>                        count++;<a name="line.104"></a>
+<span class="sourceLineNo">105</span>                return (count == 1);<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        }<a name="line.106"></a>
+<span class="sourceLineNo">107</span>}<a name="line.107"></a>
 
 
 
