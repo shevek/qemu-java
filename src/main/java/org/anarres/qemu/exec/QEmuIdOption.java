@@ -18,12 +18,20 @@ public class QEmuIdOption extends AbstractQEmuOption {
     private UUID uuid;
     private String name;
 
-    public QEmuIdOption() {
-    }
-
     public QEmuIdOption(@CheckForNull UUID uuid, @CheckForNull String name) {
         this.uuid = uuid;
         this.name = name;
+    }
+
+    public QEmuIdOption(@CheckForNull String name) {
+        this(null, name);
+    }
+
+    public QEmuIdOption(@CheckForNull UUID uuid) {
+        this(uuid, null);
+    }
+
+    public QEmuIdOption() {
     }
 
     @CheckForNull

@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.QEmuChardevOption;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuIdOption;
-import org.anarres.qemu.exec.QEmuQMPOption;
-import org.anarres.qemu.exec.host.dev.HostDevice;
-import org.anarres.qemu.exec.host.dev.TcpHostDevice;
+import org.anarres.qemu.exec.QEmuMonitorOption;
+import org.anarres.qemu.exec.host.chardev.TcpCharDevice;
 
 /**
  *
@@ -41,14 +41,18 @@ public class QEmuManager {
         InetSocketAddress qmpAddress = null;
         QMP:
         {
-            QEmuQMPOption qmpOption = commandLine.getOption(QEmuQMPOption.class);
-            if (qmpOption == null)
+            QEmuMonitorOption monitorOption = commandLine.getOption(QEmuMonitorOption.class);
+            if (monitorOption == null)
                 break QMP;
-            HostDevice qmpDevice = qmpOption.getDevice();
-            if (!(qmpDevice instanceof TcpHostDevice))
-                break QMP;
-            TcpHostDevice tcpDevice = (TcpHostDevice) qmpDevice;
-            qmpAddress = tcpDevice.getAddress();
+            String monitorChardev = monitorOption.chardev;
+            for (QEmuChardevOption chardevOption : commandLine.getOptions(QEmuChardevOption.class)) {
+                if (chardevOption.id.equals(monitorChardev)) {
+                    if (chardevOption.device instanceof TcpCharDevice) {
+                        TcpCharDevice tcpDevice = (TcpCharDevice) chardevOption.device;
+                        qmpAddress = tcpDevice.getAddress();
+                    }
+                }
+            }
         }
         List<String> commandWords = commandLine.toCommandWords();
         ProcessBuilder builder = new ProcessBuilder(commandWords);

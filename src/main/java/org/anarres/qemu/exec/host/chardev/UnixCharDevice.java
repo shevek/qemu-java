@@ -2,24 +2,32 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.anarres.qemu.exec.host.dev;
+package org.anarres.qemu.exec.host.chardev;
 
 import java.io.File;
+import java.util.Map;
 
 /**
  *
  * @author shevek
  */
-public class UnixHostDevice extends AbstractHostDevice {
+public class UnixCharDevice extends AbstractSocketCharDevice {
 
     private final File file;
-    private boolean server;
-    private boolean nowait;
 
-    public UnixHostDevice(File file, boolean server, boolean nowait) {
+    public UnixCharDevice(File file, boolean server, boolean nowait) {
+        super("unix", server, nowait);
         this.file = file;
-        this.server = server;
-        this.nowait = nowait;
+    }
+
+    public UnixCharDevice(String file) {
+        this(new File(file), true, true);
+    }
+
+    @Override
+    protected void addProperties(Map<String, Object> m) {
+        super.addProperties(m);
+        m.put("path", file.getAbsolutePath());
     }
 
     @Override

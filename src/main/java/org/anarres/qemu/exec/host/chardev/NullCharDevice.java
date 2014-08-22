@@ -2,16 +2,20 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.anarres.qemu.exec.host.dev;
+package org.anarres.qemu.exec.host.chardev;
 
 /**
  *
  * @author shevek
  */
-public class BrailleHostDevice extends AbstractHostDevice {
+public class NullCharDevice extends AbstractCharDevice {
+
+    public NullCharDevice() {
+        super("null");
+    }
 
     @Override
     public String toString() {
-        return "braille";
+        return "null";
     }
 }

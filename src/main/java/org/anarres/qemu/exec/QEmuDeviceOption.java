@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nonnull;
-import org.anarres.qemu.exec.util.QEmuPciAllocator;
+import org.anarres.qemu.exec.util.QEmuIdAllocator;
 
 /**
  *
@@ -83,8 +83,8 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
 
         @Nonnull
-        public Pci withAddress(@Nonnull QEmuPciAllocator allocator) {
-            withProperty(PROP_ADDR, allocator.allocate());
+        public Pci withAddress(@Nonnull QEmuIdAllocator allocator) {
+            withProperty(PROP_ADDR, allocator.newPciAddress());
             return this;
         }
     }
@@ -145,8 +145,8 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
 
         @Override
-        public Piix3Usb withAddress(@Nonnull QEmuPciAllocator allocator) {
-            withProperty(PROP_ADDR, allocator.allocate(2, "."));
+        public Piix3Usb withAddress(@Nonnull QEmuIdAllocator allocator) {
+            withProperty(PROP_ADDR, allocator.newPciAddresses(2, "."));
             return this;
         }
     }
@@ -171,6 +171,18 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
 
         public IsaSerial() {
             super("isa-serial");
+        }
+
+        @Override
+        public IsaSerial withId(@Nonnull String id) {
+            super.withId(id);
+            return this;
+        }
+
+        @Nonnull
+        public IsaSerial withChardev(String id) {
+            withProperty(PROP_CHARDEV, id);
+            return this;
         }
     }
 }

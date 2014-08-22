@@ -4,75 +4,83 @@
  */
 package org.anarres.qemu.exec.util;
 
-import java.io.File;
 import java.util.List;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuDriveOption;
 import org.anarres.qemu.exec.QEmuOption;
+import org.anarres.qemu.exec.host.disk.Disk;
+import org.anarres.qemu.exec.host.disk.FileDisk;
 
 /**
  *
  * @author shevek
  */
-public class QEmuVirtioDrive implements QEmuOption {
+public class QEmuVirtioDriveRecipe implements QEmuOption {
     // file=/var/tmp/qemu/sys-1/vda,if=none,id=drive-virtio-disk0,format=raw,cache=unsafe,aio=native
 
     public final QEmuDriveOption driveOption;
     // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
     public final QEmuDeviceOption.VirtioBlock deviceOption;
 
-    public QEmuVirtioDrive(@Nonnegative int index, @Nonnull File file) {
-        int id = System.identityHashCode(this);
-        driveOption = new QEmuDriveOption(index, file)
+    public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull Disk disk) {
+        driveOption = new QEmuDriveOption(index, disk)
                 .withInterface(QEmuDriveOption.Interface.none)
-                .withId("drive-virtio-disk" + id)
+                .withId("backend-disk-" + index)
                 .withAio(QEmuDriveOption.Aio._native);
         // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
         deviceOption = new QEmuDeviceOption.VirtioBlock();
         deviceOption
-                .withId("virtio-disk" + id)
+                .withId("virtio-disk-" + index)
                 .withProperty("scsi", "off")
                 .withProperty("drive", driveOption.id);
     }
 
-    public QEmuVirtioDrive(@Nonnegative int index, @Nonnull String file) {
-        this(index, new File(file));
+    public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull String path) {
+        this(index, new FileDisk(path));
+    }
+
+    public QEmuVirtioDriveRecipe(@Nonnegative QEmuIdAllocator allocator, @Nonnull Disk disk) {
+        this(allocator.newDriveIndex(), disk);
+    }
+
+    public QEmuVirtioDriveRecipe(@Nonnegative QEmuIdAllocator allocator, @Nonnull String path) {
+        this(allocator.newDriveIndex(), new FileDisk(path));
     }
 
     @Nonnull
-    public QEmuVirtioDrive withFormat(@Nonnull QEmuDriveOption.Format format) {
+    public QEmuVirtioDriveRecipe withFormat(@Nonnull QEmuDriveOption.Format format) {
         driveOption.withFormat(format);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDrive withCache(@Nonnull QEmuDriveOption.Cache cache) {
+    public QEmuVirtioDriveRecipe withCache(@Nonnull QEmuDriveOption.Cache cache) {
         driveOption.withCache(cache);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDrive withAio(@Nonnull QEmuDriveOption.Aio aio) {
+    public QEmuVirtioDriveRecipe withAio(@Nonnull QEmuDriveOption.Aio aio) {
         driveOption.withAio(aio);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDrive withAddress(@Nonnull String address) {
+    public QEmuVirtioDriveRecipe withAddress(@Nonnull String address) {
         deviceOption.withAddress(address);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDrive withAddress(@Nonnull QEmuPciAllocator allocator) {
+    public QEmuVirtioDriveRecipe withAddress(@Nonnull QEmuIdAllocator allocator) {
         deviceOption.withAddress(allocator);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDrive withProperty(@Nonnull String key, @Nonnull String value) {
+    public QEmuVirtioDriveRecipe withProperty(@Nonnull String key, @Nonnull String value) {
         deviceOption.withProperty(key, value);
         return this;
     }

@@ -10,7 +10,7 @@ import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
 import org.anarres.qemu.exec.QEmuDriveOption;
 import org.anarres.qemu.exec.QEmuMemoryOption;
-import org.anarres.qemu.exec.QEmuQMPOption;
+import org.anarres.qemu.exec.util.QEmuMonitorRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
@@ -38,7 +38,7 @@ public class QEmuManagerTest {
 
         QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
         commandLine.addOptions(
-                new QEmuQMPOption(4445),
+                new QEmuMonitorRecipe(4445),
                 new QEmuMemoryOption(64, QEmuMemoryOption.Magnitude.MEGA),
                 new QEmuCpusOption(2).withCores(2),
                 new QEmuDriveOption(0, new File("/home/shevek/sda.img")));

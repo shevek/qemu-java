@@ -5,7 +5,7 @@
 package org.anarres.qemu.exec.host.disk;
 
 import java.net.InetSocketAddress;
-import org.anarres.qemu.exec.host.dev.UdpHostDevice;
+import org.anarres.qemu.exec.host.chardev.UdpCharDevice;
 
 /**
  *
@@ -24,7 +24,7 @@ public class TcpNbdDisk extends AbstractDisk {
     @Override
     public String toString() {
         StringBuilder buf = new StringBuilder();
-        buf.append("nbd:").append(UdpHostDevice.toHostString(address)).append(':').append(address.getPort());
+        buf.append("nbd:").append(UdpCharDevice.toHostString(address)).append(':').append(address.getPort());
         if (name != null)
             buf.append(":exportname=").append(name);
         return buf.toString();

@@ -5,12 +5,12 @@
 package org.anarres.qemu.exec;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
+import org.anarres.qemu.exec.util.QEmuIdAllocator;
 
 /**
  *
@@ -99,8 +99,20 @@ public class QEmuDriveOption extends AbstractQEmuOption {
         this(index, new FileDisk(file));
     }
 
-    public QEmuDriveOption(int index, String file) {
-        this(index, new File(file));
+    public QEmuDriveOption(int index, String path) {
+        this(index, new FileDisk(path));
+    }
+
+    public QEmuDriveOption(@Nonnull QEmuIdAllocator allocator, Disk disk) {
+        this(allocator.newDriveIndex(), disk);
+    }
+
+    public QEmuDriveOption(@Nonnull QEmuIdAllocator allocator, File file) {
+        this(allocator, new FileDisk(file));
+    }
+
+    public QEmuDriveOption(@Nonnull QEmuIdAllocator allocator, String path) {
+        this(allocator, new FileDisk(path));
     }
 
     @Nonnull
@@ -124,6 +136,11 @@ public class QEmuDriveOption extends AbstractQEmuOption {
     public QEmuDriveOption withIndex(@Nonnegative int index) {
         this.index = index;
         return this;
+    }
+
+    @Nonnull
+    public QEmuDriveOption withIndex(@Nonnegative QEmuIdAllocator allocator) {
+        return withIndex(allocator.newDriveIndex());
     }
 
     @Nonnull

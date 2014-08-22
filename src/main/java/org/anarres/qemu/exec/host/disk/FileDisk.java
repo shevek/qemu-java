@@ -5,6 +5,7 @@
 package org.anarres.qemu.exec.host.disk;
 
 import java.io.File;
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -14,11 +15,11 @@ public class FileDisk extends AbstractDisk {
 
     private final File file;
 
-    public FileDisk(File file) {
+    public FileDisk(@Nonnull File file) {
         this.file = file;
     }
 
-    public FileDisk(String path) {
+    public FileDisk(@Nonnull String path) {
         this(new File(path));
     }
 
