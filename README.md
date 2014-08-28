@@ -13,7 +13,7 @@ API Documentation
 -----------------
 
 The API is derived directly from the QEmu specification, and the
-[JavaDoc is available](http://shevek.github.io/qemu-qapi-java/docs/javadoc/).
+[JavaDoc is available](http://shevek.github.io/qemu-java/docs/javadoc/).
 
 Building
 --------
