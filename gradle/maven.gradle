@@ -38,7 +38,7 @@ task uploadMavenCentral(type:Upload, dependsOn: signArchives) {
 		// Closure to configure all the POM with extra info, common to all projects
 		pom.project {
 			name "${project.name}"
-			// description "${project.name}"
+			description "QEmu/KVM process manager and RPC API."
 			developers {
 				developer {
 					id 'shevek'
