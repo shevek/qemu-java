@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=qom-list, returns=[ObjectPropertyInfo], data={path=str}}
 public class QomListCommand extends QApiCommand<QomListCommand.Arguments, QomListCommand.Response> {
 	/** Compound arguments to a QomListCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("path")

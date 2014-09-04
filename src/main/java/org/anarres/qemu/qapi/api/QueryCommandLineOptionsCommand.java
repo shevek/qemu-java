@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=query-command-line-options, returns=[CommandLineOptionInfo], data={*option=str}}
 public class QueryCommandLineOptionsCommand extends QApiCommand<QueryCommandLineOptionsCommand.Arguments, QueryCommandLineOptionsCommand.Response> {
 	/** Compound arguments to a QueryCommandLineOptionsCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("option")

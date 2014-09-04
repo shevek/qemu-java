@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=dump-guest-memory, returns=null, data={paging=bool, protocol=str, *begin=int, *length=int, *format=DumpGuestMemoryFormat}}
 public class DumpGuestMemoryCommand extends QApiCommand<DumpGuestMemoryCommand.Arguments, DumpGuestMemoryCommand.Response> {
 	/** Compound arguments to a DumpGuestMemoryCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("paging")

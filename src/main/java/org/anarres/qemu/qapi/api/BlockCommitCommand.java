@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=block-commit, returns=null, data={device=str, *base=str, *top=str, *backing-file=str, *speed=int}}
 public class BlockCommitCommand extends QApiCommand<BlockCommitCommand.Arguments, BlockCommitCommand.Response> {
 	/** Compound arguments to a BlockCommitCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

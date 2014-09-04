@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=block-job-cancel, returns=null, data={device=str, *force=bool}}
 public class BlockJobCancelCommand extends QApiCommand<BlockJobCancelCommand.Arguments, BlockJobCancelCommand.Response> {
 	/** Compound arguments to a BlockJobCancelCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

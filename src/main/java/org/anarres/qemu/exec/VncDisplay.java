@@ -6,6 +6,8 @@ package org.anarres.qemu.exec;
 
 import java.io.File;
 import java.net.InetAddress;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnegative;
 
 /**
  *
@@ -18,9 +20,13 @@ public abstract class VncDisplay {
         private final InetAddress address;
         private final int display;
 
-        public Socket(InetAddress address, int display) {
+        public Socket(@CheckForNull InetAddress address, @Nonnegative int display) {
             this.address = address;
             this.display = display;
+        }
+
+        public Socket(@Nonnegative int display) {
+            this(null, display);
         }
 
         @Override

@@ -14,7 +14,7 @@ import org.anarres.qemu.exec.QEmuOption;
  *
  * @author shevek
  */
-public class QEmuOptionsList extends ArrayList<QEmuOption> implements QEmuOption {
+public class QEmuOptionsList extends ArrayList<QEmuOption> implements QEmuOption, QEmuOption.Container {
 
     public QEmuOptionsList() {
     }

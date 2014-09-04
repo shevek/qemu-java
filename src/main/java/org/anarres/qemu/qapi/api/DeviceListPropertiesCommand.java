@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=device-list-properties, returns=[DevicePropertyInfo], data={typename=str}}
 public class DeviceListPropertiesCommand extends QApiCommand<DeviceListPropertiesCommand.Arguments, DeviceListPropertiesCommand.Response> {
 	/** Compound arguments to a DeviceListPropertiesCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("typename")

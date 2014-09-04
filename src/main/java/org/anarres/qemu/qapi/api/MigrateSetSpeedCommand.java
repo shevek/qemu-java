@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=migrate_set_speed, returns=null, data={value=int}}
 public class MigrateSetSpeedCommand extends QApiCommand<MigrateSetSpeedCommand.Arguments, MigrateSetSpeedCommand.Response> {
 	/** Compound arguments to a MigrateSetSpeedCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("value")

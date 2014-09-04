@@ -16,7 +16,7 @@ public class UnixCharDevice extends AbstractSocketCharDevice {
     private final File file;
 
     public UnixCharDevice(File file, boolean server, boolean nowait) {
-        super("unix", server, nowait);
+        super("socket", server, nowait);
         this.file = file;
     }
 

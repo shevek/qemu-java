@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.exec.host.chardev;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.util.Map;
 import javax.annotation.Nonnull;
@@ -14,22 +15,33 @@ import javax.annotation.Nonnull;
  */
 public class TcpCharDevice extends AbstractSocketCharDevice {
 
+    private static boolean isAnyLocalAddress(@Nonnull InetSocketAddress address) {
+        if (address.getHostString() == null)
+            return true;
+        InetAddress addr = address.getAddress();
+        if (addr == null)
+            return true;
+        if (addr.isAnyLocalAddress())
+            return true;
+        return false;
+    }
     private final InetSocketAddress address;
+    public int to = -1;
     public boolean nodelay;
 
     public TcpCharDevice(@Nonnull InetSocketAddress address, boolean server, boolean nowait) {
-        super("tcp", server, nowait);
+        super("socket", server, nowait);
         this.address = address;
         if (address.getHostString() == null && !server)
             throw new IllegalArgumentException("A client tcp chardev requires a hostname.");
     }
 
     public TcpCharDevice(InetSocketAddress address) {
-        this(address, address.getHostString() == null, false);
+        this(address, isAnyLocalAddress(address), false);
     }
 
     public TcpCharDevice(int port) {
-        this(new InetSocketAddress(port), false, false);
+        this(new InetSocketAddress(port));
     }
 
     @Nonnull
@@ -40,14 +52,10 @@ public class TcpCharDevice extends AbstractSocketCharDevice {
     @Override
     protected void addProperties(Map<String, Object> m) {
         super.addProperties(m);
-        String host = address.getHostString();
-        if (host != null) {
-            if (server)
-                m.put("host", host);
-            else
-                m.put("to", host);
-        }
+        m.put("host", address.getHostString());
         m.put("port", address.getPort());
+        if (to >= 0)
+            m.put("to", to);
         if (nodelay)
             m.put("nodelay", null);
     }

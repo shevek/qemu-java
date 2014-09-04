@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=add-fd, returns=AddfdInfo, data={*fdset-id=int, *opaque=str}}
 public class AddFdCommand extends QApiCommand<AddFdCommand.Arguments, AddFdCommand.Response> {
 	/** Compound arguments to a AddFdCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("fdset-id")

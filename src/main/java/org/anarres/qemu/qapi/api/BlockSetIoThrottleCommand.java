@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=block_set_io_throttle, returns=null, data={device=str, bps=int, bps_rd=int, bps_wr=int, iops=int, iops_rd=int, iops_wr=int, *bps_max=int, *bps_rd_max=int, *bps_wr_max=int, *iops_max=int, *iops_rd_max=int, *iops_wr_max=int, *iops_size=int}}
 public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCommand.Arguments, BlockSetIoThrottleCommand.Response> {
 	/** Compound arguments to a BlockSetIoThrottleCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

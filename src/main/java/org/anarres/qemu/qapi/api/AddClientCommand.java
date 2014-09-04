@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=add_client, returns=null, data={protocol=str, fdname=str, *skipauth=bool, *tls=bool}}
 public class AddClientCommand extends QApiCommand<AddClientCommand.Arguments, AddClientCommand.Response> {
 	/** Compound arguments to a AddClientCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("protocol")

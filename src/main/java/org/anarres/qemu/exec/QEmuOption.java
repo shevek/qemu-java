@@ -13,5 +13,8 @@ import javax.annotation.Nonnull;
  */
 public interface QEmuOption {
 
+    public static interface Container extends Iterable<QEmuOption> {
+    }
+
     public void appendTo(@Nonnull List<? super String> line);
 }

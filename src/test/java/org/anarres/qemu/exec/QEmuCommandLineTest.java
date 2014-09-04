@@ -20,7 +20,7 @@ import org.anarres.qemu.exec.host.disk.IScsiDisk;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuMonitorRecipe;
-import org.anarres.qemu.exec.util.QEmuSerialRecipe;
+import org.anarres.qemu.exec.util.QEmuVirtioSerialRecipe;
 import org.anarres.qemu.exec.util.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.exec.util.QEmuVirtioNetRecipe;
 import org.junit.Ignore;
@@ -62,7 +62,7 @@ public class QEmuCommandLineTest {
                 new QEmuVirtioNetRecipe(allocator).withMac("fa:16:3e:13:ff:00"),
                 new QEmuVirtioNetRecipe(allocator).withMac("fa:16:3e:13:ff:01"),
                 new QEmuKernelOption("/var/tmp/qemu/sys-1/kernel").withInitrd("/var/tmp/qemu/sys-1/initrd").withAppend("root=/dev/vda2 console=ttyS0"),
-                new QEmuSerialRecipe(new FileCharDevice("/var/tmp/qemu/sys-1/console.log")),
+                new QEmuVirtioSerialRecipe(new FileCharDevice("/var/tmp/qemu/sys-1/console.log")),
                 new QEmuMonitorRecipe(new UnixCharDevice("/var/tmp/qemu/sys-1/monitor.sock")),
                 null);
         // -chardev socket,id=charmonitor,path=/var/lib/libvirt/qemu/sys-1.monitor,server,nowait
@@ -80,9 +80,9 @@ public class QEmuCommandLineTest {
         commandLine.addOptions(new QEmuDriveOption(2, new IScsiDisk(InetAddress.getByName("localhost"), "iqn.foo", 5)));
         commandLine.addOptions(new QEmuKeyboardOption(QEmuKeyboardOption.Layout.en_gb));
         commandLine.addOptions(new QEmuDisplayOption(QEmuDisplayOption.DisplayType.vnc));
-        commandLine.addOptions(new QEmuSerialRecipe(new TcpCharDevice(new InetSocketAddress(123))));
-        commandLine.addOptions(new QEmuSerialRecipe(new LinuxParportCharDevice(4)));
-        commandLine.addOptions(new QEmuSerialRecipe(new BrailleCharDevice()));
+        commandLine.addOptions(new QEmuVirtioSerialRecipe(new TcpCharDevice(new InetSocketAddress(123))));
+        commandLine.addOptions(new QEmuVirtioSerialRecipe(new LinuxParportCharDevice(4)));
+        commandLine.addOptions(new QEmuVirtioSerialRecipe(new BrailleCharDevice()));
         LOG.info("Command is " + commandLine.toCommandWords());
     }
 }

@@ -136,6 +136,27 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
     }
 
+    public static class VirtioSerial extends Pci {
+
+        public static final String PROP_CHARDEV = "chardev";
+
+        public VirtioSerial() {
+            super("virtio-serial-pci");
+        }
+
+        @Override
+        public VirtioSerial withId(@Nonnull String id) {
+            super.withId(id);
+            return this;
+        }
+
+        @Nonnull
+        public VirtioSerial withChardev(String id) {
+            withProperty(PROP_CHARDEV, id);
+            return this;
+        }
+    }
+
     public static class Piix3Usb extends Pci {
 
         // piix3-usb-uhci,id=usb,bus=pci.0,addr=0x1.0x2

@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=block_passwd, returns=null, data={*device=str, *node-name=str, password=str}}
 public class BlockPasswdCommand extends QApiCommand<BlockPasswdCommand.Arguments, BlockPasswdCommand.Response> {
 	/** Compound arguments to a BlockPasswdCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

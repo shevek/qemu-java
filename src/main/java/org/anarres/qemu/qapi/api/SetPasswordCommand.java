@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=set_password, returns=null, data={protocol=str, password=str, *connected=str}}
 public class SetPasswordCommand extends QApiCommand<SetPasswordCommand.Arguments, SetPasswordCommand.Response> {
 	/** Compound arguments to a SetPasswordCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("protocol")

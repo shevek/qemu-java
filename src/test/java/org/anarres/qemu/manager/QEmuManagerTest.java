@@ -4,16 +4,20 @@
  */
 package org.anarres.qemu.manager;
 
-import java.io.File;
 import org.anarres.qemu.exec.QEmuArchitecture;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
-import org.anarres.qemu.exec.QEmuDriveOption;
+import org.anarres.qemu.exec.QEmuDisplayOption;
 import org.anarres.qemu.exec.QEmuMemoryOption;
+import org.anarres.qemu.exec.QEmuMiscOptions;
+import org.anarres.qemu.exec.VncDisplay;
+import org.anarres.qemu.exec.host.disk.FileDisk;
 import org.anarres.qemu.exec.util.QEmuMonitorRecipe;
+import org.anarres.qemu.exec.util.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
+import org.anarres.qemu.qapi.api.HumanMonitorCommandCommand;
 import org.anarres.qemu.qapi.api.QueryBlockCommand;
 import org.anarres.qemu.qapi.api.QueryCommandsCommand;
 import org.anarres.qemu.qapi.api.QueryCpusCommand;
@@ -38,20 +42,34 @@ public class QEmuManagerTest {
 
         QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
         commandLine.addOptions(
+                QEmuMiscOptions.ENABLE_KVM,
                 new QEmuMonitorRecipe(4445),
                 new QEmuMemoryOption(64, QEmuMemoryOption.Magnitude.MEGA),
-                new QEmuCpusOption(2).withCores(2),
-                new QEmuDriveOption(0, new File("/home/shevek/sda.img")));
+                new QEmuCpusOption(4).withSockets(2).withCores(2),
+                new QEmuVirtioDriveRecipe(0, new FileDisk("/home/shevek/sda.img"))
+                // , new QEmuDisplayOption(QEmuDisplayOption.DisplayType.vnc).withVncDisplay(new VncDisplay.Socket(1))
+                );
         LOG.info(commandLine.toString());
         QEmuProcess process = manager.execute(commandLine);
         try {
             QApiConnection connection = process.getConnection();
-            assertNotNull(connection);
+            assertNotNull("Failed to connect to QEmu.", connection);
 
             LOG.info("Commands are " + connection.call(new QueryCommandsCommand()));
             LOG.info("UUID is " + connection.call(new QueryUuidCommand()));
             LOG.info("CPUs is " + connection.call(new QueryCpusCommand()));
             LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info status", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info qtree", null)));
+            // LOG.info(connection.call(new HumanMonitorCommandCommand("info qdm", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info usb", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info numa", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info cpus", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info pic", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info pci", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info tlb", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info kvm", null)));
+            LOG.info(connection.call(new HumanMonitorCommandCommand("info jit", null)));
 
             BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img"));
             options.withId("foo").withReadOnly(true);
@@ -62,7 +80,7 @@ public class QEmuManagerTest {
             // connection.call(new NbdServerStartCommand(new SocketAddress().withInet(new InetSocketAddress().withHost("localhost").withPort("4446"))));
             // connection.call(new NbdServerAddCommand("foo", Boolean.FALSE));
 
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } finally {
             process.destroy();
         }

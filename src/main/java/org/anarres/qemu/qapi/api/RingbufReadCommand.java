@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=ringbuf-read, returns=str, data={device=str, size=int, *format=DataFormat}}
 public class RingbufReadCommand extends QApiCommand<RingbufReadCommand.Arguments, RingbufReadCommand.Response> {
 	/** Compound arguments to a RingbufReadCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

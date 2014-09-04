@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=block-stream, returns=null, data={device=str, *base=str, *backing-file=str, *speed=int, *on-error=BlockdevOnError}}
 public class BlockStreamCommand extends QApiCommand<BlockStreamCommand.Arguments, BlockStreamCommand.Response> {
 	/** Compound arguments to a BlockStreamCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("device")

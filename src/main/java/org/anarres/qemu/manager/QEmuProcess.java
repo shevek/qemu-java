@@ -37,7 +37,7 @@ public class QEmuProcess {
     public QApiConnection getConnection() throws IOException {
         synchronized (lock) {
             if (monitor == null)
-                return null;
+                throw new IllegalStateException("No monitor address known.");
             if (connection != null)
                 return connection;
             connection = new QApiConnection(monitor);
@@ -47,9 +47,18 @@ public class QEmuProcess {
 
     public void destroy() throws IOException, QApiException {
         try {
-            getConnection().call(new QuitCommand());
+            QApiConnection c = getConnection();
+            if (c != null) {
+                c.call(new QuitCommand());
+                c.close();
+            }
         } catch (IOException e) {
         }
         process.destroy();
+    }
+
+    @Override
+    public String toString() {
+        return "stdout=" + stdout + "; stderr=" + stderr;
     }
 }

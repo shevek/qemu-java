@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=expire_password, returns=null, data={protocol=str, time=str}}
 public class ExpirePasswordCommand extends QApiCommand<ExpirePasswordCommand.Arguments, ExpirePasswordCommand.Response> {
 	/** Compound arguments to a ExpirePasswordCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("protocol")

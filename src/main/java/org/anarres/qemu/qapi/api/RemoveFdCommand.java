@@ -1,5 +1,6 @@
 package org.anarres.qemu.qapi.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -13,6 +14,7 @@ import org.anarres.qemu.qapi.common.*;
 // QApiCommandDescriptor{name=remove-fd, returns=null, data={fdset-id=int, *fd=int}}
 public class RemoveFdCommand extends QApiCommand<RemoveFdCommand.Arguments, RemoveFdCommand.Response> {
 	/** Compound arguments to a RemoveFdCommand. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
 		@JsonProperty("fdset-id")

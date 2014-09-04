@@ -4,17 +4,15 @@
  */
 package org.anarres.qemu.exec.util;
 
-import java.util.List;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuNetdevOption;
-import org.anarres.qemu.exec.QEmuOption;
 
 /**
  *
  * @author shevek
  */
-public class QEmuVirtioNetRecipe implements QEmuOption {
+public class QEmuVirtioNetRecipe extends QEmuOptionsList {
 
     // tap,fd=27,id=hostnet0,vhost=on,vhostfd=28
     public final QEmuNetdevOption.Tap netdevOption;
@@ -26,11 +24,13 @@ public class QEmuVirtioNetRecipe implements QEmuOption {
         netdevOption = new QEmuNetdevOption.Tap();
         netdevOption
                 .withId("backend-net-" + id);
+        add(netdevOption);
         deviceOption = new QEmuDeviceOption.VirtioNet();
         deviceOption
                 .withId("virtio-net-" + id)
                 .withAddress(allocator)
                 .withProperty(QEmuDeviceOption.VirtioNet.PROP_NETDEV, netdevOption.id);
+        add(deviceOption);
     }
 
     @Nonnull
@@ -49,11 +49,5 @@ public class QEmuVirtioNetRecipe implements QEmuOption {
     public QEmuVirtioNetRecipe withProperty(@Nonnull String key, @Nonnull String value) {
         deviceOption.withProperty(key, value);
         return this;
-    }
-
-    @Override
-    public void appendTo(List<? super String> line) {
-        netdevOption.appendTo(line);
-        deviceOption.appendTo(line);
     }
 }

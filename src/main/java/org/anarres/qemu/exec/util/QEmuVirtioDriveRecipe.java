@@ -4,12 +4,10 @@
  */
 package org.anarres.qemu.exec.util;
 
-import java.util.List;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuDriveOption;
-import org.anarres.qemu.exec.QEmuOption;
 import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
 
@@ -17,7 +15,7 @@ import org.anarres.qemu.exec.host.disk.FileDisk;
  *
  * @author shevek
  */
-public class QEmuVirtioDriveRecipe implements QEmuOption {
+public class QEmuVirtioDriveRecipe extends QEmuOptionsList {
     // file=/var/tmp/qemu/sys-1/vda,if=none,id=drive-virtio-disk0,format=raw,cache=unsafe,aio=native
 
     public final QEmuDriveOption driveOption;
@@ -29,12 +27,14 @@ public class QEmuVirtioDriveRecipe implements QEmuOption {
                 .withInterface(QEmuDriveOption.Interface.none)
                 .withId("backend-disk-" + index)
                 .withAio(QEmuDriveOption.Aio._native);
+        add(driveOption);
         // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
         deviceOption = new QEmuDeviceOption.VirtioBlock();
         deviceOption
                 .withId("virtio-disk-" + index)
                 .withProperty("scsi", "off")
                 .withProperty("drive", driveOption.id);
+        add(deviceOption);
     }
 
     public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull String path) {
@@ -83,11 +83,5 @@ public class QEmuVirtioDriveRecipe implements QEmuOption {
     public QEmuVirtioDriveRecipe withProperty(@Nonnull String key, @Nonnull String value) {
         deviceOption.withProperty(key, value);
         return this;
-    }
-
-    @Override
-    public void appendTo(List<? super String> line) {
-        driveOption.appendTo(line);
-        deviceOption.appendTo(line);
     }
 }

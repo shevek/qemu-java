@@ -17,6 +17,7 @@ import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuIdOption;
 import org.anarres.qemu.exec.QEmuMonitorOption;
 import org.anarres.qemu.exec.host.chardev.TcpCharDevice;
+import org.anarres.qemu.qapi.common.QApiException;
 
 /**
  *
@@ -27,17 +28,18 @@ public class QEmuManager {
     private final Map<UUID, QEmuProcess> processes = new HashMap<UUID, QEmuProcess>();
 
     @Nonnull
-    public QEmuProcess execute(QEmuCommandLine commandLine) throws IOException, InterruptedException {
+    public QEmuProcess execute(QEmuCommandLine commandLine) throws IOException, InterruptedException, QApiException {
         // QEmuIdOption idOption = commandLine.getOption(QEmuIdOption.class);
-        UUID uuid;
+
+        UUID uuid = null;
         UUID:
         {
             QEmuIdOption idOption = commandLine.getOption(QEmuIdOption.class);
             if (idOption == null)
                 break UUID;
             uuid = idOption.getUuid();
-
         }
+
         InetSocketAddress qmpAddress = null;
         QMP:
         {
@@ -54,13 +56,22 @@ public class QEmuManager {
                 }
             }
         }
+
         List<String> commandWords = commandLine.toCommandWords();
         ProcessBuilder builder = new ProcessBuilder(commandWords);
         Process process = builder.start();
         QEmuProcess qEmuProcess = new QEmuProcess(process, qmpAddress);
+        if (uuid != null)
+            processes.put(uuid, qEmuProcess);
+
         CONNECT:
         {
             for (int i = 0; i < 20; i++) {
+                try {
+                    int exitValue = process.exitValue();
+                    throw new QApiException("Process terminated early with exit code " + exitValue + "; output is " + qEmuProcess.toString());
+                } catch (IllegalThreadStateException e) {
+                }
                 try {
                     qEmuProcess.getConnection();
                     break CONNECT;

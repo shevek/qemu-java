@@ -1,5 +1,6 @@
 package $packageName;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -10,6 +11,7 @@ import org.anarres.qemu.qapi.common.*;
 public class $element.className extends QApiCommand<$element.argumentTypeNameWrapped, ${element.className}.Response> {
 #if ($element.argumentType)
 	/** Compound arguments to a ${element.className}. */
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class $element.argumentType.className {
 
 #foreach ($field in $element.argumentType.fields)
