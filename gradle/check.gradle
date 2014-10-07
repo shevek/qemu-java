@@ -1,3 +1,4 @@
+subprojects {
 // Checkstyle
 // apply plugin: 'checkstyle'
 // checkstyle {
@@ -26,4 +27,5 @@ githubPages {
 			into "docs/cobertura"
 		}
 	}
+}
 }
