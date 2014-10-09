@@ -5,7 +5,11 @@
 package org.anarres.qemu.manager;
 
 import java.io.IOException;
+import java.net.ConnectException;
 import java.net.InetSocketAddress;
+import java.net.NoRouteToHostException;
+import java.net.UnknownServiceException;
+import java.util.concurrent.TimeUnit;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.api.QuitCommand;
@@ -36,16 +40,44 @@ public class QEmuProcess {
         new IOThread(process.getErrorStream(), stderr).start();
     }
 
+    /**
+     * @throws NoRouteToHostException if the process is terminated.
+     * @throws UnknownServiceException if the process has no known monitor address. 
+     */
     @Nonnull
-    public QApiConnection getConnection() throws IOException, IllegalStateException {
+    public QApiConnection getConnection() throws IOException {
+        if (monitor == null)
+            throw new UnknownServiceException("No monitor address known.");
+
+        try {
+            int exitValue = process.exitValue();
+            throw new NoRouteToHostException("Process terminated with exit code " + exitValue);
+        } catch (IllegalThreadStateException e) {
+        }
+
         synchronized (lock) {
-            if (monitor == null)
-                throw new IllegalStateException("No monitor address known.");
             if (connection != null)
                 return connection;
             connection = new QApiConnection(monitor);
             return connection;
         }
+    }
+
+    @Nonnull
+    public QApiConnection getConnection(long timeout, @Nonnull TimeUnit unit) throws IOException, InterruptedException {
+        long end = System.currentTimeMillis() + unit.toMillis(timeout);
+        while (end > System.currentTimeMillis()) {
+            try {
+                return getConnection();
+            } catch (ConnectException e) {
+                LOG.warn("Failed to connect to " + this + ": " + e);
+            }
+
+            long delay = Math.min(500, end - System.currentTimeMillis());
+            Thread.sleep(delay);
+        }
+
+        return getConnection(); // This last call blows our timing out of the window. :-(
     }
 
     public void destroy() throws IOException, QApiException {

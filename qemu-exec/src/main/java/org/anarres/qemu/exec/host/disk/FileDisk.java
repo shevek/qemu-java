@@ -23,6 +23,11 @@ public class FileDisk extends AbstractDisk {
         this(new File(path));
     }
 
+    @Nonnull
+    public File getFile() {
+        return file;
+    }
+
     @Override
     public String toString() {
         return file.getAbsolutePath();

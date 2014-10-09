@@ -4,15 +4,11 @@
  */
 package org.anarres.qemu.manager;
 
-import org.anarres.qemu.exec.QEmuArchitecture;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
-import org.anarres.qemu.exec.QEmuDisplayOption;
-import org.anarres.qemu.exec.QEmuMemoryOption;
-import org.anarres.qemu.exec.QEmuMiscOptions;
-import org.anarres.qemu.exec.VncDisplay;
-import org.anarres.qemu.exec.host.disk.FileDisk;
-import org.anarres.qemu.exec.util.QEmuMonitorRecipe;
+import org.anarres.qemu.exec.QEmuTestUtils;
 import org.anarres.qemu.exec.util.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
@@ -38,21 +34,15 @@ public class QEmuManagerTest {
 
     @Test
     public void testManager() throws Exception {
-        QEmuManager manager = new QEmuManager();
+        File dir = QEmuTestUtils.newTemporaryDirectory();
 
-        QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
+        QEmuCommandLine commandLine = QEmuTestUtils.newCommandLine();
         commandLine.addOptions(
-                QEmuMiscOptions.ENABLE_KVM,
-                new QEmuMonitorRecipe(4445),
-                new QEmuMemoryOption(64, QEmuMemoryOption.Magnitude.MEGA),
                 new QEmuCpusOption(4).withSockets(2).withCores(2),
-                // new QEmuVirtioDriveRecipe(0, new FileDisk("/home/shevek/sda.img")),
-                // new QEmuDisplayOption(QEmuDisplayOption.DisplayType.vnc).withVncDisplay(new VncDisplay.Socket(1)));
-                new QEmuDisplayOption(QEmuDisplayOption.DisplayType.nographic));
-        LOG.info(commandLine.toString());
-        QEmuProcess process = manager.execute(commandLine);
+                new QEmuVirtioDriveRecipe(0, QEmuTestUtils.newTemporaryDisk(dir, "sda")));
+        QEmuProcess process = QEmuTestUtils.newQEmuProcess(commandLine);
         try {
-            QApiConnection connection = process.getConnection();
+            QApiConnection connection = process.getConnection(10, TimeUnit.SECONDS);
             assertNotNull("Failed to connect to QEmu.", connection);
 
             LOG.info("Commands are " + connection.call(new QueryCommandsCommand()));

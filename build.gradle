@@ -37,6 +37,14 @@ subprojects {
 	}
 }
 
+project(':qemu-exec') {
+	dependencies {
+		// Can be changed to qemu-qapi when we move QEmuProcess to qemu-exec.
+		testCompile project(':qemu-manager')
+		testCompile 'commons-io:commons-io:2.4'
+	}
+}
+
 project(':qemu-qapi') {
 
 	sourceSets {
@@ -60,7 +68,8 @@ project(':qemu-qapi') {
 
 		compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1.3'
 
-		testCompile project(':qemu-exec')
+		testCompile project(':qemu-manager')
+		testCompile project(':qemu-exec').sourceSets.test.output
 	}
 
 	task('generate', type: JavaExec, dependsOn: compileGenerateJava) {
@@ -78,18 +87,14 @@ project(':qemu-qapi') {
 
 }
 
-project(':qemu-exec') {
-	dependencies {
-		testCompile project(':qemu-qapi')
-	}
-}
-
 project(':qemu-manager') {
 	dependencies {
 		compile project(':qemu-qapi')
 		compile project(':qemu-exec')
 
 		compile "com.google.guava:guava:18.0"
+
+		testCompile project(':qemu-exec').sourceSets.test.output
 	}
 }
 

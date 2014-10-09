@@ -5,17 +5,16 @@
 package org.anarres.qemu.manager;
 
 import java.io.IOException;
-import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 import javax.annotation.Nonnull;
-import org.anarres.qemu.exec.QEmuChardevOption;
 import org.anarres.qemu.exec.QEmuCommandLine;
-import org.anarres.qemu.exec.QEmuIdOption;
-import org.anarres.qemu.exec.QEmuMonitorOption;
-import org.anarres.qemu.exec.host.chardev.TcpCharDevice;
+import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
+import org.anarres.qemu.qapi.api.QueryUuidCommand;
+import org.anarres.qemu.qapi.common.QApiConnection;
 import org.anarres.qemu.qapi.common.QApiException;
 
 /**
@@ -28,56 +27,15 @@ public class QEmuManager {
 
     @Nonnull
     public QEmuProcess execute(QEmuCommandLine commandLine) throws IOException, InterruptedException, QApiException {
-
-        UUID uuid = null;
-        UUID:
-        {
-            QEmuIdOption idOption = commandLine.getOption(QEmuIdOption.class);
-            if (idOption == null)
-                break UUID;
-            uuid = idOption.getUuid();
-        }
-
-        InetSocketAddress qmpAddress = null;
-        QMP:
-        {
-            QEmuMonitorOption monitorOption = commandLine.getOption(QEmuMonitorOption.class);
-            if (monitorOption == null)
-                break QMP;
-            String monitorChardev = monitorOption.chardev;
-            for (QEmuChardevOption chardevOption : commandLine.getOptions(QEmuChardevOption.class)) {
-                if (chardevOption.id.equals(monitorChardev)) {
-                    if (chardevOption.device instanceof TcpCharDevice) {
-                        TcpCharDevice tcpDevice = (TcpCharDevice) chardevOption.device;
-                        qmpAddress = tcpDevice.getAddress();
-                    }
-                }
-            }
-        }
+        UUID uuid = QEmuCommandLineUtils.getUuid(commandLine);
+        InetSocketAddress qmpAddress = QEmuCommandLineUtils.getMonitorAddress(commandLine);
 
         Process process = commandLine.exec();
         QEmuProcess qEmuProcess = new QEmuProcess(process, qmpAddress);
+        QApiConnection connection = qEmuProcess.getConnection(10, TimeUnit.SECONDS);
+        // UUID uuid = connection.call(new QueryUuidCommand());
         if (uuid != null)
             processes.put(uuid, qEmuProcess);
-
-        CONNECT:
-        {
-            for (int i = 0; i < 20; i++) {
-                try {
-                    int exitValue = process.exitValue();
-                    throw new QApiException("Process terminated early with exit code " + exitValue + "; output is " + qEmuProcess.toString());
-                } catch (IllegalThreadStateException e) {
-                }
-                try {
-                    qEmuProcess.getConnection();
-                    break CONNECT;
-                } catch (ConnectException e) {
-                    // Process not started yet.
-                    // System.err.println(e);
-                }
-                Thread.sleep(500);
-            }
-        }
         return qEmuProcess;
     }
 }

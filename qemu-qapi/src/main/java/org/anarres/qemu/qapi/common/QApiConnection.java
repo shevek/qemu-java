@@ -7,6 +7,7 @@ package org.anarres.qemu.qapi.common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
 import java.io.Closeable;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -69,6 +70,8 @@ public class QApiConnection implements Closeable {
     @Nonnull
     private <T> T read(@Nonnull Class<T> type) throws IOException {
         String line = input.readLine();
+        if (line == null)
+            throw new EOFException();
         if (LOG.isDebugEnabled())
             LOG.debug("<<<" + line);
         return mapper.readValue(line, type);
