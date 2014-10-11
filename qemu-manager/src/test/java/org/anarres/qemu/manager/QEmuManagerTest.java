@@ -61,7 +61,8 @@ public class QEmuManagerTest {
             LOG.info(connection.call(new HumanMonitorCommandCommand("info kvm", null)));
             LOG.info(connection.call(new HumanMonitorCommandCommand("info jit", null)));
 
-            BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img"));
+            File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
+            BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile(file.getAbsolutePath()));
             options.withId("foo").withReadOnly(true);
 
             connection.call(new BlockdevAddCommand(options));
