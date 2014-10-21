@@ -4,9 +4,9 @@ QEmu API for Java
 This package consists of three major modules for manipulating and
 managing QEmu virtual machines from Java. They are:
 
-* qemu-exec: Command line execution.
-* qemu-qapi: Interface to running VMs.
-* qemu-manager: Manager and registry of running VMs.
+* [qemu-exec](#executing-qemu-qemu-exec): Command line execution.
+* [qemu-qapi](#manipulating-qemu-qemu-qapi): Interface to running VMs.
+* [qemu-manager](#managing-qemu-processes-qemu-manager): Manager and registry of running VMs.
 
 Executing QEmu (qemu-exec)
 --------------------------
