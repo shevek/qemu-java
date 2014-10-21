@@ -10,7 +10,6 @@ package org.anarres.qemu.exec;
  */
 public class QEmuMiscOptions {
 
-    public static final QEmuOption ENABLE_KVM = new QEmuCustomOption("-enable-kvm");
     public static final QEmuOption ENABLE_FIPS = new QEmuCustomOption("-enable-fips");
     public static final QEmuOption NO_USER_CONFIG = new QEmuCustomOption("-no-user-config");
     public static final QEmuOption NO_DEFAULTS = new QEmuCustomOption("-no-defaults");

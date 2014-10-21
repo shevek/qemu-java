@@ -4,7 +4,10 @@
  */
 package org.anarres.qemu.exec;
 
+import java.util.Arrays;
 import java.util.List;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 
 /**
  *
@@ -12,15 +15,43 @@ import java.util.List;
  */
 public class QEmuMachineOption extends AbstractQEmuOption {
 
-    // accel=kvm:tcg :xen
-    private final QEmuMachine machine;
+    public static enum Acceleration {
 
-    public QEmuMachineOption(QEmuMachine machine) {
-        this.machine = machine;
+        kvm, tcg, xen;
+    }
+    // accel=kvm:tcg :xen
+    public QEmuMachine type;
+    public List<Acceleration> acceleration;
+
+    public QEmuMachineOption(@CheckForNull QEmuMachine type) {
+        this.type = type;
+    }
+
+    public QEmuMachineOption() {
+    }
+
+    @Nonnull
+    public QEmuMachineOption withType(QEmuMachine type) {
+        this.type = type;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuMachineOption withAcceleration(List<Acceleration> acceleration) {
+        this.acceleration = acceleration;
+        return this;
+    }
+
+    @Nonnull
+    public QEmuMachineOption withAcceleration(@Nonnull Acceleration... acceleration) {
+        return withAcceleration(Arrays.asList(acceleration));
     }
 
     @Override
     public void appendTo(List<? super String> line) {
-        add(line, "-machine", machine);
+        StringBuilder buf = new StringBuilder();
+        appendTo(buf, "type", type);
+        appendTo(buf, "accel", join(":", acceleration));
+        add(line, "-machine", buf);
     }
 }

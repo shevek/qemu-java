@@ -40,7 +40,7 @@ public class QEmuCommandLineTest {
     public void testLibvirtCommandLine() {
 
         QEmuOptionsList defaultOptions = new QEmuOptionsList(
-                QEmuMiscOptions.ENABLE_KVM,
+                new QEmuMachineOption().withAcceleration(QEmuMachineOption.Acceleration.kvm, QEmuMachineOption.Acceleration.tcg),
                 QEmuMiscOptions.NO_USER_CONFIG,
                 QEmuMiscOptions.NO_DEFAULTS,
                 // QEmuMiscOptions.NO_SHUTDOWN,
@@ -49,7 +49,7 @@ public class QEmuCommandLineTest {
                 null);
 
         QEmuIdAllocator allocator = new QEmuIdAllocator();
-        QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64, QEmuMachine.pc_1_3);
+        QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
         commandLine.addOptions(
                 defaultOptions,
                 new QEmuIdOption(UUID.randomUUID(), "sys-1"),

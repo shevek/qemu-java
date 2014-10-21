@@ -25,10 +25,6 @@ public class QEmuCommandLine {
         this.architecture = architecture;
     }
 
-    public QEmuCommandLine(@Nonnull QEmuArchitecture architecture, @Nonnull QEmuMachine machine) {
-        this(architecture);
-    }
-
     @Nonnull
     public QEmuArchitecture getArchitecture() {
         return architecture;

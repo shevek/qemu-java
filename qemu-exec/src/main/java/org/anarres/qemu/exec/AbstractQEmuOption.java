@@ -35,6 +35,20 @@ public abstract class AbstractQEmuOption implements QEmuOption {
         }
     }
 
+    @CheckForNull
+    protected static CharSequence join(@Nonnull String sep, @CheckForNull Iterable<?> values) {
+        if (values == null)
+            return null;
+        StringBuilder buf = new StringBuilder();
+        int i = 0;
+        for (Object value: values) {
+            if (i++ > 0)
+                buf.append(sep);
+            buf.append(value);
+        }
+        return buf;
+    }
+
     protected static void add(@Nonnull List<? super String> line, @Nonnull Object... words) {
         for (Object word : words)
             line.add(word.toString());  // Deliberate NPE if word is null.
