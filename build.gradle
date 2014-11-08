@@ -26,6 +26,8 @@ apply from: file('gradle/license.gradle')
 subprojects {
 	group = "org.anarres.qemu"
 
+	apply plugin: 'info'
+
 	dependencies {
 		compile "com.google.code.findbugs:jsr305:2.0.2"
 		compile "org.slf4j:slf4j-api:1.7.7"
