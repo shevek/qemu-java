@@ -9,7 +9,7 @@ import javax.annotation.Nonnull;
 // $element
 public enum $element.className {
 #foreach ($field in $element.fields)
-	// @JsonProperty("$field.serializedName")
+##	// @JsonProperty("$field.serializedName")
 	${field.name}("$field.serializedName"),
 #end
 	__UNKNOWN("<unknown>");
