@@ -31,11 +31,16 @@
 <span class="sourceLineNo">023</span>        this(new File(path));<a name="line.23"></a>
 <span class="sourceLineNo">024</span>    }<a name="line.24"></a>
 <span class="sourceLineNo">025</span><a name="line.25"></a>
-<span class="sourceLineNo">026</span>    @Override<a name="line.26"></a>
-<span class="sourceLineNo">027</span>    public String toString() {<a name="line.27"></a>
-<span class="sourceLineNo">028</span>        return file.getAbsolutePath();<a name="line.28"></a>
+<span class="sourceLineNo">026</span>    @Nonnull<a name="line.26"></a>
+<span class="sourceLineNo">027</span>    public File getFile() {<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        return file;<a name="line.28"></a>
 <span class="sourceLineNo">029</span>    }<a name="line.29"></a>
-<span class="sourceLineNo">030</span>}<a name="line.30"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>    @Override<a name="line.31"></a>
+<span class="sourceLineNo">032</span>    public String toString() {<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        return file.getAbsolutePath();<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    }<a name="line.34"></a>
+<span class="sourceLineNo">035</span>}<a name="line.35"></a>
 
 
 
