@@ -25,7 +25,7 @@ project(':qemu-exec') {
 	dependencies {
 		// Can be changed to qemu-qapi when we move QEmuProcess to qemu-exec.
 		testCompile project(':qemu-manager')
-		testCompile 'commons-io:commons-io:2.4'
+		// testCompile 'commons-io:commons-io:2.4'
 	}
 }
 
@@ -48,7 +48,7 @@ project(':qemu-qapi') {
 		// generateCompile "commons-logging:commons-logging:1.1.3"
 		generateCompile "com.google.code.gson:gson:2.2.4"
 
-		generateRuntime "org.slf4j:slf4j-jcl:1.7.7"
+		generateRuntime "org.slf4j:slf4j-simple:1.7.7"
 
 		compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1.3'
 
