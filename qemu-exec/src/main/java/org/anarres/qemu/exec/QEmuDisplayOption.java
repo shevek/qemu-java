@@ -30,6 +30,11 @@ public class QEmuDisplayOption extends AbstractQEmuOption {
         this.displayType = displayType;
     }
 
+    public QEmuDisplayOption(@Nonnull VncDisplay display) {
+        this(DisplayType.vnc);
+        withVncDisplay(vncDisplay);
+    }
+
     @Nonnull
     public QEmuDisplayOption withVgaType(@Nonnull VgaType vgaType) {
         this.vgaType = vgaType;
