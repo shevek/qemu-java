@@ -9,13 +9,12 @@ import java.net.InetSocketAddress;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.TimeUnit;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
-import org.anarres.qemu.qapi.api.QueryUuidCommand;
-import org.anarres.qemu.qapi.common.QApiConnection;
 import org.anarres.qemu.qapi.common.QApiException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -23,16 +22,21 @@ import org.anarres.qemu.qapi.common.QApiException;
  */
 public class QEmuManager {
 
+    private static final Logger LOG = LoggerFactory.getLogger(QEmuManager.class);
     private final ConcurrentMap<UUID, QEmuProcess> processes = new ConcurrentHashMap<UUID, QEmuProcess>();
 
     @Nonnull
     public QEmuProcess execute(QEmuCommandLine commandLine) throws IOException, InterruptedException, QApiException {
         UUID uuid = QEmuCommandLineUtils.getUuid(commandLine);
+        if (LOG.isDebugEnabled())
+            LOG.debug("Executing (uuid=" + uuid + ") " + commandLine);
         InetSocketAddress qmpAddress = QEmuCommandLineUtils.getMonitorAddress(commandLine);
 
         Process process = commandLine.exec();
+        // LOG.debug("Executing (process=" + process + ") " + commandLine);
         QEmuProcess qEmuProcess = new QEmuProcess(process, qmpAddress);
-        QApiConnection connection = qEmuProcess.getConnection(10, TimeUnit.SECONDS);
+        // QApiConnection connection = qEmuProcess.getConnection(10, TimeUnit.SECONDS);
+        // LOG.debug("Executing (connection=" + connection + ") " + commandLine);
         // UUID uuid = connection.call(new QueryUuidCommand());
         if (uuid != null)
             processes.put(uuid, qEmuProcess);

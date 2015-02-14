@@ -31,7 +31,7 @@ public class QEmuDriveOption extends AbstractQEmuOption {
 
     public static enum Format {
 
-        raw
+        raw, qcow2
     }
 
     public static enum Cache {
