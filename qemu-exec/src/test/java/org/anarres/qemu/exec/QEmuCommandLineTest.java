@@ -48,8 +48,8 @@ public class QEmuCommandLineTest {
                 new QEmuRtcOption().withBase(QEmuRtcOption.Base.utc),
                 null);
 
-        QEmuIdAllocator allocator = new QEmuIdAllocator();
         QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
+        QEmuIdAllocator allocator = commandLine.getAllocator();
         commandLine.addOptions(
                 defaultOptions,
                 new QEmuIdOption(UUID.randomUUID(), "sys-1"),

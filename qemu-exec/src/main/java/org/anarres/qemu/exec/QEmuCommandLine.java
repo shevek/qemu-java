@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
 
 /**
@@ -18,11 +19,22 @@ import org.anarres.qemu.exec.util.QEmuOptionsList;
  */
 public class QEmuCommandLine {
 
+    private final QEmuIdAllocator allocator;
     private QEmuArchitecture architecture;
     private final List<QEmuOption> options = new ArrayList<QEmuOption>();
 
-    public QEmuCommandLine(@Nonnull QEmuArchitecture architecture) {
+    private QEmuCommandLine(@Nonnull QEmuArchitecture architecture, @Nonnull QEmuIdAllocator allocator) {
+        this.allocator = allocator;
         this.architecture = architecture;
+    }
+
+    public QEmuCommandLine(@Nonnull QEmuArchitecture architecture) {
+        this(architecture, new QEmuIdAllocator());
+    }
+
+    public QEmuCommandLine(@Nonnull QEmuCommandLine prototype) {
+        this(prototype.getArchitecture(), new QEmuIdAllocator(prototype.getAllocator()));
+        addOptions(prototype.getOptions());
     }
 
     @Nonnull
@@ -32,6 +44,11 @@ public class QEmuCommandLine {
 
     public void setArchitecture(@Nonnull QEmuArchitecture architecture) {
         this.architecture = architecture;
+    }
+
+    @Nonnull
+    public QEmuIdAllocator getAllocator() {
+        return allocator;
     }
 
     /** Returns all the options in this command line. */
@@ -61,7 +78,7 @@ public class QEmuCommandLine {
 
     /**
      * Returns the first option of the specified type in this command line.
-     * 
+     *
      * If there are no options of type <code>type</code>, null is returned.
      * If there is more than one option of type <code>type</code>, the subsequent
      * options are ignored.
