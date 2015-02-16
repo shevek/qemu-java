@@ -10,10 +10,21 @@ import java.util.Arrays;
 import java.util.List;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.recipe.QEmuRecipe;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
 
 /**
+ * An execution command line for a QEmu process.
+ *
+ * A QEmuCommandLine is a tree of {@link QEmuOption}, not a list
+ * (see {@link QEmuOptionsList}).
+ *
+ * Disk and bus IDs within a QEmuOption may be allocated using the embedded
+ * {@link QEmuIdAllocator} in order to guarantee uniqueness.
+ *
+ * For convenience, composites of commonly used options are provided as
+ * {@link QEmuRecipe}s.
  *
  * @author shevek
  */

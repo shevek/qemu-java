@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.host.disk.FileDisk;
+import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
 import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
-import org.anarres.qemu.exec.util.QEmuMonitorRecipe;
 import org.anarres.qemu.manager.QEmuProcess;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,5 +65,8 @@ public class QEmuTestUtils {
         LOG.info("Invoking " + commandLine);
         Process process = commandLine.exec();
         return new QEmuProcess(process, QEmuCommandLineUtils.getMonitorAddress(commandLine));
+    }
+
+    private QEmuTestUtils() {
     }
 }

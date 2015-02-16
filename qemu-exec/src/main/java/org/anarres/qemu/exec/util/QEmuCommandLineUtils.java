@@ -44,4 +44,7 @@ public class QEmuCommandLineUtils {
         }
         return null;
     }
+
+    private QEmuCommandLineUtils() {
+    }
 }

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
 import org.anarres.qemu.exec.QEmuTestUtils;
-import org.anarres.qemu.exec.util.QEmuVirtioDriveRecipe;
+import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;

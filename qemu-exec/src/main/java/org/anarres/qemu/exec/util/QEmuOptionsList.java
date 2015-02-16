@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuOption;
 
 /**
+ * A list of {@link QEmuOption QEmuOptions}, represented as a QEmuOption.
+ *
+ * This makes a {@link QEmuCommandLine} be a tree of QEmuOptions.
  *
  * @author shevek
  */

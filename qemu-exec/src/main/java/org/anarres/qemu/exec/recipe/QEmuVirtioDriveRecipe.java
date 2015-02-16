@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.anarres.qemu.exec.util;
+package org.anarres.qemu.exec.recipe;
 
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
@@ -10,14 +10,16 @@ import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuDriveOption;
 import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
+import org.anarres.qemu.exec.util.QEmuIdAllocator;
+import org.anarres.qemu.exec.util.QEmuOptionsList;
 
 /**
  *
  * @author shevek
  */
-public class QEmuVirtioDriveRecipe extends QEmuOptionsList {
-    // file=/var/tmp/qemu/sys-1/vda,if=none,id=drive-virtio-disk0,format=raw,cache=unsafe,aio=native
+public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe {
 
+    // file=/var/tmp/qemu/sys-1/vda,if=none,id=drive-virtio-disk0,format=raw,cache=unsafe,aio=native
     public final QEmuDriveOption driveOption;
     // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
     public final QEmuDeviceOption.VirtioBlock deviceOption;

@@ -17,4 +17,7 @@ public class QEmuMiscOptions {
     public static final QEmuOption NO_ACPI = new QEmuCustomOption("-no-acpi");
     public static final QEmuOption NO_REBOOT = new QEmuCustomOption("-no-reboot");
     public static final QEmuOption NO_HPET = new QEmuCustomOption("-no-hpet");
+
+    private QEmuMiscOptions() {
+    }
 }

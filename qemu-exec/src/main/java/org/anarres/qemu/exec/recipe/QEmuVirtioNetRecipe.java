@@ -2,17 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.anarres.qemu.exec.util;
+package org.anarres.qemu.exec.recipe;
 
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuNetdevOption;
+import org.anarres.qemu.exec.util.QEmuIdAllocator;
+import org.anarres.qemu.exec.util.QEmuOptionsList;
 
 /**
  *
  * @author shevek
  */
-public class QEmuVirtioNetRecipe extends QEmuOptionsList {
+public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
 
     // tap,fd=27,id=hostnet0,vhost=on,vhostfd=28
     public final QEmuNetdevOption.Tap netdevOption;
