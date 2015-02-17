@@ -23,8 +23,9 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
 
     /**
      * Call new QEmuVirtioNetRecipe(line.getAllocator(), "tap0");
+     *
      * @param allocator
-     * @param ifname 
+     * @param ifname
      */
     public QEmuVirtioNetRecipe(@Nonnull QEmuIdAllocator allocator, @Nonnull String ifname) {
         int id = allocator.newNetworkIndex();
@@ -36,7 +37,7 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
         deviceOption = new QEmuDeviceOption.VirtioNet();
         deviceOption
                 .withId("virtio-net-" + id)
-                .withPciAddress(allocator)
+                // .withPciAddress(allocator)   // Don't do this - let qemu autoallocate.
                 .withProperty(QEmuDeviceOption.VirtioNet.PROP_NETDEV, netdevOption.id);
         add(deviceOption);
     }
@@ -50,6 +51,12 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
     @Nonnull
     public QEmuVirtioNetRecipe withPciAddress(@Nonnull String address) {
         deviceOption.withPciAddress(address);
+        return this;
+    }
+
+    @Nonnull
+    public QEmuVirtioNetRecipe withPciAddress(@Nonnull QEmuIdAllocator allocator) {
+        deviceOption.withPciAddress(allocator);
         return this;
     }
 

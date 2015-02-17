@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.manager;
 
+import com.google.common.base.MoreObjects;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.InetSocketAddress;
@@ -29,8 +30,8 @@ public class QEmuProcess {
     private final InetSocketAddress monitor;
     private QApiConnection connection;
     private final Object lock = new Object();
-    private final IOBuffer stdout = new IOBuffer();
-    private final IOBuffer stderr = new IOBuffer();
+    // private final IOBuffer stdout = new IOBuffer();
+    // private final IOBuffer stderr = new IOBuffer();
 
     public QEmuProcess(@Nonnull Process process, @CheckForNull InetSocketAddress monitor) {
         this.process = process;
@@ -42,7 +43,7 @@ public class QEmuProcess {
 
     /**
      * @throws NoRouteToHostException if the process is terminated.
-     * @throws UnknownServiceException if the process has no known monitor address. 
+     * @throws UnknownServiceException if the process has no known monitor address.
      */
     @Nonnull
     public QApiConnection getConnection() throws IOException {
@@ -88,15 +89,19 @@ public class QEmuProcess {
                 c.close();
             }
         } catch (IllegalStateException e) {
-            LOG.warn("Cannot connect to " + this, e);
+            LOG.warn("Cannot destroy " + this, e);
         } catch (IOException e) {
-            LOG.warn("Cannot connect to " + this, e);
+            LOG.warn("Cannot destroy " + this, e);
         }
         process.destroy();
     }
 
     @Override
     public String toString() {
-        return "stdout=" + stdout + "; stderr=" + stderr;
+        return MoreObjects.toStringHelper(this)
+                .add("process", process)
+                // .add("stdout", stdout)
+                // .add("stderr", stderr)
+                .toString();
     }
 }

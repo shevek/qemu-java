@@ -15,10 +15,10 @@ import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.image.QEmuImageFormat;
 
 /**
- * A disk device backend, usually paired with a {@link QEmuDevice} frontend.
+ * A disk device backend, usually paired with a {@link QEmuDeviceOption} frontend.
  *
  * @see QEmuVirtioDriveRecipe
- * @see QEmuDevice
+ * @see QEmuDeviceOption
  * @author shevek
  */
 public class QEmuDriveOption extends AbstractQEmuOption {

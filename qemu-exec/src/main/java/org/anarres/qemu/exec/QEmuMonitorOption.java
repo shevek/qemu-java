@@ -10,11 +10,11 @@ import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
 import org.anarres.qemu.exec.recipe.QEmuVirtioSerialRecipe;
 
 /**
- * A character device backend, usually paired with a {@link QEmuDevice} frontend.
+ * A character device backend, usually paired with a {@link QEmuDeviceOption} frontend.
  *
  * @see QEmuVirtioSerialRecipe
  * @see QEmuMonitorRecipe
- * @see QEmuDevice
+ * @see QEmuDeviceOption
  * @author shevek
  */
 public class QEmuMonitorOption extends AbstractQEmuOption {

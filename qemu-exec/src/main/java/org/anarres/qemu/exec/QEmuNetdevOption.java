@@ -12,13 +12,13 @@ import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.recipe.QEmuVirtioNetRecipe;
 
 /**
- * A network device backend, usually paired with a {@link QEmuDevice} frontend.
+ * A network device backend, usually paired with a {@link QEmuDeviceOption} frontend.
  *
  * If you are looking for the equivalent of "-net nic,...", it is a frontend
  * specification now performed using -device.
  *
  * @see QEmuVirtioNetRecipe
- * @see QEmuDevice
+ * @see QEmuDeviceOption
  * @author shevek
  */
 public class QEmuNetdevOption extends AbstractQEmuOption {

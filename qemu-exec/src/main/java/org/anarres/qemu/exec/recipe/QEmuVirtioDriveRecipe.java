@@ -71,13 +71,13 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
     }
 
     @Nonnull
-    public QEmuVirtioDriveRecipe withAddress(@Nonnull String address) {
+    public QEmuVirtioDriveRecipe withPciAddress(@Nonnull String address) {
         deviceOption.withPciAddress(address);
         return this;
     }
 
     @Nonnull
-    public QEmuVirtioDriveRecipe withAddress(@Nonnull QEmuIdAllocator allocator) {
+    public QEmuVirtioDriveRecipe withPciAddress(@Nonnull QEmuIdAllocator allocator) {
         deviceOption.withPciAddress(allocator);
         return this;
     }

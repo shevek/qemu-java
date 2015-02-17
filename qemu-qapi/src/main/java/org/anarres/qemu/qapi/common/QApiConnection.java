@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.qapi.common;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -69,12 +70,18 @@ public class QApiConnection implements Closeable {
 
     @Nonnull
     private <T> T read(@Nonnull Class<T> type) throws IOException {
-        String line = input.readLine();
-        if (line == null)
-            throw new EOFException();
-        if (LOG.isDebugEnabled())
-            LOG.debug("<<<" + line);
-        return mapper.readValue(line, type);
+        for (;;) {
+            String line = input.readLine();
+            if (line == null)
+                throw new EOFException();
+            if (LOG.isDebugEnabled())
+                LOG.debug("<<<" + line);
+            JsonNode tree = mapper.readTree(line);
+            if (tree.get("event") != null)  // Could parse a QApiEvent.
+                continue;
+            return mapper.treeToValue(tree, type);
+        }
+        // return mapper.readValue(line, type);
     }
 
     @Nonnull
