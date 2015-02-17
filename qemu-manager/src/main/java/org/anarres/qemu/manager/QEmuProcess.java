@@ -36,8 +36,8 @@ public class QEmuProcess {
         this.process = process;
         this.monitor = monitor;
 
-        new IOThread(process.getInputStream(), stdout).start();
-        new IOThread(process.getErrorStream(), stderr).start();
+        // new IOThread(process.getInputStream(), stdout).start();
+        // new IOThread(process.getErrorStream(), stderr).start();
     }
 
     /**

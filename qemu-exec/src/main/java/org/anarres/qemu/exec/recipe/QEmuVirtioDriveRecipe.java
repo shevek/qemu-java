@@ -12,6 +12,7 @@ import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
+import org.anarres.qemu.image.QEmuImageFormat;
 
 /**
  *
@@ -52,7 +53,7 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
     }
 
     @Nonnull
-    public QEmuVirtioDriveRecipe withFormat(@Nonnull QEmuDriveOption.Format format) {
+    public QEmuVirtioDriveRecipe withFormat(@Nonnull QEmuImageFormat format) {
         driveOption.withFormat(format);
         return this;
     }
@@ -71,13 +72,13 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
 
     @Nonnull
     public QEmuVirtioDriveRecipe withAddress(@Nonnull String address) {
-        deviceOption.withAddress(address);
+        deviceOption.withPciAddress(address);
         return this;
     }
 
     @Nonnull
     public QEmuVirtioDriveRecipe withAddress(@Nonnull QEmuIdAllocator allocator) {
-        deviceOption.withAddress(allocator);
+        deviceOption.withPciAddress(allocator);
         return this;
     }
 

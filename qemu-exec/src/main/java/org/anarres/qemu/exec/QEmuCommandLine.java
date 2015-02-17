@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.recipe.QEmuRecipe;
+import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
 
@@ -129,7 +130,7 @@ public class QEmuCommandLine {
         List<String> commandWords = toCommandWords();
         ProcessBuilder builder = new ProcessBuilder(commandWords);
         // TODO: Use Redirect to send the I/O somewhere useful.
-        // builder.inheritIO();
+        QEmuCommandLineUtils.redirectIO(builder);
         return builder.start();
     }
 

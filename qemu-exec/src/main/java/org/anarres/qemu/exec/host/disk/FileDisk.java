@@ -6,6 +6,7 @@ package org.anarres.qemu.exec.host.disk;
 
 import java.io.File;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.image.QEmuImage;
 
 /**
  *
@@ -21,6 +22,10 @@ public class FileDisk extends AbstractDisk {
 
     public FileDisk(@Nonnull String path) {
         this(new File(path));
+    }
+
+    public FileDisk(@Nonnull QEmuImage image) {
+        this(image.getFile());
     }
 
     @Nonnull

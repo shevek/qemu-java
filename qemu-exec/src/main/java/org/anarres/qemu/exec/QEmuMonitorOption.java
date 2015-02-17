@@ -6,9 +6,15 @@ package org.anarres.qemu.exec;
 
 import java.util.List;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
+import org.anarres.qemu.exec.recipe.QEmuVirtioSerialRecipe;
 
 /**
+ * A character device backend, usually paired with a {@link QEmuDevice} frontend.
  *
+ * @see QEmuVirtioSerialRecipe
+ * @see QEmuMonitorRecipe
+ * @see QEmuDevice
  * @author shevek
  */
 public class QEmuMonitorOption extends AbstractQEmuOption {
@@ -23,6 +29,10 @@ public class QEmuMonitorOption extends AbstractQEmuOption {
 
     public QEmuMonitorOption(@Nonnull String chardev) {
         this.chardev = chardev;
+    }
+
+    public QEmuMonitorOption(@Nonnull QEmuChardevOption option) {
+        this(option.id);
     }
 
     @Nonnull

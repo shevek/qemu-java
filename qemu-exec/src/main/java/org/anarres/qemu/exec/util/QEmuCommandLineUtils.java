@@ -45,6 +45,10 @@ public class QEmuCommandLineUtils {
         return null;
     }
 
+    public static void redirectIO(@Nonnull ProcessBuilder builder) {
+        builder.inheritIO();
+    }
+
     private QEmuCommandLineUtils() {
     }
 }

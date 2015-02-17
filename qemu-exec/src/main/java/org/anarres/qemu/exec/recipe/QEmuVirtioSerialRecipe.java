@@ -12,6 +12,8 @@ import org.anarres.qemu.exec.util.QEmuOptionsList;
 
 /**
  *
+ * @see QEmuChardevOption
+ * @see QEmuDeviceOption.VirtioSerial
  * @author shevek
  */
 public class QEmuVirtioSerialRecipe extends QEmuOptionsList implements QEmuRecipe {
@@ -30,7 +32,7 @@ public class QEmuVirtioSerialRecipe extends QEmuOptionsList implements QEmuRecip
         deviceOption = new QEmuDeviceOption.VirtioSerial();
         deviceOption
                 .withId("serial-" + index)
-                .withChardev(chardevOption.id);
+                .withChardev(chardevOption);
         add(deviceOption);
     }
 }

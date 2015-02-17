@@ -29,7 +29,7 @@ public class QEmuMonitorRecipe extends QEmuOptionsList implements QEmuRecipe {
         chardevOption
                 .withId("monitor-" + index);
         add(chardevOption);
-        monitorOption = new QEmuMonitorOption(chardevOption.id);
+        monitorOption = new QEmuMonitorOption(chardevOption);
         add(monitorOption);
     }
 

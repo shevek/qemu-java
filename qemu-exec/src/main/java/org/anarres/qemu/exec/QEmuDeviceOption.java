@@ -69,7 +69,7 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         // virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6
         public Pci(@Nonnull String name) {
             super(name);
-            withBus("pci.0");
+            withPciBus("pci.0");
         }
 
         @Override
@@ -79,19 +79,19 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
 
         @Nonnull
-        public Pci withBus(@Nonnull String bus) {
+        public Pci withPciBus(@Nonnull String bus) {
             withProperty(PROP_BUS, bus);
             return this;
         }
 
         @Nonnull
-        public Pci withAddress(@Nonnull String address) {
+        public Pci withPciAddress(@Nonnull String address) {
             withProperty(PROP_ADDR, address);
             return this;
         }
 
         @Nonnull
-        public Pci withAddress(@Nonnull QEmuIdAllocator allocator) {
+        public Pci withPciAddress(@Nonnull QEmuIdAllocator allocator) {
             withProperty(PROP_ADDR, allocator.newPciAddress());
             return this;
         }
@@ -159,7 +159,7 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
 
         @Nonnull
-        public VirtioBlock withDrive(QEmuDriveOption option) {
+        public VirtioBlock withDrive(@Nonnull QEmuDriveOption option) {
             return withDrive(option.id);
         }
     }
@@ -183,6 +183,11 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
             withProperty(PROP_CHARDEV, id);
             return this;
         }
+
+        @Nonnull
+        public VirtioSerial withChardev(@Nonnull QEmuChardevOption option) {
+            return withChardev(option.id);
+        }
     }
 
     public static class Piix3Usb extends Pci {
@@ -194,7 +199,7 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
 
         @Override
-        public Piix3Usb withAddress(@Nonnull QEmuIdAllocator allocator) {
+        public Piix3Usb withPciAddress(@Nonnull QEmuIdAllocator allocator) {
             withProperty(PROP_ADDR, allocator.newPciAddresses(2, "."));
             return this;
         }

@@ -10,7 +10,6 @@ import java.net.InetSocketAddress;
 import java.util.UUID;
 import org.anarres.qemu.exec.QEmuDisplayOption.DisplayType;
 import org.anarres.qemu.exec.QEmuDriveOption.Cache;
-import org.anarres.qemu.exec.QEmuDriveOption.Format;
 import org.anarres.qemu.exec.host.chardev.BrailleCharDevice;
 import org.anarres.qemu.exec.host.chardev.FileCharDevice;
 import org.anarres.qemu.exec.host.chardev.LinuxParportCharDevice;
@@ -23,6 +22,7 @@ import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
 import org.anarres.qemu.exec.recipe.QEmuVirtioSerialRecipe;
 import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.exec.recipe.QEmuVirtioNetRecipe;
+import org.anarres.qemu.image.QEmuImageFormat;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,10 +56,10 @@ public class QEmuCommandLineTest {
                 new QEmuCpusOption(2).withSockets(2).withCores(1).withThreads(1),
                 new QEmuDisplayOption(DisplayType.vnc).withVncDisplay(new VncDisplay.Socket(null, 0)),
                 // mon
-                new QEmuDeviceOption.Piix3Usb().withAddress(allocator),
-                new QEmuVirtioDriveRecipe(allocator, "/var/tmp/qemu/sys-1/vda").withFormat(Format.raw).withCache(Cache.unsafe).withProperty("bootindex", "1"),
-                new QEmuVirtioNetRecipe(allocator).withMac("fa:16:3e:13:ff:00"),
-                new QEmuVirtioNetRecipe(allocator).withMac("fa:16:3e:13:ff:01"),
+                new QEmuDeviceOption.Piix3Usb().withPciAddress(allocator),
+                new QEmuVirtioDriveRecipe(allocator, "/var/tmp/qemu/sys-1/vda").withFormat(QEmuImageFormat.raw).withCache(Cache.unsafe).withProperty("bootindex", "1"),
+                new QEmuVirtioNetRecipe(allocator, "tap0").withMac("fa:16:3e:13:ff:00"),
+                new QEmuVirtioNetRecipe(allocator, "tap1").withMac("fa:16:3e:13:ff:01"),
                 new QEmuKernelOption("/var/tmp/qemu/sys-1/kernel").withInitrd("/var/tmp/qemu/sys-1/initrd").withAppend("root=/dev/vda2 console=ttyS0"),
                 new QEmuVirtioSerialRecipe(new FileCharDevice("/var/tmp/qemu/sys-1/console.log")),
                 new QEmuMonitorRecipe(new UnixCharDevice("/var/tmp/qemu/sys-1/monitor.sock")),

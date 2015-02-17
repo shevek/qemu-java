@@ -4,6 +4,7 @@
  */
 package org.anarres.qemu.exec;
 
+import com.google.common.base.Preconditions;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,10 +13,10 @@ import org.anarres.qemu.exec.recipe.QEmuVirtioNetRecipe;
 
 /**
  * A network device backend, usually paired with a {@link QEmuDevice} frontend.
- * 
+ *
  * If you are looking for the equivalent of "-net nic,...", it is a frontend
  * specification now performed using -device.
- * 
+ *
  * @see QEmuVirtioNetRecipe
  * @see QEmuDevice
  * @author shevek
@@ -58,6 +59,7 @@ public class QEmuNetdevOption extends AbstractQEmuOption {
     @Override
     public void appendTo(List<? super String> line) {
         StringBuilder buf = new StringBuilder(name);
+        appendTo(buf, "id", Preconditions.checkNotNull(id, "No id specified in -netdev"));
         appendTo(buf, properties);
         add(line, "-netdev", buf);
     }
@@ -71,8 +73,16 @@ public class QEmuNetdevOption extends AbstractQEmuOption {
 
     public static class Tap extends QEmuNetdevOption {
 
+        public static final String PROP_IFNAME = "ifname";
+
         public Tap() {
             super("tap");
+        }
+
+        @Nonnull
+        public Tap withTapInterface(@Nonnull String ifname) {
+            withProperty(PROP_IFNAME, ifname);
+            return this;
         }
     }
 

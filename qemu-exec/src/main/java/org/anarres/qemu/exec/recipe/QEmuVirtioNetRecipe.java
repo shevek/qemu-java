@@ -21,16 +21,22 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
     // virtio-net-pci,netdev=hostnet0,id=net0,mac=fa:16:3e:13:ff:1f,bus=pci.0,addr=0x3
     public final QEmuDeviceOption.VirtioNet deviceOption;
 
-    public QEmuVirtioNetRecipe(@Nonnull QEmuIdAllocator allocator) {
+    /**
+     * Call new QEmuVirtioNetRecipe(line.getAllocator(), "tap0");
+     * @param allocator
+     * @param ifname 
+     */
+    public QEmuVirtioNetRecipe(@Nonnull QEmuIdAllocator allocator, @Nonnull String ifname) {
         int id = allocator.newNetworkIndex();
         netdevOption = new QEmuNetdevOption.Tap();
         netdevOption
+                .withTapInterface(ifname)
                 .withId("backend-net-" + id);
         add(netdevOption);
         deviceOption = new QEmuDeviceOption.VirtioNet();
         deviceOption
                 .withId("virtio-net-" + id)
-                .withAddress(allocator)
+                .withPciAddress(allocator)
                 .withProperty(QEmuDeviceOption.VirtioNet.PROP_NETDEV, netdevOption.id);
         add(deviceOption);
     }
@@ -42,8 +48,14 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
     }
 
     @Nonnull
-    public QEmuVirtioNetRecipe withAddress(@Nonnull String address) {
-        deviceOption.withAddress(address);
+    public QEmuVirtioNetRecipe withPciAddress(@Nonnull String address) {
+        deviceOption.withPciAddress(address);
+        return this;
+    }
+
+    @Nonnull
+    public QEmuVirtioNetRecipe withTapInterface(@Nonnull String ifname) {
+        netdevOption.withTapInterface(ifname);
         return this;
     }
 
