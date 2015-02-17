@@ -128,6 +128,8 @@ public class QEmuCommandLine {
     public Process exec() throws IOException {
         List<String> commandWords = toCommandWords();
         ProcessBuilder builder = new ProcessBuilder(commandWords);
+        // TODO: Use Redirect to send the I/O somewhere useful.
+        // builder.inheritIO();
         return builder.start();
     }
 

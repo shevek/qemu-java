@@ -8,17 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.recipe.QEmuVirtioNetRecipe;
 
 /**
- *
+ * A network device backend, usually paired with a {@link QEmuDevice} frontend.
+ * 
+ * If you are looking for the equivalent of "-net nic,...", it is a frontend
+ * specification now performed using -device.
+ * 
+ * @see QEmuVirtioNetRecipe
+ * @see QEmuDevice
  * @author shevek
  */
 public class QEmuNetdevOption extends AbstractQEmuOption {
 
-    public static enum Model {
-
-        virtio, i82551, i82557b, i82559er, ne2k_pci, ne2k_isa, pcnet, rtl8139, e1000, smc91c111, lance, mcf_fec;
-    }
     // tap,fd=29,id=hostnet1,vhost=on,vhostfd=30
     private final String name;
     public String id;
@@ -57,13 +60,6 @@ public class QEmuNetdevOption extends AbstractQEmuOption {
         StringBuilder buf = new StringBuilder(name);
         appendTo(buf, properties);
         add(line, "-netdev", buf);
-    }
-
-    public static class Nic extends QEmuNetdevOption {
-
-        public Nic() {
-            super("nic");
-        }
     }
 
     public static class User extends QEmuNetdevOption {

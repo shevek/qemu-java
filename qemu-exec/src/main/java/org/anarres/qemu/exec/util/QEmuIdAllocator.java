@@ -18,6 +18,7 @@ public class QEmuIdAllocator {
 
     private int driveIndex;
     private int networkIndex;
+    private int networkBootIndex;
     private int pciAddress;
 
     public QEmuIdAllocator() {
@@ -26,6 +27,7 @@ public class QEmuIdAllocator {
     public QEmuIdAllocator(@Nonnull QEmuIdAllocator predecessor) {
         this.driveIndex = predecessor.driveIndex;
         this.networkIndex = predecessor.networkIndex;
+        this.networkBootIndex = predecessor.networkBootIndex;
         this.pciAddress = predecessor.pciAddress;
     }
 
@@ -37,6 +39,11 @@ public class QEmuIdAllocator {
     @Nonnegative
     public int newNetworkIndex() {
         return ++networkIndex;
+    }
+
+    @Nonnegative
+    public int newNetworkBootIndex() {
+        return ++networkBootIndex;
     }
 
     /**

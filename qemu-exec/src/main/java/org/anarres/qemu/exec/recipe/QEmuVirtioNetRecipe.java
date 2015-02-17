@@ -21,7 +21,7 @@ public class QEmuVirtioNetRecipe extends QEmuOptionsList implements QEmuRecipe {
     // virtio-net-pci,netdev=hostnet0,id=net0,mac=fa:16:3e:13:ff:1f,bus=pci.0,addr=0x3
     public final QEmuDeviceOption.VirtioNet deviceOption;
 
-    public QEmuVirtioNetRecipe(QEmuIdAllocator allocator) {
+    public QEmuVirtioNetRecipe(@Nonnull QEmuIdAllocator allocator) {
         int id = allocator.newNetworkIndex();
         netdevOption = new QEmuNetdevOption.Tap();
         netdevOption

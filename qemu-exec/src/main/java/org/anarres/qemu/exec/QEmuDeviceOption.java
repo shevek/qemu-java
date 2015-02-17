@@ -7,10 +7,18 @@ package org.anarres.qemu.exec;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 
 /**
+ * A device frontend, exposed to the guest operating system.
+ *
+ * To list the device types supported by your QEmu installation, run
+ * <code>qemu -device help</code>.
+ *
+ * To list the properties of a device, run
+ * <code>qemu -device &lt;devicetype&gt;,help</code>.
  *
  * @author shevek
  */
@@ -101,15 +109,35 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         // virtio-net-pci,netdev=hostnet0,id=net0,mac=fa:16:3e:13:ff:1f,bus=pci.0,addr=0x3
         public static final String PROP_NETDEV = "netdev";
         public static final String PROP_MAC = "mac";
+        public static final String PROP_BOOTINDEX = "bootindex";
+        public static final String PROP_ROMFILE = "romfile";
+        public static final String PROP_ROMBAR = "rombar";
 
         public VirtioNet() {
             super("virtio-net-pci");
         }
 
         @Nonnull
-        public VirtioNet withMac(String mac) {
+        public VirtioNet withMac(@Nonnull String mac) {
             withProperty(PROP_MAC, mac);
             return this;
+        }
+
+        @Nonnull
+        public VirtioNet withBackend(@Nonnull QEmuNetdevOption backend) {
+            withProperty(PROP_NETDEV, backend.id);
+            return this;
+        }
+
+        @Nonnull
+        public VirtioNet withBootIndex(@Nonnegative int index) {
+            withProperty(PROP_BOOTINDEX, String.valueOf(index));
+            return this;
+        }
+
+        @Nonnull
+        public VirtioNet withBootIndex(@Nonnull QEmuIdAllocator allocator) {
+            return withBootIndex(allocator.newNetworkBootIndex());
         }
     }
 

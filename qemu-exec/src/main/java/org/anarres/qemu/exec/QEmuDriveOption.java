@@ -10,15 +10,19 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
+import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 
 /**
+ * A disk device backend, usually paired with a {@link QEmuDevice} frontend.
  *
+ * @see QEmuVirtioDriveRecipe
+ * @see QEmuDevice
  * @author shevek
  */
 public class QEmuDriveOption extends AbstractQEmuOption {
-    // file=file,index=0,media=disk
 
+    // file=file,index=0,media=disk
     public static enum Interface {
 
         ide, scsi, sd, mtd, floppy, pflash, virtio, none
@@ -31,7 +35,20 @@ public class QEmuDriveOption extends AbstractQEmuOption {
 
     public static enum Format {
 
-        raw, qcow2
+        /** A plain binary image of the disc image. */
+        raw,
+        /** Compressed Loop format, mainly used for reading Knoppix and similar live CD image formats. */
+        cloop,
+        /** Copy-on-write format, supported for historical reasons only and not available to QEMU on Windows. */
+        cow,
+        /** The old QEMU copy-on-write format, supported for historical reasons and superseded by qcow2. */
+        qcow,
+        /** QEMU copy-on-write format, supporting multiple snapshots, sparse images, AES encryption, and zlib compression. */
+        qcow2,
+        /** VMware 3 & 4, or 6 image format, for exchanging images with that product. */
+        vmdk,
+        /** VirtualBox 1.1 compatible image format, for exchanging images with VirtualBox. */
+        vdi
     }
 
     public static enum Cache {

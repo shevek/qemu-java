@@ -71,6 +71,12 @@ project(':qemu-qapi') {
 
 }
 
+project(':qemu-image') {
+	dependencies {
+		compile project(':qemu-exec')
+	}
+}
+
 project(':qemu-manager') {
 	dependencies {
 		compile project(':qemu-qapi')

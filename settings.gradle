@@ -1,2 +1,2 @@
 rootProject.name='qemu-java'
-include 'qemu-qapi','qemu-exec', 'qemu-manager'
+include 'qemu-qapi','qemu-exec', 'qemu-image', 'qemu-manager'
