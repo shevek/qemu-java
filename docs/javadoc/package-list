@@ -1,7 +1,10 @@
 org.anarres.qemu.exec
 org.anarres.qemu.exec.host.chardev
 org.anarres.qemu.exec.host.disk
+org.anarres.qemu.exec.recipe
 org.anarres.qemu.exec.util
+org.anarres.qemu.exec.vm.device
+org.anarres.qemu.image
 org.anarres.qemu.manager
 org.anarres.qemu.qapi.api
 org.anarres.qemu.qapi.common
