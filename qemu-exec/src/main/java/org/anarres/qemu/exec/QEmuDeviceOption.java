@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
+import org.anarres.qemu.exec.vm.device.QEmuDevice;
 
 /**
  * A device frontend, exposed to the guest operating system.
@@ -20,6 +21,7 @@ import org.anarres.qemu.exec.util.QEmuIdAllocator;
  * To list the properties of a device, run
  * <code>qemu -device &lt;devicetype&gt;,help</code>.
  *
+ * @see QEmuDevice
  * @author shevek
  */
 public class QEmuDeviceOption extends AbstractQEmuOption {

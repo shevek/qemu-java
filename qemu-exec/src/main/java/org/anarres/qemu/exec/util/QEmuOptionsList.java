@@ -18,7 +18,7 @@ import org.anarres.qemu.exec.QEmuOption;
  *
  * @author shevek
  */
-public class QEmuOptionsList extends ArrayList<QEmuOption> implements QEmuOption, QEmuOption.Container {
+public class QEmuOptionsList extends ArrayList<QEmuOption> implements QEmuOption, QEmuOption.Container, QEmuIdAllocator.Consumer {
 
     public QEmuOptionsList() {
     }
@@ -29,6 +29,13 @@ public class QEmuOptionsList extends ArrayList<QEmuOption> implements QEmuOption
 
     public QEmuOptionsList(QEmuOption... c) {
         this(Arrays.asList(c));
+    }
+
+    @Override
+    public void withAllocator(QEmuIdAllocator allocator) {
+        for (QEmuOption option : this)
+            if (option instanceof QEmuIdAllocator.Consumer)
+                ((QEmuIdAllocator.Consumer) option).withAllocator(allocator);
     }
 
     @Override

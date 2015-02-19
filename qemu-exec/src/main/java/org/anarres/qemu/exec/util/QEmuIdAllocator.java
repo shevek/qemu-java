@@ -16,6 +16,11 @@ import javax.annotation.Nonnull;
  */
 public class QEmuIdAllocator {
 
+    public static interface Consumer {
+
+        public void withAllocator(@Nonnull QEmuIdAllocator allocator);
+    }
+
     private int driveIndex;
     private int networkIndex;
     private int networkBootIndex;

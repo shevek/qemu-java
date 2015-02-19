@@ -11,7 +11,7 @@ import org.anarres.qemu.exec.QEmuDeviceOption;
  *
  * @author shevek
  */
-public interface QEmuVgaDevice {
+public interface QEmuVgaDevice extends QEmuDevice {
 
     public static class CirrusPci extends QEmuDeviceOption.Pci implements QEmuVgaDevice {
 
