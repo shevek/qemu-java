@@ -16,4 +16,7 @@ public class QApiError extends QApiObject {
     public String _class;
     @JsonProperty
     public String desc;
+    // Emitted by QEmu 1.0. Later versions too?
+    @JsonProperty
+    public Object data;
 }

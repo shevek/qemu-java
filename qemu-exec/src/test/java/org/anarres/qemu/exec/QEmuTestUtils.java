@@ -51,6 +51,8 @@ public class QEmuTestUtils {
         QEmuCommandLine commandLine = new QEmuCommandLine(QEmuArchitecture.x86_64);
         commandLine.addOptions(
                 // QEmuMiscOptions.ENABLE_KVM,
+                new QEmuMachineOption().withAcceleration(QEmuMachineOption.Acceleration.kvm, QEmuMachineOption.Acceleration.tcg),
+                new QEmuDeviceOption.VirtioBalloon(),
                 new QEmuMonitorRecipe(4445),
                 new QEmuMemoryOption(64, QEmuMemoryOption.Magnitude.MEGA),
                 // new QEmuCpusOption(4).withSockets(2).withCores(2),

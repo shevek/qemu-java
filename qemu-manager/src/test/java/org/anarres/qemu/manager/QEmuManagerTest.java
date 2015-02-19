@@ -19,6 +19,7 @@ import org.anarres.qemu.qapi.api.QueryCommandsCommand;
 import org.anarres.qemu.qapi.api.QueryCpusCommand;
 import org.anarres.qemu.qapi.api.QueryUuidCommand;
 import org.anarres.qemu.qapi.common.QApiConnection;
+import org.anarres.qemu.qapi.common.QApiException;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,16 +62,21 @@ public class QEmuManagerTest {
             LOG.info(connection.call(new HumanMonitorCommandCommand("info kvm", null)));
             LOG.info(connection.call(new HumanMonitorCommandCommand("info jit", null)));
 
-            File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
-            BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile(file.getAbsolutePath()));
-            options.withId("foo").withReadOnly(true);
+            try {
+                File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
+                BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile(file.getAbsolutePath()));
+                options.withId("foo").withReadOnly(true);
 
-            connection.call(new BlockdevAddCommand(options));
-            LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
+                connection.call(new BlockdevAddCommand(options));
+                LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
+            } catch (QApiException e) {
+                // Perhaps we are running on QEmu 1.0.
+                assertTrue(e.getMessage().contains("has not been found"));
+                LOG.warn("Limited testing available on QEmu <1.7", e);
+            }
 
             // connection.call(new NbdServerStartCommand(new SocketAddress().withInet(new InetSocketAddress().withHost("localhost").withPort("4446"))));
             // connection.call(new NbdServerAddCommand("foo", Boolean.FALSE));
-
             Thread.sleep(5000);
         } finally {
             process.destroy();
