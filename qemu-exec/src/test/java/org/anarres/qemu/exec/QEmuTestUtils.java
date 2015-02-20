@@ -12,8 +12,16 @@ import org.anarres.qemu.exec.host.disk.FileDisk;
 import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
 import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
 import org.anarres.qemu.manager.QEmuProcess;
+import org.anarres.qemu.qapi.api.HumanMonitorCommandCommand;
+import org.anarres.qemu.qapi.api.QueryBlockCommand;
+import org.anarres.qemu.qapi.api.QueryCommandsCommand;
+import org.anarres.qemu.qapi.api.QueryCpusCommand;
+import org.anarres.qemu.qapi.api.QueryUuidCommand;
+import org.anarres.qemu.qapi.common.QApiConnection;
+import org.anarres.qemu.qapi.common.QApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static org.junit.Assert.assertNotNull;
 
 /**
  *
@@ -67,6 +75,26 @@ public class QEmuTestUtils {
         LOG.info("Invoking " + commandLine);
         Process process = commandLine.exec();
         return new QEmuProcess(process, QEmuCommandLineUtils.getMonitorAddress(commandLine));
+    }
+
+    public static void inspect(@Nonnull QApiConnection connection) throws IOException, QApiException {
+        assertNotNull("Failed to connect to QEmu.", connection);
+
+        LOG.info("Commands are " + connection.call(new QueryCommandsCommand()));
+        LOG.info("UUID is " + connection.call(new QueryUuidCommand()));
+        LOG.info("CPUs is " + connection.call(new QueryCpusCommand()));
+        LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info status", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info qtree", null)));
+        // LOG.info(connection.call(new HumanMonitorCommandCommand("info qdm", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info usb", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info numa", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info cpus", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info pic", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info pci", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info tlb", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info kvm", null)));
+        LOG.info(connection.call(new HumanMonitorCommandCommand("info jit", null)));
     }
 
     private QEmuTestUtils() {

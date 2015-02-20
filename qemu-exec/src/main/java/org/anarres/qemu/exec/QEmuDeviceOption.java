@@ -143,6 +143,7 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         }
     }
 
+    /** Usually results in /dev/vda. */
     public static class VirtioBlock extends Pci {
         // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
 
@@ -163,6 +164,13 @@ public class QEmuDeviceOption extends AbstractQEmuOption {
         @Nonnull
         public VirtioBlock withDrive(@Nonnull QEmuDriveOption option) {
             return withDrive(option.id);
+        }
+    }
+
+    public static class VirtioScsi extends Pci {
+
+        public VirtioScsi() {
+            super("virtio-scsi-pci");
         }
     }
 

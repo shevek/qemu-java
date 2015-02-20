@@ -21,11 +21,14 @@ import org.anarres.qemu.image.QEmuImageFormat;
 public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe {
 
     // file=/var/tmp/qemu/sys-1/vda,if=none,id=drive-virtio-disk0,format=raw,cache=unsafe,aio=native
+    // public final QEmuDeviceOption.VirtioScsi busOption;
     public final QEmuDriveOption driveOption;
     // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
     public final QEmuDeviceOption.VirtioBlock deviceOption;
 
     public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull Disk disk) {
+        // busOption = new QEmuDeviceOption.VirtioScsi();
+        // add(busOption);
         driveOption = new QEmuDriveOption(index, disk)
                 .withInterface(QEmuDriveOption.Interface.none)
                 .withId("backend-disk-" + index)

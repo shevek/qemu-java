@@ -13,11 +13,7 @@ import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
-import org.anarres.qemu.qapi.api.HumanMonitorCommandCommand;
 import org.anarres.qemu.qapi.api.QueryBlockCommand;
-import org.anarres.qemu.qapi.api.QueryCommandsCommand;
-import org.anarres.qemu.qapi.api.QueryCpusCommand;
-import org.anarres.qemu.qapi.api.QueryUuidCommand;
 import org.anarres.qemu.qapi.common.QApiConnection;
 import org.anarres.qemu.qapi.common.QApiException;
 import org.junit.Test;
@@ -44,23 +40,7 @@ public class QEmuManagerTest {
         QEmuProcess process = QEmuTestUtils.newQEmuProcess(commandLine);
         try {
             QApiConnection connection = process.getConnection(10, TimeUnit.SECONDS);
-            assertNotNull("Failed to connect to QEmu.", connection);
-
-            LOG.info("Commands are " + connection.call(new QueryCommandsCommand()));
-            LOG.info("UUID is " + connection.call(new QueryUuidCommand()));
-            LOG.info("CPUs is " + connection.call(new QueryCpusCommand()));
-            LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info status", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info qtree", null)));
-            // LOG.info(connection.call(new HumanMonitorCommandCommand("info qdm", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info usb", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info numa", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info cpus", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info pic", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info pci", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info tlb", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info kvm", null)));
-            LOG.info(connection.call(new HumanMonitorCommandCommand("info jit", null)));
+            QEmuTestUtils.inspect(connection);
 
             try {
                 File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
