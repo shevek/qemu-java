@@ -6,6 +6,7 @@ package org.anarres.qemu.exec;
 
 import java.io.File;
 import java.util.List;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 /**
@@ -14,6 +15,7 @@ import javax.annotation.Nonnull;
  */
 public class QEmuMemoryOption extends AbstractQEmuOption {
 
+    // TODO -> Generic package where it can be used for file sizes, etc.
     public static enum Magnitude {
 
         UNIT(1L),
@@ -24,11 +26,11 @@ public class QEmuMemoryOption extends AbstractQEmuOption {
         PETA(TERA, 1024L);
         private final long multiplier;
 
-        Magnitude(long multiplier) {
+        Magnitude(@Nonnegative long multiplier) {
             this.multiplier = multiplier;
         }
 
-        Magnitude(Magnitude reference, long multiplier) {
+        Magnitude(@Nonnull Magnitude reference, @Nonnegative long multiplier) {
             this.multiplier = reference.multiplier * multiplier;
         }
 

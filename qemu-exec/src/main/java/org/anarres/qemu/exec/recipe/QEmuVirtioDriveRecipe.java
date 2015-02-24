@@ -12,6 +12,7 @@ import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
 import org.anarres.qemu.exec.util.QEmuOptionsList;
+import org.anarres.qemu.image.QEmuImage;
 import org.anarres.qemu.image.QEmuImageFormat;
 
 /**
@@ -49,6 +50,10 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
 
     public QEmuVirtioDriveRecipe(@Nonnegative QEmuIdAllocator allocator, @Nonnull Disk disk) {
         this(allocator.newDriveIndex(), disk);
+    }
+
+    public QEmuVirtioDriveRecipe(@Nonnegative QEmuIdAllocator allocator, @Nonnull QEmuImage image) {
+        this(allocator.newDriveIndex(), new FileDisk(image));
     }
 
     public QEmuVirtioDriveRecipe(@Nonnegative QEmuIdAllocator allocator, @Nonnull String path) {

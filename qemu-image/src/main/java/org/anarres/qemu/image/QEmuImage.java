@@ -10,9 +10,14 @@ import com.google.common.base.Preconditions;
 import com.google.common.io.ByteStreams;
 import java.io.File;
 import java.io.IOException;
+import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 
 /**
+ * An abstraction around a QEmu image.
+ *
+ * The underlying image file may or may not exist; this class allows for
+ * simple creation, inspection and deletion.
  *
  * @author shevek
  */
@@ -28,6 +33,7 @@ public class QEmuImage {
         this(new File(path));
     }
 
+    /** Returns the file underlying this QEmuImage. */
     @Nonnull
     public File getFile() {
         return file;
@@ -42,7 +48,10 @@ public class QEmuImage {
         return mapper.readValue(data, QEmuImageInfo.class);
     }
 
-    public void create(@Nonnull QEmuImageFormat format, long size) throws IOException {
+    /**
+     * Creates this image.
+     */
+    public void create(@Nonnull QEmuImageFormat format, @Nonnegative long size) throws IOException {
         ProcessBuilder builder = new ProcessBuilder("qemu-img", "create", "-f", format.name(), file.getAbsolutePath(), String.valueOf(size));
         Process process = builder.start();
         ByteStreams.copy(process.getInputStream(), System.err);
@@ -51,8 +60,9 @@ public class QEmuImage {
     /**
      * Creates this image.
      *
-     * backingFile is not referenced absolutely here. If you want it referenced
-     * absolutely, canonicalize with {@link File#getAbsoluteFile()}.
+     * backingFile is referenced by a relative path. If you want it referenced
+     * absolutely, canonicalize the argument with {@link File#getAbsoluteFile()}
+     * before calling this method.
      */
     public void create(@Nonnull QEmuImageFormat format, @Nonnull File backingFile) throws IOException {
         ProcessBuilder builder = new ProcessBuilder("qemu-img", "create", "-f", format.name(), "-b", backingFile.getPath(), file.getAbsolutePath());
@@ -60,6 +70,7 @@ public class QEmuImage {
         ByteStreams.copy(process.getInputStream(), System.err);
     }
 
+    /** Deletes the file underlying this image, if it exists. */
     public void delete() throws IOException {
         if (file.exists())
             if (!file.delete())
