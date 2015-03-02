@@ -6,9 +6,11 @@ package org.anarres.qemu.manager;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.util.QEmuCommandLineUtils;
@@ -26,7 +28,7 @@ public class QEmuManager {
     private final ConcurrentMap<UUID, QEmuProcess> processes = new ConcurrentHashMap<UUID, QEmuProcess>();
 
     @Nonnull
-    public QEmuProcess execute(QEmuCommandLine commandLine) throws IOException, InterruptedException, QApiException {
+    public QEmuProcess execute(@Nonnull QEmuCommandLine commandLine) throws IOException, InterruptedException, QApiException {
         UUID uuid = QEmuCommandLineUtils.getUuid(commandLine);
         if (LOG.isDebugEnabled())
             LOG.debug("Executing (uuid=" + uuid + ") " + commandLine);
@@ -41,5 +43,15 @@ public class QEmuManager {
         if (uuid != null)
             processes.put(uuid, qEmuProcess);
         return qEmuProcess;
+    }
+
+    @Nonnull
+    public Map<? extends UUID, ? extends QEmuProcess> getProcesses() {
+        return processes;
+    }
+
+    @CheckForNull
+    public QEmuProcess getProcess(UUID id) {
+        return processes.get(id);
     }
 }

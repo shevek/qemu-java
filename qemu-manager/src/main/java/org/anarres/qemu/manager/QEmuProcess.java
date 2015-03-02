@@ -51,7 +51,9 @@ public class QEmuProcess {
             throw new UnknownServiceException("No monitor address known.");
 
         try {
+            // If this succeeds, then we have exited.
             int exitValue = process.exitValue();
+            connection = null;
             throw new NoRouteToHostException("Process terminated with exit code " + exitValue);
         } catch (IllegalThreadStateException e) {
         }
