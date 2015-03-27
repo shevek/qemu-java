@@ -5,7 +5,6 @@
 package org.anarres.qemu.manager;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Arrays;
 
 /**
  *

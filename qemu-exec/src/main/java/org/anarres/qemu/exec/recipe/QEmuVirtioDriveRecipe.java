@@ -44,6 +44,10 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
         add(deviceOption);
     }
 
+    public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull QEmuImage image) {
+        this(index, new FileDisk(image));
+    }
+
     public QEmuVirtioDriveRecipe(@Nonnegative int index, @Nonnull String path) {
         this(index, new FileDisk(path));
     }
