@@ -71,6 +71,7 @@ project(':qemu-image') {
 project(':qemu-exec') {
 	dependencies {
 		compile project(':qemu-image')
+		compile 'org.codehaus.mojo:animal-sniffer-annotations:1.14'
 
 		// Can be changed to qemu-qapi when we move QEmuProcess to qemu-exec.
 		testCompile project(':qemu-manager')

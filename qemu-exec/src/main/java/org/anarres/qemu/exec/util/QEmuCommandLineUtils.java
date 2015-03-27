@@ -13,6 +13,7 @@ import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuIdOption;
 import org.anarres.qemu.exec.QEmuMonitorOption;
 import org.anarres.qemu.exec.host.chardev.TcpCharDevice;
+import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
 
 /**
  *
@@ -45,6 +46,8 @@ public class QEmuCommandLineUtils {
         return null;
     }
 
+    /** TODO: Write a thread-based implementation of this method if anyone complains. */
+    @IgnoreJRERequirement
     public static void redirectIO(@Nonnull ProcessBuilder builder) {
         builder.inheritIO();
     }

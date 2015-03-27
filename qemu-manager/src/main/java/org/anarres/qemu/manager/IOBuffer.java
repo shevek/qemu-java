@@ -43,7 +43,8 @@ public class IOBuffer extends ByteArrayOutputStream {
 
     @Override
     public synchronized byte[] toByteArray() {
-        byte[] out = Arrays.copyOf(history, history.length + count);
+        byte[] out = new byte[history.length + count];
+        System.arraycopy(history, 0, out, 0, history.length);
         System.arraycopy(super.buf, 0, out, history.length, count);
         return out;
     }
