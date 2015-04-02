@@ -8,7 +8,7 @@ def docTasks = [:]
 		def docTask = task "aggregate${shortName.capitalize()}"(type: docClass, description: "Aggregate subproject ${shortName}s") {
 			source = allSources
 			destinationDir = file("${project.buildDir}/docs/${shortName}")
-			if (hasProperty('options'))	// Groovydoc has no options
+			if (delegate.hasProperty('options'))	// Groovydoc has no options
 				options.links "http://docs.oracle.com/javase/7/docs/api/",
 					"http://docs.oracle.com/javaee/7/api/",
 					"http://docs.guava-libraries.googlecode.com/git/javadoc/",

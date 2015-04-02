@@ -16,6 +16,7 @@ dependencies {
 	classpath('com.netflix.nebula:gradle-info-plugin:2.2.0') {
 		exclude group: 'com.perforce'
 	}
-	classpath 'com.bmuschko:gradle-nexus-plugin:2.2'
+	classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
 	classpath 'be.insaneprogramming.gradle:animalsniffer-gradle-plugin:1.4.0'
+	classpath 'com.github.ben-manes:gradle-versions-plugin:0.8'
 }

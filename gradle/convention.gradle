@@ -5,6 +5,7 @@ subprojects { project ->
 	apply plugin: 'java' // Plugin as major conventions
 	// apply plugin: 'errorprone'
 	apply plugin: 'info'
+	apply plugin: 'com.github.ben-manes.versions'
 
 	sourceCompatibility = 1.5
 

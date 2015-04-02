@@ -88,6 +88,25 @@ project(':qemu-manager') {
 	}
 }
 
+project(':qemu-examples') {
+	dependencies {
+		compile project(':qemu-manager')
+		compile 'com.google.auto.service:auto-service:1.0-rc2'
+		compile 'com.jcraft:jsch:0.1.52'
+
+		testCompile project(':qemu-exec').sourceSets.test.output
+	}
+
+	apply plugin: 'application'
+
+	mainClassName = 'org.anarres.qemu.examples.Main'
+
+	animalsniffer {
+		// I can not be bothered to write examples in JDK1.5
+		skip = true
+	}
+}
+
 aggregateJavadoc {
 	options.links "http://docs.oracle.com/javase/6/docs/api/",
 		"https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/"
