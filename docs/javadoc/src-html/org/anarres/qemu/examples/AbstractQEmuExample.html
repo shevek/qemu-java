@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * To change this license header, choose License Headers in Project Properties.<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * To change this template file, choose Tools | Templates<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * and open the template in the editor.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> */<a name="line.5"></a>
+<span class="sourceLineNo">006</span>package org.anarres.qemu.examples;<a name="line.6"></a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span>import com.google.common.base.Charsets;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import com.google.common.hash.HashCode;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import com.google.common.hash.Hashing;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import com.google.common.io.Closeables;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import com.google.common.io.Files;<a name="line.12"></a>
+<span class="sourceLineNo">013</span>import java.io.File;<a name="line.13"></a>
+<span class="sourceLineNo">014</span>import java.io.IOException;<a name="line.14"></a>
+<span class="sourceLineNo">015</span>import java.io.InputStream;<a name="line.15"></a>
+<span class="sourceLineNo">016</span>import java.net.URI;<a name="line.16"></a>
+<span class="sourceLineNo">017</span>import javax.annotation.Nonnegative;<a name="line.17"></a>
+<span class="sourceLineNo">018</span>import javax.annotation.Nonnull;<a name="line.18"></a>
+<span class="sourceLineNo">019</span>import org.anarres.qemu.exec.QEmuMemoryOption;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import org.anarres.qemu.image.QEmuImage;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import org.anarres.qemu.image.QEmuImageFormat;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.anarres.qemu.manager.QEmuManager;<a name="line.22"></a>
+<span class="sourceLineNo">023</span><a name="line.23"></a>
+<span class="sourceLineNo">024</span>/**<a name="line.24"></a>
+<span class="sourceLineNo">025</span> *<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * @author shevek<a name="line.26"></a>
+<span class="sourceLineNo">027</span> */<a name="line.27"></a>
+<span class="sourceLineNo">028</span>public abstract class AbstractQEmuExample implements QEmuExample {<a name="line.28"></a>
+<span class="sourceLineNo">029</span><a name="line.29"></a>
+<span class="sourceLineNo">030</span>    protected final QEmuManager manager = new QEmuManager();<a name="line.30"></a>
+<span class="sourceLineNo">031</span><a name="line.31"></a>
+<span class="sourceLineNo">032</span>    @Nonnull<a name="line.32"></a>
+<span class="sourceLineNo">033</span>    protected QEmuImage newImage(@Nonnull String name) throws IOException {<a name="line.33"></a>
+<span class="sourceLineNo">034</span>        File dir = new File("build/images/local");<a name="line.34"></a>
+<span class="sourceLineNo">035</span>        dir.mkdirs();<a name="line.35"></a>
+<span class="sourceLineNo">036</span>        return new QEmuImage(new File(dir, getClass().getSimpleName() + "-" + name));<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    }<a name="line.37"></a>
+<span class="sourceLineNo">038</span><a name="line.38"></a>
+<span class="sourceLineNo">039</span>    @Nonnull<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    protected QEmuImage newImage(@Nonnull String name, @Nonnegative long size, @Nonnull QEmuMemoryOption.Magnitude magnitude) throws IOException {<a name="line.40"></a>
+<span class="sourceLineNo">041</span>        QEmuImageFormat format = QEmuImageFormat.qcow2;<a name="line.41"></a>
+<span class="sourceLineNo">042</span>        QEmuImage image = newImage(name + "." + format);<a name="line.42"></a>
+<span class="sourceLineNo">043</span>        image.create(format, magnitude.toUnit(size));<a name="line.43"></a>
+<span class="sourceLineNo">044</span>        return image;<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    }<a name="line.45"></a>
+<span class="sourceLineNo">046</span><a name="line.46"></a>
+<span class="sourceLineNo">047</span>    @Nonnull<a name="line.47"></a>
+<span class="sourceLineNo">048</span>    private File download(@Nonnull URI source) throws IOException {<a name="line.48"></a>
+<span class="sourceLineNo">049</span>        File dir = new File("build/images/downloaded");<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        HashCode hash = Hashing.md5().hashString(source.toString(), Charsets.UTF_8);<a name="line.50"></a>
+<span class="sourceLineNo">051</span>        File file = new File(dir, hash.toString());<a name="line.51"></a>
+<span class="sourceLineNo">052</span>        if (!file.exists()) {<a name="line.52"></a>
+<span class="sourceLineNo">053</span>            InputStream in = source.toURL().openStream();<a name="line.53"></a>
+<span class="sourceLineNo">054</span>            try {<a name="line.54"></a>
+<span class="sourceLineNo">055</span>                Files.asByteSink(file).writeFrom(in);<a name="line.55"></a>
+<span class="sourceLineNo">056</span>            } finally {<a name="line.56"></a>
+<span class="sourceLineNo">057</span>                Closeables.close(in, false);<a name="line.57"></a>
+<span class="sourceLineNo">058</span>            }<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        }<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        return file;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>    }<a name="line.61"></a>
+<span class="sourceLineNo">062</span><a name="line.62"></a>
+<span class="sourceLineNo">063</span>    @Nonnull<a name="line.63"></a>
+<span class="sourceLineNo">064</span>    protected QEmuImage newImage(@Nonnull String name, @Nonnull URI source) throws IOException {<a name="line.64"></a>
+<span class="sourceLineNo">065</span>        QEmuImageFormat format = QEmuImageFormat.qcow2;<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        QEmuImage image = newImage(name + "." + format);<a name="line.66"></a>
+<span class="sourceLineNo">067</span><a name="line.67"></a>
+<span class="sourceLineNo">068</span>        File file = download(source);<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        image.create(QEmuImageFormat.qcow2, file);<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        return image;<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    }<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>}<a name="line.73"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

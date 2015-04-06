@@ -1,3 +1,4 @@
+org.anarres.qemu.examples
 org.anarres.qemu.exec
 org.anarres.qemu.exec.host.chardev
 org.anarres.qemu.exec.host.disk

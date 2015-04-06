@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * To change this license header, choose License Headers in Project Properties.<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * To change this template file, choose Tools | Templates<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * and open the template in the editor.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> */<a name="line.5"></a>
+<span class="sourceLineNo">006</span>package org.anarres.qemu.exec;<a name="line.6"></a>
+<span class="sourceLineNo">007</span><a name="line.7"></a>
+<span class="sourceLineNo">008</span>import java.util.Arrays;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import java.util.List;<a name="line.9"></a>
+<span class="sourceLineNo">010</span>import javax.annotation.CheckForNull;<a name="line.10"></a>
+<span class="sourceLineNo">011</span>import javax.annotation.Nonnegative;<a name="line.11"></a>
+<span class="sourceLineNo">012</span>import javax.annotation.Nonnull;<a name="line.12"></a>
+<span class="sourceLineNo">013</span><a name="line.13"></a>
+<span class="sourceLineNo">014</span>/**<a name="line.14"></a>
+<span class="sourceLineNo">015</span> *<a name="line.15"></a>
+<span class="sourceLineNo">016</span> * @author shevek<a name="line.16"></a>
+<span class="sourceLineNo">017</span> */<a name="line.17"></a>
+<span class="sourceLineNo">018</span>public class QEmuBootOption extends AbstractQEmuOption {<a name="line.18"></a>
+<span class="sourceLineNo">019</span><a name="line.19"></a>
+<span class="sourceLineNo">020</span>    public static enum BootDevice {<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>        Floppy0("a"),<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        Floppy1("b"),<a name="line.23"></a>
+<span class="sourceLineNo">024</span>        HardDisk0("c"),<a name="line.24"></a>
+<span class="sourceLineNo">025</span>        HardDisk1("d"),<a name="line.25"></a>
+<span class="sourceLineNo">026</span>        Network0("n"),<a name="line.26"></a>
+<span class="sourceLineNo">027</span>        Network1("o"),<a name="line.27"></a>
+<span class="sourceLineNo">028</span>        Network2("p"),<a name="line.28"></a>
+<span class="sourceLineNo">029</span>        Network3("q");<a name="line.29"></a>
+<span class="sourceLineNo">030</span>        private final String letter;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>        /* pp */ BootDevice(String letter) {<a name="line.31"></a>
+<span class="sourceLineNo">032</span>            this.letter = letter;<a name="line.32"></a>
+<span class="sourceLineNo">033</span>        }<a name="line.33"></a>
+<span class="sourceLineNo">034</span>    }<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>    public final List&lt;BootDevice&gt; bootDevices;<a name="line.36"></a>
+<span class="sourceLineNo">037</span>    // once<a name="line.37"></a>
+<span class="sourceLineNo">038</span>    @CheckForNull<a name="line.38"></a>
+<span class="sourceLineNo">039</span>    public String splashName;<a name="line.39"></a>
+<span class="sourceLineNo">040</span>    @CheckForNull<a name="line.40"></a>
+<span class="sourceLineNo">041</span>    public Integer splashTime;<a name="line.41"></a>
+<span class="sourceLineNo">042</span>    @CheckForNull<a name="line.42"></a>
+<span class="sourceLineNo">043</span>    public Boolean menu;<a name="line.43"></a>
+<span class="sourceLineNo">044</span>    @CheckForNull<a name="line.44"></a>
+<span class="sourceLineNo">045</span>    public Integer rebootTimeout;<a name="line.45"></a>
+<span class="sourceLineNo">046</span>    @CheckForNull<a name="line.46"></a>
+<span class="sourceLineNo">047</span>    public Boolean strict;<a name="line.47"></a>
+<span class="sourceLineNo">048</span><a name="line.48"></a>
+<span class="sourceLineNo">049</span>    public QEmuBootOption(List&lt;BootDevice&gt; bootDevices) {<a name="line.49"></a>
+<span class="sourceLineNo">050</span>        this.bootDevices = bootDevices;<a name="line.50"></a>
+<span class="sourceLineNo">051</span>    }<a name="line.51"></a>
+<span class="sourceLineNo">052</span><a name="line.52"></a>
+<span class="sourceLineNo">053</span>    public QEmuBootOption(BootDevice... bootDevices) {<a name="line.53"></a>
+<span class="sourceLineNo">054</span>        this(Arrays.asList(bootDevices));<a name="line.54"></a>
+<span class="sourceLineNo">055</span>    }<a name="line.55"></a>
+<span class="sourceLineNo">056</span><a name="line.56"></a>
+<span class="sourceLineNo">057</span>    @Nonnull<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    public QEmuBootOption withSplash(@Nonnull String splashName, @Nonnegative int splashTime) {<a name="line.58"></a>
+<span class="sourceLineNo">059</span>        this.splashName = splashName;<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        this.splashTime = splashTime;<a name="line.60"></a>
+<span class="sourceLineNo">061</span>        return this;<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    }<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>    @CheckForNull<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    private String toString(@CheckForNull Boolean value) {<a name="line.65"></a>
+<span class="sourceLineNo">066</span>        if (value == null)<a name="line.66"></a>
+<span class="sourceLineNo">067</span>            return null;<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        if (value)<a name="line.68"></a>
+<span class="sourceLineNo">069</span>            return "on";<a name="line.69"></a>
+<span class="sourceLineNo">070</span>        return "off";<a name="line.70"></a>
+<span class="sourceLineNo">071</span>    }<a name="line.71"></a>
+<span class="sourceLineNo">072</span><a name="line.72"></a>
+<span class="sourceLineNo">073</span>    @Override<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    public void appendTo(List&lt;? super String&gt; line) {<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        StringBuilder buf = new StringBuilder("order=");<a name="line.75"></a>
+<span class="sourceLineNo">076</span>        for (BootDevice bootDevice : bootDevices)<a name="line.76"></a>
+<span class="sourceLineNo">077</span>            buf.append(bootDevice.letter);<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        appendTo(buf, "splash", splashName);<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        appendTo(buf, "splashTime", splashTime);<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        appendTo(buf, "strict", toString(menu));<a name="line.80"></a>
+<span class="sourceLineNo">081</span>        appendTo(buf, "order", rebootTimeout);<a name="line.81"></a>
+<span class="sourceLineNo">082</span>        appendTo(buf, "strict", toString(strict));<a name="line.82"></a>
+<span class="sourceLineNo">083</span>        add(line, "-boot", buf);<a name="line.83"></a>
+<span class="sourceLineNo">084</span>    }<a name="line.84"></a>
+<span class="sourceLineNo">085</span>}<a name="line.85"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

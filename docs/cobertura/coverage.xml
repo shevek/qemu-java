@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.0" branch-rate="0.0" lines-covered="0" lines-valid="6018" branches-covered="0" branches-valid="1308" complexity="1.8241758241758241" version="2.0.3" timestamp="1424328291043">
+<coverage line-rate="0.0" branch-rate="0.0" lines-covered="0" lines-valid="6018" branches-covered="0" branches-valid="1308" complexity="1.8241758241758241" version="2.0.3" timestamp="1428351552187">
 	<sources>
 		<source>/home/shevek/java/qemu-java/qemu-qapi/src/main/java</source>
 	</sources>
