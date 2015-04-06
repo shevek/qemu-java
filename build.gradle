@@ -17,9 +17,9 @@ subprojects {
 	group = "org.anarres.qemu"
 
 	dependencies {
-		compile "org.slf4j:slf4j-api:1.7.7"
+		compile "org.slf4j:slf4j-api:1.7.12"
 		compile "com.google.guava:guava:18.0"
-		compile 'com.fasterxml.jackson.core:jackson-databind:2.4.1.3'
+		compile 'com.fasterxml.jackson.core:jackson-databind:2.5.2'
 	}
 }
 
@@ -38,11 +38,11 @@ project(':qemu-qapi') {
 		generateCompile "com.google.guava:guava:18.0"
 		generateCompile "org.apache.velocity:velocity:1.7"
 		generateCompile "org.apache.velocity:velocity-tools:2.0"
-		generateCompile "net.sf.jopt-simple:jopt-simple:4.6"
+		generateCompile "net.sf.jopt-simple:jopt-simple:4.8"
 		// generateCompile "commons-logging:commons-logging:1.1.3"
-		generateCompile "com.google.code.gson:gson:2.2.4"
+		generateCompile "com.google.code.gson:gson:2.3.1"
 
-		generateRuntime "org.slf4j:slf4j-simple:1.7.7"
+		generateRuntime "org.slf4j:slf4j-simple:1.7.12"
 
 		testCompile project(':qemu-manager')
 		testCompile project(':qemu-exec').sourceSets.test.output
