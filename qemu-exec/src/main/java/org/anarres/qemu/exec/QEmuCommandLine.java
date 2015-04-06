@@ -32,7 +32,10 @@ import org.anarres.qemu.exec.util.QEmuOptionsList;
 public class QEmuCommandLine {
 
     private final QEmuIdAllocator allocator;
+    @Nonnull
     private QEmuArchitecture architecture;
+    @CheckForNull
+    private String commandName;
     private final List<QEmuOption> options = new ArrayList<QEmuOption>();
 
     private QEmuCommandLine(@Nonnull QEmuArchitecture architecture, @Nonnull QEmuIdAllocator allocator) {
@@ -67,6 +70,24 @@ public class QEmuCommandLine {
     @Nonnull
     public List<? extends QEmuOption> getOptions() {
         return options;
+    }
+
+    /**
+     * Returns the name (possibly with path) of the binary used to execute qemu.
+     *
+     * This is derived from {@link #getArchitecture()} if not explicitly
+     * set using {@link #setCommandName(java.lang.String)}.
+     */
+    @Nonnull
+    public String getCommandName() {
+        String c = commandName;
+        if (c != null)
+            return c;
+        return getArchitecture().getCommand();
+    }
+
+    public void setCommandName(@Nonnull String commandName) {
+        this.commandName = commandName;
     }
 
     private static <T extends QEmuOption> void getOptions(@Nonnull List<? super T> out, @Nonnull Iterable<? extends QEmuOption> in, @Nonnull Class<T> type) {
@@ -116,7 +137,7 @@ public class QEmuCommandLine {
     @Nonnull
     public List<String> toCommandWords() {
         List<String> line = new ArrayList<String>();
-        line.add(architecture.getCommand());
+        line.add(getCommandName());
         for (QEmuOption option : options)
             option.appendTo(line);
         return line;
