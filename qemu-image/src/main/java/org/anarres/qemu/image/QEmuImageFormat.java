@@ -22,7 +22,7 @@ public enum QEmuImageFormat {
     qcow,
     /** QEMU copy-on-write format, supporting multiple snapshots, sparse images, AES encryption, and zlib compression. */
     qcow2,
-    /** VMware 3 & 4, or 6 image format, for exchanging images with that product. */
+    /** VMware 3 &amp; 4, or 6 image format, for exchanging images with that product. */
     vmdk,
     /** VirtualBox 1.1 compatible image format, for exchanging images with VirtualBox. */
     vdi
