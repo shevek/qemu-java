@@ -1,25 +1,39 @@
-// Establish version and status
-ext.githubProjectName = rootProject.name // Change if github project name is not the same as the root project's name
-group = "org.anarres.${githubProjectName}"
-
 buildscript {
     apply from: file('gradle/buildscript.gradle'), to: buildscript 
 }
 
-apply from: file('gradle/convention.gradle')
-apply from: file('gradle/github.gradle')
-// apply from: file('gradle/maven.gradle')
-apply from: file('gradle/nexus.gradle')
-apply from: file('gradle/check.gradle')
-apply from: file('gradle/license.gradle')
+apply plugin: 'org.anarres.stdproject'
+stdproject {
+	javadocLink "https://fasterxml.github.io/jackson-core/javadoc/2.5/"
+	javadocLink "https://fasterxml.github.io/jackson-databind/javadoc/2.5/"
+	javadocLink "http://docs.guava-libraries.googlecode.com/git/javadoc/"
+	javadocGroup "QApi/QMP: QEmu Management Protocol", "org.anarres.qemu.qapi*"
+	javadocGroup "Command Line Building and Execution", "org.anarres.qemu.exec*"
+	javadocGroup "Image Management and Manipulation", "org.anarres.qemu.image*"
+	javadocGroup "Process Management", "org.anarres.qemu.manager*"
+	javadocGroup "Demos and Examples", "org.anarres.qemu.examples*"
+}
 
 subprojects {
 	group = "org.anarres.qemu"
 
+	apply plugin: 'org.anarres.stdmodule'
+	stdmodule {
+		description "QEmu/KVM process manager and RPC API."
+		author id: 'shevek', name: 'Shevek', email: 'github@anarres.org'
+		license 'Apache-2.0'
+	}
+
 	dependencies {
+		compile 'com.google.code.findbugs:jsr305:2.0.2'
 		compile "org.slf4j:slf4j-api:1.7.12"
 		compile "com.google.guava:guava:18.0"
 		compile 'com.fasterxml.jackson.core:jackson-databind:2.5.2'
+	}
+
+	sourceCompatibility = 1.5
+	animalsniffer {
+		signature = "org.codehaus.mojo.signature:java15:+@signature"
 	}
 }
 
