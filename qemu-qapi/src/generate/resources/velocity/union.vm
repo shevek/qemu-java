@@ -15,7 +15,7 @@ public class $element.className extends #{if} ($element.superClassName)$element.
 #if ($element.enumDiscriminated)
 	public static enum Discriminator {
 #foreach ($field in $element.fields)
-		${field.name},
+		${field.underscoreName},
 #end
 		__NONE;
 	}
@@ -44,10 +44,10 @@ public class $element.className extends #{if} ($element.superClassName)$element.
 	public static ${element.className} ${field.name}(@Nonnull $field.typeName $field.name) {
 		$element.className self = new ${element.className}();
 #if ($element.enumDiscriminated)
-		self.type = Discriminator.${field.name};
+		self.type = Discriminator.${field.underscoreName};
 #end
 #if ($element.fieldDiscriminated)
-		self.${element.discriminatorField.name} = ${element.discriminatorField.typeName}.${field.name};
+		self.${element.discriminatorField.name} = ${element.discriminatorField.typeName}.${field.underscoreName};
 #end
 		self.${field.name} = $field.name;
 		return self;

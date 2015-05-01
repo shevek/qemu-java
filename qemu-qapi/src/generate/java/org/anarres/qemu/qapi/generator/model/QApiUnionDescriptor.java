@@ -11,7 +11,6 @@ import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
 /**
- *
  * @author shevek
  */
 public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
@@ -86,6 +85,7 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("name", getName())
+                .add("discrinimator", discriminator)
                 .add("data", data)
                 .add("innerTypes", innerTypes)
                 .add("fields", fields)
