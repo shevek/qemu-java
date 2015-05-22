@@ -13,6 +13,9 @@ import java.net.UnknownServiceException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.exec.QEmuCustomOption;
+import org.anarres.qemu.exec.QEmuMonitorOption;
+import org.anarres.qemu.exec.recipe.QEmuMonitorRecipe;
 import org.anarres.qemu.qapi.api.QuitCommand;
 import org.anarres.qemu.qapi.common.QApiConnection;
 import org.anarres.qemu.qapi.common.QApiException;
@@ -39,6 +42,33 @@ public class QEmuProcess {
 
         // new IOThread(process.getInputStream(), stdout).start();
         // new IOThread(process.getErrorStream(), stderr).start();
+    }
+
+    /**
+     * Returns the {@link Process} representing the underlying QEmu process.
+     *
+     * @return the {@link Process} representing the underlying QEmu process.
+     */
+    @Nonnull
+    public Process getProcess() {
+        return process;
+    }
+
+    /**
+     * Returns the address of the QEmu monitor socket, if one exists.
+     *
+     * If you connect to this address, you will have side-effects on the QEmu
+     * virtual machine.
+     *
+     * If the QEmuProcess was started without an appropriate
+     * {@link QEmuMonitorRecipe}, {@link QEmuMonitorOption} or
+     * {@link QEmuCustomOption} then this will return null.
+     *
+     * @return the address of the QEmu monitor socket, if one exists.
+     */
+    @CheckForNull
+    public InetSocketAddress getMonitor() {
+        return monitor;
     }
 
     /**
