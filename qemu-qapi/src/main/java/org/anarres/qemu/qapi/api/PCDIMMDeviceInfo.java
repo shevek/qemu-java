@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,27 +18,35 @@ import org.anarres.qemu.qapi.common.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class PCDIMMDeviceInfo extends QApiType {
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("id")
 	@CheckForNull
 	public java.lang.String id;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("addr")
 	@Nonnull
 	public long addr;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("size")
 	@Nonnull
 	public long size;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("slot")
 	@Nonnull
 	public long slot;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("node")
 	@Nonnull
 	public long node;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("memdev")
 	@Nonnull
 	public java.lang.String memdev;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("hotplugged")
 	@Nonnull
 	public boolean hotplugged;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("hotpluggable")
 	@Nonnull
 	public boolean hotpluggable;

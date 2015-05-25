@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,30 +18,39 @@ import org.anarres.qemu.qapi.common.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CpuInfo extends QApiType {
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("CPU")
 	@Nonnull
 	public long cpu;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("current")
 	@Nonnull
 	public boolean current;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("halted")
 	@Nonnull
 	public boolean halted;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qom_path")
 	@Nonnull
 	public java.lang.String qomPath;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("pc")
 	@CheckForNull
 	public java.lang.Long pc;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("nip")
 	@CheckForNull
 	public java.lang.Long nip;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("npc")
 	@CheckForNull
 	public java.lang.Long npc;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("PC")
 	@CheckForNull
 	public java.lang.Long PC;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("thread_id")
 	@Nonnull
 	public long threadId;

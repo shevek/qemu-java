@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,18 +18,23 @@ import org.anarres.qemu.qapi.common.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsBlkdebug extends QApiType {
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("image")
 	@Nonnull
 	public BlockdevRef image;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("config")
 	@CheckForNull
 	public java.lang.String config;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("align")
 	@CheckForNull
 	public java.lang.Long align;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("inject-error")
 	@CheckForNull
 	public java.util.List<BlkdebugInjectErrorOptions> injectError;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("set-state")
 	@CheckForNull
 	public java.util.List<BlkdebugSetStateOptions> setState;

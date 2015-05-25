@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,45 +18,59 @@ import org.anarres.qemu.qapi.common.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NetdevUserOptions extends QApiType {
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("hostname")
 	@CheckForNull
 	public java.lang.String hostname;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("restrict")
 	@CheckForNull
 	public java.lang.Boolean restrict;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("ip")
 	@CheckForNull
 	public java.lang.String ip;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("net")
 	@CheckForNull
 	public java.lang.String net;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("host")
 	@CheckForNull
 	public java.lang.String host;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("tftp")
 	@CheckForNull
 	public java.lang.String tftp;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("bootfile")
 	@CheckForNull
 	public java.lang.String bootfile;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("dhcpstart")
 	@CheckForNull
 	public java.lang.String dhcpstart;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("dns")
 	@CheckForNull
 	public java.lang.String dns;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("dnssearch")
 	@CheckForNull
 	public java.util.List<String> dnssearch;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("smb")
 	@CheckForNull
 	public java.lang.String smb;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("smbserver")
 	@CheckForNull
 	public java.lang.String smbserver;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("hostfwd")
 	@CheckForNull
 	public java.util.List<String> hostfwd;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("guestfwd")
 	@CheckForNull
 	public java.util.List<String> guestfwd;

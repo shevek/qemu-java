@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,18 +18,23 @@ import org.anarres.qemu.qapi.common.*;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class BlockdevOptionsQuorum extends QApiType {
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("blkverify")
 	@CheckForNull
 	public java.lang.Boolean blkverify;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("children")
 	@Nonnull
 	public java.util.List<BlockdevRef> children;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vote-threshold")
 	@Nonnull
 	public long voteThreshold;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("rewrite-corrupted")
 	@CheckForNull
 	public java.lang.Boolean rewriteCorrupted;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("read-pattern")
 	@CheckForNull
 	public QuorumReadPattern readPattern;
