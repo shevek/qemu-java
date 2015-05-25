@@ -45,10 +45,13 @@ public abstract class QApiElementDescriptor {
             return Double.TYPE.getName();
         if ("size".equals(jsonType))
             return Long.TYPE.getName();
+        // Obsolete as of qemu commit d708cdbe8792a55f53e90c1c787e871d527e8d4b?
         if ("dict".equals(jsonType))
             return "java.util.Map<String, String>";
+        // Obsolete as of qemu commit d708cdbe8792a55f53e90c1c787e871d527e8d4b?
         if ("visitor".equals(jsonType))
             return Object.class.getName(); // + " /* visitor */";
+        // All these should have 'gen' : false
         if ("**".equals(jsonType))
             return Object.class.getName(); // + " /* ARGH. */";
         return jsonType;

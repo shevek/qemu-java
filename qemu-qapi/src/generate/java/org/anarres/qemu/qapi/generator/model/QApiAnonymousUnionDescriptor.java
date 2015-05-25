@@ -8,12 +8,13 @@ import com.google.common.base.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
+ * QApi anonymous unions are represented differently since QEmu commit ab916faddd16f0165e9cc2551f90699be8efde53.
  *
  * @author shevek
  */
-public class QApiTypeDescriptor extends AbstractQApiTypeDescriptor {
+public class QApiAnonymousUnionDescriptor extends AbstractQApiUnionDescriptor {
 
-    @SerializedName("struct")
+    @SerializedName("alternate")
     public String name;
 
     @Override
@@ -22,8 +23,18 @@ public class QApiTypeDescriptor extends AbstractQApiTypeDescriptor {
     }
 
     @Override
-    public String getTemplateName() {
-        return "type";
+    public boolean isEnumDiscriminated() {
+        return false;
+    }
+
+    @Override
+    public boolean isFieldDiscriminated() {
+        return false;
+    }
+
+    @Override
+    public boolean isTypeDiscriminated() {
+        return true;
     }
 
     @Override
@@ -32,6 +43,7 @@ public class QApiTypeDescriptor extends AbstractQApiTypeDescriptor {
                 .add("name", getName())
                 .add("data", data)
                 .add("innerTypes", innerTypes)
+                .add("fields", fields)
                 .toString();
     }
 }

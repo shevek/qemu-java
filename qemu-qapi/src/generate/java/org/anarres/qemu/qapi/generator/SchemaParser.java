@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.Queue;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.qapi.generator.model.QApiAnonymousUnionDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiCommandDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiElementDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiEnumDescriptor;
@@ -77,15 +78,24 @@ public class SchemaParser {
 
                 JsonObject jsonTree = parser.parse(state.jsonReader).getAsJsonObject();
                 // LOG.info("Read generic " + jsonTree);
+
+                // if (jsonTree.get("gen") != null) continue;
+
                 Class<?> type;
                 if (jsonTree.get("command") != null)
                     type = QApiCommandDescriptor.class;
-                else if (jsonTree.get("type") != null)
+                else if (jsonTree.get("struct") != null)
                     type = QApiTypeDescriptor.class;
-                else if (jsonTree.get("enum") != null)
+                else if (jsonTree.get("type") != null) {
+                    // 'struct' replaces 'type' after QEmu commit 895a2a8.
+                    jsonTree.add("struct", jsonTree.remove("type"));
+                    type = QApiTypeDescriptor.class;
+                } else if (jsonTree.get("enum") != null)
                     type = QApiEnumDescriptor.class;
                 else if (jsonTree.get("union") != null)
                     type = QApiUnionDescriptor.class;
+                else if (jsonTree.get("alternate") != null)
+                    type = QApiAnonymousUnionDescriptor.class;
                 else if (jsonTree.get("event") != null)
                     type = QApiEventDescriptor.class;
                 else if (jsonTree.get("include") != null)

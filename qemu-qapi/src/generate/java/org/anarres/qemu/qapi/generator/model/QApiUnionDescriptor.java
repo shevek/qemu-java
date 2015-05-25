@@ -13,14 +13,14 @@ import javax.annotation.Nonnull;
 /**
  * @author shevek
  */
-public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
+public class QApiUnionDescriptor extends AbstractQApiUnionDescriptor {
 
     @SerializedName("union")
     public String name;
     @CheckForNull
     /**
      * String -> existing field.
-     * {} -> by-type (unwrapped)
+     * {} -> by-type (unwrapped) - always a QApiAnonymousUnionDescriptor now?
      * null -> introduce a new 'type' discriminator.
      */
     public Object discriminator;
@@ -55,11 +55,6 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
         return name;
     }
 
-    @Override
-    public String getTemplateName() {
-        return "union";
-    }
-
     public boolean isEnumDiscriminated() {
         return discriminator == null;
     }
@@ -92,4 +87,5 @@ public class QApiUnionDescriptor extends AbstractQApiTypeDescriptor {
                 .add("discriminatorField", discriminatorField)
                 .toString();
     }
+
 }

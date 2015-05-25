@@ -19,6 +19,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
+import org.anarres.qemu.qapi.api.VersionInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,8 +65,8 @@ public class QApiConnection implements Closeable {
     }
 
     @Nonnull
-    public QApiGreeting.QEmuVersion getQEmuVersion() {
-        return getGreeting().QMP.version.qemu;
+    public VersionInfo getQEmuVersion() {
+        return getGreeting().QMP.version;
     }
 
     @Nonnull
