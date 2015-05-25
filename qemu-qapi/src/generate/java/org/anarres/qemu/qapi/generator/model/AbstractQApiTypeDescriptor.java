@@ -88,7 +88,7 @@ public abstract class AbstractQApiTypeDescriptor extends QApiElementDescriptor {
                     field.optional = true;
                     field.name = field.name.substring(1);
                     field.annotations = "@CheckForNull";
-                } else if (this instanceof QApiUnionDescriptor) {
+                } else if (this instanceof AbstractQApiUnionDescriptor) {
                     field.optional = true;
                     field.annotations = "@CheckForNull";
                 } else {

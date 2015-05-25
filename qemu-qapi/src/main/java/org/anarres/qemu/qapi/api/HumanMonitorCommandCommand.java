@@ -2,6 +2,7 @@ package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,9 +18,11 @@ public class HumanMonitorCommandCommand extends QApiCommand<HumanMonitorCommandC
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("command-line")
 		@Nonnull
 		public java.lang.String commandLine;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("cpu-index")
 		@CheckForNull
 		public java.lang.Long cpuIndex;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,13 +19,15 @@ import org.anarres.qemu.qapi.common.*;
 public class Qcow2OverlapChecks extends QApiType implements QApiUnion {
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("flags")
 	@JsonUnwrapped
-	@Nonnull
+	@CheckForNull
 	public Qcow2OverlapCheckFlags flags;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("mode")
 	@JsonUnwrapped
-	@Nonnull
+	@CheckForNull
 	public Qcow2OverlapCheckMode mode;
 	// }
 

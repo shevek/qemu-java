@@ -2,6 +2,7 @@ package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,45 +18,59 @@ public class BlockSetIoThrottleCommand extends QApiCommand<BlockSetIoThrottleCom
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps")
 		@Nonnull
 		public long bps;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps_rd")
 		@Nonnull
 		public long bpsRd;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps_wr")
 		@Nonnull
 		public long bpsWr;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops")
 		@Nonnull
 		public long iops;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_rd")
 		@Nonnull
 		public long iopsRd;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_wr")
 		@Nonnull
 		public long iopsWr;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps_max")
 		@CheckForNull
 		public java.lang.Long bpsMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps_rd_max")
 		@CheckForNull
 		public java.lang.Long bpsRdMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("bps_wr_max")
 		@CheckForNull
 		public java.lang.Long bpsWrMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_max")
 		@CheckForNull
 		public java.lang.Long iopsMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_rd_max")
 		@CheckForNull
 		public java.lang.Long iopsRdMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_wr_max")
 		@CheckForNull
 		public java.lang.Long iopsWrMax;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("iops_size")
 		@CheckForNull
 		public java.lang.Long iopsSize;

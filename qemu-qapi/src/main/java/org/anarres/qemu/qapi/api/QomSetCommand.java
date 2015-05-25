@@ -2,6 +2,7 @@ package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,12 +18,15 @@ public class QomSetCommand extends QApiCommand<QomSetCommand.Arguments, QomSetCo
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("path")
 		@Nonnull
 		public java.lang.String path;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("property")
 		@Nonnull
 		public java.lang.String property;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("value")
 		@Nonnull
 		public java.lang.Object value;

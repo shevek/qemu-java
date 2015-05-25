@@ -1,6 +1,7 @@
 package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -12,12 +13,15 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=QUORUM_FAILURE, data={reference=str, sector-num=int, sectors-count=int}}
 public class QuorumFailureEvent extends QApiEvent {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("reference")
 	@Nonnull
 	public java.lang.String reference;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("sector-num")
 	@Nonnull
 	public long sectorNum;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("sectors-count")
 	@Nonnull
 	public long sectorsCount;

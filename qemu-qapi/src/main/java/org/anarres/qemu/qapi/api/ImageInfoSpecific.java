@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -22,6 +23,7 @@ public class ImageInfoSpecific extends QApiType implements QApiUnion {
 		__NONE;
 	}
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@Nonnull
 	@JsonProperty("type")
 	public Discriminator type;
@@ -32,10 +34,12 @@ public class ImageInfoSpecific extends QApiType implements QApiUnion {
 	}
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qcow2")
 	@JsonUnwrapped
 	@CheckForNull
 	public ImageInfoSpecificQCow2 qcow2;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vmdk")
 	@JsonUnwrapped
 	@CheckForNull

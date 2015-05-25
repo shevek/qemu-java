@@ -2,6 +2,7 @@ package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -17,12 +18,15 @@ public class ChangeBackingFileCommand extends QApiCommand<ChangeBackingFileComma
 	@JsonInclude(JsonInclude.Include.NON_EMPTY)
 	public static class Arguments {
 
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("device")
 		@Nonnull
 		public java.lang.String device;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("image-node-name")
 		@Nonnull
 		public java.lang.String imageNodeName;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("backing-file")
 		@Nonnull
 		public java.lang.String backingFile;

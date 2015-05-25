@@ -2,6 +2,7 @@ package $packageName;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -15,6 +16,7 @@ public class $element.className extends QApiCommand<$element.argumentTypeNameWra
 	public static class $element.argumentType.className {
 
 #foreach ($field in $element.argumentType.fields)
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 		@JsonProperty("$field.serializedName")
 		$field.annotations
 		public $field.typeName $field.name;

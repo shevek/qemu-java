@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -18,114 +19,142 @@ import org.anarres.qemu.qapi.common.*;
 public class BlockdevOptions extends BlockdevOptionsBase implements QApiUnion {
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("archipelago")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsArchipelago archipelago;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("blkdebug")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsBlkdebug blkdebug;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("blkverify")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsBlkverify blkverify;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("bochs")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat bochs;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("cloop")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat cloop;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("dmg")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat dmg;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("file")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile file;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("ftp")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile ftp;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("ftps")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile ftps;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("host_cdrom")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile hostCdrom;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("host_device")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile hostDevice;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("host_floppy")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile hostFloppy;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("http")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile http;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("https")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile https;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("null-aio")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsNull nullAio;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("null-co")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsNull nullCo;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("parallels")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat parallels;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qcow2")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsQcow2 qcow2;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qcow")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericCOWFormat qcow;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qed")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericCOWFormat qed;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("quorum")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsQuorum quorum;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("raw")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat raw;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("tftp")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsFile tftp;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vdi")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat vdi;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vhdx")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat vhdx;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vmdk")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericCOWFormat vmdk;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vpc")
 	@JsonUnwrapped
 	@CheckForNull
 	public BlockdevOptionsGenericFormat vpc;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vvfat")
 	@JsonUnwrapped
 	@CheckForNull

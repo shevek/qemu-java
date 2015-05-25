@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -39,6 +40,7 @@ public class ChardevBackend extends QApiType implements QApiUnion {
 		__NONE;
 	}
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@Nonnull
 	@JsonProperty("type")
 	public Discriminator type;
@@ -49,78 +51,97 @@ public class ChardevBackend extends QApiType implements QApiUnion {
 	}
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("file")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevFile file;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("serial")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevHostdev serial;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("parallel")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevHostdev parallel;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("pipe")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevHostdev pipe;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("socket")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevSocket socket;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("udp")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevUdp udp;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("pty")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy pty;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("null")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy _null;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("mux")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevMux mux;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("msmouse")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy msmouse;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("braille")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy braille;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("testdev")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy testdev;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("stdio")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevStdio stdio;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("console")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevDummy console;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("spicevmc")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevSpiceChannel spicevmc;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("spiceport")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevSpicePort spiceport;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vc")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevVC vc;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("ringbuf")
 	@JsonUnwrapped
 	@CheckForNull
 	public ChardevRingbuf ringbuf;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("memory")
 	@JsonUnwrapped
 	@CheckForNull

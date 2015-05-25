@@ -1,6 +1,7 @@
 package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -12,6 +13,7 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=RTC_CHANGE, data={offset=int}}
 public class RtcChangeEvent extends QApiEvent {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("offset")
 	@Nonnull
 	public long offset;

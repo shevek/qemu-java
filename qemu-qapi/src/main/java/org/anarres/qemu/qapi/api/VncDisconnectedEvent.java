@@ -1,6 +1,7 @@
 package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -12,9 +13,11 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=VNC_DISCONNECTED, data={server=VncServerInfo, client=VncClientInfo}}
 public class VncDisconnectedEvent extends QApiEvent {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("server")
 	@Nonnull
 	public VncServerInfo server;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("client")
 	@Nonnull
 	public VncClientInfo client;

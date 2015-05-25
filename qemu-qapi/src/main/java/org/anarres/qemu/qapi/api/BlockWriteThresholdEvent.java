@@ -1,6 +1,7 @@
 package org.anarres.qemu.qapi.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -12,12 +13,15 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BLOCK_WRITE_THRESHOLD, data={node-name=str, amount-exceeded=uint64, write-threshold=uint64}}
 public class BlockWriteThresholdEvent extends QApiEvent {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("node-name")
 	@Nonnull
 	public java.lang.String nodeName;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("amount-exceeded")
 	@Nonnull
 	public long amountExceeded;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("write-threshold")
 	@Nonnull
 	public long writeThreshold;

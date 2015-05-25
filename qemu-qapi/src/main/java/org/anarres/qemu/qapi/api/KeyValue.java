@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -22,6 +23,7 @@ public class KeyValue extends QApiType implements QApiUnion {
 		__NONE;
 	}
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@Nonnull
 	@JsonProperty("type")
 	public Discriminator type;
@@ -32,10 +34,12 @@ public class KeyValue extends QApiType implements QApiUnion {
 	}
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("number")
 	@JsonUnwrapped
 	@CheckForNull
 	public java.lang.Long number;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("qcode")
 	@JsonUnwrapped
 	@CheckForNull

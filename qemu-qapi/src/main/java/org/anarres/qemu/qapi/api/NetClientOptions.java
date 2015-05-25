@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.annotation.JsonValue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.qapi.common.*;
@@ -32,6 +33,7 @@ public class NetClientOptions extends QApiType implements QApiUnion {
 		__NONE;
 	}
 
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@Nonnull
 	@JsonProperty("type")
 	public Discriminator type;
@@ -42,50 +44,62 @@ public class NetClientOptions extends QApiType implements QApiUnion {
 	}
 
 	// union {
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("none")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevNoneOptions none;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("nic")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetLegacyNicOptions nic;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("user")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevUserOptions user;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("tap")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevTapOptions tap;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("l2tpv3")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevL2TPv3Options l2tpv3;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("socket")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevSocketOptions socket;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vde")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevVdeOptions vde;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("dump")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevDumpOptions dump;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("bridge")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevBridgeOptions bridge;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("hubport")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevHubPortOptions hubport;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("netmap")
 	@JsonUnwrapped
 	@CheckForNull
 	public NetdevNetmapOptions netmap;
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
 	@JsonProperty("vhost-user")
 	@JsonUnwrapped
 	@CheckForNull
