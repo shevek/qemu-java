@@ -1,6 +1,52 @@
 QEmu API for Java
 =================
 
+Motivation
+----------
+
+This project serves two major purposes in integrating QEmu control
+with the JVM.
+
+* Unit Testing
+* Virtual Machine Management
+
+Unit Testing
+------------
+
+It's all about development speed, and development speed is so much
+about test speed, and this package is a key part of the solution to
+test speed.
+
+A primary limiting factor on development speed is the elapsed time
+between writing code and obtaining test results. If the project being
+developed requires a full Unix environment, it is common to have to
+wait for an overnight Jenkins build, which can take hours, and is
+managed by a pile of ad-hoc shell scripts - yes, I know you've done
+it because I've done it. We've all done it.
+
+In addition, such ad-hoc shell scripts make it impossible to
+comprehensively test failure modes: disk, CPU, network, rack,
+port, since they cannot control the emulated environment in a fine
+grained manner. This package allows the automation of the assembly
+and manipulation of complex network topologies, control of the full
+lifecycle of the application and underlying VM, and the programmatic
+introduction of any fault which can be emulated by QEmu or Linux.
+
+By integrating QEmu and QApi with JUnit and Java, it is also
+integrated with Jenkins, Gradle, and the rest of the standard
+enterprise testing and reporting stack. When combined with
+[http://github.com/shevek/imagebuilder](imagebuilder), this package
+also permits developers to test reliably on their own laptop what
+would previously have required corporate infrastructure, further
+accelerating the development cycle.
+
+[http://github.com/nebula-plugins/nebula-ospackage-plugin](nebula-ospackage-plugin)
+is also very useful for making single-button gradle builds which
+assemble and test software.
+
+Structure of the Project
+------------------------
+
 This package consists of three major modules for manipulating and
 managing QEmu virtual machines from Java. They are:
 
