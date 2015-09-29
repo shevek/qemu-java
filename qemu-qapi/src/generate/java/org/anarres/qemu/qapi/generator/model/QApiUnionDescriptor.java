@@ -43,8 +43,13 @@ public class QApiUnionDescriptor extends AbstractQApiUnionDescriptor {
                 throw new IllegalArgumentException("Discriminator field " + discriminator + " not found in " + getFields());
             } else {
                 discriminatorField = new Field();
-                discriminatorField.typeName = "BlockdevDriver"; // XXX TODO: HACK HACK - look this up in the global type dict.
-                discriminatorField.name = toJavaEnumName((String) discriminator);
+                if ("BlockdevOptions".equals(name))
+                    discriminatorField.typeName = "BlockdevDriver"; // XXX TODO: HACK HACK - look this up in the global type dict.
+                else if ("SchemaInfo".equals(name))
+                    discriminatorField.typeName = "SchemaMetaType";
+                else
+                    throw new IllegalArgumentException("Unknown union discriminator in " + name + " - contact Shevek for a fix because he was lazy");
+                discriminatorField.name = toJavaName((String) discriminator);
             }
         }
         return true;
@@ -80,7 +85,7 @@ public class QApiUnionDescriptor extends AbstractQApiUnionDescriptor {
     public String toString() {
         return Objects.toStringHelper(this)
                 .add("name", getName())
-                .add("discrinimator", discriminator)
+                .add("discriminator", discriminator)
                 .add("data", data)
                 .add("innerTypes", innerTypes)
                 .add("fields", fields)

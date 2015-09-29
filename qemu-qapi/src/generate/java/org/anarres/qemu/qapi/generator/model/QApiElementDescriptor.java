@@ -54,6 +54,9 @@ public abstract class QApiElementDescriptor {
         // All these should have 'gen' : false
         if ("**".equals(jsonType))
             return Object.class.getName(); // + " /* ARGH. */";
+        // Something after 2015-September
+        if ("any".equals(jsonType))
+            return Object.class.getName(); // + " /* ARGH. */";
         return jsonType;
     }
 
@@ -112,6 +115,12 @@ public abstract class QApiElementDescriptor {
             return "_null";
         if ("implements".equals(name))
             return "_implements";
+        if ("case".equals(name))
+            return "_case";
+        if ("int".equals(name))
+            return "_int";
+        if ("enum".equals(name))
+            return "_enum";
         // QKeyCode has an enum with ints in it.
         if (Longs.tryParse(name) != null)
             return "VAL_" + name;
