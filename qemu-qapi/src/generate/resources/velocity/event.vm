@@ -9,10 +9,18 @@ import org.anarres.qemu.qapi.common.*;
 #parse("/velocity/header.vm")
 // $element
 public class $element.className extends QApiEvent {
+
+#if (!$element.fields.isEmpty())
+	public static class Data {
 #foreach ($field in $element.fields)
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("$field.serializedName")
-	$field.annotations
-	public $field.typeName $field.name;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("$field.serializedName")
+		$field.annotations
+		public $field.typeName $field.name;
+#end
+	}
+
+	@JsonProperty("data")
+	public Data data;
 #end
 }
