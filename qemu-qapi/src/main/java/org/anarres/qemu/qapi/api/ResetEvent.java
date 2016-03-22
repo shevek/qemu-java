@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=RESET, data=null}
 public class ResetEvent extends QApiEvent {
+
 }

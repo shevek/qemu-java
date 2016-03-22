@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=WATCHDOG, data={action=WatchdogExpirationAction}}
 public class WatchdogEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("action")
-	@Nonnull
-	public WatchdogExpirationAction action;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("action")
+		@Nonnull
+		public WatchdogExpirationAction action;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

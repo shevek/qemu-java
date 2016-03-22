@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=WAKEUP, data=null}
 public class WakeupEvent extends QApiEvent {
+
 }

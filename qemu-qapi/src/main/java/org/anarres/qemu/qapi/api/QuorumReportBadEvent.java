@@ -13,20 +13,26 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=QUORUM_REPORT_BAD, data={*error=str, node-name=str, sector-num=int, sectors-count=int}}
 public class QuorumReportBadEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("error")
-	@CheckForNull
-	public java.lang.String error;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("node-name")
-	@Nonnull
-	public java.lang.String nodeName;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("sector-num")
-	@Nonnull
-	public long sectorNum;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("sectors-count")
-	@Nonnull
-	public long sectorsCount;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("error")
+		@CheckForNull
+		public java.lang.String error;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("node-name")
+		@Nonnull
+		public java.lang.String nodeName;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("sector-num")
+		@Nonnull
+		public long sectorNum;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("sectors-count")
+		@Nonnull
+		public long sectorsCount;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

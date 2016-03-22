@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=SUSPEND_DISK, data=null}
 public class SuspendDiskEvent extends QApiEvent {
+
 }

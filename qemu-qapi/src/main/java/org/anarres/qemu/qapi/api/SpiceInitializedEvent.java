@@ -13,12 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=SPICE_INITIALIZED, data={server=SpiceServerInfo, client=SpiceChannel}}
 public class SpiceInitializedEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("server")
-	@Nonnull
-	public SpiceServerInfo server;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("client")
-	@Nonnull
-	public SpiceChannel client;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("server")
+		@Nonnull
+		public SpiceServerInfo server;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("client")
+		@Nonnull
+		public SpiceChannel client;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

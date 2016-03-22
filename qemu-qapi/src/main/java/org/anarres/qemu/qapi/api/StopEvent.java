@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=STOP, data=null}
 public class StopEvent extends QApiEvent {
+
 }

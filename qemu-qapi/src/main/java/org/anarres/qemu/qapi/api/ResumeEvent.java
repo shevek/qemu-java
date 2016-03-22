@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=RESUME, data=null}
 public class ResumeEvent extends QApiEvent {
+
 }

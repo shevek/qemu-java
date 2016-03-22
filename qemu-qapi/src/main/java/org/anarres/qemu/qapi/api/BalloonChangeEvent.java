@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BALLOON_CHANGE, data={actual=int}}
 public class BalloonChangeEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("actual")
-	@Nonnull
-	public long actual;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("actual")
+		@Nonnull
+		public long actual;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

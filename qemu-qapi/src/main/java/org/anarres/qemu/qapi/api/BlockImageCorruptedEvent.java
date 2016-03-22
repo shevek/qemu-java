@@ -13,28 +13,34 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=BLOCK_IMAGE_CORRUPTED, data={device=str, *node-name=str, msg=str, *offset=int, *size=int, fatal=bool}}
 public class BlockImageCorruptedEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("device")
-	@Nonnull
-	public java.lang.String device;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("node-name")
-	@CheckForNull
-	public java.lang.String nodeName;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("msg")
-	@Nonnull
-	public java.lang.String msg;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("offset")
-	@CheckForNull
-	public java.lang.Long offset;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("size")
-	@CheckForNull
-	public java.lang.Long size;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("fatal")
-	@Nonnull
-	public boolean fatal;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("device")
+		@Nonnull
+		public java.lang.String device;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("node-name")
+		@CheckForNull
+		public java.lang.String nodeName;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("msg")
+		@Nonnull
+		public java.lang.String msg;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("offset")
+		@CheckForNull
+		public java.lang.Long offset;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("size")
+		@CheckForNull
+		public java.lang.Long size;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("fatal")
+		@Nonnull
+		public boolean fatal;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

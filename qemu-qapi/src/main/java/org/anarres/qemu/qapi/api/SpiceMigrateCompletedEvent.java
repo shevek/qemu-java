@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=SPICE_MIGRATE_COMPLETED, data=null}
 public class SpiceMigrateCompletedEvent extends QApiEvent {
+
 }

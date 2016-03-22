@@ -13,12 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=VSERPORT_CHANGE, data={id=str, open=bool}}
 public class VserportChangeEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("id")
-	@Nonnull
-	public java.lang.String id;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("open")
-	@Nonnull
-	public boolean open;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("id")
+		@Nonnull
+		public java.lang.String id;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("open")
+		@Nonnull
+		public boolean open;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

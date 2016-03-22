@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=RTC_CHANGE, data={offset=int}}
 public class RtcChangeEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("offset")
-	@Nonnull
-	public long offset;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("offset")
+		@Nonnull
+		public long offset;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

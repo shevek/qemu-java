@@ -13,4 +13,5 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=POWERDOWN, data=null}
 public class PowerdownEvent extends QApiEvent {
+
 }

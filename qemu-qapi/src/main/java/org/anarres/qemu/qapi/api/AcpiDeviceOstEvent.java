@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=ACPI_DEVICE_OST, data={info=ACPIOSTInfo}}
 public class AcpiDeviceOstEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("info")
-	@Nonnull
-	public ACPIOSTInfo info;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("info")
+		@Nonnull
+		public ACPIOSTInfo info;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

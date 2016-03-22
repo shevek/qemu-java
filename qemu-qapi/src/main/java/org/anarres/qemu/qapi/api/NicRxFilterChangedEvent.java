@@ -13,12 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=NIC_RX_FILTER_CHANGED, data={*name=str, path=str}}
 public class NicRxFilterChangedEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("name")
-	@CheckForNull
-	public java.lang.String name;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("path")
-	@Nonnull
-	public java.lang.String path;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("name")
+		@CheckForNull
+		public java.lang.String name;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("path")
+		@Nonnull
+		public java.lang.String path;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

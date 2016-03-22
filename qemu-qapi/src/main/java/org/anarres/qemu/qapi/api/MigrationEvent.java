@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=MIGRATION, data={status=MigrationStatus}}
 public class MigrationEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("status")
-	@Nonnull
-	public MigrationStatus status;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("status")
+		@Nonnull
+		public MigrationStatus status;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

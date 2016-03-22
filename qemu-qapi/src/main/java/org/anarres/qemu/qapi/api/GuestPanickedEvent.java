@@ -13,8 +13,14 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=GUEST_PANICKED, data={action=GuestPanicAction}}
 public class GuestPanickedEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("action")
-	@Nonnull
-	public GuestPanicAction action;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("action")
+		@Nonnull
+		public GuestPanicAction action;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }

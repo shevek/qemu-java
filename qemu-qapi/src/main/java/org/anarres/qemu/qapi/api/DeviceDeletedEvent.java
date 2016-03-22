@@ -13,12 +13,18 @@ import org.anarres.qemu.qapi.common.*;
  */
 // QApiEventDescriptor{name=DEVICE_DELETED, data={*device=str, path=str}}
 public class DeviceDeletedEvent extends QApiEvent {
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("device")
-	@CheckForNull
-	public java.lang.String device;
-	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
-	@JsonProperty("path")
-	@Nonnull
-	public java.lang.String path;
+
+	public static class Data {
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("device")
+		@CheckForNull
+		public java.lang.String device;
+		@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+		@JsonProperty("path")
+		@Nonnull
+		public java.lang.String path;
+	}
+
+	@JsonProperty("data")
+	public Data data;
 }
