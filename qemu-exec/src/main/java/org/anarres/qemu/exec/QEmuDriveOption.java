@@ -217,8 +217,11 @@ public class QEmuDriveOption extends AbstractQEmuOption {
         appendTo(buf, "discard", discard);
         appendTo(buf, "werror", werror);
         appendTo(buf, "rerror", rerror);
-        if (readonly)
+        if (readonly) {
+            if (buf.length() > 0)
+                buf.append(",");
             buf.append("readonly");
+        }
         appendTo(buf, "copy-on-read", copyOnRead);
 
         add(line, "-drive", buf.toString());
