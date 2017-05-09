@@ -16,5 +16,5 @@ public interface QApiUnion {
      *
      * i.e. exactly one field is set.
      */
-    public boolean isValidUnion();
+    boolean isValidUnion();
 }

@@ -5,11 +5,16 @@
 package org.anarres.qemu.qapi.common;
 
 import java.net.InetSocketAddress;
+
+import org.anarres.qemu.exec.QEmuDriveOption;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
+import org.anarres.qemu.qapi.api.BlockdevAioOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
 import org.anarres.qemu.qapi.api.BlockdevOptionsGenericFormat;
+import org.anarres.qemu.qapi.api.BlockdevOptionsRaw;
 import org.anarres.qemu.qapi.api.BlockdevRef;
+import org.anarres.qemu.qapi.api.OnOffAuto;
 import org.anarres.qemu.qapi.api.QueryBlockCommand;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -36,10 +41,11 @@ public class QApiBlockdevTest {
         // }
 
         {
-            BlockdevOptions fileOptions = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img"));
+            BlockdevOptions fileOptions = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img",
+                    OnOffAuto.auto, BlockdevAioOptions._native));
 
-            BlockdevOptions rawOptions = BlockdevOptions.raw(new BlockdevOptionsGenericFormat(BlockdevRef.definition(fileOptions)));
-            rawOptions.withId("bar");
+            BlockdevOptions rawOptions = BlockdevOptions.raw((BlockdevOptionsRaw) new BlockdevOptionsRaw()
+                    .withFile(BlockdevRef.definition(fileOptions)));
             // String text = QApiTestUtils.toJson(new BlockdevAddCommand(rawOptions));
             // LOG.info("Text = " + text);
 

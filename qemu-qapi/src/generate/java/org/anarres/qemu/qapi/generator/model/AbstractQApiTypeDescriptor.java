@@ -17,6 +17,7 @@ import javax.annotation.Nonnull;
  * @author shevek
  */
 public abstract class AbstractQApiTypeDescriptor extends QApiElementDescriptor {
+    public Object base;
 
     public static class Field {
 
@@ -66,7 +67,6 @@ public abstract class AbstractQApiTypeDescriptor extends QApiElementDescriptor {
                     .toString();
         }
     }
-    public String base;
     /** Value is either string(type) or List<String>(type). */
     public Map<String, Object> data;
     protected List<QApiTypeDescriptor> innerTypes;
@@ -124,7 +124,9 @@ public abstract class AbstractQApiTypeDescriptor extends QApiElementDescriptor {
         preprocess(this);
         if (base == null)
             return null;
-        return toClassName(base);
+        if (base instanceof String)
+            return toClassName((String) base);
+        return null;
     }
 
     @Nonnull

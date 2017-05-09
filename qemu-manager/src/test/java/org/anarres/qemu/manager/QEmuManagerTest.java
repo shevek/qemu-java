@@ -11,8 +11,10 @@ import org.anarres.qemu.exec.QEmuCpusOption;
 import org.anarres.qemu.exec.QEmuTestUtils;
 import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
+import org.anarres.qemu.qapi.api.BlockdevAioOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
+import org.anarres.qemu.qapi.api.OnOffAuto;
 import org.anarres.qemu.qapi.api.QueryBlockCommand;
 import org.anarres.qemu.qapi.common.QApiConnection;
 import org.anarres.qemu.qapi.common.QApiException;
@@ -44,8 +46,12 @@ public class QEmuManagerTest {
 
             try {
                 File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
-                BlockdevOptions options = BlockdevOptions.file(new BlockdevOptionsFile(file.getAbsolutePath()));
-                options.withId("foo").withReadOnly(true);
+                BlockdevOptions options = BlockdevOptions.file(
+                        new BlockdevOptionsFile(
+                                file.getAbsolutePath(),
+                                OnOffAuto.auto,
+                                BlockdevAioOptions._native));
+                options.withReadOnly(true);
 
                 connection.call(new BlockdevAddCommand(options));
                 LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));

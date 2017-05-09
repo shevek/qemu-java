@@ -88,7 +88,6 @@ public class $element.className extends #{if} ($element.superClassName)$element.
 		return super.getFieldByName(name);
 	}
 
-	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

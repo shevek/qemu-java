@@ -9,7 +9,7 @@ package org.anarres.qemu.qapi.generator.model;
  *
  * @author shevek
  */
-public abstract class AbstractQApiUnionDescriptor extends AbstractQApiTypeDescriptor {
+public abstract class AbstractQApiUnionDescriptor extends AbstractQApiStructDescriptor {
 
     @Override
     public String getTemplateName() {
