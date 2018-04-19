@@ -20,7 +20,7 @@ public class Main {
         OptionParser parser = new OptionParser();
         OptionSpec<URL> inputOption = parser.accepts("input", "Location of qapi-schema.json")
                 .withRequiredArg().ofType(URL.class).describedAs("qapi-schema.json")
-                .defaultsTo(new URL("https://raw.githubusercontent.com/qemu/qemu/master/qapi-schema.json"));
+                .defaultsTo(new URL("https://raw.githubusercontent.com/qemu/qemu/master/qapi/qapi-schema.json"));
         OptionSpec<String> packageOption = parser.accepts("package", "Output package name.")
                 .withRequiredArg().describedAs("com.mypackage")
                 .defaultsTo("org.anarres.qemu.qapi.api");
