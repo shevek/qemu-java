@@ -18,14 +18,18 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import javax.annotation.Nonnull;
+
+import org.anarres.qemu.qapi.generator.model.AbstractQApiTypeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiAnonymousUnionDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiCommandDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiElementDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiEnumDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiEventDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiIncludeDescriptor;
+import org.anarres.qemu.qapi.generator.model.QApiStructDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiTypeDescriptor;
 import org.anarres.qemu.qapi.generator.model.QApiUnionDescriptor;
 
@@ -85,7 +89,7 @@ public class SchemaParser {
                 if (jsonTree.get("command") != null)
                     type = QApiCommandDescriptor.class;
                 else if (jsonTree.get("struct") != null)
-                    type = QApiTypeDescriptor.class;
+                    type = QApiStructDescriptor.class;
                 else if (jsonTree.get("type") != null) {
                     // 'struct' replaces 'type' after QEmu commit 895a2a8.
                     jsonTree.add("struct", jsonTree.remove("type"));
@@ -100,6 +104,8 @@ public class SchemaParser {
                     type = QApiEventDescriptor.class;
                 else if (jsonTree.get("include") != null)
                     type = QApiIncludeDescriptor.class;
+                else if (jsonTree.get("pragma") != null)
+                    continue; // ignore pragma sections
                 else
                     throw new IllegalArgumentException("Unknown JsonObject " + jsonTree);
                 // LOG.info("Tree is " + jsonTree + "; docs are " + state.schemaReader.getDocs());
@@ -118,7 +124,15 @@ public class SchemaParser {
 
                 QApiElementDescriptor element = (QApiElementDescriptor) object;
                 // element.docs = state.schemaReader.getDocs();
+                element.setModel(model);
                 model.elements.put(element.getName(), element);
+
+                if ((element instanceof AbstractQApiTypeDescriptor) && (((AbstractQApiTypeDescriptor) element).base instanceof Map)) {
+                    QApiTypeDescriptor parentElement = QApiTypeDescriptor.fromMap(
+                            (Map) ((AbstractQApiTypeDescriptor) element).base,
+                            element.getName() + "Base");
+                    model.elements.put(parentElement.getName(), parentElement);
+                }
                 // LOG.info("Read specific " + element);
             }
 

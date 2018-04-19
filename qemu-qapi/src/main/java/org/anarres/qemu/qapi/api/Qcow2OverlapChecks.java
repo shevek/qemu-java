@@ -73,7 +73,6 @@ public class Qcow2OverlapChecks extends QApiType implements QApiUnion {
 		return super.getFieldByName(name);
 	}
 
-	@Override
 	@JsonIgnore
 	public boolean isValidUnion() {
 		int count = 0;

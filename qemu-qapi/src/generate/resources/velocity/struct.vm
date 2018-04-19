@@ -1,0 +1,72 @@
+package $packageName;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
+import org.anarres.qemu.qapi.common.*;
+
+#parse("/velocity/header.vm")
+// $element
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+public class $element.className extends #{if} ($element.superClassName)$element.superClassName#{else}QApiType#{end} {
+#foreach ($innerType in $element.innerTypes)
+	// $innerType
+	@JsonInclude(JsonInclude.Include.NON_EMPTY)
+	public static class $innerType.name {
+#foreach ($field in $innerType.fields)
+		@JsonProperty("$field.serializedName")
+		$field.annotations
+		public $field.typeName $field.name;
+#end
+	}
+#end
+
+#foreach ($field in $element.fields)
+	@SuppressFBWarnings("NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR")
+	@JsonProperty("$field.serializedName")
+	$field.annotations
+	public $field.typeName $field.name;
+#end
+#foreach ($field in $element.fields)
+
+	@Nonnull
+	public $element.className with${field.capName}($field.typeName value) {
+		this.${field.name} = value;
+		return this;
+	}
+#end
+
+	public ${element.className}() {
+	}
+#if ($element.fields.size() > 0)
+
+	public ${element.className}(#{foreach} ($field in $element.fields)#{if} ($velocityCount > 1), #{end}$field.typeName $field.name#{end}) {
+#foreach ($field in $element.fields)
+		this.$field.name = $field.name;
+#end
+	}
+#end
+
+	@JsonIgnore
+	@Override
+	public java.util.List<java.lang.String> getFieldNames() {
+		java.util.List<java.lang.String> names = super.getFieldNames();
+#foreach ($field in $element.fields)
+		names.add("$field.serializedName");
+#end
+		return names;
+	}
+
+	@Override
+	public Object getFieldByName(@Nonnull java.lang.String name) throws NoSuchFieldException {
+#foreach ($field in $element.fields)
+		if ("$field.serializedName".equals(name))
+			return $field.name;
+#end
+		return super.getFieldByName(name);
+	}
+}

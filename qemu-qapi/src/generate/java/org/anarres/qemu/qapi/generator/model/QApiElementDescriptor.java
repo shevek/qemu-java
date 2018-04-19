@@ -7,6 +7,8 @@ package org.anarres.qemu.qapi.generator.model;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Iterables;
 import com.google.common.primitives.Longs;
+import org.anarres.qemu.qapi.generator.SchemaModel;
+
 import java.util.List;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
@@ -16,6 +18,8 @@ import javax.annotation.Nonnull;
  * @author shevek
  */
 public abstract class QApiElementDescriptor {
+
+    protected SchemaModel model;
 
     @Nonnull
     protected static String toJavaType(@Nonnull String jsonType) {
@@ -121,9 +125,14 @@ public abstract class QApiElementDescriptor {
             return "_int";
         if ("enum".equals(name))
             return "_enum";
+        if ("static".equals(name))
+            return "_static";
         // QKeyCode has an enum with ints in it.
         if (Longs.tryParse(name) != null)
             return "VAL_" + name;
+        // Now there's QCryptoCipherAlgorithm 3des
+        if (Character.isDigit(name.charAt(0)))
+            return "_" + name;
         return name;
     }
 
@@ -155,4 +164,9 @@ public abstract class QApiElementDescriptor {
 
     @Nonnull
     public abstract String getTemplateName();
+
+    public void setModel(SchemaModel model) {
+        this.model = model;
+    }
+
 }

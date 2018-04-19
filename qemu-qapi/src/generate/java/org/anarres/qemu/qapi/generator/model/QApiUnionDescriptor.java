@@ -4,9 +4,10 @@
  */
 package org.anarres.qemu.qapi.generator.model;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.gson.annotations.SerializedName;
 import java.util.Iterator;
+import java.util.Map;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
 
@@ -30,27 +31,35 @@ public class QApiUnionDescriptor extends AbstractQApiUnionDescriptor {
     protected boolean preprocess(AbstractQApiTypeDescriptor root) {
         if (!super.preprocess(root))
             return false;
-        FIELD:
         if (discriminator instanceof String) {
-            if (false) {
-                for (Iterator<Field> it = getFields().iterator(); it.hasNext(); /* */) {
-                    Field field = it.next();
-                    if (discriminator.equals(field.name)) {
-                        discriminatorField = field;
-                        break FIELD;
+            discriminatorField = new Field();
+            AbstractQApiStructDescriptor current = this;
+            for (; ; ) {
+                for (Field field : current.getFields()) {
+                    if (discriminator.equals(field.getName())) {
+                        discriminatorField.typeName = field.getTypeName();
+                        break;
                     }
                 }
-                throw new IllegalArgumentException("Discriminator field " + discriminator + " not found in " + getFields());
-            } else {
-                discriminatorField = new Field();
-                if ("BlockdevOptions".equals(name))
-                    discriminatorField.typeName = "BlockdevDriver"; // XXX TODO: HACK HACK - look this up in the global type dict.
-                else if ("SchemaInfo".equals(name))
-                    discriminatorField.typeName = "SchemaMetaType";
-                else
-                    throw new IllegalArgumentException("Unknown union discriminator in " + name + " - contact Shevek for a fix because he was lazy");
-                discriminatorField.name = toJavaName((String) discriminator);
+                if (current.base != null) {
+                    if (current.base instanceof Map) {
+                        String typeName = (String) ((Map) current.base).get(discriminator);
+                        if (typeName != null) {
+                            discriminatorField.typeName = typeName;
+                            break;
+                        }
+                    } else {
+                        current = (AbstractQApiStructDescriptor) model.elements.get(current.base);
+                    }
+                } else {
+                    break;
+                }
             }
+            if (discriminatorField.typeName == null) {
+                throw new IllegalArgumentException("Unknown union discriminator in " + name +
+                        " - contact Shevek for a fix because he was lazy");
+            }
+            discriminatorField.name = toJavaName((String) discriminator);
         }
         return true;
     }
@@ -83,12 +92,13 @@ public class QApiUnionDescriptor extends AbstractQApiUnionDescriptor {
 
     @Override
     public String toString() {
-        return Objects.toStringHelper(this)
+        return MoreObjects.toStringHelper(this)
                 .add("name", getName())
                 .add("discriminator", discriminator)
                 .add("data", data)
                 .add("innerTypes", innerTypes)
                 .add("fields", fields)
+                .add("base", base)
                 .add("discriminatorField", discriminatorField)
                 .toString();
     }

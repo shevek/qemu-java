@@ -4,7 +4,7 @@
  */
 package org.anarres.qemu.qapi.generator.model;
 
-import com.google.common.base.Objects;
+import com.google.common.base.MoreObjects;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -39,7 +39,7 @@ public class QApiAnonymousUnionDescriptor extends AbstractQApiUnionDescriptor {
 
     @Override
     public String toString() {
-        return Objects.toStringHelper(this)
+        return MoreObjects.toStringHelper(this)
                 .add("name", getName())
                 .add("data", data)
                 .add("innerTypes", innerTypes)
