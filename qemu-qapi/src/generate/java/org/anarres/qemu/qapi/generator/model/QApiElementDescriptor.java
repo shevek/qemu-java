@@ -7,6 +7,7 @@ package org.anarres.qemu.qapi.generator.model;
 import com.google.common.base.CaseFormat;
 import com.google.common.collect.Iterables;
 import com.google.common.primitives.Longs;
+import java.util.Optional;
 import org.anarres.qemu.qapi.generator.SchemaModel;
 
 import java.util.List;
@@ -49,6 +50,8 @@ public abstract class QApiElementDescriptor {
             return Double.TYPE.getName();
         if ("size".equals(jsonType))
             return Long.TYPE.getName();
+        if ("null".equals(jsonType))
+            return Optional.class.getName();
         // Obsolete as of qemu commit d708cdbe8792a55f53e90c1c787e871d527e8d4b?
         if ("dict".equals(jsonType))
             return "java.util.Map<String, String>";

@@ -41,8 +41,14 @@ subprojects {
 		compile 'com.fasterxml.jackson.core:jackson-databind:2.5.2'
 	}
 
-	sourceCompatibility = 1.5
+	sourceCompatibility = 1.8
 	animalsniffer {
+                // Currently skipped I believe because of this bug:
+                // https://github.com/mojohaus/animal-sniffer/pull/32
+                // If org.anarres.gradle:gradle-stdproject-plugin switches to
+                // https://github.com/xvik/gradle-animalsniffer-plugin then
+                // animal sniffer to 1.16 might fix the problem.
+		skip = true
 		signature = "org.codehaus.mojo.signature:java15:+@signature"
 	}
 }
