@@ -80,6 +80,7 @@ project(':qemu-qapi') {
 		generateRuntime "org.slf4j:log4j-over-slf4j:$slf4jVersion"
 		generateRuntime "org.slf4j:jcl-over-slf4j:$slf4jVersion"
 
+                testCompile "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.5.2"
 		testCompile project(':qemu-manager')
 		testCompile project(':qemu-exec').sourceSets.test.output
 	}

@@ -8,6 +8,7 @@ import javax.annotation.Nonnegative;
 import javax.annotation.Nonnull;
 import org.anarres.qemu.exec.QEmuDeviceOption;
 import org.anarres.qemu.exec.QEmuDriveOption;
+import org.anarres.qemu.exec.QEmuDriveOption.Cache;
 import org.anarres.qemu.exec.host.disk.Disk;
 import org.anarres.qemu.exec.host.disk.FileDisk;
 import org.anarres.qemu.exec.util.QEmuIdAllocator;
@@ -33,7 +34,8 @@ public class QEmuVirtioDriveRecipe extends QEmuOptionsList implements QEmuRecipe
         driveOption = new QEmuDriveOption(index, disk)
                 .withInterface(QEmuDriveOption.Interface.none)
                 .withId("backend-disk-" + index)
-                .withAio(QEmuDriveOption.Aio._native);
+                .withAio(QEmuDriveOption.Aio._native)
+                .withCache(Cache.none);
         add(driveOption);
         // virtio-blk-pci,scsi=off,bus=pci.0,addr=0x5,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1
         deviceOption = new QEmuDeviceOption.VirtioBlock();

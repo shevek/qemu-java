@@ -96,6 +96,21 @@ can use QApi directly.
 It is the job of the user to provide an appropriate InetSocketAddress
 for the QApiConnection. Or you could use qemu-manager:
 
+*Important note:* The generated sources use the Optional type from
+Java 8. This means that consumers of this library must:
+
+1. Use Java 8.
+2. Ensure that Jackson is configured correctly. There are two options,
+   per the documentation at:
+   https://github.com/FasterXML/jackson-modules-java8
+   1. 1. Jackson 3.x requires Java 8 to work and thereby supports
+      Optional as we require. However, it is not released as of April
+      2018.
+   2. Jackson 2.x requires the Java 8 Datatypes module to support
+      Optional correctly. Add a dependency on `jackson-datatype-jdk8`
+      and minimally configure the `ObjectMapper` per the instructions
+      at the link above.
+
 Managing QEmu Processes (qemu-manager)
 --------------------------------------
 

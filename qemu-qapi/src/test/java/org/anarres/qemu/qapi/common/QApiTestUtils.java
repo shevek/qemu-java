@@ -17,13 +17,15 @@ public class QApiTestUtils {
 
     @Nonnull
     public static String toJson(@CheckForNull Object o) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(o);
+        return getConfiguredObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(o);
     }
 
     @Nonnull
     public static <T> T fromJson(@Nonnull String text, @Nonnull Class<T> type) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(text, type);
+        return getConfiguredObjectMapper().readValue(text, type);
+    }
+
+    public static ObjectMapper getConfiguredObjectMapper() {
+        return new ObjectMapper().findAndRegisterModules();
     }
 }

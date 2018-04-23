@@ -42,7 +42,7 @@ public class QApiBlockdevTest {
 
         {
             BlockdevOptions fileOptions = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img",
-                    OnOffAuto.auto, BlockdevAioOptions._native));
+                    null, OnOffAuto.auto, BlockdevAioOptions._native));
 
             BlockdevOptions rawOptions = BlockdevOptions.raw((BlockdevOptionsRaw) new BlockdevOptionsRaw()
                     .withFile(BlockdevRef.definition(fileOptions)));

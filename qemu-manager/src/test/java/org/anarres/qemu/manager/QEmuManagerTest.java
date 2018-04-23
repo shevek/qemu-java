@@ -4,7 +4,11 @@
  */
 package org.anarres.qemu.manager;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.concurrent.TimeUnit;
 import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
@@ -12,6 +16,7 @@ import org.anarres.qemu.exec.QEmuTestUtils;
 import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevAioOptions;
+import org.anarres.qemu.qapi.api.BlockdevCacheOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
 import org.anarres.qemu.qapi.api.OnOffAuto;
@@ -49,15 +54,21 @@ public class QEmuManagerTest {
                 BlockdevOptions options = BlockdevOptions.file(
                         new BlockdevOptionsFile(
                                 file.getAbsolutePath(),
+                                null,
                                 OnOffAuto.auto,
                                 BlockdevAioOptions._native));
                 options.withReadOnly(true);
+                options.withNodeName("test-file-node");
+                options.withCache(new BlockdevCacheOptions().withDirect(true));
 
                 connection.call(new BlockdevAddCommand(options));
                 LOG.info("Blocks is " + connection.call(new QueryBlockCommand()));
             } catch (QApiException e) {
                 // Perhaps we are running on QEmu 1.0.
-                assertTrue(e.getMessage().contains("has not been found"));
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                e.printStackTrace(new PrintStream(baos));
+                assertTrue("QApiException: " + e.toString() + " Stack: " + baos.toString(),
+                        e.getMessage().contains("has not been found"));
                 LOG.warn("Limited testing available on QEmu <1.7", e);
             }
 
