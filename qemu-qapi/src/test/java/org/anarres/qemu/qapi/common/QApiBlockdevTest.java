@@ -6,12 +6,10 @@ package org.anarres.qemu.qapi.common;
 
 import java.net.InetSocketAddress;
 
-import org.anarres.qemu.exec.QEmuDriveOption;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevAioOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptions;
 import org.anarres.qemu.qapi.api.BlockdevOptionsFile;
-import org.anarres.qemu.qapi.api.BlockdevOptionsGenericFormat;
 import org.anarres.qemu.qapi.api.BlockdevOptionsRaw;
 import org.anarres.qemu.qapi.api.BlockdevRef;
 import org.anarres.qemu.qapi.api.OnOffAuto;
@@ -41,8 +39,10 @@ public class QApiBlockdevTest {
         // }
 
         {
-            BlockdevOptions fileOptions = BlockdevOptions.file(new BlockdevOptionsFile("/home/shevek/sdb.img",
-                    null, OnOffAuto.auto, BlockdevAioOptions._native));
+            BlockdevOptions fileOptions = BlockdevOptions.file(new BlockdevOptionsFile()
+                    .withFilename("/home/shevek/sdb.img")
+                    .withLocking(OnOffAuto.auto)
+                    .withAio(BlockdevAioOptions._native));
 
             BlockdevOptions rawOptions = BlockdevOptions.raw((BlockdevOptionsRaw) new BlockdevOptionsRaw()
                     .withFile(BlockdevRef.definition(fileOptions)));

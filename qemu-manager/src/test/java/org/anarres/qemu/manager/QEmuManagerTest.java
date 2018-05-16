@@ -54,11 +54,10 @@ public class QEmuManagerTest {
             try {
                 File file = QEmuTestUtils.newTemporaryDiskFile(dir, "sdb");
                 BlockdevOptions options = BlockdevOptions.file(
-                        new BlockdevOptionsFile(
-                                file.getAbsolutePath(),
-                                null,
-                                OnOffAuto.auto,
-                                BlockdevAioOptions._native));
+                        new BlockdevOptionsFile()
+                                .withFilename(file.getAbsolutePath())
+                                .withLocking(OnOffAuto.auto)
+                                .withAio(BlockdevAioOptions._native));
                 options.withReadOnly(true);
                 options.withNodeName("test-file-node");
                 options.withCache(new BlockdevCacheOptions().withDirect(true));

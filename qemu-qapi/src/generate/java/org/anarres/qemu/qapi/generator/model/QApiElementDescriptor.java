@@ -144,6 +144,9 @@ public abstract class QApiElementDescriptor {
         // Some type has both 'PC' and 'pc'.
         if ("PC".equals(name))
             return name;
+        // This does not survive LOWER_CAMEL conversion well.
+        if ("x86_64".equals(name))
+            return name;
         name = name.replace('-', '_');
         name = name.replace('-', '_');
         name = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, name);
