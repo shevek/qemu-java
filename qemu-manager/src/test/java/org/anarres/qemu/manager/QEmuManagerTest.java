@@ -14,6 +14,7 @@ import org.anarres.qemu.exec.QEmuCommandLine;
 import org.anarres.qemu.exec.QEmuCpusOption;
 import org.anarres.qemu.exec.QEmuTestUtils;
 import org.anarres.qemu.exec.recipe.QEmuVirtioDriveRecipe;
+import org.anarres.qemu.image.QEmuImageFormat;
 import org.anarres.qemu.qapi.api.BlockdevAddCommand;
 import org.anarres.qemu.qapi.api.BlockdevAioOptions;
 import org.anarres.qemu.qapi.api.BlockdevCacheOptions;
@@ -43,7 +44,8 @@ public class QEmuManagerTest {
         QEmuCommandLine commandLine = QEmuTestUtils.newCommandLine();
         commandLine.addOptions(
                 new QEmuCpusOption(4).withSockets(2).withCores(2),
-                new QEmuVirtioDriveRecipe(0, QEmuTestUtils.newTemporaryDisk(dir, "sda")));
+                new QEmuVirtioDriveRecipe(0, QEmuTestUtils.newTemporaryDisk(dir, "sda"))
+                        .withFormat(QEmuImageFormat.raw));
         QEmuProcess process = QEmuTestUtils.newQEmuProcess(commandLine);
         try {
             QApiConnection connection = process.getConnection(10, TimeUnit.SECONDS);
