@@ -1,14 +1,15 @@
 buildscript {
 	// Executed in context of buildscript
 	repositories {
-		mavenLocal()
+		// mavenLocal()
 		mavenCentral()
-		jcenter()
+		// jcenter()
 		// maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+		gradlePluginPortal()
 	}
 
 	dependencies {
-		classpath 'org.anarres.gradle:gradle-stdproject-plugin:1.0.8'
+		classpath 'org.anarres.gradle:gradle-stdproject-plugin:1.0.10'
 	}
 }
 
@@ -42,15 +43,6 @@ subprojects {
 	}
 
 	sourceCompatibility = 1.8
-	animalsniffer {
-                // Currently skipped I believe because of this bug:
-                // https://github.com/mojohaus/animal-sniffer/pull/32
-                // If org.anarres.gradle:gradle-stdproject-plugin switches to
-                // https://github.com/xvik/gradle-animalsniffer-plugin then
-                // animal sniffer to 1.16 might fix the problem.
-		skip = true
-		signature = "org.codehaus.mojo.signature:java15:+@signature"
-	}
 }
 
 project(':qemu-qapi') {
@@ -137,11 +129,6 @@ project(':qemu-examples') {
 	apply plugin: 'application'
 
 	mainClassName = 'org.anarres.qemu.examples.Main'
-
-	animalsniffer {
-		// I can not be bothered to write examples in JDK1.5
-		skip = true
-	}
 }
 
 aggregateJavadoc {
